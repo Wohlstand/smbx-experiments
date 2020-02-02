@@ -117,8 +117,8 @@ Private Sub cmdAdd_Click()
         Next A
         If dontAdd = False Then
             numSavedEvents = numSavedEvents + 1
-            SavedEvents (numSavedEvents)
-            RefreshSavedEvents
+            ' SavedEvents (numSavedEvents)
+            ' RefreshSavedEvents
         End If
         txtSavedEvent.Text = ""
     End If
@@ -147,11 +147,11 @@ Public Sub RefreshSavedEvents()
     Next A
 End Sub
 
-Private Sub SwitchBlock_Click(Index As Integer)
-    If SwitchBlock(Index).Value = 0 Then
-        BlockSwitch(Index) = False
+Private Sub SwitchBlock_Click(index As Integer)
+    If SwitchBlock(index).Value = 0 Then
+        BlockSwitch(index) = False
     Else
-        BlockSwitch(Index) = True
+        BlockSwitch(index) = True
     End If
 End Sub
 

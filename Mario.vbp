@@ -1,5 +1,5 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS.XP\system32\Stdole2.tlb#OLE Automation
 Form=frmMain.frm
 Module=modMain; modMain.bas
 Module=modGraphics; modGraphics.bas
@@ -42,7 +42,7 @@ Form=frmGenerator.frm
 Form=frmNPCAdvanced.frm
 Form=frmWater.frm
 Form=frmSprites.frm
-Object={248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0; mswinsck.ocx
+Object={248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0; MSWINSCK.ocx
 Form=Netplay.frm
 Form=frmNetplay.frm
 Form=frmChat.frm

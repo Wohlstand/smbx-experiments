@@ -670,7 +670,7 @@ Private Sub addSavedEvent_Change()
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            Events(A).addSavedEvent = addSavedEvent.Text
+            ' Events(A).addSavedEvent = addSavedEvent.Text
         End If
     Next A
 End Sub
@@ -1181,7 +1181,7 @@ Private Sub delSavedEvent_Change()
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            Events(A).delSavedEvent = delSavedEvent.Text
+            ' Events(A).delSavedEvent = delSavedEvent.Text
         End If
     Next A
 End Sub
@@ -1361,8 +1361,8 @@ Public Sub RefreshEvents()
                 txtY.Text = .SpeedY
                 scrX.Text = .AutoX
                 scrY.Text = .AutoY
-                addSavedEvent.Text = .addSavedEvent
-                delSavedEvent.Text = .delSavedEvent
+                'addSavedEvent.Text = .addSavedEvent
+                'delSavedEvent.Text = .delSavedEvent
                 AutoSection.Value = .AutoSection
                 lblAuto.Caption = "Section: " & AutoSection.Value + 1
                 For B = 1 To Len(txtX.Text)

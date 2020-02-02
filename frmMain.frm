@@ -3,7 +3,7 @@ Begin VB.Form frmMain
    Appearance      =   0  'Flat
    AutoRedraw      =   -1  'True
    BackColor       =   &H00000000&
-   Caption         =   "Super Mario Bros. X - Version 1.2.2 - www.SuperMarioBrothers.org"
+   Caption         =   "Super Mario Bros. X - Version 1.3 <research by Wohlstand>"
    ClientHeight    =   9000
    ClientLeft      =   120
    ClientTop       =   510
@@ -53,7 +53,7 @@ Private Sub Form_DblClick()
             If Me.WindowState = 2 Then
                 Me.WindowState = 0
                 Me.BorderStyle = 2
-                Me.Caption = "Super Mario Bros. X - Version 1.3 - www.SuperMarioBrothers.org"
+                Me.Caption = "Super Mario Bros. X - Version 1.3 - <Research by Wohlstand>"
             Else
                 Me.BorderStyle = 0
                 Me.Caption = ""

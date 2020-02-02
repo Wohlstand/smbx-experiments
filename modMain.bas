@@ -1064,6 +1064,9 @@ Public BattleOutro As Integer
 Public LevelName As String
 Public Const curRelease As Integer = 64
 
+Public Function FileExists(FileName As String) As Boolean
+    FileExists = Len(Dir(FileName, vbNormal)) > 0
+End Function
 
 Public Sub SetupPhysics()
     With Physics

@@ -9672,18 +9672,22 @@ End Sub
 Public Sub SetupCredits()
     Dim A As Integer
     numCredits = 0
-    AddCredit "Super Mario Bros. X"
+    AddCredit "SMBX <Research>"
     AddCredit ""
     AddCredit ""
     AddCredit ""
     AddCredit ""
     AddCredit ""
-    AddCredit "Created By:"
+    AddCredit "Original created By:"
     AddCredit ""
     AddCredit "Andrew Spinks"
     AddCredit "'Redigit'"
     AddCredit ""
     AddCredit ""
+    AddCredit "Later, modded By:"
+    AddCredit ""
+    AddCredit "Vitaly Novichkov"
+    AddCredit "'Wohlstand'"
     AddCredit ""
     AddCredit ""
     If WorldCredits(1) <> "" Then

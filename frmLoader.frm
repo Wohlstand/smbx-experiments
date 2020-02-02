@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmLoader 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "<Research by Wohlstand> Super Mario Bros. X - Version 1.3"
-   ClientHeight    =   3255
+   ClientHeight    =   4335
    ClientLeft      =   45
    ClientTop       =   375
    ClientWidth     =   4260
@@ -10,7 +10,7 @@ Begin VB.Form frmLoader
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3255
+   ScaleHeight     =   4335
    ScaleWidth      =   4260
    StartUpPosition =   2  'CenterScreen
    Begin VB.CheckBox chkFrameskip 
@@ -34,7 +34,7 @@ Begin VB.Form frmLoader
       Height          =   375
       Left            =   1320
       TabIndex        =   2
-      Top             =   2760
+      Top             =   3840
       Width           =   1455
    End
    Begin VB.CommandButton cmdEditor 
@@ -69,8 +69,17 @@ Begin VB.Form frmLoader
       Top             =   960
       Width           =   3975
    End
-   Begin VB.Label Label1 
+   Begin VB.Label Label2 
       Caption         =   $"frmLoader.frx":628A
+      ForeColor       =   &H000000FF&
+      Height          =   855
+      Left            =   120
+      TabIndex        =   8
+      Top             =   2760
+      Width           =   4095
+   End
+   Begin VB.Label Label1 
+      Caption         =   $"frmLoader.frx":6364
       Height          =   975
       Left            =   120
       TabIndex        =   7

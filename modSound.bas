@@ -64,6 +64,7 @@ Public Sub AddSfx(Alias As String, Path As String)
         MsgBox "SFX " & Path & " loading error: " & SDL_GetError, vbOKOnly + vbExclamation
     End If
     list_sfx(list_sfx_count).Volume = 128
+    list_sfx(list_sfx_count).Chan = list_sfx_count
     list_sfx_count = list_sfx_count + 1
 End Sub
 

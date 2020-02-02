@@ -1,5 +1,5 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS.XP\system32\Stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\WINDOWS.XP\system32\Stdole2.tlb#OLE Automation
 Form=frmMain.frm
 Module=modMain; modMain.bas
 Module=modGraphics; modGraphics.bas
@@ -52,6 +52,7 @@ Object={EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0; ieframe.dll
 Module=modCustom; modCustom.bas
 Form=frmLevelAdv.frm
 Form=frmGlobal.frm
+Module=SDL2_mixer_ext_vb6; modSDL2_mixer_ext_vb6.bas
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

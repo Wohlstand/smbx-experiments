@@ -10,7 +10,7 @@ Public Declare Function SelectObject Lib "gdi32" (ByVal hdc As Long, ByVal hObje
 Public Declare Function DeleteObject Lib "gdi32" (ByVal hObject As Long) As Long
 Public Declare Function DeleteDC Lib "gdi32" (ByVal hdc As Long) As Long
 Public Declare Function GetKeyState Lib "user32" (ByVal nVirtKey As Long) As Integer
-Public Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As Integer) As Integer
+'Public Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As Integer) As Integer
 Public Declare Function SetCursorPos Lib "user32" (ByVal X As Long, ByVal Y As Long) As Long
 Public Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 Private Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
@@ -56,8 +56,8 @@ Public EoT As String  ' End of Transmission for WINSOCK
 Public Type Controls 'Controls for the player
     Up As Boolean
     Down As Boolean
-    Left As Boolean
-    Right As Boolean
+    left As Boolean
+    right As Boolean
     Jump As Boolean
     AltJump As Boolean
     Run As Boolean
@@ -76,7 +76,7 @@ Public Type nPlayer  'online player type
 End Type
 Public Type nPlay  'Netplay data type
     Allow As Boolean
-    Mode As Integer  'Server or client
+    mode As Integer  'Server or client
     ServerIP As String 'Server's IP
     ServerCon As Boolean 'Server is connected
     ServerStr As String
@@ -109,15 +109,15 @@ End Type
 Public Type EditorControls      'Controls for the editor
     Up As Boolean
     Down As Boolean
-    Left As Boolean
-    Right As Boolean
+    left As Boolean
+    right As Boolean
     Mouse1 As Boolean
 End Type
 Public Type conKeyboard  'Input settings for the keyboard
     Up As Integer
     Down As Integer
-    Left As Integer
-    Right As Integer
+    left As Integer
+    right As Integer
     Jump As Integer
     Run As Integer
     Drop As Integer
@@ -398,7 +398,7 @@ Public Type Effect  'Special effects
     Shadow As Boolean 'for a black effect set to true
 End Type
 Public Type vScreen 'Screen controls
-    Left As Double
+    left As Double
     Top As Double
     Width As Double
     Height As Double
@@ -410,14 +410,14 @@ End Type
 Public Type WorldLevel 'the type for levels on the world map
     Location As Location
     Type As Integer
-    FileName As String 'level's file
+    filename As String 'level's file
     LevelExit(1 To 4) As Integer ' For the direction each type of exit opens the path
     Active As Boolean
     LevelName As String 'The name of the level
     StartWarp As Integer 'If the level should start with a player exiting a warp
     WarpX As Double 'for warping to another location on the world map
     WarpY As Double
-    Path As Boolean 'for drawing a small path background
+    path As Boolean 'for drawing a small path background
     Path2 As Boolean 'big path background
     Start As Boolean 'true if the game starts here
     Visible As Boolean 'true if it should be shown on the map
@@ -470,7 +470,7 @@ Public Type EditorCursor 'The editor's cursor
     Selected As Integer
     Location As Location
     Layer As String 'current layer
-    Mode As Integer
+    mode As Integer
     Block As Block
     Water As Water
     Background As Background
@@ -777,7 +777,7 @@ Public EndLevel As Boolean 'End the level and move to the next
 Public LevelMacro As Integer 'Shows a level outro when beat
 Public LevelMacroCounter As Integer
 Public numJoysticks As Integer
-Public FileName As String
+Public filename As String
 Public Coins As Integer 'number of coins
 Public Lives As Single 'number of lives
 Public EndIntro As Boolean
@@ -852,7 +852,7 @@ Public Type Events
     HideLayer(0 To 20) As String
     ShowLayer(0 To 20) As String
     ToggleLayer(0 To 20) As String
-    Music(0 To maxSections) As Integer
+    music(0 To maxSections) As Integer
     Background(0 To maxSections) As Integer
     level(0 To maxSections) As Location
     EndGame As Integer
@@ -1062,7 +1062,7 @@ Public BattleLives(1 To maxPlayers) As Integer
 Public BattleIntro As Integer
 Public BattleOutro As Integer
 Public LevelName As String
-Public Const curRelease As Integer = 65
+Public Const curRelease As Integer = 64
 
 
 Public Sub SetupPhysics()
@@ -1289,7 +1289,7 @@ Sub Main()
     Dim B As Integer
     Dim C As Integer
     Dim tempBool As Boolean
-    Shell "regsvr32 /s" & Chr$(34) & App.Path & "\mswinsck.ocx" & Chr$(34) 'register mswinsck.ocx
+    Shell "regsvr32 /s" & Chr$(34) & App.path & "\mswinsck.ocx" & Chr$(34) 'register mswinsck.ocx
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled
     Randomize Timer
@@ -1316,8 +1316,10 @@ Sub Main()
     InitControls 'init player's controls
     DoEvents
     If noSound = False Then
-        mciSendString "open " & Chr(34) & App.Path & "\sound\do.mp3" & Chr(34) & " alias sound29", 0, 0, 0 'play the nintendo sound
-        mciSendString "play sound29 from 10", 0, 0, 0
+        InitMixerX
+        ' mciSendString "open " & Chr(34) & App.path & "\sound\do.mp3" & Chr(34) & " alias sound29", 0, 0, 0 'play the nintendo sound
+        ' mciSendString "play sound29 from 10", 0, 0, 0
+        PlayInitSound
     End If
     InitSound 'Setup sound effects
     LevelSelect = True 'world map is to be shown
@@ -1361,7 +1363,7 @@ Sub Main()
             frmLevelEditor.optCursor(15).Enabled = True
             frmLevelEditor.optCursor(2).Enabled = True
             If nPlay.Online = True Then
-                If nPlay.Mode = 0 Then frmLevelEditor.MenuTest.Enabled = False
+                If nPlay.mode = 0 Then frmLevelEditor.MenuTest.Enabled = False
             End If
             For A = 0 To frmLevelSettings.optLevel.Count - 1
                 frmLevelSettings.optLevel(A).Enabled = True
@@ -1434,7 +1436,7 @@ Sub Main()
             numPlayers = 5
             GameMenu = False
             StopMusic
-            OpenLevel App.Path & "\outro.lvl"
+            OpenLevel App.path & "\outro.lvl"
             ScreenType = 7
             SetupScreens
             ClearBuffer = True
@@ -1556,7 +1558,7 @@ Sub Main()
                 Player(A) = blankPlayer
             Next A
             numPlayers = 6
-            OpenLevel App.Path & "\intro.lvl"
+            OpenLevel App.path & "\intro.lvl"
             vScreenX(1) = -level(0).X
             StartMusic 0
             SetupPlayers
@@ -1728,7 +1730,7 @@ Sub Main()
             SetupPlayers 'Setup Players for the level
             qScreen = False
 'for warp entrances
-            If (ReturnWarp > 0 And FileName = StartLevel) Or StartWarp > 0 Then
+            If (ReturnWarp > 0 And filename = StartLevel) Or StartWarp > 0 Then
                 For A = 1 To numPlayers
                     With Player(A)
                         If StartWarp > 0 Then
@@ -1826,10 +1828,10 @@ Sub Main()
                 If nPlay.Online = False Then
                     OpenLevel FullFileName
                 Else
-                    If nPlay.Mode = 1 Then
+                    If nPlay.mode = 1 Then
                         Netplay.sendData "H0" & LB
                         If Len(FullFileName) > 4 Then
-                            If LCase(Right(FullFileName, 4)) = ".lvl" Then
+                            If LCase(right(FullFileName, 4)) = ".lvl" Then
                                 OpenLevel FullFileName
                             Else
                                 For A = 1 To 15
@@ -4604,12 +4606,14 @@ Public Sub GameLoop()   'The loop for the game
                             If FreezeNPCs = True Then
                                 FreezeNPCs = False
                                 If PSwitchTime > 0 Then
-                                    If noSound = False Then mciSendString "resume smusic", 0, 0, 0
+                                    ' If noSound = False Then mciSendString "resume smusic", 0, 0, 0
+                                    If noSound = False Then SoundResumeAll
                                 End If
                             Else
                                 FreezeNPCs = True
                                 If PSwitchTime > 0 Then
-                                    If noSound = False Then mciSendString "pause smusic", 0, 0, 0
+                                    ' If noSound = False Then mciSendString "pause smusic", 0, 0, 0
+                                    If noSound = False Then SoundPauseAll
                                 End If
                             End If
                             PlaySound 30
@@ -5106,9 +5110,9 @@ Public Sub MenuLoop()   'The loop for the menu
                             ElseIf A = 2 Then
                                 menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).Down)))
                             ElseIf A = 3 Then
-                                menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).Left)))
+                                menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).left)))
                             ElseIf A = 4 Then
-                                menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).Right)))
+                                menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).right)))
                             ElseIf A = 5 Then
                                 menuLen = 18 * Len("UP........." & CheckKey(Chr(conKeyboard(MenuMode - 30).Run)))
                             ElseIf A = 6 Then
@@ -5159,8 +5163,8 @@ Public Sub MenuLoop()   'The loop for the menu
                         If MenuCursor = 1 Then
                             conKeyboard(MenuMode - 30).Up = inputKey
                         ElseIf MenuCursor = 2 Then conKeyboard(MenuMode - 30).Down = inputKey
-                        ElseIf MenuCursor = 3 Then conKeyboard(MenuMode - 30).Left = inputKey
-                        ElseIf MenuCursor = 4 Then conKeyboard(MenuMode - 30).Right = inputKey
+                        ElseIf MenuCursor = 3 Then conKeyboard(MenuMode - 30).left = inputKey
+                        ElseIf MenuCursor = 4 Then conKeyboard(MenuMode - 30).right = inputKey
                         ElseIf MenuCursor = 5 Then conKeyboard(MenuMode - 30).Run = inputKey
                         ElseIf MenuCursor = 6 Then conKeyboard(MenuMode - 30).AltRun = inputKey
                         ElseIf MenuCursor = 7 Then conKeyboard(MenuMode - 30).Jump = inputKey
@@ -5222,8 +5226,8 @@ Public Sub MenuLoop()   'The loop for the menu
                                 If MenuCursor = 1 Then
                                     conKeyboard(MenuMode - 30).Up = inputKey
                                 ElseIf MenuCursor = 2 Then conKeyboard(MenuMode - 30).Down = inputKey
-                                ElseIf MenuCursor = 3 Then conKeyboard(MenuMode - 30).Left = inputKey
-                                ElseIf MenuCursor = 4 Then conKeyboard(MenuMode - 30).Right = inputKey
+                                ElseIf MenuCursor = 3 Then conKeyboard(MenuMode - 30).left = inputKey
+                                ElseIf MenuCursor = 4 Then conKeyboard(MenuMode - 30).right = inputKey
                                 ElseIf MenuCursor = 5 Then conKeyboard(MenuMode - 30).Run = inputKey
                                 ElseIf MenuCursor = 6 Then conKeyboard(MenuMode - 30).AltRun = inputKey
                                 ElseIf MenuCursor = 7 Then conKeyboard(MenuMode - 30).Jump = inputKey
@@ -5321,8 +5325,8 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
             .Controls.Down = False
             .Controls.Drop = False
-            .Controls.Right = True
-            .Controls.Left = False
+            .Controls.right = True
+            .Controls.left = False
             .Controls.Run = True
             .Controls.Up = False
             .Controls.AltRun = False
@@ -5536,7 +5540,7 @@ Public Sub MenuLoop()   'The loop for the menu
             If NPC(.HoldingNPC).Type = 13 And Rnd * 100 > 95 Then
                 .Controls.Run = False
                 If Rnd * 2 > 1 Then .Controls.Up = True
-                If Rnd * 2 > 1 Then .Controls.Right = False
+                If Rnd * 2 > 1 Then .Controls.right = False
             End If
             
             If .Slide = False And (.Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0) Then
@@ -5649,7 +5653,8 @@ End Sub
 Public Sub KillIt() 'Cleans up the buffer before ending the program
     frmMain.Hide
     If resChanged = True Then SetOrigRes
-    mciSendString "close all", 0, 0, 0
+    ' mciSendString "close all", 0, 0, 0
+    QuitMixerX
     DeleteDC myBackBuffer
     DeleteObject myBufferBMP
     UnloadGFX
@@ -5702,11 +5707,11 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
-    FileNamePath = Left(FilePath, (A))
-    FileName = Right(FilePath, (Len(FilePath) - A))
+    FileNamePath = left(FilePath, (A))
+    filename = right(FilePath, (Len(FilePath) - A))
     FullFileName = FilePath
-    If Right(FileNamePath, 2) = "\\" Then
-        FileNamePath = Left(FileNamePath, Len(FileNamePath) - 1)
+    If right(FileNamePath, 2) = "\\" Then
+        FileNamePath = left(FileNamePath, Len(FileNamePath) - 1)
     End If
     Open FilePath For Output As #1
         Write #1, curRelease
@@ -5859,7 +5864,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
                 Write #1, Events(A).ToggleLayer(B)
             Next B
             For B = 0 To maxSections
-                Write #1, Events(A).Music(B)
+                Write #1, Events(A).music(B)
                 Write #1, Events(A).Background(B)
                 Write #1, Events(A).level(B).X
                 Write #1, Events(A).level(B).Y
@@ -5875,8 +5880,8 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
             Write #1, Events(A).Controls.Down
             Write #1, Events(A).Controls.Drop
             Write #1, Events(A).Controls.Jump
-            Write #1, Events(A).Controls.Left
-            Write #1, Events(A).Controls.Right
+            Write #1, Events(A).Controls.left
+            Write #1, Events(A).Controls.right
             Write #1, Events(A).Controls.Run
             Write #1, Events(A).Controls.Start
             Write #1, Events(A).Controls.Up
@@ -5892,8 +5897,8 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
         Next A
     Close #1
     LoadNPCDefaults
-    If Dir(FileNamePath & Left(FileName, Len(FileName) - 4) & "\*.txt") <> "" Then
-        FindCustomNPCs FileNamePath & Left(FileName, Len(FileName) - 4)
+    If Dir(FileNamePath & left(filename, Len(filename) - 4) & "\*.txt") <> "" Then
+        FindCustomNPCs FileNamePath & left(filename, Len(filename) - 4)
     Else
         FindCustomNPCs
     End If
@@ -5901,11 +5906,11 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
     UnloadCustomGFX
     LoadCustomGFX
     
-    LoadCustomGFX2 FileNamePath & Left(FileName, Len(FileName) - 4)
+    LoadCustomGFX2 FileNamePath & left(filename, Len(filename) - 4)
     
     PlaySound 12
     If nPlay.Online = True Then
-        If nPlay.Mode = 1 Then
+        If nPlay.mode = 1 Then
             Netplay.sendData "dServer requested resync." & LB & "j" & LB
             For A = 1 To 15
                 If nPlay.ClientCon(A) = True Then Netplay.InitSync A
@@ -5931,14 +5936,14 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     BlockSound
     FreezeNPCs = False
     CoinMode = False
-    If LCase(Right(FilePath, 4)) <> ".lvl" And LCase(Right(FilePath, 4)) <> ".dat" Then FilePath = FilePath & ".lvl"
+    If LCase(right(FilePath, 4)) <> ".lvl" And LCase(right(FilePath, 4)) <> ".dat" Then FilePath = FilePath & ".lvl"
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
-    FileName = Right(FilePath, (Len(FilePath) - A))
-    FileNamePath = Left(FilePath, (A))
-    If Right(FileNamePath, 2) = "\\" Then
-        FileNamePath = Left(FileNamePath, Len(FileNamePath) - 1)
+    filename = right(FilePath, (Len(FilePath) - A))
+    FileNamePath = left(FilePath, (A))
+    If right(FileNamePath, 2) = "\\" Then
+        FileNamePath = left(FileNamePath, Len(FileNamePath) - 1)
     End If
     FullFileName = FilePath
     numBlock = 0
@@ -5947,13 +5952,13 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     numWarps = 0
     
 'Load Custom Stuff
-    If Dir(FileNamePath & Left(FileName, Len(FileName) - 4) & "\*.txt") <> "" Then
-        FindCustomNPCs FileNamePath & Left(FileName, Len(FileName) - 4)
+    If Dir(FileNamePath & left(filename, Len(filename) - 4) & "\*.txt") <> "" Then
+        FindCustomNPCs FileNamePath & left(filename, Len(filename) - 4)
     Else
         FindCustomNPCs
     End If
     LoadCustomGFX
-    If Dir(FileNamePath & Left(FileName, Len(FileName) - 4) & "\*.gif") <> "" Then LoadCustomGFX2 FileNamePath & Left(FileName, Len(FileName) - 4)
+    If Dir(FileNamePath & left(filename, Len(filename) - 4) & "\*.gif") <> "" Then LoadCustomGFX2 FileNamePath & left(filename, Len(filename) - 4)
 'Blah
     
     
@@ -6136,7 +6141,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                 If .Type = 97 Or .Type = 196 Then
                     tempBool = False
                     For B = 1 To numStars
-                        If Star(B).level = FileName And (Star(B).Section = .Section Or Star(B).Section = -1) Then tempBool = True
+                        If Star(B).level = filename And (Star(B).Section = .Section Or Star(B).Section = -1) Then tempBool = True
                     Next B
                     If tempBool = True Then
                         .Special = 1
@@ -6238,7 +6243,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
             Next B
             If FileRelease >= 13 Then
                 For B = 0 To maxSections
-                    Input #1, Events(A).Music(B)
+                    Input #1, Events(A).music(B)
                     Input #1, Events(A).Background(B)
                     Input #1, Events(A).level(B).X
                     Input #1, Events(A).level(B).Y
@@ -6257,8 +6262,8 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                 Input #1, Events(A).Controls.Down
                 Input #1, Events(A).Controls.Drop
                 Input #1, Events(A).Controls.Jump
-                Input #1, Events(A).Controls.Left
-                Input #1, Events(A).Controls.Right
+                Input #1, Events(A).Controls.left
+                Input #1, Events(A).Controls.right
                 Input #1, Events(A).Controls.Run
                 Input #1, Events(A).Controls.Start
                 Input #1, Events(A).Controls.Up
@@ -6326,9 +6331,9 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
         frmLevelSettings.txtMusic.Enabled = False
         frmLevelSettings.txtMusic.Text = CustomMusic(0)
         frmLevelSettings.txtMusic.Enabled = True
-        If nPlay.Online = True And nPlay.Mode = 1 Then 'sync to server
-            Netplay.sendData "j" & LB & "d" & LocalNick & " has loaded " & FileName & "." & LB & "w1" & LB & EoT
-            frmChat.txtChat = frmChat.txtChat & LocalNick & " has loaded " & FileName & "." & LB
+        If nPlay.Online = True And nPlay.mode = 1 Then 'sync to server
+            Netplay.sendData "j" & LB & "d" & LocalNick & " has loaded " & filename & "." & LB & "w1" & LB & EoT
+            frmChat.txtChat = frmChat.txtChat & LocalNick & " has loaded " & filename & "." & LB
             frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
             PlaySound 47
             SoundPause(47) = 2
@@ -6408,7 +6413,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
         Events(A) = blankEvent
         For B = 0 To maxSections
             Events(A).Background(B) = -1
-            Events(A).Music(B) = -1
+            Events(A).music(B) = -1
             Events(A).level(B).X = -1
         Next B
     Next A
@@ -6560,8 +6565,8 @@ End Sub
                         .Down = False
                         .Drop = False
                         .Jump = False
-                        .Left = False
-                        .Right = True
+                        .left = False
+                        .right = True
                         .Run = False
                         .Up = False
                         .Start = False
@@ -6577,8 +6582,8 @@ End Sub
                         .Down = False
                         .Drop = False
                         .Jump = False
-                        .Left = False
-                        .Right = True
+                        .left = False
+                        .right = True
                         .Run = False
                         .Up = False
                         .Start = False
@@ -6603,8 +6608,8 @@ End Sub
                 .Down = False
                 .Drop = False
                 .Jump = False
-                .Left = False
-                .Right = False
+                .left = False
+                .right = False
                 .Run = False
                 .Up = False
                 .Start = False
@@ -6648,8 +6653,8 @@ End Sub
                 .Down = False
                 .Drop = False
                 .Jump = False
-                .Left = False
-                .Right = False
+                .left = False
+                .right = False
                 .Run = False
                 .Up = False
                 .Start = False
@@ -6673,8 +6678,8 @@ End Sub
                 .Down = False
                 .Drop = False
                 .Jump = False
-                .Left = False
-                .Right = False
+                .left = False
+                .right = False
                 .Run = False
                 .Up = False
                 .Start = False
@@ -6706,8 +6711,8 @@ End Sub
                 .Down = False
                 .Drop = False
                 .Jump = False
-                .Left = False
-                .Right = False
+                .left = False
+                .right = False
                 .Run = False
                 .Up = False
                 .Start = False
@@ -6730,8 +6735,8 @@ End Sub
                         .Down = False
                         .Drop = False
                         .Jump = False
-                        .Left = False
-                        .Right = True
+                        .left = False
+                        .right = True
                         .Run = False
                         .Up = False
                         .Start = False
@@ -6744,8 +6749,8 @@ End Sub
                         .Down = False
                         .Drop = False
                         .Jump = False
-                        .Left = False
-                        .Right = True
+                        .left = False
+                        .right = True
                         .Run = False
                         .Up = False
                         .Start = False
@@ -6772,8 +6777,8 @@ Public Sub SaveWorld(FilePath As String)   'Saves the world!
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
-    FileName = Right(FilePath, (Len(FilePath) - A))
-    FileNamePath = Left(FilePath, (A))
+    filename = right(FilePath, (Len(FilePath) - A))
+    FileNamePath = left(FilePath, (A))
     WorldName = frmWorld.txtWorldName
     StartLevel = frmWorld.txtStartLevel
     NoMap = frmWorld.chkNoMap.Value
@@ -6825,14 +6830,14 @@ Public Sub SaveWorld(FilePath As String)   'Saves the world!
                 Write #1, .Location.X
                 Write #1, .Location.Y
                 Write #1, .Type
-                Write #1, .FileName
+                Write #1, .filename
                 Write #1, .LevelName
                 For B = 1 To 4
                     Write #1, .LevelExit(B)
                 Next B
                 Write #1, .StartWarp
                 Write #1, .Visible
-                Write #1, .Path
+                Write #1, .path
                 Write #1, .Start
                 Write #1, .WarpX
                 Write #1, .WarpY
@@ -6863,8 +6868,8 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
-    FileName = Right(FilePath, (Len(FilePath) - A))
-    FileNamePath = Left(FilePath, (A))
+    filename = right(FilePath, (Len(FilePath) - A))
+    FileNamePath = left(FilePath, (A))
     LoadWorldCustomGFX
     numTiles = 0
     numScenes = 0
@@ -6946,7 +6951,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                 .Location.X = newInput
                 Input #1, .Location.Y
                 Input #1, .Type
-                Input #1, .FileName
+                Input #1, .filename
                 Input #1, .LevelName
                 For B = 1 To 4
                     Input #1, .LevelExit(B)
@@ -6958,12 +6963,12 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                 .Location.Height = 32
                 If FileRelease >= 21 Then
                     Input #1, .Visible
-                    Input #1, .Path
+                    Input #1, .path
                     Input #1, .Start
                     Input #1, .WarpX
                     Input #1, .WarpY
                 Else
-                    .Path = True
+                    .path = True
                     .WarpX = -1
                     .WarpY = -1
                 End If
@@ -7175,7 +7180,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                         PlaySound 3
                         SoundPause(3) = 2
                     End If
-                ElseIf .Left = True Then
+                ElseIf .left = True Then
                     tempLocation.X = tempLocation.X - 32
                     For A = 1 To numWorldPaths
                         If CheckCollision(tempLocation, WorldPath(A).Location) = True And WorldPath(A).Active = True Then
@@ -7219,7 +7224,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                         PlaySound 3
                         SoundPause(3) = 2
                     End If
-                ElseIf .Right = True Then
+                ElseIf .right = True Then
                     tempLocation.X = tempLocation.X + 32
                     For A = 1 To numWorldPaths
                         If CheckCollision(tempLocation, WorldPath(A).Location) = True And WorldPath(A).Active = True Then
@@ -7259,8 +7264,8 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                                     End If
                                 Next B
                             End If
-                            If WorldLevel(A).FileName <> "" And WorldLevel(A).FileName <> ".lvl" Then
-                                If Dir(SelectWorld(selWorld).WorldPath & WorldLevel(A).FileName) <> "" Then
+                            If WorldLevel(A).filename <> "" And WorldLevel(A).filename <> ".lvl" Then
+                                If Dir(SelectWorld(selWorld).WorldPath & WorldLevel(A).filename) <> "" Then
                                     StartWarp = WorldLevel(A).StartWarp
                                     StopMusic
                                     PlaySound 28
@@ -7270,7 +7275,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                                     GameThing
                                     ClearLevel
                                     Sleep 1000
-                                    OpenLevel SelectWorld(selWorld).WorldPath & WorldLevel(A).FileName
+                                    OpenLevel SelectWorld(selWorld).WorldPath & WorldLevel(A).filename
                                     Exit For
                                 End If
                             ElseIf WorldLevel(A).WarpX <> -1 Or WorldLevel(A).WarpY <> -1 Then
@@ -7609,15 +7614,15 @@ End Sub
 Public Sub FindWorlds()
     Dim A As Integer
     Dim DirName(1 To 128) As String
-    Dim FileName As String
+    Dim filename As String
     Dim numDirs As Integer
     Dim FileRelease As Integer
     NumSelectWorld = 0
-    DirName(1) = Dir(App.Path & "\worlds\", vbDirectory)
+    DirName(1) = Dir(App.path & "\worlds\", vbDirectory)
     numDirs = numDirs + 1
     Do Until DirName(numDirs) = ""
         If Not (DirName(numDirs) = "." Or DirName(numDirs) = "..") Then
-            If (GetAttr(App.Path & "\worlds\" & DirName(numDirs)) And vbDirectory) = vbDirectory Then
+            If (GetAttr(App.path & "\worlds\" & DirName(numDirs)) And vbDirectory) = vbDirectory Then
                 numDirs = numDirs + 1
             End If
         End If
@@ -7625,13 +7630,13 @@ Public Sub FindWorlds()
     Loop
     numDirs = numDirs - 1
     For A = 1 To numDirs
-        FileName = Dir(App.Path & "\worlds\" & DirName(A) & "\*.wld")
-        Do Until FileName = ""
-            If LCase(Right(FileName, 4)) = ".wld" Then
+        filename = Dir(App.path & "\worlds\" & DirName(A) & "\*.wld")
+        Do Until filename = ""
+            If LCase(right(filename, 4)) = ".wld" Then
                 NumSelectWorld = NumSelectWorld + 1
                 With SelectWorld(NumSelectWorld)
-                    .WorldFile = FileName
-                    .WorldPath = App.Path & "\worlds\" & DirName(A) & "\"
+                    .WorldFile = filename
+                    .WorldPath = App.path & "\worlds\" & DirName(A) & "\"
                     Open .WorldPath & .WorldFile For Input As #1
                         Input #1, FileRelease
                         Input #1, .WorldName
@@ -7646,7 +7651,7 @@ Public Sub FindWorlds()
                 End With
                 Exit Do
             End If
-            FileName = Dir
+            filename = Dir
         Loop
     Next A
 End Sub
@@ -7655,16 +7660,16 @@ Public Sub FindLevels()
     Dim A As Integer
     Dim B As Integer
     Dim DirName(1 To 128) As String
-    Dim FileName As String
+    Dim filename As String
     Dim numDirs As Integer
     Dim FileRelease As Integer
     NumSelectWorld = 1
     SelectWorld(1).WorldName = "Random Level"
-    DirName(1) = Dir(App.Path & "\battle\*.lvl")
+    DirName(1) = Dir(App.path & "\battle\*.lvl")
     numDirs = 1
     Do Until DirName(numDirs) = ""
         If Not (DirName(numDirs) = "." Or DirName(numDirs) = "..") Then
-            If LCase(Right(DirName(numDirs), 4)) = ".lvl" Then
+            If LCase(right(DirName(numDirs), 4)) = ".lvl" Then
                 numDirs = numDirs + 1
             End If
         End If
@@ -7672,14 +7677,14 @@ Public Sub FindLevels()
     Loop
     numDirs = numDirs - 1
     For A = 1 To numDirs
-        FileName = App.Path & "\battle\" & DirName(A)
-        Open FileName For Input As #1
+        filename = App.path & "\battle\" & DirName(A)
+        Open filename For Input As #1
             Input #1, FileRelease
             If FileRelease >= 60 Then
                 Input #1, B
                 NumSelectWorld = NumSelectWorld + 1
                 With SelectWorld(NumSelectWorld)
-                    .WorldFile = FileName
+                    .WorldFile = filename
                     Input #1, .WorldName
                 End With
             End If
@@ -7925,7 +7930,8 @@ Public Sub PauseGame(plr As Integer)
     MenuCursor = 0
     MenuCursorCanMove = False
     If PSwitchTime > 0 Then
-        If noSound = False Then mciSendString "pause smusic", 0, 0, 0
+        'If noSound = False Then mciSendString "pause smusic", 0, 0, 0
+        If noSound = False Then SoundPauseAll
     End If
     overTime = 0
     GoalTime = GetTickCount + 1000
@@ -8016,10 +8022,10 @@ Public Sub PauseGame(plr As Integer)
                             If Player(A).Character = 1 Or Player(A).Character = 2 Then Player(A).Hearts = 0
                             For A = 1 To numPlayers
                                 If Player(A).RunRelease = False Then
-                                    If Player(A).Controls.Left = False And Player(A).Controls.Right = False Then Player(A).RunRelease = True
+                                    If Player(A).Controls.left = False And Player(A).Controls.right = False Then Player(A).RunRelease = True
                                 
                                 
-                                ElseIf Player(A).Controls.Left = True Or Player(A).Controls.Right = True Then
+                                ElseIf Player(A).Controls.left = True Or Player(A).Controls.right = True Then
                                 
                                     AllCharBlock = 0
                                     For B = 1 To numCharacters
@@ -8042,7 +8048,7 @@ Public Sub PauseGame(plr As Integer)
                                         End If
                                         If numPlayers = 1 Then B = 0
                                         Player(0).Character = 0
-                                        If Player(A).Controls.Left = True Then
+                                        If Player(A).Controls.left = True Then
                                             Do
                                                 Player(A).Character = Player(A).Character - 1
                                                 If Player(A).Character <= 0 Then Player(A).Character = 5
@@ -8064,11 +8070,11 @@ Public Sub PauseGame(plr As Integer)
                         If .Jump = True Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Then
                             If MenuCursor = 0 Then
                                 stopPause = True
-                            ElseIf MenuCursor = 1 And (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) And Cheater = False Then
+                            ElseIf MenuCursor = 1 And (LevelSelect = True Or (StartLevel = filename And NoMap = True)) And Cheater = False Then
                                 SaveGame
                                 stopPause = True
                             Else
-                                If Cheater = False And (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) Then SaveGame
+                                If Cheater = False And (LevelSelect = True Or (StartLevel = filename And NoMap = True)) Then SaveGame
                                 stopPause = True
                                 GameMenu = True
                                 MenuMode = 0
@@ -8086,7 +8092,7 @@ Public Sub PauseGame(plr As Integer)
                                 Sleep 500
                             End If
                         End If
-                        If Cheater = True Or Not (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) Then
+                        If Cheater = True Or Not (LevelSelect = True Or (StartLevel = filename And NoMap = True)) Then
                             If MenuCursor > 1 Then MenuCursor = 0
                             If MenuCursor < 0 Then MenuCursor = 1
                         Else
@@ -8117,7 +8123,8 @@ Public Sub PauseGame(plr As Integer)
     Player(plr).CanJump = False
     If MessageText = "" Then PlaySound 30
     If PSwitchTime > 0 Then
-        If noSound = False Then mciSendString "resume smusic", 0, 0, 0
+        ' If noSound = False Then mciSendString "resume smusic", 0, 0, 0
+        If noSound = False Then SoundResumeAll
     End If
     MessageText = ""
     
@@ -8170,9 +8177,9 @@ Public Sub InitControls()
     Next A
     With conKeyboard(1)
         .Down = vbKeyDown
-        .Left = vbKeyLeft
+        .left = vbKeyLeft
         .Up = vbKeyUp
-        .Right = vbKeyRight
+        .right = vbKeyRight
         .Jump = vbKeyZ
         .Run = vbKeyX
         .Drop = vbKeyShift
@@ -8182,9 +8189,9 @@ Public Sub InitControls()
     End With
     With conKeyboard(2)
         .Down = vbKeyDown
-        .Left = vbKeyLeft
+        .left = vbKeyLeft
         .Up = vbKeyUp
-        .Right = vbKeyRight
+        .right = vbKeyRight
         .Jump = vbKeyZ
         .Run = vbKeyX
         .Drop = vbKeyShift
@@ -8201,8 +8208,8 @@ Public Sub OpenConfig()
     Dim A As Integer
     Dim FileRelease As Integer
     Dim resBool As Boolean
-    If Dir(App.Path & "\config.dat") <> "" Then
-        Open App.Path & "\config.dat" For Input As #1
+    If Dir(App.path & "\config.dat") <> "" Then
+        Open App.path & "\config.dat" For Input As #1
             Input #1, FileRelease
             If FileRelease >= 16 Then
                 Input #1, resBool
@@ -8212,8 +8219,8 @@ Public Sub OpenConfig()
                 With conKeyboard(A)
                     Input #1, .Up
                     Input #1, .Down
-                    Input #1, .Left
-                    Input #1, .Right
+                    Input #1, .left
+                    Input #1, .right
                     Input #1, .Run
                     Input #1, .Jump
                     Input #1, .Drop
@@ -8243,7 +8250,7 @@ End Sub
 
 Public Sub SaveConfig()
     Dim A As Integer
-    Open App.Path & "\config.dat" For Output As #1
+    Open App.path & "\config.dat" For Output As #1
         Write #1, curRelease
         Write #1, resChanged
         For A = 1 To 2
@@ -8251,8 +8258,8 @@ Public Sub SaveConfig()
             With conKeyboard(A)
                 Write #1, .Up
                 Write #1, .Down
-                Write #1, .Left
-                Write #1, .Right
+                Write #1, .left
+                Write #1, .right
                 Write #1, .Run
                 Write #1, .Jump
                 Write #1, .Drop
@@ -8308,22 +8315,28 @@ Private Sub CheckActive()
         keyDownAlt = False
         If musicPlaying = True Then
             MusicPaused = True
-            If noSound = False Then mciSendString "pause all", 0, 0, 0
+            ' If noSound = False Then mciSendString "pause all", 0, 0, 0
+            If noSound = False Then SoundPauseAll
         End If
     Loop
     If noSound = False Then
         If MusicPaused = True Then
             If GameOutro = True Then
-                mciSendString "resume tmusic", 0, 0, 0
+                ' mciSendString "resume tmusic", 0, 0, 0
+                SoundResumeAll
             ElseIf LevelSelect = True And GameMenu = False And LevelEditor = False Then
-                mciSendString "resume wmusic" & curWorldMusic, 0, 0, 0
+                ' mciSendString "resume wmusic" & curWorldMusic, 0, 0, 0
+                SoundResumeAll
             ElseIf curMusic > 0 Then
-                mciSendString "resume music" & curMusic, 0, 0, 0
+                ' mciSendString "resume music" & curMusic, 0, 0, 0
+                SoundResumeAll
             ElseIf curMusic < 0 Then
                 If PSwitchStop > 0 Then
-                    mciSendString "resume stmusic", 0, 0, 0
+                    ' mciSendString "resume stmusic", 0, 0, 0
+                    SoundResumeAll
                 Else
-                    mciSendString "resume smusic", 0, 0, 0
+                    ' mciSendString "resume smusic", 0, 0, 0
+                    SoundResumeAll
                 End If
             End If
         End If
@@ -9614,7 +9627,7 @@ Public Sub OutroLoop() 'credit loop
     For A = 1 To numPlayers
         With Player(A)
             .Controls = blankControls
-            .Controls.Left = True
+            .Controls.left = True
             jumpBool = True
             tempLocation = .Location
             tempLocation = .Location

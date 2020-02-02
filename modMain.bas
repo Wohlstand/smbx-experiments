@@ -9784,7 +9784,7 @@ Public Sub SetupCredits()
     AddCredit ""
     AddCredit ""
     AddCredit ""
-    AddCredit "www.SuperMarioBrothers.org"
+    AddCredit "supermariobrosx.org"
 
 
     For A = 1 To numCredits

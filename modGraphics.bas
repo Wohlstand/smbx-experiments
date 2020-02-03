@@ -5072,8 +5072,24 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                     End If
                 ElseIf .Character = 1 Then 'draw mario
                     If .Mount = 0 Then
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
-                        If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXMario(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
+                        BitBlt myBackBuffer, _
+                            vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
+                            vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), _
+                            99, 99, _
+                            GFXMarioMask(.State), _
+                            pfrX(100 + .Frame * .Direction), _
+                            pfrY(100 + .Frame * .Direction), _
+                            vbSrcAnd
+                        
+                        If ShadowMode = False Then _
+                            BitBlt myBackBuffer, _
+                                vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
+                                vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), _
+                                99, 99, _
+                                GFXMario(.State), _
+                                pfrX(100 + .Frame * .Direction), _
+                                pfrY(100 + .Frame * .Direction), _
+                                vbSrcPaint
                     ElseIf .Mount = 1 Then
                         If .Duck = False Then
                             BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - MarioFrameY((.State * 100) + (.Frame * .Direction)), GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd

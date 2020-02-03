@@ -31,9 +31,9 @@ Begin VB.Form frmLayers
    End
    Begin VB.ListBox lstLayer 
       Height          =   2310
-      ItemData        =   "frmLayers.frx":628A
+      ItemData        =   "frmLayers.frx":0B3A
       Left            =   120
-      List            =   "frmLayers.frx":6297
+      List            =   "frmLayers.frx":0B47
       Style           =   1  'Checkbox
       TabIndex        =   1
       Top             =   600

@@ -99,7 +99,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   632
             Left            =   2520
-            Picture         =   "frmBlocks.frx":628A
+            Picture         =   "frmBlocks.frx":0B3A
             Style           =   1  'Graphical
             TabIndex        =   770
             Top             =   840
@@ -110,7 +110,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   631
             Left            =   2520
-            Picture         =   "frmBlocks.frx":6691
+            Picture         =   "frmBlocks.frx":0F41
             Style           =   1  'Graphical
             TabIndex        =   769
             Top             =   240
@@ -121,7 +121,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   629
             Left            =   1920
-            Picture         =   "frmBlocks.frx":6A8F
+            Picture         =   "frmBlocks.frx":133F
             Style           =   1  'Graphical
             TabIndex        =   767
             Top             =   840
@@ -132,7 +132,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   628
             Left            =   1320
-            Picture         =   "frmBlocks.frx":6E96
+            Picture         =   "frmBlocks.frx":1746
             Style           =   1  'Graphical
             TabIndex        =   766
             Top             =   840
@@ -143,7 +143,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   627
             Left            =   720
-            Picture         =   "frmBlocks.frx":729D
+            Picture         =   "frmBlocks.frx":1B4D
             Style           =   1  'Graphical
             TabIndex        =   765
             Top             =   840
@@ -154,7 +154,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   626
             Left            =   120
-            Picture         =   "frmBlocks.frx":76A4
+            Picture         =   "frmBlocks.frx":1F54
             Style           =   1  'Graphical
             TabIndex        =   764
             Top             =   840
@@ -165,7 +165,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   625
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7AAB
+            Picture         =   "frmBlocks.frx":235B
             Style           =   1  'Graphical
             TabIndex        =   763
             Top             =   240
@@ -176,7 +176,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   624
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7EAC
+            Picture         =   "frmBlocks.frx":275C
             Style           =   1  'Graphical
             TabIndex        =   762
             Top             =   240
@@ -187,7 +187,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   623
             Left            =   720
-            Picture         =   "frmBlocks.frx":82B2
+            Picture         =   "frmBlocks.frx":2B62
             Style           =   1  'Graphical
             TabIndex        =   761
             Top             =   240
@@ -198,7 +198,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   622
             Left            =   120
-            Picture         =   "frmBlocks.frx":86B0
+            Picture         =   "frmBlocks.frx":2F60
             Style           =   1  'Graphical
             TabIndex        =   759
             Top             =   240
@@ -219,7 +219,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   567
             Left            =   720
-            Picture         =   "frmBlocks.frx":8AC4
+            Picture         =   "frmBlocks.frx":3374
             Style           =   1  'Graphical
             TabIndex        =   700
             Top             =   840
@@ -230,7 +230,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   566
             Left            =   1920
-            Picture         =   "frmBlocks.frx":8EE5
+            Picture         =   "frmBlocks.frx":3795
             Style           =   1  'Graphical
             TabIndex        =   699
             Top             =   240
@@ -241,7 +241,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   565
             Left            =   120
-            Picture         =   "frmBlocks.frx":92CC
+            Picture         =   "frmBlocks.frx":3B7C
             Style           =   1  'Graphical
             TabIndex        =   698
             Top             =   840
@@ -252,7 +252,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   564
             Left            =   2520
-            Picture         =   "frmBlocks.frx":96E9
+            Picture         =   "frmBlocks.frx":3F99
             Style           =   1  'Graphical
             TabIndex        =   697
             Top             =   240
@@ -263,7 +263,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   563
             Left            =   1320
-            Picture         =   "frmBlocks.frx":9B2A
+            Picture         =   "frmBlocks.frx":43DA
             Style           =   1  'Graphical
             TabIndex        =   696
             Top             =   1440
@@ -274,7 +274,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   562
             Left            =   3120
-            Picture         =   "frmBlocks.frx":9F33
+            Picture         =   "frmBlocks.frx":47E3
             Style           =   1  'Graphical
             TabIndex        =   695
             Top             =   240
@@ -285,7 +285,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   561
             Left            =   1320
-            Picture         =   "frmBlocks.frx":A360
+            Picture         =   "frmBlocks.frx":4C10
             Style           =   1  'Graphical
             TabIndex        =   694
             Top             =   240
@@ -296,7 +296,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   560
             Left            =   3720
-            Picture         =   "frmBlocks.frx":A779
+            Picture         =   "frmBlocks.frx":5029
             Style           =   1  'Graphical
             TabIndex        =   693
             Top             =   1440
@@ -307,7 +307,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   559
             Left            =   3120
-            Picture         =   "frmBlocks.frx":ABBD
+            Picture         =   "frmBlocks.frx":546D
             Style           =   1  'Graphical
             TabIndex        =   692
             Top             =   1440
@@ -318,7 +318,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   558
             Left            =   1920
-            Picture         =   "frmBlocks.frx":AFF8
+            Picture         =   "frmBlocks.frx":58A8
             Style           =   1  'Graphical
             TabIndex        =   691
             Top             =   840
@@ -329,7 +329,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   557
             Left            =   1920
-            Picture         =   "frmBlocks.frx":B3C6
+            Picture         =   "frmBlocks.frx":5C76
             Style           =   1  'Graphical
             TabIndex        =   690
             Top             =   1440
@@ -340,7 +340,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   556
             Left            =   720
-            Picture         =   "frmBlocks.frx":B7B4
+            Picture         =   "frmBlocks.frx":6064
             Style           =   1  'Graphical
             TabIndex        =   689
             Top             =   240
@@ -351,7 +351,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   555
             Left            =   2520
-            Picture         =   "frmBlocks.frx":BBCC
+            Picture         =   "frmBlocks.frx":647C
             Style           =   1  'Graphical
             TabIndex        =   688
             Top             =   840
@@ -362,7 +362,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   554
             Left            =   720
-            Picture         =   "frmBlocks.frx":BFF5
+            Picture         =   "frmBlocks.frx":68A5
             Style           =   1  'Graphical
             TabIndex        =   687
             Top             =   1440
@@ -373,7 +373,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   553
             Left            =   120
-            Picture         =   "frmBlocks.frx":C427
+            Picture         =   "frmBlocks.frx":6CD7
             Style           =   1  'Graphical
             TabIndex        =   686
             Top             =   1440
@@ -384,7 +384,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   552
             Left            =   2520
-            Picture         =   "frmBlocks.frx":C84C
+            Picture         =   "frmBlocks.frx":70FC
             Style           =   1  'Graphical
             TabIndex        =   685
             Top             =   1440
@@ -395,7 +395,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   551
             Left            =   1320
-            Picture         =   "frmBlocks.frx":CC77
+            Picture         =   "frmBlocks.frx":7527
             Style           =   1  'Graphical
             TabIndex        =   684
             Top             =   840
@@ -406,7 +406,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   550
             Left            =   120
-            Picture         =   "frmBlocks.frx":D024
+            Picture         =   "frmBlocks.frx":78D4
             Style           =   1  'Graphical
             TabIndex        =   683
             Top             =   240
@@ -417,7 +417,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   549
             Left            =   4320
-            Picture         =   "frmBlocks.frx":D42E
+            Picture         =   "frmBlocks.frx":7CDE
             Style           =   1  'Graphical
             TabIndex        =   682
             Top             =   840
@@ -428,7 +428,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   548
             Left            =   4320
-            Picture         =   "frmBlocks.frx":D86A
+            Picture         =   "frmBlocks.frx":811A
             Style           =   1  'Graphical
             TabIndex        =   681
             Top             =   240
@@ -439,7 +439,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   547
             Left            =   3720
-            Picture         =   "frmBlocks.frx":DC6C
+            Picture         =   "frmBlocks.frx":851C
             Style           =   1  'Graphical
             TabIndex        =   680
             Top             =   240
@@ -450,7 +450,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   546
             Left            =   3720
-            Picture         =   "frmBlocks.frx":E099
+            Picture         =   "frmBlocks.frx":8949
             Style           =   1  'Graphical
             TabIndex        =   679
             Top             =   840
@@ -461,7 +461,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   545
             Left            =   3120
-            Picture         =   "frmBlocks.frx":E4A7
+            Picture         =   "frmBlocks.frx":8D57
             Style           =   1  'Graphical
             TabIndex        =   678
             Top             =   840
@@ -481,7 +481,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   512
             Left            =   4920
-            Picture         =   "frmBlocks.frx":E8CC
+            Picture         =   "frmBlocks.frx":917C
             Style           =   1  'Graphical
             TabIndex        =   676
             Top             =   1440
@@ -492,7 +492,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   513
             Left            =   3720
-            Picture         =   "frmBlocks.frx":ECEE
+            Picture         =   "frmBlocks.frx":959E
             Style           =   1  'Graphical
             TabIndex        =   675
             Top             =   840
@@ -503,7 +503,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   514
             Left            =   3720
-            Picture         =   "frmBlocks.frx":F0B9
+            Picture         =   "frmBlocks.frx":9969
             Style           =   1  'Graphical
             TabIndex        =   674
             Top             =   240
@@ -514,7 +514,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   515
             Left            =   3120
-            Picture         =   "frmBlocks.frx":F4B9
+            Picture         =   "frmBlocks.frx":9D69
             Style           =   1  'Graphical
             TabIndex        =   673
             Top             =   840
@@ -525,7 +525,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   516
             Left            =   2520
-            Picture         =   "frmBlocks.frx":F88F
+            Picture         =   "frmBlocks.frx":A13F
             Style           =   1  'Graphical
             TabIndex        =   672
             Top             =   240
@@ -536,7 +536,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   517
             Left            =   3120
-            Picture         =   "frmBlocks.frx":FCBD
+            Picture         =   "frmBlocks.frx":A56D
             Style           =   1  'Graphical
             TabIndex        =   671
             Top             =   240
@@ -547,7 +547,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   518
             Left            =   4320
-            Picture         =   "frmBlocks.frx":100CC
+            Picture         =   "frmBlocks.frx":A97C
             Style           =   1  'Graphical
             TabIndex        =   670
             Top             =   240
@@ -558,7 +558,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   519
             Left            =   120
-            Picture         =   "frmBlocks.frx":104DE
+            Picture         =   "frmBlocks.frx":AD8E
             Style           =   1  'Graphical
             TabIndex        =   669
             Top             =   1440
@@ -569,7 +569,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   520
             Left            =   120
-            Picture         =   "frmBlocks.frx":10913
+            Picture         =   "frmBlocks.frx":B1C3
             Style           =   1  'Graphical
             TabIndex        =   668
             Top             =   840
@@ -580,7 +580,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   521
             Left            =   1320
-            Picture         =   "frmBlocks.frx":10D27
+            Picture         =   "frmBlocks.frx":B5D7
             Style           =   1  'Graphical
             TabIndex        =   667
             Top             =   1440
@@ -591,7 +591,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   522
             Left            =   120
-            Picture         =   "frmBlocks.frx":11188
+            Picture         =   "frmBlocks.frx":BA38
             Style           =   1  'Graphical
             TabIndex        =   666
             Top             =   240
@@ -602,7 +602,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   523
             Left            =   1320
-            Picture         =   "frmBlocks.frx":115DA
+            Picture         =   "frmBlocks.frx":BE8A
             Style           =   1  'Graphical
             TabIndex        =   665
             Top             =   240
@@ -613,7 +613,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   524
             Left            =   720
-            Picture         =   "frmBlocks.frx":119EC
+            Picture         =   "frmBlocks.frx":C29C
             Style           =   1  'Graphical
             TabIndex        =   664
             Top             =   1440
@@ -624,7 +624,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   525
             Left            =   1320
-            Picture         =   "frmBlocks.frx":11DA0
+            Picture         =   "frmBlocks.frx":C650
             Style           =   1  'Graphical
             TabIndex        =   663
             Top             =   840
@@ -635,7 +635,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   526
             Left            =   720
-            Picture         =   "frmBlocks.frx":121B5
+            Picture         =   "frmBlocks.frx":CA65
             Style           =   1  'Graphical
             TabIndex        =   662
             Top             =   840
@@ -646,7 +646,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   527
             Left            =   1920
-            Picture         =   "frmBlocks.frx":1260F
+            Picture         =   "frmBlocks.frx":CEBF
             Style           =   1  'Graphical
             TabIndex        =   661
             Top             =   840
@@ -657,7 +657,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   528
             Left            =   720
-            Picture         =   "frmBlocks.frx":12A5B
+            Picture         =   "frmBlocks.frx":D30B
             Style           =   1  'Graphical
             TabIndex        =   660
             Top             =   240
@@ -668,7 +668,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   529
             Left            =   1920
-            Picture         =   "frmBlocks.frx":12EA0
+            Picture         =   "frmBlocks.frx":D750
             Style           =   1  'Graphical
             TabIndex        =   659
             Top             =   1440
@@ -679,7 +679,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   530
             Left            =   1920
-            Picture         =   "frmBlocks.frx":13286
+            Picture         =   "frmBlocks.frx":DB36
             Style           =   1  'Graphical
             TabIndex        =   658
             Top             =   240
@@ -690,7 +690,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   531
             Left            =   2520
-            Picture         =   "frmBlocks.frx":13755
+            Picture         =   "frmBlocks.frx":E005
             Style           =   1  'Graphical
             TabIndex        =   657
             Top             =   1440
@@ -701,7 +701,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   532
             Left            =   2520
-            Picture         =   "frmBlocks.frx":13B83
+            Picture         =   "frmBlocks.frx":E433
             Style           =   1  'Graphical
             TabIndex        =   656
             Top             =   840
@@ -712,7 +712,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   533
             Left            =   4320
-            Picture         =   "frmBlocks.frx":13F97
+            Picture         =   "frmBlocks.frx":E847
             Style           =   1  'Graphical
             TabIndex        =   655
             Top             =   840
@@ -723,7 +723,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   534
             Left            =   5520
-            Picture         =   "frmBlocks.frx":14368
+            Picture         =   "frmBlocks.frx":EC18
             Style           =   1  'Graphical
             TabIndex        =   654
             Top             =   840
@@ -734,7 +734,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   535
             Left            =   6120
-            Picture         =   "frmBlocks.frx":14732
+            Picture         =   "frmBlocks.frx":EFE2
             Style           =   1  'Graphical
             TabIndex        =   653
             Top             =   840
@@ -745,7 +745,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   536
             Left            =   5520
-            Picture         =   "frmBlocks.frx":14B00
+            Picture         =   "frmBlocks.frx":F3B0
             Style           =   1  'Graphical
             TabIndex        =   652
             Top             =   1440
@@ -756,7 +756,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   537
             Left            =   6120
-            Picture         =   "frmBlocks.frx":14ECD
+            Picture         =   "frmBlocks.frx":F77D
             Style           =   1  'Graphical
             TabIndex        =   651
             Top             =   1440
@@ -767,7 +767,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   538
             Left            =   3120
-            Picture         =   "frmBlocks.frx":15280
+            Picture         =   "frmBlocks.frx":FB30
             Style           =   1  'Graphical
             TabIndex        =   650
             Top             =   1440
@@ -778,7 +778,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   539
             Left            =   4920
-            Picture         =   "frmBlocks.frx":1566B
+            Picture         =   "frmBlocks.frx":FF1B
             Style           =   1  'Graphical
             TabIndex        =   649
             Top             =   840
@@ -789,7 +789,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   540
             Left            =   6120
-            Picture         =   "frmBlocks.frx":15ACA
+            Picture         =   "frmBlocks.frx":1037A
             Style           =   1  'Graphical
             TabIndex        =   648
             Top             =   240
@@ -800,7 +800,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   541
             Left            =   5520
-            Picture         =   "frmBlocks.frx":15EBC
+            Picture         =   "frmBlocks.frx":1076C
             Style           =   1  'Graphical
             TabIndex        =   647
             Top             =   240
@@ -811,7 +811,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   542
             Left            =   4920
-            Picture         =   "frmBlocks.frx":162F4
+            Picture         =   "frmBlocks.frx":10BA4
             Style           =   1  'Graphical
             TabIndex        =   646
             Top             =   240
@@ -822,7 +822,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   543
             Left            =   4320
-            Picture         =   "frmBlocks.frx":16731
+            Picture         =   "frmBlocks.frx":10FE1
             Style           =   1  'Graphical
             TabIndex        =   645
             Top             =   1440
@@ -833,7 +833,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   544
             Left            =   3720
-            Picture         =   "frmBlocks.frx":16B4D
+            Picture         =   "frmBlocks.frx":113FD
             Style           =   1  'Graphical
             TabIndex        =   644
             Top             =   1440
@@ -902,7 +902,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   291
             Left            =   120
-            Picture         =   "frmBlocks.frx":16F78
+            Picture         =   "frmBlocks.frx":11828
             Style           =   1  'Graphical
             TabIndex        =   638
             Top             =   240
@@ -913,7 +913,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   292
             Left            =   120
-            Picture         =   "frmBlocks.frx":1737D
+            Picture         =   "frmBlocks.frx":11C2D
             Style           =   1  'Graphical
             TabIndex        =   637
             Top             =   840
@@ -925,7 +925,7 @@ Begin VB.Form frmBlocks
       Height          =   540
       Index           =   183
       Left            =   20640
-      Picture         =   "frmBlocks.frx":1775E
+      Picture         =   "frmBlocks.frx":1200E
       Style           =   1  'Graphical
       TabIndex        =   339
       Top             =   12840
@@ -1093,7 +1093,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   404
             Left            =   4320
-            Picture         =   "frmBlocks.frx":17B57
+            Picture         =   "frmBlocks.frx":12407
             Style           =   1  'Graphical
             TabIndex        =   609
             Top             =   1440
@@ -1104,7 +1104,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   420
             Left            =   4920
-            Picture         =   "frmBlocks.frx":17F63
+            Picture         =   "frmBlocks.frx":12813
             Style           =   1  'Graphical
             TabIndex        =   608
             Top             =   1440
@@ -1115,7 +1115,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   487
             Left            =   6120
-            Picture         =   "frmBlocks.frx":182C7
+            Picture         =   "frmBlocks.frx":12B77
             Style           =   1  'Graphical
             TabIndex        =   607
             Top             =   240
@@ -1126,7 +1126,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   484
             Left            =   5520
-            Picture         =   "frmBlocks.frx":186A0
+            Picture         =   "frmBlocks.frx":12F50
             Style           =   1  'Graphical
             TabIndex        =   606
             Top             =   240
@@ -1137,7 +1137,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   483
             Left            =   5520
-            Picture         =   "frmBlocks.frx":18A6B
+            Picture         =   "frmBlocks.frx":1331B
             Style           =   1  'Graphical
             TabIndex        =   605
             Top             =   840
@@ -1148,7 +1148,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   481
             Left            =   6120
-            Picture         =   "frmBlocks.frx":18E4C
+            Picture         =   "frmBlocks.frx":136FC
             Style           =   1  'Graphical
             TabIndex        =   604
             Top             =   840
@@ -1159,7 +1159,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   473
             Left            =   1920
-            Picture         =   "frmBlocks.frx":1921C
+            Picture         =   "frmBlocks.frx":13ACC
             Style           =   1  'Graphical
             TabIndex        =   603
             Top             =   1440
@@ -1170,7 +1170,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   475
             Left            =   2520
-            Picture         =   "frmBlocks.frx":195FB
+            Picture         =   "frmBlocks.frx":13EAB
             Style           =   1  'Graphical
             TabIndex        =   602
             Top             =   1440
@@ -1181,7 +1181,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   477
             Left            =   3120
-            Picture         =   "frmBlocks.frx":199B5
+            Picture         =   "frmBlocks.frx":14265
             Style           =   1  'Graphical
             TabIndex        =   601
             Top             =   1440
@@ -1192,7 +1192,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   478
             Left            =   3720
-            Picture         =   "frmBlocks.frx":19D8C
+            Picture         =   "frmBlocks.frx":1463C
             Style           =   1  'Graphical
             TabIndex        =   600
             Top             =   1440
@@ -1203,7 +1203,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   486
             Left            =   4320
-            Picture         =   "frmBlocks.frx":1A13E
+            Picture         =   "frmBlocks.frx":149EE
             Style           =   1  'Graphical
             TabIndex        =   599
             Top             =   840
@@ -1214,7 +1214,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   485
             Left            =   4920
-            Picture         =   "frmBlocks.frx":1A551
+            Picture         =   "frmBlocks.frx":14E01
             Style           =   1  'Graphical
             TabIndex        =   598
             Top             =   840
@@ -1225,7 +1225,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   482
             Left            =   4920
-            Picture         =   "frmBlocks.frx":1A969
+            Picture         =   "frmBlocks.frx":15219
             Style           =   1  'Graphical
             TabIndex        =   597
             Top             =   240
@@ -1236,7 +1236,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   472
             Left            =   3120
-            Picture         =   "frmBlocks.frx":1AD73
+            Picture         =   "frmBlocks.frx":15623
             Style           =   1  'Graphical
             TabIndex        =   596
             Top             =   240
@@ -1247,7 +1247,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   474
             Left            =   3720
-            Picture         =   "frmBlocks.frx":1B132
+            Picture         =   "frmBlocks.frx":159E2
             Style           =   1  'Graphical
             TabIndex        =   595
             Top             =   240
@@ -1258,7 +1258,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   476
             Left            =   3120
-            Picture         =   "frmBlocks.frx":1B4F9
+            Picture         =   "frmBlocks.frx":15DA9
             Style           =   1  'Graphical
             TabIndex        =   594
             Top             =   840
@@ -1269,7 +1269,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   479
             Left            =   3720
-            Picture         =   "frmBlocks.frx":1B8BB
+            Picture         =   "frmBlocks.frx":1616B
             Style           =   1  'Graphical
             TabIndex        =   593
             Top             =   840
@@ -1280,7 +1280,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   480
             Left            =   4320
-            Picture         =   "frmBlocks.frx":1BC83
+            Picture         =   "frmBlocks.frx":16533
             Style           =   1  'Graphical
             TabIndex        =   592
             Top             =   240
@@ -1291,7 +1291,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   459
             Left            =   720
-            Picture         =   "frmBlocks.frx":1C098
+            Picture         =   "frmBlocks.frx":16948
             Style           =   1  'Graphical
             TabIndex        =   591
             Top             =   240
@@ -1302,7 +1302,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   460
             Left            =   1320
-            Picture         =   "frmBlocks.frx":1C492
+            Picture         =   "frmBlocks.frx":16D42
             Style           =   1  'Graphical
             TabIndex        =   590
             Top             =   240
@@ -1313,7 +1313,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   461
             Left            =   1320
-            Picture         =   "frmBlocks.frx":1C8CA
+            Picture         =   "frmBlocks.frx":1717A
             Style           =   1  'Graphical
             TabIndex        =   589
             Top             =   840
@@ -1324,7 +1324,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   462
             Left            =   720
-            Picture         =   "frmBlocks.frx":1CCC6
+            Picture         =   "frmBlocks.frx":17576
             Style           =   1  'Graphical
             TabIndex        =   588
             Top             =   1440
@@ -1335,7 +1335,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   463
             Left            =   120
-            Picture         =   "frmBlocks.frx":1D0BB
+            Picture         =   "frmBlocks.frx":1796B
             Style           =   1  'Graphical
             TabIndex        =   587
             Top             =   840
@@ -1346,7 +1346,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   464
             Left            =   1320
-            Picture         =   "frmBlocks.frx":1D4B9
+            Picture         =   "frmBlocks.frx":17D69
             Style           =   1  'Graphical
             TabIndex        =   586
             Top             =   1440
@@ -1357,7 +1357,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   465
             Left            =   120
-            Picture         =   "frmBlocks.frx":1D8F0
+            Picture         =   "frmBlocks.frx":181A0
             Style           =   1  'Graphical
             TabIndex        =   585
             Top             =   1440
@@ -1368,7 +1368,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   466
             Left            =   120
-            Picture         =   "frmBlocks.frx":1DD2A
+            Picture         =   "frmBlocks.frx":185DA
             Style           =   1  'Graphical
             TabIndex        =   584
             Top             =   240
@@ -1379,7 +1379,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   467
             Left            =   720
-            Picture         =   "frmBlocks.frx":1E162
+            Picture         =   "frmBlocks.frx":18A12
             Style           =   1  'Graphical
             TabIndex        =   583
             Top             =   840
@@ -1390,7 +1390,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   468
             Left            =   2520
-            Picture         =   "frmBlocks.frx":1E4C6
+            Picture         =   "frmBlocks.frx":18D76
             Style           =   1  'Graphical
             TabIndex        =   582
             Top             =   240
@@ -1401,7 +1401,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   469
             Left            =   2520
-            Picture         =   "frmBlocks.frx":1E893
+            Picture         =   "frmBlocks.frx":19143
             Style           =   1  'Graphical
             TabIndex        =   581
             Top             =   840
@@ -1412,7 +1412,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   470
             Left            =   1920
-            Picture         =   "frmBlocks.frx":1EC5A
+            Picture         =   "frmBlocks.frx":1950A
             Style           =   1  'Graphical
             TabIndex        =   580
             Top             =   840
@@ -1423,7 +1423,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   471
             Left            =   1920
-            Picture         =   "frmBlocks.frx":1F020
+            Picture         =   "frmBlocks.frx":198D0
             Style           =   1  'Graphical
             TabIndex        =   579
             Top             =   240
@@ -1443,7 +1443,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   431
             Left            =   720
-            Picture         =   "frmBlocks.frx":1F3F0
+            Picture         =   "frmBlocks.frx":19CA0
             Style           =   1  'Graphical
             TabIndex        =   566
             Top             =   1440
@@ -1454,7 +1454,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   430
             Left            =   720
-            Picture         =   "frmBlocks.frx":1F7D8
+            Picture         =   "frmBlocks.frx":1A088
             Style           =   1  'Graphical
             TabIndex        =   565
             Top             =   240
@@ -1465,7 +1465,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   429
             Left            =   720
-            Picture         =   "frmBlocks.frx":1FBC1
+            Picture         =   "frmBlocks.frx":1A471
             Style           =   1  'Graphical
             TabIndex        =   564
             Top             =   840
@@ -1476,7 +1476,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   428
             Left            =   1320
-            Picture         =   "frmBlocks.frx":1FFC1
+            Picture         =   "frmBlocks.frx":1A871
             Style           =   1  'Graphical
             TabIndex        =   563
             Top             =   840
@@ -1487,7 +1487,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   409
             Left            =   120
-            Picture         =   "frmBlocks.frx":203C2
+            Picture         =   "frmBlocks.frx":1AC72
             Style           =   1  'Graphical
             TabIndex        =   562
             Top             =   840
@@ -1498,7 +1498,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   408
             Left            =   120
-            Picture         =   "frmBlocks.frx":207BA
+            Picture         =   "frmBlocks.frx":1B06A
             Style           =   1  'Graphical
             TabIndex        =   561
             Top             =   240
@@ -1509,7 +1509,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   407
             Left            =   120
-            Picture         =   "frmBlocks.frx":20BB3
+            Picture         =   "frmBlocks.frx":1B463
             Style           =   1  'Graphical
             TabIndex        =   560
             Top             =   1440
@@ -1529,7 +1529,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   454
             Left            =   3720
-            Picture         =   "frmBlocks.frx":20FAB
+            Picture         =   "frmBlocks.frx":1B85B
             Style           =   1  'Graphical
             TabIndex        =   574
             Top             =   1440
@@ -1540,7 +1540,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   455
             Left            =   5520
-            Picture         =   "frmBlocks.frx":213FD
+            Picture         =   "frmBlocks.frx":1BCAD
             Style           =   1  'Graphical
             TabIndex        =   573
             Top             =   1440
@@ -1551,7 +1551,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   456
             Left            =   4320
-            Picture         =   "frmBlocks.frx":2184A
+            Picture         =   "frmBlocks.frx":1C0FA
             Style           =   1  'Graphical
             TabIndex        =   572
             Top             =   1440
@@ -1562,7 +1562,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   453
             Left            =   4920
-            Picture         =   "frmBlocks.frx":21CAD
+            Picture         =   "frmBlocks.frx":1C55D
             Style           =   1  'Graphical
             TabIndex        =   571
             Top             =   1440
@@ -1573,7 +1573,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   452
             Left            =   4920
-            Picture         =   "frmBlocks.frx":2210F
+            Picture         =   "frmBlocks.frx":1C9BF
             Style           =   1  'Graphical
             TabIndex        =   555
             Top             =   240
@@ -1584,7 +1584,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   451
             Left            =   5520
-            Picture         =   "frmBlocks.frx":224DA
+            Picture         =   "frmBlocks.frx":1CD8A
             Style           =   1  'Graphical
             TabIndex        =   554
             Top             =   240
@@ -1595,7 +1595,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   450
             Left            =   4920
-            Picture         =   "frmBlocks.frx":228AB
+            Picture         =   "frmBlocks.frx":1D15B
             Style           =   1  'Graphical
             TabIndex        =   553
             Top             =   840
@@ -1606,7 +1606,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   449
             Left            =   5520
-            Picture         =   "frmBlocks.frx":22CE0
+            Picture         =   "frmBlocks.frx":1D590
             Style           =   1  'Graphical
             TabIndex        =   552
             Top             =   840
@@ -1617,7 +1617,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   418
             Left            =   3720
-            Picture         =   "frmBlocks.frx":23119
+            Picture         =   "frmBlocks.frx":1D9C9
             Style           =   1  'Graphical
             TabIndex        =   551
             Top             =   240
@@ -1628,7 +1628,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   417
             Left            =   4320
-            Picture         =   "frmBlocks.frx":23551
+            Picture         =   "frmBlocks.frx":1DE01
             Style           =   1  'Graphical
             TabIndex        =   550
             Top             =   240
@@ -1639,7 +1639,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   416
             Left            =   3720
-            Picture         =   "frmBlocks.frx":23986
+            Picture         =   "frmBlocks.frx":1E236
             Style           =   1  'Graphical
             TabIndex        =   549
             Top             =   840
@@ -1650,7 +1650,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   415
             Left            =   4320
-            Picture         =   "frmBlocks.frx":23DBE
+            Picture         =   "frmBlocks.frx":1E66E
             Style           =   1  'Graphical
             TabIndex        =   548
             Top             =   840
@@ -1661,7 +1661,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   436
             Left            =   3120
-            Picture         =   "frmBlocks.frx":241F3
+            Picture         =   "frmBlocks.frx":1EAA3
             Style           =   1  'Graphical
             TabIndex        =   547
             Top             =   1440
@@ -1672,7 +1672,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   427
             Left            =   1920
-            Picture         =   "frmBlocks.frx":24660
+            Picture         =   "frmBlocks.frx":1EF10
             Style           =   1  'Graphical
             TabIndex        =   546
             Top             =   1440
@@ -1683,7 +1683,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   426
             Left            =   3120
-            Picture         =   "frmBlocks.frx":24AD5
+            Picture         =   "frmBlocks.frx":1F385
             Style           =   1  'Graphical
             TabIndex        =   545
             Top             =   240
@@ -1694,7 +1694,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   425
             Left            =   1920
-            Picture         =   "frmBlocks.frx":24F39
+            Picture         =   "frmBlocks.frx":1F7E9
             Style           =   1  'Graphical
             TabIndex        =   544
             Top             =   240
@@ -1705,7 +1705,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   424
             Left            =   2520
-            Picture         =   "frmBlocks.frx":253B0
+            Picture         =   "frmBlocks.frx":1FC60
             Style           =   1  'Graphical
             TabIndex        =   543
             Top             =   240
@@ -1716,7 +1716,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   423
             Left            =   1920
-            Picture         =   "frmBlocks.frx":25800
+            Picture         =   "frmBlocks.frx":200B0
             Style           =   1  'Graphical
             TabIndex        =   542
             Top             =   840
@@ -1727,7 +1727,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   422
             Left            =   2520
-            Picture         =   "frmBlocks.frx":25C64
+            Picture         =   "frmBlocks.frx":20514
             Style           =   1  'Graphical
             TabIndex        =   541
             Top             =   840
@@ -1738,7 +1738,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   421
             Left            =   3120
-            Picture         =   "frmBlocks.frx":26082
+            Picture         =   "frmBlocks.frx":20932
             Style           =   1  'Graphical
             TabIndex        =   540
             Top             =   840
@@ -1749,7 +1749,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   419
             Left            =   2520
-            Picture         =   "frmBlocks.frx":264EB
+            Picture         =   "frmBlocks.frx":20D9B
             Style           =   1  'Graphical
             TabIndex        =   539
             Top             =   1440
@@ -1760,7 +1760,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   435
             Left            =   120
-            Picture         =   "frmBlocks.frx":26937
+            Picture         =   "frmBlocks.frx":211E7
             Style           =   1  'Graphical
             TabIndex        =   538
             Top             =   240
@@ -1771,7 +1771,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   434
             Left            =   1320
-            Picture         =   "frmBlocks.frx":26D4A
+            Picture         =   "frmBlocks.frx":215FA
             Style           =   1  'Graphical
             TabIndex        =   537
             Top             =   240
@@ -1782,7 +1782,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   433
             Left            =   120
-            Picture         =   "frmBlocks.frx":2714B
+            Picture         =   "frmBlocks.frx":219FB
             Style           =   1  'Graphical
             TabIndex        =   536
             Top             =   1440
@@ -1793,7 +1793,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   432
             Left            =   1320
-            Picture         =   "frmBlocks.frx":27547
+            Picture         =   "frmBlocks.frx":21DF7
             Style           =   1  'Graphical
             TabIndex        =   535
             Top             =   1440
@@ -1804,7 +1804,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   414
             Left            =   720
-            Picture         =   "frmBlocks.frx":2792F
+            Picture         =   "frmBlocks.frx":221DF
             Style           =   1  'Graphical
             TabIndex        =   534
             Top             =   240
@@ -1815,7 +1815,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   413
             Left            =   720
-            Picture         =   "frmBlocks.frx":27D0C
+            Picture         =   "frmBlocks.frx":225BC
             Style           =   1  'Graphical
             TabIndex        =   533
             Top             =   840
@@ -1826,7 +1826,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   412
             Left            =   120
-            Picture         =   "frmBlocks.frx":280B4
+            Picture         =   "frmBlocks.frx":22964
             Style           =   1  'Graphical
             TabIndex        =   532
             Top             =   840
@@ -1837,7 +1837,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   411
             Left            =   1320
-            Picture         =   "frmBlocks.frx":284A6
+            Picture         =   "frmBlocks.frx":22D56
             Style           =   1  'Graphical
             TabIndex        =   531
             Top             =   840
@@ -1848,7 +1848,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   410
             Left            =   720
-            Picture         =   "frmBlocks.frx":28883
+            Picture         =   "frmBlocks.frx":23133
             Style           =   1  'Graphical
             TabIndex        =   530
             Top             =   1440
@@ -2006,7 +2006,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   448
             Left            =   3720
-            Picture         =   "frmBlocks.frx":28C4A
+            Picture         =   "frmBlocks.frx":234FA
             Style           =   1  'Graphical
             TabIndex        =   558
             Top             =   240
@@ -2017,7 +2017,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   447
             Left            =   2520
-            Picture         =   "frmBlocks.frx":2905C
+            Picture         =   "frmBlocks.frx":2390C
             Style           =   1  'Graphical
             TabIndex        =   557
             Top             =   240
@@ -2028,7 +2028,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   446
             Left            =   3120
-            Picture         =   "frmBlocks.frx":2942A
+            Picture         =   "frmBlocks.frx":23CDA
             Style           =   1  'Graphical
             TabIndex        =   556
             Top             =   240
@@ -2039,7 +2039,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   115
             Left            =   1920
-            Picture         =   "frmBlocks.frx":2986B
+            Picture         =   "frmBlocks.frx":2411B
             Style           =   1  'Graphical
             TabIndex        =   301
             Top             =   240
@@ -2050,7 +2050,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   135
             Left            =   1320
-            Picture         =   "frmBlocks.frx":29C65
+            Picture         =   "frmBlocks.frx":24515
             Style           =   1  'Graphical
             TabIndex        =   300
             Top             =   240
@@ -2061,7 +2061,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   134
             Left            =   720
-            Picture         =   "frmBlocks.frx":2A083
+            Picture         =   "frmBlocks.frx":24933
             Style           =   1  'Graphical
             TabIndex        =   299
             Top             =   240
@@ -2072,7 +2072,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   133
             Left            =   120
-            Picture         =   "frmBlocks.frx":2A45C
+            Picture         =   "frmBlocks.frx":24D0C
             Style           =   1  'Graphical
             TabIndex        =   298
             Top             =   240
@@ -2092,7 +2092,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   227
             Left            =   120
-            Picture         =   "frmBlocks.frx":2A873
+            Picture         =   "frmBlocks.frx":25123
             Style           =   1  'Graphical
             TabIndex        =   296
             Top             =   240
@@ -2103,7 +2103,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   228
             Left            =   720
-            Picture         =   "frmBlocks.frx":2AC77
+            Picture         =   "frmBlocks.frx":25527
             Style           =   1  'Graphical
             TabIndex        =   295
             Top             =   240
@@ -2114,7 +2114,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   229
             Left            =   1320
-            Picture         =   "frmBlocks.frx":2B05A
+            Picture         =   "frmBlocks.frx":2590A
             Style           =   1  'Graphical
             TabIndex        =   294
             Top             =   240
@@ -2125,7 +2125,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   230
             Left            =   120
-            Picture         =   "frmBlocks.frx":2B45D
+            Picture         =   "frmBlocks.frx":25D0D
             Style           =   1  'Graphical
             TabIndex        =   293
             Top             =   840
@@ -2136,7 +2136,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   231
             Left            =   720
-            Picture         =   "frmBlocks.frx":2B868
+            Picture         =   "frmBlocks.frx":26118
             Style           =   1  'Graphical
             TabIndex        =   292
             Top             =   840
@@ -2147,7 +2147,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   232
             Left            =   1320
-            Picture         =   "frmBlocks.frx":2BC3B
+            Picture         =   "frmBlocks.frx":264EB
             Style           =   1  'Graphical
             TabIndex        =   291
             Top             =   840
@@ -2158,7 +2158,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   233
             Left            =   120
-            Picture         =   "frmBlocks.frx":2C049
+            Picture         =   "frmBlocks.frx":268F9
             Style           =   1  'Graphical
             TabIndex        =   290
             Top             =   1440
@@ -2169,7 +2169,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   234
             Left            =   720
-            Picture         =   "frmBlocks.frx":2C455
+            Picture         =   "frmBlocks.frx":26D05
             Style           =   1  'Graphical
             TabIndex        =   289
             Top             =   1440
@@ -2180,7 +2180,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   235
             Left            =   1320
-            Picture         =   "frmBlocks.frx":2C838
+            Picture         =   "frmBlocks.frx":270E8
             Style           =   1  'Graphical
             TabIndex        =   288
             Top             =   1440
@@ -2191,7 +2191,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   236
             Left            =   1920
-            Picture         =   "frmBlocks.frx":2CC44
+            Picture         =   "frmBlocks.frx":274F4
             Style           =   1  'Graphical
             TabIndex        =   287
             Top             =   240
@@ -2202,7 +2202,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   237
             Left            =   2520
-            Picture         =   "frmBlocks.frx":2D034
+            Picture         =   "frmBlocks.frx":278E4
             Style           =   1  'Graphical
             TabIndex        =   286
             Top             =   240
@@ -2213,7 +2213,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   238
             Left            =   2520
-            Picture         =   "frmBlocks.frx":2D41D
+            Picture         =   "frmBlocks.frx":27CCD
             Style           =   1  'Graphical
             TabIndex        =   285
             Top             =   840
@@ -2224,7 +2224,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   239
             Left            =   1920
-            Picture         =   "frmBlocks.frx":2D800
+            Picture         =   "frmBlocks.frx":280B0
             Style           =   1  'Graphical
             TabIndex        =   284
             Top             =   840
@@ -2244,7 +2244,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   322
             Left            =   3720
-            Picture         =   "frmBlocks.frx":2DBE9
+            Picture         =   "frmBlocks.frx":28499
             Style           =   1  'Graphical
             TabIndex        =   466
             Top             =   1440
@@ -2255,7 +2255,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   319
             Left            =   3120
-            Picture         =   "frmBlocks.frx":2DF7D
+            Picture         =   "frmBlocks.frx":2882D
             Style           =   1  'Graphical
             TabIndex        =   465
             Top             =   1440
@@ -2266,7 +2266,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   320
             Left            =   4320
-            Picture         =   "frmBlocks.frx":2E33B
+            Picture         =   "frmBlocks.frx":28BEB
             Style           =   1  'Graphical
             TabIndex        =   464
             Top             =   1440
@@ -2277,7 +2277,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   321
             Left            =   2520
-            Picture         =   "frmBlocks.frx":2E6CB
+            Picture         =   "frmBlocks.frx":28F7B
             Style           =   1  'Graphical
             TabIndex        =   463
             Top             =   1440
@@ -2288,7 +2288,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   315
             Left            =   3720
-            Picture         =   "frmBlocks.frx":2EA8A
+            Picture         =   "frmBlocks.frx":2933A
             Style           =   1  'Graphical
             TabIndex        =   462
             Top             =   240
@@ -2299,7 +2299,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   316
             Left            =   3120
-            Picture         =   "frmBlocks.frx":2EB98
+            Picture         =   "frmBlocks.frx":29448
             Style           =   1  'Graphical
             TabIndex        =   461
             Top             =   240
@@ -2310,7 +2310,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   317
             Left            =   3120
-            Picture         =   "frmBlocks.frx":2ECA7
+            Picture         =   "frmBlocks.frx":29557
             Style           =   1  'Graphical
             TabIndex        =   460
             Top             =   840
@@ -2321,7 +2321,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   318
             Left            =   3720
-            Picture         =   "frmBlocks.frx":2EDB7
+            Picture         =   "frmBlocks.frx":29667
             Style           =   1  'Graphical
             TabIndex        =   459
             Top             =   840
@@ -2332,7 +2332,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   368
             Left            =   4320
-            Picture         =   "frmBlocks.frx":2EEC5
+            Picture         =   "frmBlocks.frx":29775
             Style           =   1  'Graphical
             TabIndex        =   458
             Top             =   840
@@ -2343,7 +2343,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   365
             Left            =   4320
-            Picture         =   "frmBlocks.frx":2F2AB
+            Picture         =   "frmBlocks.frx":29B5B
             Style           =   1  'Graphical
             TabIndex        =   457
             Top             =   240
@@ -2354,7 +2354,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   366
             Left            =   4920
-            Picture         =   "frmBlocks.frx":2F694
+            Picture         =   "frmBlocks.frx":29F44
             Style           =   1  'Graphical
             TabIndex        =   456
             Top             =   240
@@ -2365,7 +2365,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   367
             Left            =   4920
-            Picture         =   "frmBlocks.frx":2FA7C
+            Picture         =   "frmBlocks.frx":2A32C
             Style           =   1  'Graphical
             TabIndex        =   455
             Top             =   840
@@ -2376,7 +2376,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   246
             Left            =   120
-            Picture         =   "frmBlocks.frx":2FE61
+            Picture         =   "frmBlocks.frx":2A711
             Style           =   1  'Graphical
             TabIndex        =   282
             Top             =   240
@@ -2387,7 +2387,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   247
             Left            =   1320
-            Picture         =   "frmBlocks.frx":3028E
+            Picture         =   "frmBlocks.frx":2AB3E
             Style           =   1  'Graphical
             TabIndex        =   281
             Top             =   240
@@ -2398,7 +2398,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   248
             Left            =   120
-            Picture         =   "frmBlocks.frx":306AE
+            Picture         =   "frmBlocks.frx":2AF5E
             Style           =   1  'Graphical
             TabIndex        =   280
             Top             =   1440
@@ -2409,7 +2409,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   249
             Left            =   1320
-            Picture         =   "frmBlocks.frx":30AD6
+            Picture         =   "frmBlocks.frx":2B386
             Style           =   1  'Graphical
             TabIndex        =   279
             Top             =   1440
@@ -2420,7 +2420,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   250
             Left            =   720
-            Picture         =   "frmBlocks.frx":30EFF
+            Picture         =   "frmBlocks.frx":2B7AF
             Style           =   1  'Graphical
             TabIndex        =   278
             Top             =   240
@@ -2431,7 +2431,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   251
             Left            =   720
-            Picture         =   "frmBlocks.frx":312F6
+            Picture         =   "frmBlocks.frx":2BBA6
             Style           =   1  'Graphical
             TabIndex        =   277
             Top             =   840
@@ -2442,7 +2442,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   252
             Left            =   120
-            Picture         =   "frmBlocks.frx":31691
+            Picture         =   "frmBlocks.frx":2BF41
             Style           =   1  'Graphical
             TabIndex        =   276
             Top             =   840
@@ -2453,7 +2453,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   253
             Left            =   1320
-            Picture         =   "frmBlocks.frx":31AA1
+            Picture         =   "frmBlocks.frx":2C351
             Style           =   1  'Graphical
             TabIndex        =   275
             Top             =   840
@@ -2464,7 +2464,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   254
             Left            =   720
-            Picture         =   "frmBlocks.frx":31EB5
+            Picture         =   "frmBlocks.frx":2C765
             Style           =   1  'Graphical
             TabIndex        =   274
             Top             =   1440
@@ -2475,7 +2475,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   262
             Left            =   1920
-            Picture         =   "frmBlocks.frx":322B0
+            Picture         =   "frmBlocks.frx":2CB60
             Style           =   1  'Graphical
             TabIndex        =   273
             Top             =   1440
@@ -2486,7 +2486,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   255
             Left            =   2520
-            Picture         =   "frmBlocks.frx":32662
+            Picture         =   "frmBlocks.frx":2CF12
             Style           =   1  'Graphical
             TabIndex        =   272
             Top             =   240
@@ -2497,7 +2497,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   256
             Left            =   1920
-            Picture         =   "frmBlocks.frx":32A30
+            Picture         =   "frmBlocks.frx":2D2E0
             Style           =   1  'Graphical
             TabIndex        =   271
             Top             =   240
@@ -2508,7 +2508,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   257
             Left            =   1920
-            Picture         =   "frmBlocks.frx":32DFC
+            Picture         =   "frmBlocks.frx":2D6AC
             Style           =   1  'Graphical
             TabIndex        =   270
             Top             =   840
@@ -2519,7 +2519,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   258
             Left            =   2520
-            Picture         =   "frmBlocks.frx":331CD
+            Picture         =   "frmBlocks.frx":2DA7D
             Style           =   1  'Graphical
             TabIndex        =   269
             Top             =   840
@@ -2539,7 +2539,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   445
             Left            =   2520
-            Picture         =   "frmBlocks.frx":3359D
+            Picture         =   "frmBlocks.frx":2DE4D
             Style           =   1  'Graphical
             TabIndex        =   528
             Top             =   240
@@ -2550,7 +2550,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   444
             Left            =   2520
-            Picture         =   "frmBlocks.frx":33AB3
+            Picture         =   "frmBlocks.frx":2E363
             Style           =   1  'Graphical
             TabIndex        =   527
             Top             =   840
@@ -2561,7 +2561,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   443
             Left            =   2520
-            Picture         =   "frmBlocks.frx":33FDA
+            Picture         =   "frmBlocks.frx":2E88A
             Style           =   1  'Graphical
             TabIndex        =   526
             Top             =   1440
@@ -2572,7 +2572,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   442
             Left            =   1920
-            Picture         =   "frmBlocks.frx":34503
+            Picture         =   "frmBlocks.frx":2EDB3
             Style           =   1  'Graphical
             TabIndex        =   525
             Top             =   1440
@@ -2583,7 +2583,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   441
             Left            =   1920
-            Picture         =   "frmBlocks.frx":34A7B
+            Picture         =   "frmBlocks.frx":2F32B
             Style           =   1  'Graphical
             TabIndex        =   524
             Top             =   840
@@ -2594,7 +2594,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   440
             Left            =   1920
-            Picture         =   "frmBlocks.frx":35010
+            Picture         =   "frmBlocks.frx":2F8C0
             Style           =   1  'Graphical
             TabIndex        =   523
             Top             =   240
@@ -2605,7 +2605,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   439
             Left            =   1320
-            Picture         =   "frmBlocks.frx":3565B
+            Picture         =   "frmBlocks.frx":2FF0B
             Style           =   1  'Graphical
             TabIndex        =   522
             Top             =   240
@@ -2616,7 +2616,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   438
             Left            =   1320
-            Picture         =   "frmBlocks.frx":35CA3
+            Picture         =   "frmBlocks.frx":30553
             Style           =   1  'Graphical
             TabIndex        =   521
             Top             =   1440
@@ -2627,7 +2627,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   437
             Left            =   1320
-            Picture         =   "frmBlocks.frx":362FB
+            Picture         =   "frmBlocks.frx":30BAB
             Style           =   1  'Graphical
             TabIndex        =   520
             Top             =   840
@@ -2638,7 +2638,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   161
             Left            =   120
-            Picture         =   "frmBlocks.frx":3692F
+            Picture         =   "frmBlocks.frx":311DF
             Style           =   1  'Graphical
             TabIndex        =   267
             Top             =   840
@@ -2649,7 +2649,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   79
             Left            =   120
-            Picture         =   "frmBlocks.frx":36E06
+            Picture         =   "frmBlocks.frx":316B6
             Style           =   1  'Graphical
             TabIndex        =   266
             Top             =   240
@@ -2660,7 +2660,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   244
             Left            =   720
-            Picture         =   "frmBlocks.frx":372DA
+            Picture         =   "frmBlocks.frx":31B8A
             Style           =   1  'Graphical
             TabIndex        =   265
             Top             =   240
@@ -2671,7 +2671,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   259
             Left            =   720
-            Picture         =   "frmBlocks.frx":37877
+            Picture         =   "frmBlocks.frx":32127
             Style           =   1  'Graphical
             TabIndex        =   264
             Top             =   1440
@@ -2682,7 +2682,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   245
             Left            =   120
-            Picture         =   "frmBlocks.frx":37E17
+            Picture         =   "frmBlocks.frx":326C7
             Style           =   1  'Graphical
             TabIndex        =   263
             Top             =   1440
@@ -2693,7 +2693,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   261
             Left            =   720
-            Picture         =   "frmBlocks.frx":382F7
+            Picture         =   "frmBlocks.frx":32BA7
             Style           =   1  'Graphical
             TabIndex        =   262
             Top             =   840
@@ -2713,7 +2713,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   181
             Left            =   1920
-            Picture         =   "frmBlocks.frx":38896
+            Picture         =   "frmBlocks.frx":33146
             Style           =   1  'Graphical
             TabIndex        =   156
             Top             =   1440
@@ -2724,7 +2724,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   180
             Left            =   1920
-            Picture         =   "frmBlocks.frx":38C40
+            Picture         =   "frmBlocks.frx":334F0
             Style           =   1  'Graphical
             TabIndex        =   155
             Top             =   840
@@ -2735,7 +2735,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   179
             Left            =   1920
-            Picture         =   "frmBlocks.frx":39043
+            Picture         =   "frmBlocks.frx":338F3
             Style           =   1  'Graphical
             TabIndex        =   154
             Top             =   240
@@ -2746,7 +2746,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   178
             Left            =   1320
-            Picture         =   "frmBlocks.frx":39459
+            Picture         =   "frmBlocks.frx":33D09
             Style           =   1  'Graphical
             TabIndex        =   153
             Top             =   1440
@@ -2757,7 +2757,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   177
             Left            =   1320
-            Picture         =   "frmBlocks.frx":39803
+            Picture         =   "frmBlocks.frx":340B3
             Style           =   1  'Graphical
             TabIndex        =   152
             Top             =   840
@@ -2768,7 +2768,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   176
             Left            =   1320
-            Picture         =   "frmBlocks.frx":39C06
+            Picture         =   "frmBlocks.frx":344B6
             Style           =   1  'Graphical
             TabIndex        =   151
             Top             =   240
@@ -2779,7 +2779,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   175
             Left            =   720
-            Picture         =   "frmBlocks.frx":3A01C
+            Picture         =   "frmBlocks.frx":348CC
             Style           =   1  'Graphical
             TabIndex        =   150
             Top             =   1440
@@ -2790,7 +2790,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   174
             Left            =   720
-            Picture         =   "frmBlocks.frx":3A3C6
+            Picture         =   "frmBlocks.frx":34C76
             Style           =   1  'Graphical
             TabIndex        =   149
             Top             =   840
@@ -2801,7 +2801,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   173
             Left            =   720
-            Picture         =   "frmBlocks.frx":3A7C9
+            Picture         =   "frmBlocks.frx":35079
             Style           =   1  'Graphical
             TabIndex        =   148
             Top             =   240
@@ -2812,7 +2812,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   171
             Left            =   120
-            Picture         =   "frmBlocks.frx":3ABDF
+            Picture         =   "frmBlocks.frx":3548F
             Style           =   1  'Graphical
             TabIndex        =   147
             Top             =   840
@@ -2823,7 +2823,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   170
             Left            =   120
-            Picture         =   "frmBlocks.frx":3AFE2
+            Picture         =   "frmBlocks.frx":35892
             Style           =   1  'Graphical
             TabIndex        =   146
             Top             =   240
@@ -2834,7 +2834,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   172
             Left            =   120
-            Picture         =   "frmBlocks.frx":3B3F8
+            Picture         =   "frmBlocks.frx":35CA8
             Style           =   1  'Graphical
             TabIndex        =   145
             Top             =   1440
@@ -2853,7 +2853,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   121
             Left            =   120
-            Picture         =   "frmBlocks.frx":3B7A2
+            Picture         =   "frmBlocks.frx":36052
             Style           =   1  'Graphical
             TabIndex        =   130
             Top             =   240
@@ -2863,7 +2863,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   122
             Left            =   720
-            Picture         =   "frmBlocks.frx":3BBAE
+            Picture         =   "frmBlocks.frx":3645E
             Style           =   1  'Graphical
             TabIndex        =   129
             Top             =   240
@@ -2873,7 +2873,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   123
             Left            =   1320
-            Picture         =   "frmBlocks.frx":3BFAA
+            Picture         =   "frmBlocks.frx":3685A
             Style           =   1  'Graphical
             TabIndex        =   128
             Top             =   240
@@ -2883,7 +2883,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   124
             Left            =   2520
-            Picture         =   "frmBlocks.frx":3C3B6
+            Picture         =   "frmBlocks.frx":36C66
             Style           =   1  'Graphical
             TabIndex        =   127
             Top             =   240
@@ -2893,7 +2893,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   125
             Left            =   1920
-            Picture         =   "frmBlocks.frx":3C7D3
+            Picture         =   "frmBlocks.frx":37083
             Style           =   1  'Graphical
             TabIndex        =   126
             Top             =   240
@@ -2913,7 +2913,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   116
             Left            =   120
-            Picture         =   "frmBlocks.frx":3CC14
+            Picture         =   "frmBlocks.frx":374C4
             Style           =   1  'Graphical
             TabIndex        =   124
             Top             =   240
@@ -2924,7 +2924,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   117
             Left            =   1320
-            Picture         =   "frmBlocks.frx":3D03C
+            Picture         =   "frmBlocks.frx":378EC
             Style           =   1  'Graphical
             TabIndex        =   123
             Top             =   240
@@ -2935,7 +2935,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   118
             Left            =   1320
-            Picture         =   "frmBlocks.frx":3D466
+            Picture         =   "frmBlocks.frx":37D16
             Style           =   1  'Graphical
             TabIndex        =   122
             Top             =   840
@@ -2946,7 +2946,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   119
             Left            =   720
-            Picture         =   "frmBlocks.frx":3D867
+            Picture         =   "frmBlocks.frx":38117
             Style           =   1  'Graphical
             TabIndex        =   121
             Top             =   240
@@ -2957,7 +2957,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   120
             Left            =   120
-            Picture         =   "frmBlocks.frx":3DC64
+            Picture         =   "frmBlocks.frx":38514
             Style           =   1  'Graphical
             TabIndex        =   120
             Top             =   840
@@ -2977,7 +2977,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   619
             Left            =   4320
-            Picture         =   "frmBlocks.frx":3E064
+            Picture         =   "frmBlocks.frx":38914
             Style           =   1  'Graphical
             TabIndex        =   755
             Top             =   1440
@@ -2988,7 +2988,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   618
             Left            =   4920
-            Picture         =   "frmBlocks.frx":3E435
+            Picture         =   "frmBlocks.frx":38CE5
             Style           =   1  'Graphical
             TabIndex        =   754
             Top             =   1440
@@ -2999,7 +2999,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   617
             Left            =   3720
-            Picture         =   "frmBlocks.frx":3E803
+            Picture         =   "frmBlocks.frx":390B3
             Style           =   1  'Graphical
             TabIndex        =   753
             Top             =   1440
@@ -3010,7 +3010,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   616
             Left            =   3120
-            Picture         =   "frmBlocks.frx":3EBA7
+            Picture         =   "frmBlocks.frx":39457
             Style           =   1  'Graphical
             TabIndex        =   752
             Top             =   1440
@@ -3021,7 +3021,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   489
             Left            =   2520
-            Picture         =   "frmBlocks.frx":3EF4D
+            Picture         =   "frmBlocks.frx":397FD
             Style           =   1  'Graphical
             TabIndex        =   611
             Top             =   1440
@@ -3032,7 +3032,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   488
             Left            =   1920
-            Picture         =   "frmBlocks.frx":3F2E4
+            Picture         =   "frmBlocks.frx":39B94
             Style           =   1  'Graphical
             TabIndex        =   610
             Top             =   1440
@@ -3043,7 +3043,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   300
             Left            =   3720
-            Picture         =   "frmBlocks.frx":3F6E2
+            Picture         =   "frmBlocks.frx":39F92
             Style           =   1  'Graphical
             TabIndex        =   454
             Top             =   240
@@ -3054,7 +3054,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   299
             Left            =   3120
-            Picture         =   "frmBlocks.frx":3FACC
+            Picture         =   "frmBlocks.frx":3A37C
             Style           =   1  'Graphical
             TabIndex        =   453
             Top             =   240
@@ -3065,7 +3065,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   304
             Left            =   4320
-            Picture         =   "frmBlocks.frx":3FEB4
+            Picture         =   "frmBlocks.frx":3A764
             Style           =   1  'Graphical
             TabIndex        =   452
             Top             =   840
@@ -3076,7 +3076,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   301
             Left            =   4920
-            Picture         =   "frmBlocks.frx":40248
+            Picture         =   "frmBlocks.frx":3AAF8
             Style           =   1  'Graphical
             TabIndex        =   451
             Top             =   240
@@ -3087,7 +3087,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   302
             Left            =   4320
-            Picture         =   "frmBlocks.frx":405E0
+            Picture         =   "frmBlocks.frx":3AE90
             Style           =   1  'Graphical
             TabIndex        =   450
             Top             =   240
@@ -3098,7 +3098,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   303
             Left            =   4920
-            Picture         =   "frmBlocks.frx":4097B
+            Picture         =   "frmBlocks.frx":3B22B
             Style           =   1  'Graphical
             TabIndex        =   449
             Top             =   840
@@ -3109,7 +3109,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   310
             Left            =   3720
-            Picture         =   "frmBlocks.frx":40D11
+            Picture         =   "frmBlocks.frx":3B5C1
             Style           =   1  'Graphical
             TabIndex        =   448
             Top             =   840
@@ -3120,7 +3120,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   309
             Left            =   3120
-            Picture         =   "frmBlocks.frx":410FA
+            Picture         =   "frmBlocks.frx":3B9AA
             Style           =   1  'Graphical
             TabIndex        =   447
             Top             =   840
@@ -3131,7 +3131,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   266
             Left            =   1320
-            Picture         =   "frmBlocks.frx":414E2
+            Picture         =   "frmBlocks.frx":3BD92
             Style           =   1  'Graphical
             TabIndex        =   309
             Top             =   1440
@@ -3142,7 +3142,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   265
             Left            =   120
-            Picture         =   "frmBlocks.frx":418FE
+            Picture         =   "frmBlocks.frx":3C1AE
             Style           =   1  'Graphical
             TabIndex        =   308
             Top             =   1440
@@ -3153,7 +3153,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   264
             Left            =   720
-            Picture         =   "frmBlocks.frx":41D11
+            Picture         =   "frmBlocks.frx":3C5C1
             Style           =   1  'Graphical
             TabIndex        =   307
             Top             =   1440
@@ -3164,7 +3164,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   263
             Left            =   2520
-            Picture         =   "frmBlocks.frx":420ED
+            Picture         =   "frmBlocks.frx":3C99D
             Style           =   1  'Graphical
             TabIndex        =   306
             Top             =   240
@@ -3175,7 +3175,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   273
             Left            =   1920
-            Picture         =   "frmBlocks.frx":424CA
+            Picture         =   "frmBlocks.frx":3CD7A
             Style           =   1  'Graphical
             TabIndex        =   305
             Top             =   240
@@ -3186,7 +3186,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   80
             Left            =   120
-            Picture         =   "frmBlocks.frx":428A4
+            Picture         =   "frmBlocks.frx":3D154
             Style           =   1  'Graphical
             TabIndex        =   119
             Top             =   240
@@ -3197,7 +3197,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   81
             Left            =   720
-            Picture         =   "frmBlocks.frx":434E6
+            Picture         =   "frmBlocks.frx":3DD96
             Style           =   1  'Graphical
             TabIndex        =   118
             Top             =   240
@@ -3208,7 +3208,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   82
             Left            =   1320
-            Picture         =   "frmBlocks.frx":44128
+            Picture         =   "frmBlocks.frx":3E9D8
             Style           =   1  'Graphical
             TabIndex        =   117
             Top             =   240
@@ -3219,7 +3219,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   83
             Left            =   120
-            Picture         =   "frmBlocks.frx":44D6A
+            Picture         =   "frmBlocks.frx":3F61A
             Style           =   1  'Graphical
             TabIndex        =   116
             Top             =   840
@@ -3230,7 +3230,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   84
             Left            =   1320
-            Picture         =   "frmBlocks.frx":459AC
+            Picture         =   "frmBlocks.frx":4025C
             Style           =   1  'Graphical
             TabIndex        =   115
             Top             =   840
@@ -3241,7 +3241,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   85
             Left            =   1920
-            Picture         =   "frmBlocks.frx":465EE
+            Picture         =   "frmBlocks.frx":40E9E
             Style           =   1  'Graphical
             TabIndex        =   114
             Top             =   840
@@ -3252,7 +3252,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   86
             Left            =   2520
-            Picture         =   "frmBlocks.frx":47230
+            Picture         =   "frmBlocks.frx":41AE0
             Style           =   1  'Graphical
             TabIndex        =   113
             Top             =   840
@@ -3263,7 +3263,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   87
             Left            =   720
-            Picture         =   "frmBlocks.frx":47E72
+            Picture         =   "frmBlocks.frx":42722
             Style           =   1  'Graphical
             TabIndex        =   112
             Top             =   840
@@ -3283,7 +3283,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   615
             Left            =   4320
-            Picture         =   "frmBlocks.frx":48AB4
+            Picture         =   "frmBlocks.frx":43364
             Style           =   1  'Graphical
             TabIndex        =   751
             Top             =   240
@@ -3294,7 +3294,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   283
             Left            =   3720
-            Picture         =   "frmBlocks.frx":48E6D
+            Picture         =   "frmBlocks.frx":4371D
             Style           =   1  'Graphical
             TabIndex        =   338
             Top             =   240
@@ -3305,7 +3305,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   282
             Left            =   3120
-            Picture         =   "frmBlocks.frx":4928A
+            Picture         =   "frmBlocks.frx":43B3A
             Style           =   1  'Graphical
             TabIndex        =   337
             Top             =   240
@@ -3316,7 +3316,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   281
             Left            =   2520
-            Picture         =   "frmBlocks.frx":4968B
+            Picture         =   "frmBlocks.frx":43F3B
             Style           =   1  'Graphical
             TabIndex        =   336
             Top             =   240
@@ -3327,7 +3327,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   169
             Left            =   1920
-            Picture         =   "frmBlocks.frx":49AD4
+            Picture         =   "frmBlocks.frx":44384
             Style           =   1  'Graphical
             TabIndex        =   143
             Top             =   240
@@ -3338,7 +3338,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   89
             Left            =   720
-            Picture         =   "frmBlocks.frx":49EE7
+            Picture         =   "frmBlocks.frx":44797
             Style           =   1  'Graphical
             TabIndex        =   109
             Top             =   240
@@ -3349,7 +3349,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   88
             Left            =   120
-            Picture         =   "frmBlocks.frx":4AB29
+            Picture         =   "frmBlocks.frx":453D9
             Style           =   1  'Graphical
             TabIndex        =   108
             Top             =   240
@@ -3361,7 +3361,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   90
             Left            =   1320
-            Picture         =   "frmBlocks.frx":4B76B
+            Picture         =   "frmBlocks.frx":4601B
             Style           =   1  'Graphical
             TabIndex        =   107
             Top             =   240
@@ -3381,7 +3381,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   139
             Left            =   1920
-            Picture         =   "frmBlocks.frx":4C3AD
+            Picture         =   "frmBlocks.frx":46C5D
             Style           =   1  'Graphical
             TabIndex        =   321
             Top             =   240
@@ -3392,7 +3392,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   140
             Left            =   2520
-            Picture         =   "frmBlocks.frx":4C76B
+            Picture         =   "frmBlocks.frx":4701B
             Style           =   1  'Graphical
             TabIndex        =   320
             Top             =   240
@@ -3403,7 +3403,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   141
             Left            =   3120
-            Picture         =   "frmBlocks.frx":4CB29
+            Picture         =   "frmBlocks.frx":473D9
             Style           =   1  'Graphical
             TabIndex        =   319
             Top             =   240
@@ -3414,7 +3414,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   144
             Left            =   1920
-            Picture         =   "frmBlocks.frx":4CEE7
+            Picture         =   "frmBlocks.frx":47797
             Style           =   1  'Graphical
             TabIndex        =   318
             Top             =   840
@@ -3425,7 +3425,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   145
             Left            =   2520
-            Picture         =   "frmBlocks.frx":4D2AE
+            Picture         =   "frmBlocks.frx":47B5E
             Style           =   1  'Graphical
             TabIndex        =   317
             Top             =   840
@@ -3436,7 +3436,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   146
             Left            =   3120
-            Picture         =   "frmBlocks.frx":4D675
+            Picture         =   "frmBlocks.frx":47F25
             Style           =   1  'Graphical
             TabIndex        =   316
             Top             =   840
@@ -3447,7 +3447,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   148
             Left            =   3720
-            Picture         =   "frmBlocks.frx":4DA3C
+            Picture         =   "frmBlocks.frx":482EC
             Style           =   1  'Graphical
             TabIndex        =   315
             Top             =   240
@@ -3458,7 +3458,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   149
             Left            =   3720
-            Picture         =   "frmBlocks.frx":4DDF7
+            Picture         =   "frmBlocks.frx":486A7
             Style           =   1  'Graphical
             TabIndex        =   314
             Top             =   840
@@ -3469,7 +3469,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   150
             Left            =   3720
-            Picture         =   "frmBlocks.frx":4E1B2
+            Picture         =   "frmBlocks.frx":48A62
             Style           =   1  'Graphical
             TabIndex        =   313
             Top             =   1440
@@ -3480,7 +3480,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   154
             Left            =   4320
-            Picture         =   "frmBlocks.frx":4E56D
+            Picture         =   "frmBlocks.frx":48E1D
             Style           =   1  'Graphical
             TabIndex        =   312
             Top             =   240
@@ -3491,7 +3491,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   155
             Left            =   4320
-            Picture         =   "frmBlocks.frx":4E8F4
+            Picture         =   "frmBlocks.frx":491A4
             Style           =   1  'Graphical
             TabIndex        =   311
             Top             =   840
@@ -3502,7 +3502,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   156
             Left            =   4320
-            Picture         =   "frmBlocks.frx":4EC7B
+            Picture         =   "frmBlocks.frx":4952B
             Style           =   1  'Graphical
             TabIndex        =   310
             Top             =   1440
@@ -3513,7 +3513,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   158
             Left            =   720
-            Picture         =   "frmBlocks.frx":4F002
+            Picture         =   "frmBlocks.frx":498B2
             Style           =   1  'Graphical
             TabIndex        =   140
             Top             =   1440
@@ -3524,7 +3524,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   157
             Left            =   1920
-            Picture         =   "frmBlocks.frx":4F389
+            Picture         =   "frmBlocks.frx":49C39
             Style           =   1  'Graphical
             TabIndex        =   139
             Top             =   1440
@@ -3535,7 +3535,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   153
             Left            =   3120
-            Picture         =   "frmBlocks.frx":4F710
+            Picture         =   "frmBlocks.frx":49FC0
             Style           =   1  'Graphical
             TabIndex        =   138
             Top             =   1440
@@ -3546,7 +3546,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   152
             Left            =   120
-            Picture         =   "frmBlocks.frx":4FA97
+            Picture         =   "frmBlocks.frx":4A347
             Style           =   1  'Graphical
             TabIndex        =   137
             Top             =   1440
@@ -3557,7 +3557,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   151
             Left            =   1320
-            Picture         =   "frmBlocks.frx":4FE52
+            Picture         =   "frmBlocks.frx":4A702
             Style           =   1  'Graphical
             TabIndex        =   136
             Top             =   1440
@@ -3568,7 +3568,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   147
             Left            =   2520
-            Picture         =   "frmBlocks.frx":5020D
+            Picture         =   "frmBlocks.frx":4AABD
             Style           =   1  'Graphical
             TabIndex        =   135
             Top             =   1440
@@ -3579,7 +3579,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   143
             Left            =   1320
-            Picture         =   "frmBlocks.frx":505C8
+            Picture         =   "frmBlocks.frx":4AE78
             Style           =   1  'Graphical
             TabIndex        =   134
             Top             =   840
@@ -3590,7 +3590,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   142
             Left            =   720
-            Picture         =   "frmBlocks.frx":5098F
+            Picture         =   "frmBlocks.frx":4B23F
             Style           =   1  'Graphical
             TabIndex        =   133
             Top             =   840
@@ -3601,7 +3601,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   138
             Left            =   1320
-            Picture         =   "frmBlocks.frx":50D56
+            Picture         =   "frmBlocks.frx":4B606
             Style           =   1  'Graphical
             TabIndex        =   132
             Top             =   240
@@ -3612,7 +3612,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   137
             Left            =   720
-            Picture         =   "frmBlocks.frx":51114
+            Picture         =   "frmBlocks.frx":4B9C4
             Style           =   1  'Graphical
             TabIndex        =   131
             Top             =   240
@@ -3623,7 +3623,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   113
             Left            =   120
-            Picture         =   "frmBlocks.frx":514D2
+            Picture         =   "frmBlocks.frx":4BD82
             Style           =   1  'Graphical
             TabIndex        =   105
             Top             =   240
@@ -3634,7 +3634,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   114
             Left            =   120
-            Picture         =   "frmBlocks.frx":51890
+            Picture         =   "frmBlocks.frx":4C140
             Style           =   1  'Graphical
             TabIndex        =   104
             Top             =   840
@@ -3664,7 +3664,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   372
             Left            =   1920
-            Picture         =   "frmBlocks.frx":51C57
+            Picture         =   "frmBlocks.frx":4C507
             Style           =   1  'Graphical
             TabIndex        =   509
             Top             =   240
@@ -3675,7 +3675,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   382
             Left            =   1920
-            Picture         =   "frmBlocks.frx":5206F
+            Picture         =   "frmBlocks.frx":4C91F
             Style           =   1  'Graphical
             TabIndex        =   508
             Top             =   840
@@ -3686,7 +3686,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   381
             Left            =   1320
-            Picture         =   "frmBlocks.frx":52473
+            Picture         =   "frmBlocks.frx":4CD23
             Style           =   1  'Graphical
             TabIndex        =   507
             Top             =   840
@@ -3697,7 +3697,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   380
             Left            =   720
-            Picture         =   "frmBlocks.frx":5285D
+            Picture         =   "frmBlocks.frx":4D10D
             Style           =   1  'Graphical
             TabIndex        =   506
             Top             =   840
@@ -3708,7 +3708,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   379
             Left            =   120
-            Picture         =   "frmBlocks.frx":52C50
+            Picture         =   "frmBlocks.frx":4D500
             Style           =   1  'Graphical
             TabIndex        =   505
             Top             =   840
@@ -3719,7 +3719,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   375
             Left            =   1320
-            Picture         =   "frmBlocks.frx":53055
+            Picture         =   "frmBlocks.frx":4D905
             Style           =   1  'Graphical
             TabIndex        =   504
             Top             =   240
@@ -3730,7 +3730,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   374
             Left            =   720
-            Picture         =   "frmBlocks.frx":53443
+            Picture         =   "frmBlocks.frx":4DCF3
             Style           =   1  'Graphical
             TabIndex        =   503
             Top             =   240
@@ -3741,7 +3741,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   373
             Left            =   120
-            Picture         =   "frmBlocks.frx":53822
+            Picture         =   "frmBlocks.frx":4E0D2
             Style           =   1  'Graphical
             TabIndex        =   502
             Top             =   240
@@ -3761,7 +3761,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   405
             Left            =   3120
-            Picture         =   "frmBlocks.frx":53C24
+            Picture         =   "frmBlocks.frx":4E4D4
             Style           =   1  'Graphical
             TabIndex        =   569
             Top             =   840
@@ -3772,7 +3772,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   371
             Left            =   3120
-            Picture         =   "frmBlocks.frx":53F88
+            Picture         =   "frmBlocks.frx":4E838
             Style           =   1  'Graphical
             TabIndex        =   499
             Top             =   240
@@ -3783,7 +3783,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   403
             Left            =   2520
-            Picture         =   "frmBlocks.frx":54389
+            Picture         =   "frmBlocks.frx":4EC39
             Style           =   1  'Graphical
             TabIndex        =   498
             Top             =   240
@@ -3794,7 +3794,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   402
             Left            =   1320
-            Picture         =   "frmBlocks.frx":54792
+            Picture         =   "frmBlocks.frx":4F042
             Style           =   1  'Graphical
             TabIndex        =   497
             Top             =   240
@@ -3805,7 +3805,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   401
             Left            =   3720
-            Picture         =   "frmBlocks.frx":54BD4
+            Picture         =   "frmBlocks.frx":4F484
             Style           =   1  'Graphical
             TabIndex        =   496
             Top             =   240
@@ -3816,7 +3816,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   400
             Left            =   3120
-            Picture         =   "frmBlocks.frx":54FEC
+            Picture         =   "frmBlocks.frx":4F89C
             Style           =   1  'Graphical
             TabIndex        =   495
             Top             =   1440
@@ -3827,7 +3827,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   399
             Left            =   1920
-            Picture         =   "frmBlocks.frx":553EE
+            Picture         =   "frmBlocks.frx":4FC9E
             Style           =   1  'Graphical
             TabIndex        =   494
             Top             =   1440
@@ -3838,7 +3838,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   398
             Left            =   2520
-            Picture         =   "frmBlocks.frx":557EB
+            Picture         =   "frmBlocks.frx":5009B
             Style           =   1  'Graphical
             TabIndex        =   493
             Top             =   1440
@@ -3849,7 +3849,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   397
             Left            =   720
-            Picture         =   "frmBlocks.frx":55BDE
+            Picture         =   "frmBlocks.frx":5048E
             Style           =   1  'Graphical
             TabIndex        =   492
             Top             =   1440
@@ -3860,7 +3860,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   396
             Left            =   120
-            Picture         =   "frmBlocks.frx":5600B
+            Picture         =   "frmBlocks.frx":508BB
             Style           =   1  'Graphical
             TabIndex        =   491
             Top             =   240
@@ -3871,7 +3871,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   395
             Left            =   120
-            Picture         =   "frmBlocks.frx":5643F
+            Picture         =   "frmBlocks.frx":50CEF
             Style           =   1  'Graphical
             TabIndex        =   490
             Top             =   840
@@ -3882,7 +3882,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   394
             Left            =   720
-            Picture         =   "frmBlocks.frx":56886
+            Picture         =   "frmBlocks.frx":51136
             Style           =   1  'Graphical
             TabIndex        =   489
             Top             =   840
@@ -3893,7 +3893,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   393
             Left            =   1320
-            Picture         =   "frmBlocks.frx":56CD0
+            Picture         =   "frmBlocks.frx":51580
             Style           =   1  'Graphical
             TabIndex        =   488
             Top             =   840
@@ -3904,7 +3904,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   390
             Left            =   1320
-            Picture         =   "frmBlocks.frx":57119
+            Picture         =   "frmBlocks.frx":519C9
             Style           =   1  'Graphical
             TabIndex        =   487
             Top             =   1440
@@ -3915,7 +3915,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   387
             Left            =   720
-            Picture         =   "frmBlocks.frx":57568
+            Picture         =   "frmBlocks.frx":51E18
             Style           =   1  'Graphical
             TabIndex        =   486
             Top             =   240
@@ -3926,7 +3926,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   386
             Left            =   120
-            Picture         =   "frmBlocks.frx":57989
+            Picture         =   "frmBlocks.frx":52239
             Style           =   1  'Graphical
             TabIndex        =   485
             Top             =   1440
@@ -3937,7 +3937,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   385
             Left            =   1920
-            Picture         =   "frmBlocks.frx":57DD2
+            Picture         =   "frmBlocks.frx":52682
             Style           =   1  'Graphical
             TabIndex        =   484
             Top             =   240
@@ -3948,7 +3948,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   384
             Left            =   1920
-            Picture         =   "frmBlocks.frx":581C0
+            Picture         =   "frmBlocks.frx":52A70
             Style           =   1  'Graphical
             TabIndex        =   483
             Top             =   840
@@ -3959,7 +3959,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   383
             Left            =   2520
-            Picture         =   "frmBlocks.frx":585AB
+            Picture         =   "frmBlocks.frx":52E5B
             Style           =   1  'Graphical
             TabIndex        =   482
             Top             =   840
@@ -4067,7 +4067,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   287
             Left            =   120
-            Picture         =   "frmBlocks.frx":589A0
+            Picture         =   "frmBlocks.frx":53250
             Style           =   1  'Graphical
             TabIndex        =   345
             Top             =   240
@@ -4087,7 +4087,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   376
             Left            =   120
-            Picture         =   "frmBlocks.frx":58FAD
+            Picture         =   "frmBlocks.frx":5385D
             Style           =   1  'Graphical
             TabIndex        =   514
             Top             =   1440
@@ -4098,7 +4098,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   378
             Left            =   1320
-            Picture         =   "frmBlocks.frx":59372
+            Picture         =   "frmBlocks.frx":53C22
             Style           =   1  'Graphical
             TabIndex        =   513
             Top             =   1440
@@ -4109,7 +4109,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   197
             Left            =   720
-            Picture         =   "frmBlocks.frx":597C2
+            Picture         =   "frmBlocks.frx":54072
             Style           =   1  'Graphical
             TabIndex        =   512
             Top             =   840
@@ -4120,7 +4120,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   196
             Left            =   720
-            Picture         =   "frmBlocks.frx":59B97
+            Picture         =   "frmBlocks.frx":54447
             Style           =   1  'Graphical
             TabIndex        =   511
             Top             =   240
@@ -4131,7 +4131,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   377
             Left            =   720
-            Picture         =   "frmBlocks.frx":59F68
+            Picture         =   "frmBlocks.frx":54818
             Style           =   1  'Graphical
             TabIndex        =   510
             Top             =   1440
@@ -4142,7 +4142,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   194
             Left            =   120
-            Picture         =   "frmBlocks.frx":5A305
+            Picture         =   "frmBlocks.frx":54BB5
             Style           =   1  'Graphical
             TabIndex        =   243
             Top             =   240
@@ -4153,7 +4153,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   195
             Left            =   120
-            Picture         =   "frmBlocks.frx":5A6D6
+            Picture         =   "frmBlocks.frx":54F86
             Style           =   1  'Graphical
             TabIndex        =   242
             Top             =   840
@@ -4173,7 +4173,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   577
             Left            =   720
-            Picture         =   "frmBlocks.frx":5AAAB
+            Picture         =   "frmBlocks.frx":5535B
             Style           =   1  'Graphical
             TabIndex        =   710
             Top             =   840
@@ -4184,7 +4184,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   576
             Left            =   120
-            Picture         =   "frmBlocks.frx":5AEC9
+            Picture         =   "frmBlocks.frx":55779
             Style           =   1  'Graphical
             TabIndex        =   709
             Top             =   840
@@ -4195,7 +4195,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   388
             Left            =   3120
-            Picture         =   "frmBlocks.frx":5B2FC
+            Picture         =   "frmBlocks.frx":55BAC
             Style           =   1  'Graphical
             TabIndex        =   500
             Top             =   240
@@ -4206,7 +4206,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   369
             Left            =   2520
-            Picture         =   "frmBlocks.frx":5B755
+            Picture         =   "frmBlocks.frx":56005
             Style           =   1  'Graphical
             TabIndex        =   400
             Top             =   240
@@ -4217,7 +4217,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   69
             Left            =   1920
-            Picture         =   "frmBlocks.frx":5BB8F
+            Picture         =   "frmBlocks.frx":5643F
             Style           =   1  'Graphical
             TabIndex        =   247
             Top             =   240
@@ -4228,7 +4228,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   66
             Left            =   120
-            Picture         =   "frmBlocks.frx":5C7D1
+            Picture         =   "frmBlocks.frx":57081
             Style           =   1  'Graphical
             TabIndex        =   246
             Top             =   240
@@ -4239,7 +4239,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   67
             Left            =   720
-            Picture         =   "frmBlocks.frx":5D413
+            Picture         =   "frmBlocks.frx":57CC3
             Style           =   1  'Graphical
             TabIndex        =   245
             Top             =   240
@@ -4250,7 +4250,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   68
             Left            =   1320
-            Picture         =   "frmBlocks.frx":5E055
+            Picture         =   "frmBlocks.frx":58905
             Style           =   1  'Graphical
             TabIndex        =   244
             Top             =   240
@@ -4270,7 +4270,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   331
             Left            =   120
-            Picture         =   "frmBlocks.frx":5EC97
+            Picture         =   "frmBlocks.frx":59547
             Style           =   1  'Graphical
             TabIndex        =   365
             Top             =   840
@@ -4282,7 +4282,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   330
             Left            =   1320
-            Picture         =   "frmBlocks.frx":5EDC0
+            Picture         =   "frmBlocks.frx":59670
             Style           =   1  'Graphical
             TabIndex        =   364
             Top             =   840
@@ -4293,7 +4293,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   329
             Left            =   1920
-            Picture         =   "frmBlocks.frx":5EEEE
+            Picture         =   "frmBlocks.frx":5979E
             Style           =   1  'Graphical
             TabIndex        =   363
             Top             =   840
@@ -4304,7 +4304,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   328
             Left            =   2520
-            Picture         =   "frmBlocks.frx":5F2E2
+            Picture         =   "frmBlocks.frx":59B92
             Style           =   1  'Graphical
             TabIndex        =   362
             Top             =   840
@@ -4315,7 +4315,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   327
             Left            =   2520
-            Picture         =   "frmBlocks.frx":5F6D4
+            Picture         =   "frmBlocks.frx":59F84
             Style           =   1  'Graphical
             TabIndex        =   361
             Top             =   240
@@ -4326,7 +4326,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   326
             Left            =   1920
-            Picture         =   "frmBlocks.frx":5FAD8
+            Picture         =   "frmBlocks.frx":5A388
             Style           =   1  'Graphical
             TabIndex        =   360
             Top             =   240
@@ -4337,7 +4337,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   325
             Left            =   720
-            Picture         =   "frmBlocks.frx":5FEC2
+            Picture         =   "frmBlocks.frx":5A772
             Style           =   1  'Graphical
             TabIndex        =   359
             Top             =   1440
@@ -4348,7 +4348,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   324
             Left            =   120
-            Picture         =   "frmBlocks.frx":60297
+            Picture         =   "frmBlocks.frx":5AB47
             Style           =   1  'Graphical
             TabIndex        =   358
             Top             =   1440
@@ -4359,7 +4359,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   323
             Left            =   720
-            Picture         =   "frmBlocks.frx":6066C
+            Picture         =   "frmBlocks.frx":5AF1C
             Style           =   1  'Graphical
             TabIndex        =   357
             Top             =   840
@@ -4370,7 +4370,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   56
             Left            =   120
-            Picture         =   "frmBlocks.frx":60776
+            Picture         =   "frmBlocks.frx":5B026
             Style           =   1  'Graphical
             TabIndex        =   260
             Top             =   240
@@ -4381,7 +4381,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   57
             Left            =   720
-            Picture         =   "frmBlocks.frx":613B8
+            Picture         =   "frmBlocks.frx":5BC68
             Style           =   1  'Graphical
             TabIndex        =   259
             Top             =   240
@@ -4392,7 +4392,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   58
             Left            =   1320
-            Picture         =   "frmBlocks.frx":61FFA
+            Picture         =   "frmBlocks.frx":5C8AA
             Style           =   1  'Graphical
             TabIndex        =   258
             Top             =   240
@@ -4403,7 +4403,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   59
             Left            =   3120
-            Picture         =   "frmBlocks.frx":62C3C
+            Picture         =   "frmBlocks.frx":5D4EC
             Style           =   1  'Graphical
             TabIndex        =   257
             Top             =   840
@@ -4414,7 +4414,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   61
             Left            =   3120
-            Picture         =   "frmBlocks.frx":6387E
+            Picture         =   "frmBlocks.frx":5E12E
             Style           =   1  'Graphical
             TabIndex        =   256
             Top             =   240
@@ -4434,7 +4434,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   335
             Left            =   1920
-            Picture         =   "frmBlocks.frx":63CE9
+            Picture         =   "frmBlocks.frx":5E599
             Style           =   1  'Graphical
             TabIndex        =   369
             Top             =   840
@@ -4445,7 +4445,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   334
             Left            =   2520
-            Picture         =   "frmBlocks.frx":640DD
+            Picture         =   "frmBlocks.frx":5E98D
             Style           =   1  'Graphical
             TabIndex        =   368
             Top             =   840
@@ -4456,7 +4456,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   333
             Left            =   2520
-            Picture         =   "frmBlocks.frx":644CF
+            Picture         =   "frmBlocks.frx":5ED7F
             Style           =   1  'Graphical
             TabIndex        =   367
             Top             =   240
@@ -4467,7 +4467,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   332
             Left            =   1920
-            Picture         =   "frmBlocks.frx":648D3
+            Picture         =   "frmBlocks.frx":5F183
             Style           =   1  'Graphical
             TabIndex        =   366
             Top             =   240
@@ -4478,7 +4478,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   64
             Left            =   1320
-            Picture         =   "frmBlocks.frx":64CBD
+            Picture         =   "frmBlocks.frx":5F56D
             Style           =   1  'Graphical
             TabIndex        =   255
             Top             =   240
@@ -4489,7 +4489,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   62
             Left            =   120
-            Picture         =   "frmBlocks.frx":658FF
+            Picture         =   "frmBlocks.frx":601AF
             Style           =   1  'Graphical
             TabIndex        =   254
             Top             =   240
@@ -4500,7 +4500,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   63
             Left            =   720
-            Picture         =   "frmBlocks.frx":66541
+            Picture         =   "frmBlocks.frx":60DF1
             Style           =   1  'Graphical
             TabIndex        =   253
             Top             =   240
@@ -4511,7 +4511,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   65
             Left            =   3120
-            Picture         =   "frmBlocks.frx":67183
+            Picture         =   "frmBlocks.frx":61A33
             Style           =   1  'Graphical
             TabIndex        =   252
             Top             =   840
@@ -4522,7 +4522,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   93
             Left            =   3120
-            Picture         =   "frmBlocks.frx":67DC5
+            Picture         =   "frmBlocks.frx":62675
             Style           =   1  'Graphical
             TabIndex        =   251
             Top             =   240
@@ -4533,7 +4533,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   189
             Left            =   120
-            Picture         =   "frmBlocks.frx":681D9
+            Picture         =   "frmBlocks.frx":62A89
             Style           =   1  'Graphical
             TabIndex        =   250
             Top             =   840
@@ -4544,7 +4544,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   190
             Left            =   720
-            Picture         =   "frmBlocks.frx":6860E
+            Picture         =   "frmBlocks.frx":62EBE
             Style           =   1  'Graphical
             TabIndex        =   249
             Top             =   840
@@ -4555,7 +4555,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   191
             Left            =   1320
-            Picture         =   "frmBlocks.frx":68A10
+            Picture         =   "frmBlocks.frx":632C0
             Style           =   1  'Graphical
             TabIndex        =   248
             Top             =   840
@@ -4575,7 +4575,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   192
             Left            =   720
-            Picture         =   "frmBlocks.frx":68E3E
+            Picture         =   "frmBlocks.frx":636EE
             Style           =   1  'Graphical
             TabIndex        =   164
             Top             =   240
@@ -4586,7 +4586,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   60
             Left            =   1920
-            Picture         =   "frmBlocks.frx":6921C
+            Picture         =   "frmBlocks.frx":63ACC
             Style           =   1  'Graphical
             TabIndex        =   163
             Top             =   240
@@ -4597,7 +4597,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   188
             Left            =   1320
-            Picture         =   "frmBlocks.frx":69E5E
+            Picture         =   "frmBlocks.frx":6470E
             Style           =   1  'Graphical
             TabIndex        =   162
             Top             =   240
@@ -4608,7 +4608,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   193
             Left            =   120
-            Picture         =   "frmBlocks.frx":6A24F
+            Picture         =   "frmBlocks.frx":64AFF
             Style           =   1  'Graphical
             TabIndex        =   161
             Top             =   240
@@ -4656,7 +4656,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   511
             Left            =   3720
-            Picture         =   "frmBlocks.frx":6A662
+            Picture         =   "frmBlocks.frx":64F12
             Style           =   1  'Graphical
             TabIndex        =   634
             Top             =   840
@@ -4667,7 +4667,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   510
             Left            =   3720
-            Picture         =   "frmBlocks.frx":6AA74
+            Picture         =   "frmBlocks.frx":65324
             Style           =   1  'Graphical
             TabIndex        =   633
             Top             =   1440
@@ -4678,7 +4678,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   508
             Left            =   1320
-            Picture         =   "frmBlocks.frx":6AE91
+            Picture         =   "frmBlocks.frx":65741
             Style           =   1  'Graphical
             TabIndex        =   632
             Top             =   1440
@@ -4689,7 +4689,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   507
             Left            =   120
-            Picture         =   "frmBlocks.frx":6B28B
+            Picture         =   "frmBlocks.frx":65B3B
             Style           =   1  'Graphical
             TabIndex        =   631
             Top             =   1440
@@ -4700,7 +4700,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   506
             Left            =   720
-            Picture         =   "frmBlocks.frx":6B685
+            Picture         =   "frmBlocks.frx":65F35
             Style           =   1  'Graphical
             TabIndex        =   630
             Top             =   1440
@@ -4711,7 +4711,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   504
             Left            =   3120
-            Picture         =   "frmBlocks.frx":6BB15
+            Picture         =   "frmBlocks.frx":663C5
             Style           =   1  'Graphical
             TabIndex        =   629
             Top             =   1440
@@ -4722,7 +4722,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   503
             Left            =   1320
-            Picture         =   "frmBlocks.frx":6BF45
+            Picture         =   "frmBlocks.frx":667F5
             Style           =   1  'Graphical
             TabIndex        =   628
             Top             =   840
@@ -4733,7 +4733,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   502
             Left            =   2520
-            Picture         =   "frmBlocks.frx":6C369
+            Picture         =   "frmBlocks.frx":66C19
             Style           =   1  'Graphical
             TabIndex        =   627
             Top             =   1440
@@ -4744,7 +4744,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   501
             Left            =   1320
-            Picture         =   "frmBlocks.frx":6C773
+            Picture         =   "frmBlocks.frx":67023
             Style           =   1  'Graphical
             TabIndex        =   626
             Top             =   240
@@ -4755,7 +4755,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   500
             Left            =   1920
-            Picture         =   "frmBlocks.frx":6CB8A
+            Picture         =   "frmBlocks.frx":6743A
             Style           =   1  'Graphical
             TabIndex        =   625
             Top             =   240
@@ -4766,7 +4766,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   499
             Left            =   120
-            Picture         =   "frmBlocks.frx":6CF9F
+            Picture         =   "frmBlocks.frx":6784F
             Style           =   1  'Graphical
             TabIndex        =   624
             Top             =   840
@@ -4777,7 +4777,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   498
             Left            =   3120
-            Picture         =   "frmBlocks.frx":6D3C3
+            Picture         =   "frmBlocks.frx":67C73
             Style           =   1  'Graphical
             TabIndex        =   623
             Top             =   840
@@ -4788,7 +4788,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   497
             Left            =   1920
-            Picture         =   "frmBlocks.frx":6D7DC
+            Picture         =   "frmBlocks.frx":6808C
             Style           =   1  'Graphical
             TabIndex        =   622
             Top             =   840
@@ -4799,7 +4799,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   496
             Left            =   720
-            Picture         =   "frmBlocks.frx":6DBF5
+            Picture         =   "frmBlocks.frx":684A5
             Style           =   1  'Graphical
             TabIndex        =   621
             Top             =   240
@@ -4810,7 +4810,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   495
             Left            =   720
-            Picture         =   "frmBlocks.frx":6E00A
+            Picture         =   "frmBlocks.frx":688BA
             Style           =   1  'Graphical
             TabIndex        =   620
             Top             =   840
@@ -4821,7 +4821,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   494
             Left            =   2520
-            Picture         =   "frmBlocks.frx":6E423
+            Picture         =   "frmBlocks.frx":68CD3
             Style           =   1  'Graphical
             TabIndex        =   619
             Top             =   840
@@ -4832,7 +4832,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   493
             Left            =   2520
-            Picture         =   "frmBlocks.frx":6E837
+            Picture         =   "frmBlocks.frx":690E7
             Style           =   1  'Graphical
             TabIndex        =   618
             Top             =   240
@@ -4843,7 +4843,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   492
             Left            =   120
-            Picture         =   "frmBlocks.frx":6EC4E
+            Picture         =   "frmBlocks.frx":694FE
             Style           =   1  'Graphical
             TabIndex        =   617
             Top             =   240
@@ -4854,7 +4854,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   491
             Left            =   1920
-            Picture         =   "frmBlocks.frx":6F065
+            Picture         =   "frmBlocks.frx":69915
             Style           =   1  'Graphical
             TabIndex        =   616
             Top             =   1440
@@ -4865,7 +4865,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   490
             Left            =   3120
-            Picture         =   "frmBlocks.frx":6F48F
+            Picture         =   "frmBlocks.frx":69D3F
             Style           =   1  'Graphical
             TabIndex        =   615
             Top             =   240
@@ -4953,7 +4953,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   370
             Left            =   120
-            Picture         =   "frmBlocks.frx":6F8A4
+            Picture         =   "frmBlocks.frx":6A154
             Style           =   1  'Graphical
             TabIndex        =   401
             Top             =   840
@@ -4964,7 +4964,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   293
             Left            =   120
-            Picture         =   "frmBlocks.frx":6FD02
+            Picture         =   "frmBlocks.frx":6A5B2
             Style           =   1  'Graphical
             TabIndex        =   354
             Top             =   240
@@ -4984,7 +4984,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   343
             Left            =   4320
-            Picture         =   "frmBlocks.frx":70146
+            Picture         =   "frmBlocks.frx":6A9F6
             Style           =   1  'Graphical
             TabIndex        =   377
             Top             =   240
@@ -4995,7 +4995,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   342
             Left            =   3120
-            Picture         =   "frmBlocks.frx":70540
+            Picture         =   "frmBlocks.frx":6ADF0
             Style           =   1  'Graphical
             TabIndex        =   376
             Top             =   240
@@ -5006,7 +5006,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   341
             Left            =   3720
-            Picture         =   "frmBlocks.frx":708FC
+            Picture         =   "frmBlocks.frx":6B1AC
             Style           =   1  'Graphical
             TabIndex        =   375
             Top             =   240
@@ -5017,7 +5017,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   340
             Left            =   2520
-            Picture         =   "frmBlocks.frx":70CF4
+            Picture         =   "frmBlocks.frx":6B5A4
             Style           =   1  'Graphical
             TabIndex        =   374
             Top             =   240
@@ -5028,7 +5028,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   339
             Left            =   4320
-            Picture         =   "frmBlocks.frx":710B1
+            Picture         =   "frmBlocks.frx":6B961
             Style           =   1  'Graphical
             TabIndex        =   373
             Top             =   840
@@ -5039,7 +5039,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   338
             Left            =   3120
-            Picture         =   "frmBlocks.frx":7122E
+            Picture         =   "frmBlocks.frx":6BADE
             Style           =   1  'Graphical
             TabIndex        =   372
             Top             =   840
@@ -5050,7 +5050,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   337
             Left            =   3720
-            Picture         =   "frmBlocks.frx":71645
+            Picture         =   "frmBlocks.frx":6BEF5
             Style           =   1  'Graphical
             TabIndex        =   371
             Top             =   840
@@ -5061,7 +5061,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   336
             Left            =   2520
-            Picture         =   "frmBlocks.frx":717CA
+            Picture         =   "frmBlocks.frx":6C07A
             Style           =   1  'Graphical
             TabIndex        =   370
             Top             =   840
@@ -5072,7 +5072,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   44
             Left            =   1320
-            Picture         =   "frmBlocks.frx":71BE2
+            Picture         =   "frmBlocks.frx":6C492
             Style           =   1  'Graphical
             TabIndex        =   237
             Top             =   1440
@@ -5083,7 +5083,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   43
             Left            =   720
-            Picture         =   "frmBlocks.frx":72824
+            Picture         =   "frmBlocks.frx":6D0D4
             Style           =   1  'Graphical
             TabIndex        =   236
             Top             =   1440
@@ -5094,7 +5094,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   42
             Left            =   120
-            Picture         =   "frmBlocks.frx":73466
+            Picture         =   "frmBlocks.frx":6DD16
             Style           =   1  'Graphical
             TabIndex        =   235
             Top             =   1440
@@ -5105,7 +5105,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   46
             Left            =   1920
-            Picture         =   "frmBlocks.frx":740A8
+            Picture         =   "frmBlocks.frx":6E958
             Style           =   1  'Graphical
             TabIndex        =   234
             Top             =   840
@@ -5116,7 +5116,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   45
             Left            =   1920
-            Picture         =   "frmBlocks.frx":74CEA
+            Picture         =   "frmBlocks.frx":6F59A
             Style           =   1  'Graphical
             TabIndex        =   233
             Top             =   240
@@ -5127,7 +5127,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   41
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7592C
+            Picture         =   "frmBlocks.frx":701DC
             Style           =   1  'Graphical
             TabIndex        =   232
             Top             =   240
@@ -5138,7 +5138,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   39
             Left            =   120
-            Picture         =   "frmBlocks.frx":7656E
+            Picture         =   "frmBlocks.frx":70E1E
             Style           =   1  'Graphical
             TabIndex        =   231
             Top             =   240
@@ -5150,7 +5150,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   40
             Left            =   720
-            Picture         =   "frmBlocks.frx":771B0
+            Picture         =   "frmBlocks.frx":71A60
             Style           =   1  'Graphical
             TabIndex        =   230
             Top             =   240
@@ -5161,7 +5161,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   198
             Left            =   120
-            Picture         =   "frmBlocks.frx":77DF2
+            Picture         =   "frmBlocks.frx":726A2
             Style           =   1  'Graphical
             TabIndex        =   229
             Top             =   840
@@ -5172,7 +5172,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   199
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7824B
+            Picture         =   "frmBlocks.frx":72AFB
             Style           =   1  'Graphical
             TabIndex        =   228
             Top             =   840
@@ -5183,7 +5183,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   200
             Left            =   720
-            Picture         =   "frmBlocks.frx":786BE
+            Picture         =   "frmBlocks.frx":72F6E
             Style           =   1  'Graphical
             TabIndex        =   227
             Top             =   840
@@ -5203,7 +5203,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   206
             Left            =   1920
-            Picture         =   "frmBlocks.frx":78B18
+            Picture         =   "frmBlocks.frx":733C8
             Style           =   1  'Graphical
             TabIndex        =   226
             Top             =   1440
@@ -5214,7 +5214,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   201
             Left            =   720
-            Picture         =   "frmBlocks.frx":78FB3
+            Picture         =   "frmBlocks.frx":73863
             Style           =   1  'Graphical
             TabIndex        =   225
             Top             =   240
@@ -5225,7 +5225,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   203
             Left            =   120
-            Picture         =   "frmBlocks.frx":793F8
+            Picture         =   "frmBlocks.frx":73CA8
             Style           =   1  'Graphical
             TabIndex        =   224
             Top             =   840
@@ -5236,7 +5236,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   204
             Left            =   1320
-            Picture         =   "frmBlocks.frx":79854
+            Picture         =   "frmBlocks.frx":74104
             Style           =   1  'Graphical
             TabIndex        =   223
             Top             =   840
@@ -5247,7 +5247,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   205
             Left            =   720
-            Picture         =   "frmBlocks.frx":79CC2
+            Picture         =   "frmBlocks.frx":74572
             Style           =   1  'Graphical
             TabIndex        =   222
             Top             =   840
@@ -5258,7 +5258,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   207
             Left            =   120
-            Picture         =   "frmBlocks.frx":7A0D7
+            Picture         =   "frmBlocks.frx":74987
             Style           =   1  'Graphical
             TabIndex        =   221
             Top             =   240
@@ -5269,7 +5269,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   208
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7A542
+            Picture         =   "frmBlocks.frx":74DF2
             Style           =   1  'Graphical
             TabIndex        =   220
             Top             =   240
@@ -5280,7 +5280,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   211
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7A9BE
+            Picture         =   "frmBlocks.frx":7526E
             Style           =   1  'Graphical
             TabIndex        =   219
             Top             =   240
@@ -5291,7 +5291,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   212
             Left            =   2520
-            Picture         =   "frmBlocks.frx":7ADCE
+            Picture         =   "frmBlocks.frx":7567E
             Style           =   1  'Graphical
             TabIndex        =   218
             Top             =   240
@@ -5302,7 +5302,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   213
             Left            =   720
-            Picture         =   "frmBlocks.frx":7B1D3
+            Picture         =   "frmBlocks.frx":75A83
             Style           =   1  'Graphical
             TabIndex        =   217
             Top             =   1440
@@ -5313,7 +5313,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   214
             Left            =   120
-            Picture         =   "frmBlocks.frx":7B621
+            Picture         =   "frmBlocks.frx":75ED1
             Style           =   1  'Graphical
             TabIndex        =   216
             Top             =   1440
@@ -5324,7 +5324,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   215
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7BA8C
+            Picture         =   "frmBlocks.frx":7633C
             Style           =   1  'Graphical
             TabIndex        =   215
             Top             =   1440
@@ -5335,7 +5335,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   216
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7BED0
+            Picture         =   "frmBlocks.frx":76780
             Style           =   1  'Graphical
             TabIndex        =   214
             Top             =   840
@@ -5355,7 +5355,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   574
             Left            =   2520
-            Picture         =   "frmBlocks.frx":7C304
+            Picture         =   "frmBlocks.frx":76BB4
             Style           =   1  'Graphical
             TabIndex        =   702
             Top             =   840
@@ -5366,7 +5366,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   573
             Left            =   2520
-            Picture         =   "frmBlocks.frx":7C72B
+            Picture         =   "frmBlocks.frx":76FDB
             Style           =   1  'Graphical
             TabIndex        =   701
             Top             =   240
@@ -5377,7 +5377,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   505
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7CB5B
+            Picture         =   "frmBlocks.frx":7740B
             Style           =   1  'Graphical
             TabIndex        =   614
             Top             =   840
@@ -5388,7 +5388,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   509
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7CF4B
+            Picture         =   "frmBlocks.frx":777FB
             Style           =   1  'Graphical
             TabIndex        =   612
             Top             =   1440
@@ -5399,7 +5399,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   392
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7D370
+            Picture         =   "frmBlocks.frx":77C20
             Style           =   1  'Graphical
             TabIndex        =   519
             Top             =   240
@@ -5410,7 +5410,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   391
             Left            =   720
-            Picture         =   "frmBlocks.frx":7D768
+            Picture         =   "frmBlocks.frx":78018
             Style           =   1  'Graphical
             TabIndex        =   518
             Top             =   240
@@ -5421,7 +5421,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   389
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7DB83
+            Picture         =   "frmBlocks.frx":78433
             Style           =   1  'Graphical
             TabIndex        =   517
             Top             =   240
@@ -5432,7 +5432,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   298
             Left            =   720
-            Picture         =   "frmBlocks.frx":7DFA5
+            Picture         =   "frmBlocks.frx":78855
             Style           =   1  'Graphical
             TabIndex        =   356
             Top             =   1440
@@ -5443,7 +5443,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   297
             Left            =   720
-            Picture         =   "frmBlocks.frx":7E3FC
+            Picture         =   "frmBlocks.frx":78CAC
             Style           =   1  'Graphical
             TabIndex        =   355
             Top             =   840
@@ -5454,7 +5454,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   131
             Left            =   1320
-            Picture         =   "frmBlocks.frx":7E851
+            Picture         =   "frmBlocks.frx":79101
             Style           =   1  'Graphical
             TabIndex        =   211
             Top             =   840
@@ -5465,7 +5465,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   202
             Left            =   120
-            Picture         =   "frmBlocks.frx":7EC68
+            Picture         =   "frmBlocks.frx":79518
             Style           =   1  'Graphical
             TabIndex        =   210
             Top             =   840
@@ -5476,7 +5476,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   209
             Left            =   120
-            Picture         =   "frmBlocks.frx":7F0C2
+            Picture         =   "frmBlocks.frx":79972
             Style           =   1  'Graphical
             TabIndex        =   209
             Top             =   240
@@ -5487,7 +5487,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   210
             Left            =   120
-            Picture         =   "frmBlocks.frx":7F512
+            Picture         =   "frmBlocks.frx":79DC2
             Style           =   1  'Graphical
             TabIndex        =   208
             Top             =   1440
@@ -5507,7 +5507,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   288
             Left            =   1920
-            Picture         =   "frmBlocks.frx":7F969
+            Picture         =   "frmBlocks.frx":7A219
             Style           =   1  'Graphical
             TabIndex        =   343
             Top             =   240
@@ -5529,7 +5529,7 @@ Begin VB.Form frmBlocks
             Index           =   243
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":7FF68
+            Picture         =   "frmBlocks.frx":7A818
             Style           =   1  'Graphical
             TabIndex        =   206
             Top             =   240
@@ -5551,7 +5551,7 @@ Begin VB.Form frmBlocks
             Index           =   242
             Left            =   720
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":80592
+            Picture         =   "frmBlocks.frx":7AE42
             Style           =   1  'Graphical
             TabIndex        =   205
             Top             =   240
@@ -5573,7 +5573,7 @@ Begin VB.Form frmBlocks
             Index           =   38
             Left            =   120
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":80BC2
+            Picture         =   "frmBlocks.frx":7B472
             Style           =   1  'Graphical
             TabIndex        =   204
             Top             =   240
@@ -5602,7 +5602,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   599
             Left            =   1320
-            Picture         =   "frmBlocks.frx":811E2
+            Picture         =   "frmBlocks.frx":7BA92
             Style           =   1  'Graphical
             TabIndex        =   735
             Top             =   1440
@@ -5613,7 +5613,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   598
             Left            =   120
-            Picture         =   "frmBlocks.frx":8162E
+            Picture         =   "frmBlocks.frx":7BEDE
             Style           =   1  'Graphical
             TabIndex        =   733
             Top             =   1440
@@ -5624,7 +5624,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   578
             Left            =   720
-            Picture         =   "frmBlocks.frx":81A6C
+            Picture         =   "frmBlocks.frx":7C31C
             Style           =   1  'Graphical
             TabIndex        =   731
             Top             =   1440
@@ -5635,7 +5635,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   594
             Left            =   3120
-            Picture         =   "frmBlocks.frx":81E88
+            Picture         =   "frmBlocks.frx":7C738
             Style           =   1  'Graphical
             TabIndex        =   730
             Top             =   1440
@@ -5646,7 +5646,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   593
             Left            =   2520
-            Picture         =   "frmBlocks.frx":82253
+            Picture         =   "frmBlocks.frx":7CB03
             Style           =   1  'Graphical
             TabIndex        =   729
             Top             =   1440
@@ -5657,7 +5657,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   592
             Left            =   1920
-            Picture         =   "frmBlocks.frx":825EA
+            Picture         =   "frmBlocks.frx":7CE9A
             Style           =   1  'Graphical
             TabIndex        =   728
             Top             =   1440
@@ -5668,7 +5668,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   591
             Left            =   3120
-            Picture         =   "frmBlocks.frx":829C0
+            Picture         =   "frmBlocks.frx":7D270
             Style           =   1  'Graphical
             TabIndex        =   727
             Top             =   840
@@ -5679,7 +5679,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   590
             Left            =   2520
-            Picture         =   "frmBlocks.frx":82D67
+            Picture         =   "frmBlocks.frx":7D617
             Style           =   1  'Graphical
             TabIndex        =   726
             Top             =   840
@@ -5690,7 +5690,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   589
             Left            =   1920
-            Picture         =   "frmBlocks.frx":830CB
+            Picture         =   "frmBlocks.frx":7D97B
             Style           =   1  'Graphical
             TabIndex        =   725
             Top             =   840
@@ -5701,7 +5701,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   588
             Left            =   3120
-            Picture         =   "frmBlocks.frx":8346D
+            Picture         =   "frmBlocks.frx":7DD1D
             Style           =   1  'Graphical
             TabIndex        =   724
             Top             =   240
@@ -5712,7 +5712,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   587
             Left            =   2520
-            Picture         =   "frmBlocks.frx":8382E
+            Picture         =   "frmBlocks.frx":7E0DE
             Style           =   1  'Graphical
             TabIndex        =   723
             Top             =   240
@@ -5723,7 +5723,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   586
             Left            =   1920
-            Picture         =   "frmBlocks.frx":83BAC
+            Picture         =   "frmBlocks.frx":7E45C
             Style           =   1  'Graphical
             TabIndex        =   722
             Top             =   240
@@ -5734,7 +5734,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   585
             Left            =   1320
-            Picture         =   "frmBlocks.frx":83F5D
+            Picture         =   "frmBlocks.frx":7E80D
             Style           =   1  'Graphical
             TabIndex        =   721
             Top             =   840
@@ -5745,7 +5745,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   584
             Left            =   720
-            Picture         =   "frmBlocks.frx":843A9
+            Picture         =   "frmBlocks.frx":7EC59
             Style           =   1  'Graphical
             TabIndex        =   720
             Top             =   840
@@ -5756,7 +5756,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   583
             Left            =   120
-            Picture         =   "frmBlocks.frx":847E6
+            Picture         =   "frmBlocks.frx":7F096
             Style           =   1  'Graphical
             TabIndex        =   719
             Top             =   840
@@ -5767,7 +5767,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   582
             Left            =   1320
-            Picture         =   "frmBlocks.frx":84C2C
+            Picture         =   "frmBlocks.frx":7F4DC
             Style           =   1  'Graphical
             TabIndex        =   718
             Top             =   240
@@ -5778,7 +5778,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   581
             Left            =   720
-            Picture         =   "frmBlocks.frx":85069
+            Picture         =   "frmBlocks.frx":7F919
             Style           =   1  'Graphical
             TabIndex        =   717
             Top             =   240
@@ -5789,7 +5789,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   580
             Left            =   120
-            Picture         =   "frmBlocks.frx":854A1
+            Picture         =   "frmBlocks.frx":7FD51
             Style           =   1  'Graphical
             TabIndex        =   716
             Top             =   240
@@ -5968,7 +5968,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   364
             Left            =   4920
-            Picture         =   "frmBlocks.frx":858E1
+            Picture         =   "frmBlocks.frx":80191
             Style           =   1  'Graphical
             TabIndex        =   399
             Top             =   840
@@ -5979,7 +5979,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   363
             Left            =   3720
-            Picture         =   "frmBlocks.frx":85CA6
+            Picture         =   "frmBlocks.frx":80556
             Style           =   1  'Graphical
             TabIndex        =   398
             Top             =   840
@@ -5990,7 +5990,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   362
             Left            =   3120
-            Picture         =   "frmBlocks.frx":860CB
+            Picture         =   "frmBlocks.frx":8097B
             Style           =   1  'Graphical
             TabIndex        =   397
             Top             =   840
@@ -6001,7 +6001,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   361
             Left            =   4320
-            Picture         =   "frmBlocks.frx":864D6
+            Picture         =   "frmBlocks.frx":80D86
             Style           =   1  'Graphical
             TabIndex        =   396
             Top             =   840
@@ -6012,7 +6012,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   360
             Left            =   4920
-            Picture         =   "frmBlocks.frx":86898
+            Picture         =   "frmBlocks.frx":81148
             Style           =   1  'Graphical
             TabIndex        =   395
             Top             =   240
@@ -6023,7 +6023,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   359
             Left            =   3720
-            Picture         =   "frmBlocks.frx":86C69
+            Picture         =   "frmBlocks.frx":81519
             Style           =   1  'Graphical
             TabIndex        =   394
             Top             =   240
@@ -6034,7 +6034,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   358
             Left            =   3120
-            Picture         =   "frmBlocks.frx":87074
+            Picture         =   "frmBlocks.frx":81924
             Style           =   1  'Graphical
             TabIndex        =   393
             Top             =   240
@@ -6045,7 +6045,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   357
             Left            =   4320
-            Picture         =   "frmBlocks.frx":87492
+            Picture         =   "frmBlocks.frx":81D42
             Style           =   1  'Graphical
             TabIndex        =   392
             Top             =   240
@@ -6056,7 +6056,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   356
             Left            =   2520
-            Picture         =   "frmBlocks.frx":87860
+            Picture         =   "frmBlocks.frx":82110
             Style           =   1  'Graphical
             TabIndex        =   391
             Top             =   840
@@ -6067,7 +6067,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   355
             Left            =   1920
-            Picture         =   "frmBlocks.frx":87C8E
+            Picture         =   "frmBlocks.frx":8253E
             Style           =   1  'Graphical
             TabIndex        =   390
             Top             =   840
@@ -6078,7 +6078,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   354
             Left            =   2520
-            Picture         =   "frmBlocks.frx":880C3
+            Picture         =   "frmBlocks.frx":82973
             Style           =   1  'Graphical
             TabIndex        =   389
             Top             =   240
@@ -6089,7 +6089,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   353
             Left            =   1920
-            Picture         =   "frmBlocks.frx":884F0
+            Picture         =   "frmBlocks.frx":82DA0
             Style           =   1  'Graphical
             TabIndex        =   388
             Top             =   240
@@ -6100,7 +6100,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   352
             Left            =   1320
-            Picture         =   "frmBlocks.frx":88915
+            Picture         =   "frmBlocks.frx":831C5
             Style           =   1  'Graphical
             TabIndex        =   387
             Top             =   1440
@@ -6111,7 +6111,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   351
             Left            =   720
-            Picture         =   "frmBlocks.frx":88D76
+            Picture         =   "frmBlocks.frx":83626
             Style           =   1  'Graphical
             TabIndex        =   386
             Top             =   1440
@@ -6122,7 +6122,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   350
             Left            =   120
-            Picture         =   "frmBlocks.frx":891B2
+            Picture         =   "frmBlocks.frx":83A62
             Style           =   1  'Graphical
             TabIndex        =   385
             Top             =   1440
@@ -6133,7 +6133,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   349
             Left            =   1320
-            Picture         =   "frmBlocks.frx":8960C
+            Picture         =   "frmBlocks.frx":83EBC
             Style           =   1  'Graphical
             TabIndex        =   384
             Top             =   840
@@ -6144,7 +6144,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   348
             Left            =   720
-            Picture         =   "frmBlocks.frx":89A4C
+            Picture         =   "frmBlocks.frx":842FC
             Style           =   1  'Graphical
             TabIndex        =   383
             Top             =   840
@@ -6155,7 +6155,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   347
             Left            =   120
-            Picture         =   "frmBlocks.frx":89E5E
+            Picture         =   "frmBlocks.frx":8470E
             Style           =   1  'Graphical
             TabIndex        =   382
             Top             =   840
@@ -6166,7 +6166,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   346
             Left            =   1320
-            Picture         =   "frmBlocks.frx":8A2A4
+            Picture         =   "frmBlocks.frx":84B54
             Style           =   1  'Graphical
             TabIndex        =   381
             Top             =   240
@@ -6177,7 +6177,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   345
             Left            =   720
-            Picture         =   "frmBlocks.frx":8A6EB
+            Picture         =   "frmBlocks.frx":84F9B
             Style           =   1  'Graphical
             TabIndex        =   380
             Top             =   240
@@ -6188,7 +6188,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   344
             Left            =   120
-            Picture         =   "frmBlocks.frx":8AB32
+            Picture         =   "frmBlocks.frx":853E2
             Style           =   1  'Graphical
             TabIndex        =   379
             Top             =   240
@@ -6208,7 +6208,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   634
             Left            =   2520
-            Picture         =   "frmBlocks.frx":8AF7E
+            Picture         =   "frmBlocks.frx":8582E
             Style           =   1  'Graphical
             TabIndex        =   774
             Top             =   240
@@ -6220,7 +6220,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   633
             Left            =   1920
-            Picture         =   "frmBlocks.frx":8B412
+            Picture         =   "frmBlocks.frx":85CC2
             Style           =   1  'Graphical
             TabIndex        =   773
             Top             =   240
@@ -6231,7 +6231,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   270
             Left            =   120
-            Picture         =   "frmBlocks.frx":8B857
+            Picture         =   "frmBlocks.frx":86107
             Style           =   1  'Graphical
             TabIndex        =   325
             Top             =   240
@@ -6242,7 +6242,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   271
             Left            =   1320
-            Picture         =   "frmBlocks.frx":8BC84
+            Picture         =   "frmBlocks.frx":86534
             Style           =   1  'Graphical
             TabIndex        =   324
             Top             =   240
@@ -6253,7 +6253,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   272
             Left            =   720
-            Picture         =   "frmBlocks.frx":8C0B2
+            Picture         =   "frmBlocks.frx":86962
             Style           =   1  'Graphical
             TabIndex        =   323
             Top             =   240
@@ -6273,7 +6273,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   221
             Left            =   120
-            Picture         =   "frmBlocks.frx":8C4B6
+            Picture         =   "frmBlocks.frx":86D66
             Style           =   1  'Graphical
             TabIndex        =   198
             Top             =   840
@@ -6284,7 +6284,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   220
             Left            =   720
-            Picture         =   "frmBlocks.frx":8C8BC
+            Picture         =   "frmBlocks.frx":8716C
             Style           =   1  'Graphical
             TabIndex        =   197
             Top             =   240
@@ -6295,7 +6295,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   219
             Left            =   120
-            Picture         =   "frmBlocks.frx":8CCC2
+            Picture         =   "frmBlocks.frx":87572
             Style           =   1  'Graphical
             TabIndex        =   196
             Top             =   240
@@ -6306,7 +6306,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   218
             Left            =   720
-            Picture         =   "frmBlocks.frx":8D0C6
+            Picture         =   "frmBlocks.frx":87976
             Style           =   1  'Graphical
             TabIndex        =   195
             Top             =   1440
@@ -6317,7 +6317,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   217
             Left            =   120
-            Picture         =   "frmBlocks.frx":8D47B
+            Picture         =   "frmBlocks.frx":87D2B
             Style           =   1  'Graphical
             TabIndex        =   194
             Top             =   1440
@@ -6328,7 +6328,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   222
             Left            =   720
-            Picture         =   "frmBlocks.frx":8D885
+            Picture         =   "frmBlocks.frx":88135
             Style           =   1  'Graphical
             TabIndex        =   193
             Top             =   840
@@ -6348,7 +6348,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   406
             Left            =   720
-            Picture         =   "frmBlocks.frx":8DC8C
+            Picture         =   "frmBlocks.frx":8853C
             Style           =   1  'Graphical
             TabIndex        =   570
             Top             =   840
@@ -6359,7 +6359,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   267
             Left            =   720
-            Picture         =   "frmBlocks.frx":8DFF0
+            Picture         =   "frmBlocks.frx":888A0
             Style           =   1  'Graphical
             TabIndex        =   304
             Top             =   1440
@@ -6370,7 +6370,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   268
             Left            =   120
-            Picture         =   "frmBlocks.frx":8E3E0
+            Picture         =   "frmBlocks.frx":88C90
             Style           =   1  'Graphical
             TabIndex        =   303
             Top             =   840
@@ -6381,7 +6381,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   269
             Left            =   120
-            Picture         =   "frmBlocks.frx":8E811
+            Picture         =   "frmBlocks.frx":890C1
             Style           =   1  'Graphical
             TabIndex        =   302
             Top             =   1440
@@ -6392,7 +6392,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   30
             Left            =   720
-            Picture         =   "frmBlocks.frx":8EC00
+            Picture         =   "frmBlocks.frx":894B0
             Style           =   1  'Graphical
             TabIndex        =   181
             Top             =   240
@@ -6403,7 +6403,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   110
             Left            =   120
-            Picture         =   "frmBlocks.frx":8F842
+            Picture         =   "frmBlocks.frx":8A0F2
             Style           =   1  'Graphical
             TabIndex        =   101
             Top             =   240
@@ -6414,7 +6414,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   109
             Left            =   1320
-            Picture         =   "frmBlocks.frx":8FC6B
+            Picture         =   "frmBlocks.frx":8A51B
             Style           =   1  'Graphical
             TabIndex        =   100
             Top             =   240
@@ -6434,7 +6434,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   132
             Left            =   3120
-            Picture         =   "frmBlocks.frx":90093
+            Picture         =   "frmBlocks.frx":8A943
             Style           =   1  'Graphical
             TabIndex        =   734
             Top             =   240
@@ -6445,7 +6445,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   572
             Left            =   3120
-            Picture         =   "frmBlocks.frx":904B3
+            Picture         =   "frmBlocks.frx":8AD63
             Style           =   1  'Graphical
             TabIndex        =   708
             Top             =   1440
@@ -6456,7 +6456,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   457
             Left            =   3120
-            Picture         =   "frmBlocks.frx":908AE
+            Picture         =   "frmBlocks.frx":8B15E
             Style           =   1  'Graphical
             TabIndex        =   576
             Top             =   840
@@ -6467,7 +6467,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   458
             Left            =   2520
-            Picture         =   "frmBlocks.frx":909D0
+            Picture         =   "frmBlocks.frx":8B280
             Style           =   1  'Graphical
             TabIndex        =   575
             Top             =   240
@@ -6478,7 +6478,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   168
             Left            =   1320
-            Picture         =   "frmBlocks.frx":90ADF
+            Picture         =   "frmBlocks.frx":8B38F
             Style           =   1  'Graphical
             TabIndex        =   411
             Top             =   1440
@@ -6489,7 +6489,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   8
             Left            =   120
-            Picture         =   "frmBlocks.frx":90E8E
+            Picture         =   "frmBlocks.frx":8B73E
             Style           =   1  'Graphical
             TabIndex        =   410
             Top             =   240
@@ -6500,7 +6500,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   290
             Left            =   120
-            Picture         =   "frmBlocks.frx":91AD0
+            Picture         =   "frmBlocks.frx":8C380
             Style           =   1  'Graphical
             TabIndex        =   347
             Top             =   840
@@ -6511,7 +6511,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   289
             Left            =   1320
-            Picture         =   "frmBlocks.frx":91EC2
+            Picture         =   "frmBlocks.frx":8C772
             Style           =   1  'Graphical
             TabIndex        =   346
             Top             =   840
@@ -6522,7 +6522,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   280
             Left            =   720
-            Picture         =   "frmBlocks.frx":922AC
+            Picture         =   "frmBlocks.frx":8CB5C
             Style           =   1  'Graphical
             TabIndex        =   333
             Top             =   240
@@ -6533,7 +6533,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   107
             Left            =   720
-            Picture         =   "frmBlocks.frx":92696
+            Picture         =   "frmBlocks.frx":8CF46
             Style           =   1  'Graphical
             TabIndex        =   202
             Top             =   840
@@ -6544,7 +6544,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   106
             Left            =   120
-            Picture         =   "frmBlocks.frx":92AAB
+            Picture         =   "frmBlocks.frx":8D35B
             Style           =   1  'Graphical
             TabIndex        =   201
             Top             =   1440
@@ -6555,7 +6555,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   105
             Left            =   720
-            Picture         =   "frmBlocks.frx":92E58
+            Picture         =   "frmBlocks.frx":8D708
             Style           =   1  'Graphical
             TabIndex        =   200
             Top             =   1440
@@ -6566,7 +6566,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   184
             Left            =   1920
-            Picture         =   "frmBlocks.frx":9329B
+            Picture         =   "frmBlocks.frx":8DB4B
             Style           =   1  'Graphical
             TabIndex        =   167
             Top             =   1440
@@ -6577,7 +6577,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   223
             Left            =   2520
-            Picture         =   "frmBlocks.frx":936DE
+            Picture         =   "frmBlocks.frx":8DF8E
             Style           =   1  'Graphical
             TabIndex        =   166
             Top             =   1440
@@ -6588,7 +6588,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   187
             Left            =   1320
-            Picture         =   "frmBlocks.frx":93B07
+            Picture         =   "frmBlocks.frx":8E3B7
             Style           =   1  'Graphical
             TabIndex        =   159
             Top             =   240
@@ -6599,7 +6599,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   160
             Left            =   2520
-            Picture         =   "frmBlocks.frx":93F23
+            Picture         =   "frmBlocks.frx":8E7D3
             Style           =   1  'Graphical
             TabIndex        =   142
             Top             =   840
@@ -6610,7 +6610,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   112
             Left            =   1920
-            Picture         =   "frmBlocks.frx":9432A
+            Picture         =   "frmBlocks.frx":8EBDA
             Style           =   1  'Graphical
             TabIndex        =   94
             Top             =   240
@@ -6621,7 +6621,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   111
             Left            =   1920
-            Picture         =   "frmBlocks.frx":94743
+            Picture         =   "frmBlocks.frx":8EFF3
             Style           =   1  'Graphical
             TabIndex        =   93
             Top             =   840
@@ -6640,7 +6640,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   638
             Left            =   4320
-            Picture         =   "frmBlocks.frx":94AE9
+            Picture         =   "frmBlocks.frx":8F399
             Style           =   1  'Graphical
             TabIndex        =   779
             Top             =   840
@@ -6651,7 +6651,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   637
             Left            =   4320
-            Picture         =   "frmBlocks.frx":94BBE
+            Picture         =   "frmBlocks.frx":8F46E
             Style           =   1  'Graphical
             TabIndex        =   778
             Top             =   240
@@ -6661,7 +6661,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   636
             Left            =   3720
-            Picture         =   "frmBlocks.frx":94CBC
+            Picture         =   "frmBlocks.frx":8F56C
             Style           =   1  'Graphical
             TabIndex        =   777
             Top             =   840
@@ -6671,7 +6671,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   635
             Left            =   3720
-            Picture         =   "frmBlocks.frx":94D93
+            Picture         =   "frmBlocks.frx":8F643
             Style           =   1  'Graphical
             TabIndex        =   776
             Top             =   240
@@ -6681,7 +6681,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   286
             Left            =   1920
-            Picture         =   "frmBlocks.frx":94E92
+            Picture         =   "frmBlocks.frx":8F742
             Style           =   1  'Graphical
             TabIndex        =   342
             Top             =   1440
@@ -6691,7 +6691,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   285
             Left            =   2520
-            Picture         =   "frmBlocks.frx":952C6
+            Picture         =   "frmBlocks.frx":8FB76
             Style           =   1  'Graphical
             TabIndex        =   341
             Top             =   1440
@@ -6701,7 +6701,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   284
             Left            =   3120
-            Picture         =   "frmBlocks.frx":956C9
+            Picture         =   "frmBlocks.frx":8FF79
             Style           =   1  'Graphical
             TabIndex        =   340
             Top             =   1440
@@ -6711,7 +6711,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   167
             Left            =   3120
-            Picture         =   "frmBlocks.frx":95AE6
+            Picture         =   "frmBlocks.frx":90396
             Style           =   1  'Graphical
             TabIndex        =   190
             Top             =   840
@@ -6721,7 +6721,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   162
             Left            =   1920
-            Picture         =   "frmBlocks.frx":95F19
+            Picture         =   "frmBlocks.frx":907C9
             Style           =   1  'Graphical
             TabIndex        =   189
             Top             =   240
@@ -6731,7 +6731,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   163
             Left            =   2520
-            Picture         =   "frmBlocks.frx":96336
+            Picture         =   "frmBlocks.frx":90BE6
             Style           =   1  'Graphical
             TabIndex        =   188
             Top             =   240
@@ -6741,7 +6741,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   164
             Left            =   3120
-            Picture         =   "frmBlocks.frx":96739
+            Picture         =   "frmBlocks.frx":90FE9
             Style           =   1  'Graphical
             TabIndex        =   187
             Top             =   240
@@ -6751,7 +6751,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   165
             Left            =   1920
-            Picture         =   "frmBlocks.frx":96B63
+            Picture         =   "frmBlocks.frx":91413
             Style           =   1  'Graphical
             TabIndex        =   186
             Top             =   840
@@ -6761,7 +6761,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   166
             Left            =   2520
-            Picture         =   "frmBlocks.frx":96F85
+            Picture         =   "frmBlocks.frx":91835
             Style           =   1  'Graphical
             TabIndex        =   185
             Top             =   840
@@ -6771,7 +6771,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   102
             Left            =   1320
-            Picture         =   "frmBlocks.frx":97381
+            Picture         =   "frmBlocks.frx":91C31
             Style           =   1  'Graphical
             TabIndex        =   90
             Top             =   1440
@@ -6781,7 +6781,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   101
             Left            =   720
-            Picture         =   "frmBlocks.frx":977AE
+            Picture         =   "frmBlocks.frx":9205E
             Style           =   1  'Graphical
             TabIndex        =   89
             Top             =   1440
@@ -6791,7 +6791,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   100
             Left            =   120
-            Picture         =   "frmBlocks.frx":97BCD
+            Picture         =   "frmBlocks.frx":9247D
             Style           =   1  'Graphical
             TabIndex        =   88
             Top             =   1440
@@ -6801,7 +6801,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   99
             Left            =   1320
-            Picture         =   "frmBlocks.frx":9800D
+            Picture         =   "frmBlocks.frx":928BD
             Style           =   1  'Graphical
             TabIndex        =   87
             Top             =   840
@@ -6811,7 +6811,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   98
             Left            =   720
-            Picture         =   "frmBlocks.frx":9843A
+            Picture         =   "frmBlocks.frx":92CEA
             Style           =   1  'Graphical
             TabIndex        =   86
             Top             =   840
@@ -6821,7 +6821,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   97
             Left            =   120
-            Picture         =   "frmBlocks.frx":98848
+            Picture         =   "frmBlocks.frx":930F8
             Style           =   1  'Graphical
             TabIndex        =   85
             Top             =   840
@@ -6831,7 +6831,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   96
             Left            =   1320
-            Picture         =   "frmBlocks.frx":98C6D
+            Picture         =   "frmBlocks.frx":9351D
             Style           =   1  'Graphical
             TabIndex        =   84
             Top             =   240
@@ -6841,7 +6841,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   95
             Left            =   720
-            Picture         =   "frmBlocks.frx":990A0
+            Picture         =   "frmBlocks.frx":93950
             Style           =   1  'Graphical
             TabIndex        =   83
             Top             =   240
@@ -6851,7 +6851,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   94
             Left            =   120
-            Picture         =   "frmBlocks.frx":994AC
+            Picture         =   "frmBlocks.frx":93D5C
             Style           =   1  'Graphical
             TabIndex        =   82
             Top             =   240
@@ -6871,7 +6871,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   614
             Left            =   1320
-            Picture         =   "frmBlocks.frx":998D7
+            Picture         =   "frmBlocks.frx":94187
             Style           =   1  'Graphical
             TabIndex        =   750
             Top             =   1440
@@ -6882,7 +6882,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   613
             Left            =   720
-            Picture         =   "frmBlocks.frx":99CDE
+            Picture         =   "frmBlocks.frx":9458E
             Style           =   1  'Graphical
             TabIndex        =   749
             Top             =   1440
@@ -6893,7 +6893,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   185
             Left            =   1920
-            Picture         =   "frmBlocks.frx":9A098
+            Picture         =   "frmBlocks.frx":94948
             Style           =   1  'Graphical
             TabIndex        =   199
             Top             =   840
@@ -6904,7 +6904,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   77
             Left            =   1320
-            Picture         =   "frmBlocks.frx":9A493
+            Picture         =   "frmBlocks.frx":94D43
             Style           =   1  'Graphical
             TabIndex        =   76
             Top             =   840
@@ -6915,7 +6915,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   76
             Left            =   1920
-            Picture         =   "frmBlocks.frx":9B0D5
+            Picture         =   "frmBlocks.frx":95985
             Style           =   1  'Graphical
             TabIndex        =   75
             Top             =   1440
@@ -6927,7 +6927,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   75
             Left            =   120
-            Picture         =   "frmBlocks.frx":9BD17
+            Picture         =   "frmBlocks.frx":965C7
             Style           =   1  'Graphical
             TabIndex        =   74
             Top             =   1440
@@ -6938,7 +6938,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   74
             Left            =   120
-            Picture         =   "frmBlocks.frx":9C959
+            Picture         =   "frmBlocks.frx":97209
             Style           =   1  'Graphical
             TabIndex        =   73
             Top             =   840
@@ -6949,7 +6949,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   73
             Left            =   120
-            Picture         =   "frmBlocks.frx":9D59B
+            Picture         =   "frmBlocks.frx":97E4B
             Style           =   1  'Graphical
             TabIndex        =   72
             Top             =   240
@@ -6960,7 +6960,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   72
             Left            =   1920
-            Picture         =   "frmBlocks.frx":9E1DD
+            Picture         =   "frmBlocks.frx":98A8D
             Style           =   1  'Graphical
             TabIndex        =   71
             Top             =   240
@@ -6971,7 +6971,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   71
             Left            =   1320
-            Picture         =   "frmBlocks.frx":9EE1F
+            Picture         =   "frmBlocks.frx":996CF
             Style           =   1  'Graphical
             TabIndex        =   70
             Top             =   240
@@ -6982,7 +6982,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   70
             Left            =   720
-            Picture         =   "frmBlocks.frx":9FA61
+            Picture         =   "frmBlocks.frx":9A311
             Style           =   1  'Graphical
             TabIndex        =   69
             Top             =   240
@@ -6993,7 +6993,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   78
             Left            =   720
-            Picture         =   "frmBlocks.frx":A06A3
+            Picture         =   "frmBlocks.frx":9AF53
             Style           =   1  'Graphical
             TabIndex        =   68
             Top             =   840
@@ -7013,7 +7013,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   612
             Left            =   2520
-            Picture         =   "frmBlocks.frx":A0A60
+            Picture         =   "frmBlocks.frx":9B310
             Style           =   1  'Graphical
             TabIndex        =   748
             Top             =   840
@@ -7024,7 +7024,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   611
             Left            =   1920
-            Picture         =   "frmBlocks.frx":A0E4B
+            Picture         =   "frmBlocks.frx":9B6FB
             Style           =   1  'Graphical
             TabIndex        =   747
             Top             =   840
@@ -7035,7 +7035,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   610
             Left            =   1320
-            Picture         =   "frmBlocks.frx":A123B
+            Picture         =   "frmBlocks.frx":9BAEB
             Style           =   1  'Graphical
             TabIndex        =   746
             Top             =   240
@@ -7046,7 +7046,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   609
             Left            =   1320
-            Picture         =   "frmBlocks.frx":A1653
+            Picture         =   "frmBlocks.frx":9BF03
             Style           =   1  'Graphical
             TabIndex        =   745
             Top             =   1440
@@ -7057,7 +7057,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   608
             Left            =   120
-            Picture         =   "frmBlocks.frx":A1A5A
+            Picture         =   "frmBlocks.frx":9C30A
             Style           =   1  'Graphical
             TabIndex        =   744
             Top             =   1440
@@ -7068,7 +7068,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   54
             Left            =   720
-            Picture         =   "frmBlocks.frx":A1E6E
+            Picture         =   "frmBlocks.frx":9C71E
             Style           =   1  'Graphical
             TabIndex        =   60
             Top             =   840
@@ -7079,7 +7079,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   53
             Left            =   2520
-            Picture         =   "frmBlocks.frx":A2AB0
+            Picture         =   "frmBlocks.frx":9D360
             Style           =   1  'Graphical
             TabIndex        =   59
             Top             =   1440
@@ -7090,7 +7090,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   52
             Left            =   720
-            Picture         =   "frmBlocks.frx":A36F2
+            Picture         =   "frmBlocks.frx":9DFA2
             Style           =   1  'Graphical
             TabIndex        =   58
             Top             =   240
@@ -7101,7 +7101,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   51
             Left            =   1920
-            Picture         =   "frmBlocks.frx":A4334
+            Picture         =   "frmBlocks.frx":9EBE4
             Style           =   1  'Graphical
             TabIndex        =   57
             Top             =   1440
@@ -7112,7 +7112,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   50
             Left            =   120
-            Picture         =   "frmBlocks.frx":A4F76
+            Picture         =   "frmBlocks.frx":9F826
             Style           =   1  'Graphical
             TabIndex        =   56
             Top             =   840
@@ -7123,7 +7123,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   49
             Left            =   120
-            Picture         =   "frmBlocks.frx":A5BB8
+            Picture         =   "frmBlocks.frx":A0468
             Style           =   1  'Graphical
             TabIndex        =   55
             Top             =   240
@@ -7134,7 +7134,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   48
             Left            =   720
-            Picture         =   "frmBlocks.frx":A67FA
+            Picture         =   "frmBlocks.frx":A10AA
             Style           =   1  'Graphical
             TabIndex        =   54
             Top             =   1440
@@ -7145,7 +7145,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   47
             Left            =   1320
-            Picture         =   "frmBlocks.frx":A743C
+            Picture         =   "frmBlocks.frx":A1CEC
             Style           =   1  'Graphical
             TabIndex        =   53
             Top             =   840
@@ -7165,7 +7165,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   630
             Left            =   720
-            Picture         =   "frmBlocks.frx":A807E
+            Picture         =   "frmBlocks.frx":A292E
             Style           =   1  'Graphical
             TabIndex        =   768
             Top             =   840
@@ -7177,7 +7177,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   91
             Left            =   720
-            Picture         =   "frmBlocks.frx":A84B3
+            Picture         =   "frmBlocks.frx":A2D63
             Style           =   1  'Graphical
             TabIndex        =   332
             Top             =   240
@@ -7188,7 +7188,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   136
             Left            =   120
-            Picture         =   "frmBlocks.frx":A8865
+            Picture         =   "frmBlocks.frx":A3115
             Style           =   1  'Graphical
             TabIndex        =   102
             Top             =   1440
@@ -7199,7 +7199,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   126
             Left            =   120
-            Picture         =   "frmBlocks.frx":A8C98
+            Picture         =   "frmBlocks.frx":A3548
             Style           =   1  'Graphical
             TabIndex        =   98
             Top             =   840
@@ -7210,7 +7210,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   29
             Left            =   120
-            Picture         =   "frmBlocks.frx":A90CB
+            Picture         =   "frmBlocks.frx":A397B
             Style           =   1  'Graphical
             TabIndex        =   41
             Top             =   240
@@ -7230,7 +7230,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   579
             Left            =   1920
-            Picture         =   "frmBlocks.frx":A9D0D
+            Picture         =   "frmBlocks.frx":A45BD
             Style           =   1  'Graphical
             TabIndex        =   732
             Top             =   1440
@@ -7241,7 +7241,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   575
             Left            =   1920
-            Picture         =   "frmBlocks.frx":AA122
+            Picture         =   "frmBlocks.frx":A49D2
             Style           =   1  'Graphical
             TabIndex        =   704
             Top             =   240
@@ -7252,7 +7252,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   568
             Left            =   1920
-            Picture         =   "frmBlocks.frx":AA501
+            Picture         =   "frmBlocks.frx":A4DB1
             Style           =   1  'Graphical
             TabIndex        =   703
             Top             =   840
@@ -7263,7 +7263,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   130
             Left            =   720
-            Picture         =   "frmBlocks.frx":AA8FB
+            Picture         =   "frmBlocks.frx":A51AB
             Style           =   1  'Graphical
             TabIndex        =   180
             Top             =   1440
@@ -7274,7 +7274,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   108
             Left            =   120
-            Picture         =   "frmBlocks.frx":AAD91
+            Picture         =   "frmBlocks.frx":A5641
             Style           =   1  'Graphical
             TabIndex        =   179
             Top             =   1440
@@ -7296,7 +7296,7 @@ Begin VB.Form frmBlocks
             Index           =   260
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":AB194
+            Picture         =   "frmBlocks.frx":A5A44
             Style           =   1  'Graphical
             TabIndex        =   177
             Top             =   1440
@@ -7318,7 +7318,7 @@ Begin VB.Form frmBlocks
             Index           =   240
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":AB809
+            Picture         =   "frmBlocks.frx":A60B9
             Style           =   1  'Graphical
             TabIndex        =   176
             Top             =   240
@@ -7340,7 +7340,7 @@ Begin VB.Form frmBlocks
             Index           =   241
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":ABDC4
+            Picture         =   "frmBlocks.frx":A6674
             Style           =   1  'Graphical
             TabIndex        =   175
             Top             =   840
@@ -7351,7 +7351,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   26
             Left            =   720
-            Picture         =   "frmBlocks.frx":AC400
+            Picture         =   "frmBlocks.frx":A6CB0
             Style           =   1  'Graphical
             TabIndex        =   39
             Top             =   240
@@ -7373,7 +7373,7 @@ Begin VB.Form frmBlocks
             Index           =   25
             Left            =   120
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":AC8BC
+            Picture         =   "frmBlocks.frx":A716C
             Style           =   1  'Graphical
             TabIndex        =   38
             Top             =   240
@@ -7384,7 +7384,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   27
             Left            =   120
-            Picture         =   "frmBlocks.frx":ACD7C
+            Picture         =   "frmBlocks.frx":A762C
             Style           =   1  'Graphical
             TabIndex        =   37
             Top             =   840
@@ -7395,7 +7395,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   28
             Left            =   720
-            Picture         =   "frmBlocks.frx":AD241
+            Picture         =   "frmBlocks.frx":A7AF1
             Style           =   1  'Graphical
             TabIndex        =   36
             Top             =   840
@@ -7426,7 +7426,7 @@ Begin VB.Form frmBlocks
             Index           =   621
             Left            =   1920
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":AD6CD
+            Picture         =   "frmBlocks.frx":A7F7D
             Style           =   1  'Graphical
             TabIndex        =   757
             Top             =   240
@@ -7437,7 +7437,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   620
             Left            =   1920
-            Picture         =   "frmBlocks.frx":ADB24
+            Picture         =   "frmBlocks.frx":A83D4
             Style           =   1  'Graphical
             TabIndex        =   756
             Top             =   840
@@ -7448,7 +7448,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   186
             Left            =   720
-            Picture         =   "frmBlocks.frx":ADF97
+            Picture         =   "frmBlocks.frx":A8847
             Style           =   1  'Graphical
             TabIndex        =   191
             Top             =   1440
@@ -7459,7 +7459,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   225
             Left            =   720
-            Picture         =   "frmBlocks.frx":AE3C0
+            Picture         =   "frmBlocks.frx":A8C70
             Style           =   1  'Graphical
             TabIndex        =   184
             Top             =   840
@@ -7470,7 +7470,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   224
             Left            =   120
-            Picture         =   "frmBlocks.frx":AE79C
+            Picture         =   "frmBlocks.frx":A904C
             Style           =   1  'Graphical
             TabIndex        =   183
             Top             =   840
@@ -7481,7 +7481,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   226
             Left            =   1320
-            Picture         =   "frmBlocks.frx":AEBAC
+            Picture         =   "frmBlocks.frx":A945C
             Style           =   1  'Graphical
             TabIndex        =   182
             Top             =   840
@@ -7492,7 +7492,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   159
             Left            =   1320
-            Picture         =   "frmBlocks.frx":AEFC9
+            Picture         =   "frmBlocks.frx":A9879
             Style           =   1  'Graphical
             TabIndex        =   141
             Top             =   1440
@@ -7503,7 +7503,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   55
             Left            =   120
-            Picture         =   "frmBlocks.frx":AF400
+            Picture         =   "frmBlocks.frx":A9CB0
             Style           =   1  'Graphical
             TabIndex        =   62
             Top             =   1440
@@ -7514,7 +7514,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   2
             Left            =   720
-            Picture         =   "frmBlocks.frx":B0042
+            Picture         =   "frmBlocks.frx":AA8F2
             Style           =   1  'Graphical
             TabIndex        =   34
             Top             =   240
@@ -7536,7 +7536,7 @@ Begin VB.Form frmBlocks
             Index           =   4
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":B0C84
+            Picture         =   "frmBlocks.frx":AB534
             Style           =   1  'Graphical
             TabIndex        =   33
             Top             =   240
@@ -7547,7 +7547,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   5
             Left            =   120
-            Picture         =   "frmBlocks.frx":B18C6
+            Picture         =   "frmBlocks.frx":AC176
             Style           =   1  'Graphical
             TabIndex        =   32
             Top             =   240
@@ -7567,7 +7567,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   571
             Left            =   3720
-            Picture         =   "frmBlocks.frx":B2508
+            Picture         =   "frmBlocks.frx":ACDB8
             Style           =   1  'Graphical
             TabIndex        =   707
             Top             =   840
@@ -7578,7 +7578,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   570
             Left            =   3720
-            Picture         =   "frmBlocks.frx":B2930
+            Picture         =   "frmBlocks.frx":AD1E0
             Style           =   1  'Graphical
             TabIndex        =   706
             Top             =   1440
@@ -7589,7 +7589,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   569
             Left            =   3120
-            Picture         =   "frmBlocks.frx":B2CC0
+            Picture         =   "frmBlocks.frx":AD570
             Style           =   1  'Graphical
             TabIndex        =   705
             Top             =   1440
@@ -7600,7 +7600,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   296
             Left            =   2520
-            Picture         =   "frmBlocks.frx":B307B
+            Picture         =   "frmBlocks.frx":AD92B
             Style           =   1  'Graphical
             TabIndex        =   352
             Top             =   1440
@@ -7611,7 +7611,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   295
             Left            =   2520
-            Picture         =   "frmBlocks.frx":B34A3
+            Picture         =   "frmBlocks.frx":ADD53
             Style           =   1  'Graphical
             TabIndex        =   351
             Top             =   840
@@ -7622,7 +7622,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   294
             Left            =   3120
-            Picture         =   "frmBlocks.frx":B38B7
+            Picture         =   "frmBlocks.frx":AE167
             Style           =   1  'Graphical
             TabIndex        =   350
             Top             =   840
@@ -7633,7 +7633,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   182
             Left            =   1920
-            Picture         =   "frmBlocks.frx":B3CDB
+            Picture         =   "frmBlocks.frx":AE58B
             Style           =   1  'Graphical
             TabIndex        =   168
             Top             =   1440
@@ -7644,7 +7644,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   103
             Left            =   1920
-            Picture         =   "frmBlocks.frx":B411B
+            Picture         =   "frmBlocks.frx":AE9CB
             Style           =   1  'Graphical
             TabIndex        =   158
             Top             =   240
@@ -7655,7 +7655,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   104
             Left            =   1920
-            Picture         =   "frmBlocks.frx":B44EA
+            Picture         =   "frmBlocks.frx":AED9A
             Style           =   1  'Graphical
             TabIndex        =   157
             Top             =   840
@@ -7666,7 +7666,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   36
             Left            =   1320
-            Picture         =   "frmBlocks.frx":B48BD
+            Picture         =   "frmBlocks.frx":AF16D
             Style           =   1  'Graphical
             TabIndex        =   49
             Top             =   240
@@ -7677,7 +7677,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   35
             Left            =   720
-            Picture         =   "frmBlocks.frx":B4C8C
+            Picture         =   "frmBlocks.frx":AF53C
             Style           =   1  'Graphical
             TabIndex        =   48
             Top             =   840
@@ -7688,7 +7688,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   34
             Left            =   720
-            Picture         =   "frmBlocks.frx":B505F
+            Picture         =   "frmBlocks.frx":AF90F
             Style           =   1  'Graphical
             TabIndex        =   47
             Top             =   240
@@ -7699,7 +7699,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   37
             Left            =   1320
-            Picture         =   "frmBlocks.frx":B542E
+            Picture         =   "frmBlocks.frx":AFCDE
             Style           =   1  'Graphical
             TabIndex        =   46
             Top             =   840
@@ -7710,7 +7710,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   32
             Left            =   720
-            Picture         =   "frmBlocks.frx":B5801
+            Picture         =   "frmBlocks.frx":B00B1
             Style           =   1  'Graphical
             TabIndex        =   45
             Top             =   1440
@@ -7721,7 +7721,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   31
             Left            =   120
-            Picture         =   "frmBlocks.frx":B6443
+            Picture         =   "frmBlocks.frx":B0CF3
             Style           =   1  'Graphical
             TabIndex        =   44
             Top             =   1440
@@ -7732,7 +7732,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   33
             Left            =   1320
-            Picture         =   "frmBlocks.frx":B7085
+            Picture         =   "frmBlocks.frx":B1935
             Style           =   1  'Graphical
             TabIndex        =   43
             Top             =   1440
@@ -7743,7 +7743,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   24
             Left            =   3120
-            Picture         =   "frmBlocks.frx":B7CC7
+            Picture         =   "frmBlocks.frx":B2577
             Style           =   1  'Graphical
             TabIndex        =   30
             Top             =   240
@@ -7754,7 +7754,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   23
             Left            =   2520
-            Picture         =   "frmBlocks.frx":B8057
+            Picture         =   "frmBlocks.frx":B2907
             Style           =   1  'Graphical
             TabIndex        =   29
             Top             =   240
@@ -7765,7 +7765,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   22
             Left            =   120
-            Picture         =   "frmBlocks.frx":B840D
+            Picture         =   "frmBlocks.frx":B2CBD
             Style           =   1  'Graphical
             TabIndex        =   28
             Top             =   840
@@ -7776,7 +7776,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   21
             Left            =   120
-            Picture         =   "frmBlocks.frx":B87E0
+            Picture         =   "frmBlocks.frx":B3090
             Style           =   1  'Graphical
             TabIndex        =   27
             Top             =   240
@@ -7796,7 +7796,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   607
             Left            =   5520
-            Picture         =   "frmBlocks.frx":B8BAF
+            Picture         =   "frmBlocks.frx":B345F
             Style           =   1  'Graphical
             TabIndex        =   743
             Top             =   840
@@ -7808,7 +7808,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   606
             Left            =   4920
-            Picture         =   "frmBlocks.frx":B8CA6
+            Picture         =   "frmBlocks.frx":B3556
             Style           =   1  'Graphical
             TabIndex        =   742
             Top             =   840
@@ -7819,7 +7819,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   605
             Left            =   5520
-            Picture         =   "frmBlocks.frx":B8D97
+            Picture         =   "frmBlocks.frx":B3647
             Style           =   1  'Graphical
             TabIndex        =   741
             Top             =   240
@@ -7830,7 +7830,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   604
             Left            =   4920
-            Picture         =   "frmBlocks.frx":B8E59
+            Picture         =   "frmBlocks.frx":B3709
             Style           =   1  'Graphical
             TabIndex        =   740
             Top             =   240
@@ -7841,7 +7841,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   603
             Left            =   4320
-            Picture         =   "frmBlocks.frx":B8F1B
+            Picture         =   "frmBlocks.frx":B37CB
             Style           =   1  'Graphical
             TabIndex        =   739
             Top             =   840
@@ -7852,7 +7852,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   602
             Left            =   3720
-            Picture         =   "frmBlocks.frx":B900F
+            Picture         =   "frmBlocks.frx":B38BF
             Style           =   1  'Graphical
             TabIndex        =   738
             Top             =   840
@@ -7863,7 +7863,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   601
             Left            =   4320
-            Picture         =   "frmBlocks.frx":B9104
+            Picture         =   "frmBlocks.frx":B39B4
             Style           =   1  'Graphical
             TabIndex        =   737
             Top             =   240
@@ -7874,7 +7874,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   600
             Left            =   3720
-            Picture         =   "frmBlocks.frx":B91F5
+            Picture         =   "frmBlocks.frx":B3AA5
             Style           =   1  'Graphical
             TabIndex        =   736
             Top             =   240
@@ -7885,7 +7885,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   596
             Left            =   2520
-            Picture         =   "frmBlocks.frx":B92E1
+            Picture         =   "frmBlocks.frx":B3B91
             Style           =   1  'Graphical
             TabIndex        =   713
             Top             =   1440
@@ -7896,7 +7896,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   595
             Left            =   1920
-            Picture         =   "frmBlocks.frx":B96A6
+            Picture         =   "frmBlocks.frx":B3F56
             Style           =   1  'Graphical
             TabIndex        =   712
             Top             =   1440
@@ -7907,7 +7907,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   597
             Left            =   3120
-            Picture         =   "frmBlocks.frx":B9A89
+            Picture         =   "frmBlocks.frx":B4339
             Style           =   1  'Graphical
             TabIndex        =   711
             Top             =   1440
@@ -7918,7 +7918,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   275
             Left            =   1320
-            Picture         =   "frmBlocks.frx":B9E63
+            Picture         =   "frmBlocks.frx":B4713
             Style           =   1  'Graphical
             TabIndex        =   328
             Top             =   1440
@@ -7929,7 +7929,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   274
             Left            =   120
-            Picture         =   "frmBlocks.frx":BA263
+            Picture         =   "frmBlocks.frx":B4B13
             Style           =   1  'Graphical
             TabIndex        =   327
             Top             =   1440
@@ -7940,7 +7940,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   276
             Left            =   720
-            Picture         =   "frmBlocks.frx":BA673
+            Picture         =   "frmBlocks.frx":B4F23
             Style           =   1  'Graphical
             TabIndex        =   326
             Top             =   1440
@@ -7951,7 +7951,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   1
             Left            =   1920
-            Picture         =   "frmBlocks.frx":BAA51
+            Picture         =   "frmBlocks.frx":B5301
             Style           =   1  'Graphical
             TabIndex        =   178
             Top             =   840
@@ -7962,7 +7962,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   129
             Left            =   3120
-            Picture         =   "frmBlocks.frx":BB693
+            Picture         =   "frmBlocks.frx":B5F43
             Style           =   1  'Graphical
             TabIndex        =   97
             Top             =   240
@@ -7973,7 +7973,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   128
             Left            =   1920
-            Picture         =   "frmBlocks.frx":BBACA
+            Picture         =   "frmBlocks.frx":B637A
             Style           =   1  'Graphical
             TabIndex        =   96
             Top             =   240
@@ -7984,7 +7984,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   127
             Left            =   2520
-            Picture         =   "frmBlocks.frx":BBEFF
+            Picture         =   "frmBlocks.frx":B67AF
             Style           =   1  'Graphical
             TabIndex        =   95
             Top             =   240
@@ -7995,7 +7995,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   92
             Left            =   2520
-            Picture         =   "frmBlocks.frx":BC308
+            Picture         =   "frmBlocks.frx":B6BB8
             Style           =   1  'Graphical
             TabIndex        =   79
             Top             =   840
@@ -8017,7 +8017,7 @@ Begin VB.Form frmBlocks
             Index           =   17
             Left            =   1320
             MaskColor       =   &H00000000&
-            Picture         =   "frmBlocks.frx":BC74F
+            Picture         =   "frmBlocks.frx":B6FFF
             Style           =   1  'Graphical
             TabIndex        =   25
             Top             =   840
@@ -8028,7 +8028,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   16
             Left            =   720
-            Picture         =   "frmBlocks.frx":BD391
+            Picture         =   "frmBlocks.frx":B7C41
             Style           =   1  'Graphical
             TabIndex        =   24
             Top             =   840
@@ -8039,7 +8039,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   15
             Left            =   120
-            Picture         =   "frmBlocks.frx":BDFD3
+            Picture         =   "frmBlocks.frx":B8883
             Style           =   1  'Graphical
             TabIndex        =   23
             Top             =   840
@@ -8050,7 +8050,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   3
             Left            =   720
-            Picture         =   "frmBlocks.frx":BEC15
+            Picture         =   "frmBlocks.frx":B94C5
             Style           =   1  'Graphical
             TabIndex        =   22
             Top             =   240
@@ -8061,7 +8061,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   6
             Left            =   1320
-            Picture         =   "frmBlocks.frx":BF857
+            Picture         =   "frmBlocks.frx":BA107
             Style           =   1  'Graphical
             TabIndex        =   21
             Top             =   240
@@ -8072,7 +8072,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   7
             Left            =   120
-            Picture         =   "frmBlocks.frx":C0499
+            Picture         =   "frmBlocks.frx":BAD49
             Style           =   1  'Graphical
             TabIndex        =   20
             Top             =   240
@@ -8092,7 +8092,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   305
             Left            =   1920
-            Picture         =   "frmBlocks.frx":C10DB
+            Picture         =   "frmBlocks.frx":BB98B
             Style           =   1  'Graphical
             TabIndex        =   409
             Top             =   240
@@ -8103,7 +8103,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   306
             Left            =   3120
-            Picture         =   "frmBlocks.frx":C14D7
+            Picture         =   "frmBlocks.frx":BBD87
             Style           =   1  'Graphical
             TabIndex        =   408
             Top             =   240
@@ -8114,7 +8114,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   307
             Left            =   2520
-            Picture         =   "frmBlocks.frx":C1892
+            Picture         =   "frmBlocks.frx":BC142
             Style           =   1  'Graphical
             TabIndex        =   407
             Top             =   240
@@ -8125,7 +8125,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   308
             Left            =   3720
-            Picture         =   "frmBlocks.frx":C1C8D
+            Picture         =   "frmBlocks.frx":BC53D
             Style           =   1  'Graphical
             TabIndex        =   406
             Top             =   240
@@ -8136,7 +8136,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   314
             Left            =   3720
-            Picture         =   "frmBlocks.frx":C2048
+            Picture         =   "frmBlocks.frx":BC8F8
             Style           =   1  'Graphical
             TabIndex        =   405
             Top             =   840
@@ -8147,7 +8147,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   311
             Left            =   1920
-            Picture         =   "frmBlocks.frx":C2405
+            Picture         =   "frmBlocks.frx":BCCB5
             Style           =   1  'Graphical
             TabIndex        =   404
             Top             =   840
@@ -8158,7 +8158,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   312
             Left            =   3120
-            Picture         =   "frmBlocks.frx":C2806
+            Picture         =   "frmBlocks.frx":BD0B6
             Style           =   1  'Graphical
             TabIndex        =   403
             Top             =   840
@@ -8169,7 +8169,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   313
             Left            =   2520
-            Picture         =   "frmBlocks.frx":C2BC1
+            Picture         =   "frmBlocks.frx":BD471
             Style           =   1  'Graphical
             TabIndex        =   402
             Top             =   840
@@ -8180,7 +8180,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   278
             Left            =   720
-            Picture         =   "frmBlocks.frx":C2FBF
+            Picture         =   "frmBlocks.frx":BD86F
             Style           =   1  'Graphical
             TabIndex        =   331
             Top             =   1440
@@ -8191,7 +8191,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   277
             Left            =   1320
-            Picture         =   "frmBlocks.frx":C33CD
+            Picture         =   "frmBlocks.frx":BDC7D
             Style           =   1  'Graphical
             TabIndex        =   330
             Top             =   1440
@@ -8202,7 +8202,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   279
             Left            =   120
-            Picture         =   "frmBlocks.frx":C37EA
+            Picture         =   "frmBlocks.frx":BE09A
             Style           =   1  'Graphical
             TabIndex        =   329
             Top             =   1440
@@ -8213,7 +8213,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   20
             Left            =   1320
-            Picture         =   "frmBlocks.frx":C3C1E
+            Picture         =   "frmBlocks.frx":BE4CE
             Style           =   1  'Graphical
             TabIndex        =   18
             Top             =   840
@@ -8224,7 +8224,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   19
             Left            =   720
-            Picture         =   "frmBlocks.frx":C4860
+            Picture         =   "frmBlocks.frx":BF110
             Style           =   1  'Graphical
             TabIndex        =   17
             Top             =   840
@@ -8235,7 +8235,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   18
             Left            =   120
-            Picture         =   "frmBlocks.frx":C54A2
+            Picture         =   "frmBlocks.frx":BFD52
             Style           =   1  'Graphical
             TabIndex        =   16
             Top             =   840
@@ -8246,7 +8246,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   14
             Left            =   3120
-            Picture         =   "frmBlocks.frx":C60E4
+            Picture         =   "frmBlocks.frx":C0994
             Style           =   1  'Graphical
             TabIndex        =   15
             Top             =   1440
@@ -8257,7 +8257,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   13
             Left            =   2520
-            Picture         =   "frmBlocks.frx":C6D26
+            Picture         =   "frmBlocks.frx":C15D6
             Style           =   1  'Graphical
             TabIndex        =   14
             Top             =   1440
@@ -8268,7 +8268,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   12
             Left            =   1920
-            Picture         =   "frmBlocks.frx":C7968
+            Picture         =   "frmBlocks.frx":C2218
             Style           =   1  'Graphical
             TabIndex        =   13
             Top             =   1440
@@ -8279,7 +8279,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   11
             Left            =   1320
-            Picture         =   "frmBlocks.frx":C85AA
+            Picture         =   "frmBlocks.frx":C2E5A
             Style           =   1  'Graphical
             TabIndex        =   12
             Top             =   240
@@ -8290,7 +8290,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   9
             Left            =   120
-            Picture         =   "frmBlocks.frx":C91EC
+            Picture         =   "frmBlocks.frx":C3A9C
             Style           =   1  'Graphical
             TabIndex        =   11
             Top             =   240
@@ -8302,7 +8302,7 @@ Begin VB.Form frmBlocks
             Height          =   540
             Index           =   10
             Left            =   720
-            Picture         =   "frmBlocks.frx":C9E2E
+            Picture         =   "frmBlocks.frx":C46DE
             Style           =   1  'Graphical
             TabIndex        =   10
             Top             =   240
@@ -8489,19 +8489,19 @@ Attribute VB_Exposed = False
 Dim BlockSD As Integer
 Dim StopIt As Boolean
 
-Private Sub Block_Click(Index As Integer)
+Private Sub Block_Click(index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    If BlockIsSizable(Index) Then
+    If BlockIsSizable(index) Then
         chkFill.Enabled = False
     Else
         chkFill.Enabled = True
     End If
     For A = 1 To Block.Count
-        If Index <> A Then Block(A).Value = False
+        If index <> A Then Block(A).Value = False
     Next A
-    If Index = 5 Or Index = 88 Or Index = 193 Or Index = 224 Then
+    If index = 5 Or index = 88 Or index = 193 Or index = 224 Then
         optBlockS.Value = -1
     Else
         optBlockS.Value = 0
@@ -8510,7 +8510,7 @@ Private Sub Block_Click(Index As Integer)
     chkFill.Value = 0
     cmdInvis.Caption = "No"
     cmdSlip.Caption = "No"
-    If Index = 189 Or Index = 190 Or Index = 191 Or Index = 270 Or Index = 271 Or Index = 272 Or Index = 620 Or Index = 621 Or Index = 633 Or Index = 634 Or Index = 241 Or Index = 242 Then
+    If index = 189 Or index = 190 Or index = 191 Or index = 270 Or index = 271 Or index = 272 Or index = 620 Or index = 621 Or index = 633 Or index = 634 Or index = 241 Or index = 242 Then
         cmdSlip.Caption = "Yes"
     End If
 End Sub
@@ -8612,17 +8612,17 @@ Private Sub optBlockS_Scroll()
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optBlockSpecial_Click(Index As Integer)
+Private Sub optBlockSpecial_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optGame_Click(Index As Integer)
+Private Sub optGame_Click(index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To Game.Count - 1
-        If A = Index Then
+        If A = index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False
@@ -8630,11 +8630,11 @@ Private Sub optGame_Click(Index As Integer)
     Next A
 End Sub
 
-Private Sub optMisc_Click(Index As Integer)
+Private Sub optMisc_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To Misc.Count - 1
-        If A = Index Then
+        If A = index Then
             Misc(A).Visible = True
         Else
             Misc(A).Visible = False
@@ -8643,11 +8643,11 @@ Private Sub optMisc_Click(Index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMW_Click(Index As Integer)
+Private Sub optSMW_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMW.Count - 1
-        If A = Index Then
+        If A = index Then
             SMW(A).Visible = True
         Else
             SMW(A).Visible = False
@@ -8656,11 +8656,11 @@ Private Sub optSMW_Click(Index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB3_Click(Index As Integer)
+Private Sub optSMB3_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB3.Count - 1
-        If A = Index Then
+        If A = index Then
             SMB3(A).Visible = True
         Else
             SMB3(A).Visible = False
@@ -8669,11 +8669,11 @@ Private Sub optSMB3_Click(Index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB2_Click(Index As Integer)
+Private Sub optSMB2_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB2.Count - 1
-        If A = Index Then
+        If A = index Then
             SMB2(A).Visible = True
         Else
             SMB2(A).Visible = False
@@ -8682,11 +8682,11 @@ Private Sub optSMB2_Click(Index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB1_Click(Index As Integer)
+Private Sub optSMB1_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB1.Count - 1
-        If A = Index Then
+        If A = index Then
             SMB1(A).Visible = True
         Else
             SMB1(A).Visible = False
@@ -8696,14 +8696,14 @@ Private Sub optSMB1_Click(Index As Integer)
 End Sub
 
 
-Private Sub qBlockS_Click(Index As Integer)
+Private Sub qBlockS_Click(index As Integer)
     On Error Resume Next
-    optBlockS.Value = Index
+    optBlockS.Value = index
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub qCoin_Click(Index As Integer)
-    optBlockS.Value = -Index
+Private Sub qCoin_Click(index As Integer)
+    optBlockS.Value = -index
 End Sub
 
 Public Sub CheckBlock()

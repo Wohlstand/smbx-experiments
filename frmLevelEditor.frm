@@ -712,22 +712,22 @@ Private Sub mnuWorldEditor_Click()
     End If
 End Sub
 
-Private Sub optCursor_Click(Index As Integer)
+Private Sub optCursor_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     EditorCursor.Selected = 0
     EditorCursor.SelectedMode = 0
     For A = 1 To optCursor.Count
-        If Index <> A Then optCursor(A).Value = False
+        If index <> A Then optCursor(A).Value = False
     Next A
-    If Index = 1 Then
+    If index = 1 Then
         frmBlocks.Show
         frmBlocks.FocusNinja.SetFocus
     Else
         frmBlocks.Hide
         frmAdvancedBlock.Hide
     End If
-    If Index = 2 Then
+    If index = 2 Then
         frmLevelSettings.optLevel(0).Value = False
         frmLevelSettings.optLevel(1).Value = False
         frmLevelSettings.optLevel(2).Value = False
@@ -739,13 +739,13 @@ Private Sub optCursor_Click(Index As Integer)
     Else
         frmLevelSettings.Hide
     End If
-    If Index = 3 Then
+    If index = 3 Then
         frmBackgrounds.Show
         frmBackgrounds.FocusNinja.SetFocus
     Else
         frmBackgrounds.Hide
     End If
-    If Index = 4 Then
+    If index = 4 Then
         frmNPCs.Show
         frmNPCs.FocusNinja.SetFocus
     Else
@@ -754,55 +754,55 @@ Private Sub optCursor_Click(Index As Integer)
         Unload frmAdvanced
         Unload frmNPCAdvanced
     End If
-    If Index = 5 Then
+    If index = 5 Then
         frmWarp.Show
         frmWarp.FocusNinja.SetFocus
     Else
         frmWarp.Hide
     End If
-    If Index = 7 Then
+    If index = 7 Then
         frmTiles.Show
         frmTiles.FocusNinja.SetFocus
     Else
         frmTiles.Hide
     End If
-    If Index = 8 Then
+    If index = 8 Then
         frmScene.Show
         frmScene.FocusNinja.SetFocus
     Else
         frmScene.Hide
     End If
-    If Index = 9 Then
+    If index = 9 Then
         frmLevels.Show
         frmLevels.FocusNinja.SetFocus
     Else
         frmLevels.Hide
     End If
-    If Index = 10 Then
+    If index = 10 Then
         frmPaths.Show
         frmPaths.FocusNinja.SetFocus
     Else
         frmPaths.Hide
     End If
-    If Index = 11 Then
+    If index = 11 Then
         frmMusic.Show
         frmMusic.FocusNinja.SetFocus
     Else
         frmMusic.Hide
     End If
-    If Index = 12 Then
+    If index = 12 Then
         frmWorld.Show
         frmWorld.FocusNinja.SetFocus
     Else
         frmWorld.Hide
     End If
-    If Index = 15 Then
+    If index = 15 Then
         frmWater.Show
         'frmWater.FocusNinja.SetFocus
     Else
         frmWater.Hide
     End If
-    If Index = 0 Or Index = 6 Or Index = 13 Or Index = 14 Then
+    If index = 0 Or index = 6 Or index = 13 Or index = 14 Then
         frmLevelWindow.SetFocus
     End If
 End Sub

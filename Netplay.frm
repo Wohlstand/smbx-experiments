@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "mswinsck.ocx"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.ocx"
 Begin VB.Form Netplay 
    BorderStyle     =   0  'None
    Caption         =   "NetPlay"
@@ -475,44 +475,44 @@ cCheck:
     nPlay.ServerLocked = False
 End Sub
 
-Private Sub nServer_Close(Index As Integer)
-    nPlay.ClientCon(Index) = False
-    If nPlay.ClientName(Index) = "" Then nPlay.ClientName(Index) = nPlay.ClientIP(Index)
-    Netplay.sendData "d" & nPlay.ClientName(Index) & " has disconnected." & LB
-    frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(Index) & " has disconnected." & LB
+Private Sub nServer_Close(index As Integer)
+    nPlay.ClientCon(index) = False
+    If nPlay.ClientName(index) = "" Then nPlay.ClientName(index) = nPlay.ClientIP(index)
+    Netplay.sendData "d" & nPlay.ClientName(index) & " has disconnected." & LB
+    frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(index) & " has disconnected." & LB
     frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
     PlaySound 47
     SoundPause(47) = 2
-    DropClient Index
+    DropClient index
 End Sub
 
-Private Sub nServer_ConnectionRequest(Index As Integer, ByVal requestID As Long)
+Private Sub nServer_ConnectionRequest(index As Integer, ByVal requestID As Long)
     Dim tempStr As String
     Dim A As Integer
-    tmrTimeout(Index).Enabled = True
-    If nServer(Index).State <> sckClosed Then nServer(Index).Close
-    nServer(Index).Accept requestID
+    tmrTimeout(index).Enabled = True
+    If nServer(index).State <> sckClosed Then nServer(index).Close
+    nServer(index).Accept requestID
     nPlay.Online = True
-    nPlay.ClientCon(Index) = True
+    nPlay.ClientCon(index) = True
     If tmrPingC.Enabled = False Then tmrPingC.Enabled = True
     tmrPort.Enabled = False
     For A = 1 To 15
-        If A <> Index Then
+        If A <> index Then
             If nServer(A).State = sckClosed Then
-                nServer(A).LocalPort = nServer(Index).LocalPort
+                nServer(A).LocalPort = nServer(index).LocalPort
                 nServer(A).Listen
                 Exit For
             End If
         End If
     Next A
-    nPlay.ClientIP(Index) = nServer(Index).RemoteHostIP
-    nPlay.ClientName(Index) = ""
-    nPlay.ClientPassword(Index) = False
-    frmLevelEditor.menuTestLevel.Enabled = True
-    setsockopt nServer(Index).SocketHandle, IPPROTO_TCP, TCP_NODELAY, 1, 4
+    nPlay.ClientIP(index) = nServer(index).RemoteHostIP
+    nPlay.ClientName(index) = ""
+    nPlay.ClientPassword(index) = False
+    frmLevelEditor.MenuTestLevel.Enabled = True
+    setsockopt nServer(index).SocketHandle, IPPROTO_TCP, TCP_NODELAY, 1, 4
 End Sub
 
-Private Sub nServer_DataArrival(Index As Integer, ByVal bytesTotal As Long)
+Private Sub nServer_DataArrival(index As Integer, ByVal bytesTotal As Long)
     On Error Resume Next
     Dim newStr As String
     Dim tempStr As String
@@ -522,18 +522,18 @@ Private Sub nServer_DataArrival(Index As Integer, ByVal bytesTotal As Long)
     Dim Z As Double
     Dim tempBool As Boolean
     Dim loopCount As Integer
-    tmrTimeout(Index).Enabled = False
-    tmrTimeout(Index).Enabled = True
-    nServer(Index).GetData tempStr
-    nPlay.ClientStr(Index) = nPlay.ClientStr(Index) & tempStr
-    If nPlay.ClientLocked(Index) = True Then Exit Sub
-    nPlay.ClientLocked(Index) = True
+    tmrTimeout(index).Enabled = False
+    tmrTimeout(index).Enabled = True
+    nServer(index).GetData tempStr
+    nPlay.ClientStr(index) = nPlay.ClientStr(index) & tempStr
+    If nPlay.ClientLocked(index) = True Then Exit Sub
+    nPlay.ClientLocked(index) = True
 sCheck:
     A = 0
-    A = InStrRev(nPlay.ClientStr(Index), LB, , vbBinaryCompare)
+    A = InStrRev(nPlay.ClientStr(index), LB, , vbBinaryCompare)
     If A > 0 Then
-        workStr = Left$(nPlay.ClientStr(Index), A + 1)
-        nPlay.ClientStr(Index) = Mid$(nPlay.ClientStr(Index), A + 2)
+        workStr = Left$(nPlay.ClientStr(index), A + 1)
+        nPlay.ClientStr(index) = Mid$(nPlay.ClientStr(index), A + 2)
         Z = 1
         Do
             A = InStr(Z, workStr, LB, vbBinaryCompare)
@@ -543,23 +543,23 @@ sCheck:
                 Do While AscW(newStr) = 10 Or AscW(newStr) = 13
                     newStr = Right$(newStr, Len(newStr) - 1)
                 Loop
-                newData Mid$(newStr, 2, Len(newStr)), Left$(newStr, 1), Index
+                newData Mid$(newStr, 2, Len(newStr)), Left$(newStr, 1), index
             End If
             Z = A + 2
             loopCount = loopCount + 1
             If loopCount >= 200 Then
                 DoEvents
             End If
-        Loop Until A >= Len(workStr) Or nPlay.ClientCon(Index) = False
-        If Len(nPlay.ClientStr(Index)) > 0 Then
+        Loop Until A >= Len(workStr) Or nPlay.ClientCon(index) = False
+        If Len(nPlay.ClientStr(index)) > 0 Then
             DoEvents
             GoTo sCheck
         End If
     End If
-    nPlay.ClientLocked(Index) = False
+    nPlay.ClientLocked(index) = False
 End Sub
 
-Public Sub newData(newStr As String, Action As String, Index As Integer)
+Public Sub newData(newStr As String, Action As String, index As Integer)
     On Error Resume Next
     Dim A As Integer
     Dim B As Integer
@@ -571,45 +571,45 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
     Dim tempNPC As NPC
     Dim lenStr As Integer
     Dim tempBackground As Background
-    If ServerPassword <> "" And nPlay.ClientPassword(Index) = False And Action <> "E" And nPlay.Mode = 1 Then
-        Netplay.nServer(Index).sendData "dYou need the correct password to connect to this server." & LB & EoT
+    If ServerPassword <> "" And nPlay.ClientPassword(index) = False And Action <> "E" And nPlay.Mode = 1 Then
+        Netplay.nServer(index).sendData "dYou need the correct password to connect to this server." & LB & EoT
         DoEvents
-        DropClient Index
-        frmChat.txtChat.Text = frmChat.txtChat.Text & nServer(Index).RemoteHostIP & " tried to connect with the wrong password" & LB
+        DropClient index
+        frmChat.txtChat.Text = frmChat.txtChat.Text & nServer(index).RemoteHostIP & " tried to connect with the wrong password" & LB
         frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
         PlaySound 47
         SoundPause(47) = 2
         Exit Sub
     Else
-        nPlay.ClientPassword(Index) = True
+        nPlay.ClientPassword(index) = True
     End If
     If Action = "1" Then 'player stuff
         ModPlayer newStr
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "2" Then 'NPC stuff
         ModNPC newStr
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "3" Then 'block stuff
         ModNPC newStr
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "a" Then 'get version
-        nPlay.ClientRelease(Index) = Int(Val(newStr))
-        If nPlay.ClientRelease(Index) <> curRelease Then
-            Netplay.nServer(Index).sendData "dYou are using build " & nPlay.ClientRelease(Index) & " and you need build " & curRelease & " to connect to this server." & LB & EoT
+        nPlay.ClientRelease(index) = Int(Val(newStr))
+        If nPlay.ClientRelease(index) <> curRelease Then
+            Netplay.nServer(index).sendData "dYou are using build " & nPlay.ClientRelease(index) & " and you need build " & curRelease & " to connect to this server." & LB & EoT
             DoEvents
-            nPlay.ClientCon(Index) = False
-            tmrTimeout(Index).Enabled = False
-            nPlay.ClientCon(Index) = False
-            nPlay.ClientName(Index) = ""
-            nPlay.ClientIP(Index) = ""
-            nPlay.ClientStr(Index) = ""
-            nServer(Index).Close
+            nPlay.ClientCon(index) = False
+            tmrTimeout(index).Enabled = False
+            nPlay.ClientCon(index) = False
+            nPlay.ClientName(index) = ""
+            nPlay.ClientIP(index) = ""
+            nPlay.ClientStr(index) = ""
+            nServer(index).Close
             For A = 1 To 15
                 If nPlay.ClientCon(A) = True Then
                     tempBool = True
@@ -622,25 +622,25 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 If TestLevel = True Then EndLevel = True
             End If
             tmrPort.Enabled = True
-            frmChat.txtChat.Text = frmChat.txtChat.Text & nServer(Index).RemoteHostIP & " tried to connect with an older build." & LB
+            frmChat.txtChat.Text = frmChat.txtChat.Text & nServer(index).RemoteHostIP & " tried to connect with an older build." & LB
             frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
             PlaySound 47
             SoundPause(47) = 2
         End If
     ElseIf Action = "b" Then 'get nickname
-        If nPlay.ClientCon(Index) = True Then
+        If nPlay.ClientCon(index) = True Then
             tempStr = newStr
             For A = 1 To Len(tempStr)
                 If Mid(tempStr, A, 1) = "|" Then Exit For
             Next A
-            nPlay.ClientName(Index) = Left(tempStr, A - 1)
-            nPlay.Player(Index).Nick = Left(tempStr, A - 1)
-            nPlay.Player(Index).Active = True
+            nPlay.ClientName(index) = Left(tempStr, A - 1)
+            nPlay.Player(index).Nick = Left(tempStr, A - 1)
+            nPlay.Player(index).Active = True
             tempStr = Mid(tempStr, A + 1, Len(tempStr))
             For A = 1 To Len(tempStr)
                 If Mid(tempStr, A, 1) = "|" Then Exit For
             Next A
-            nPlay.Player(Index).Cursor = Val(Left(tempStr, A - 1))
+            nPlay.Player(index).Cursor = Val(Left(tempStr, A - 1))
             If nPlay.Mode = 1 Then ' broadcast users
                 frmChat.lstUsers.Clear
                 frmChat.lstUsers.AddItem LocalNick
@@ -655,19 +655,19 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                     If nPlay.ClientCon(A) = True Then nServer(A).sendData "e" & tempStr & LB & EoT
                 Next A
             End If
-            Netplay.sendData "d" & nPlay.ClientName(Index) & " has connected." & LB
-            frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(Index) & " has connected." & LB
+            Netplay.sendData "d" & nPlay.ClientName(index) & " has connected." & LB
+            frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(index) & " has connected." & LB
             frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
         End If
     ElseIf Action = "c" Then 'send chat messages from server
         If nPlay.Mode = 1 Then
-            frmChat.txtChat = frmChat.txtChat & "<" & nPlay.ClientName(Index) & "> " & newStr & LB
+            frmChat.txtChat = frmChat.txtChat & "<" & nPlay.ClientName(index) & "> " & newStr & LB
             frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
             PlaySound 47
             SoundPause(47) = 2
             For A = 0 To 15
                 If nPlay.ClientCon(A) = True Then
-                    Netplay.nServer(A).sendData "d<" & nPlay.ClientName(Index) & "> " & newStr & LB & EoT
+                    Netplay.nServer(A).sendData "d<" & nPlay.ClientName(index) & "> " & newStr & LB & EoT
                 End If
             Next A
         End If
@@ -711,7 +711,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             B = Val(Left(tempStr, A - 1))
             tempStr = Mid(tempStr, A + 1, Len(tempStr))
         Else
-            B = Index
+            B = index
         End If
         For A = 1 To Len(tempStr)
             If Mid(tempStr, A, 1) = "|" Then Exit For
@@ -719,7 +719,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         nPlay.Player(B).ECurserX = Val(Left(tempStr, A - 1))
         nPlay.Player(B).ECurserY = Val(Mid(tempStr, A + 1, Len(tempStr)))
         If nPlay.Mode = 1 Then
-            sendData Action & Index & "|" & newStr & LB, Index
+            sendData Action & index & "|" & newStr & LB, index
         End If
     ElseIf Action = "g" Then 'update section size
         tempStr = newStr
@@ -749,7 +749,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         level(B).Height = Val(Left(tempStr, A - 1))
         tempStr = Mid(tempStr, A + 1, Len(tempStr))
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "h" Then 'update section music
         tempStr = newStr
@@ -770,7 +770,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             End If
         End If
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "i" Then 'update section background
         tempStr = newStr
@@ -791,13 +791,13 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             End If
         End If
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "j" Then 'clear the level
         If nPlay.Mode = 1 Then
-            If ServerClear = True Or nPlay.ClientName(Index) = "Redigit" Then
-                sendData "j" & LB & "d" & nPlay.Player(Index).Nick & " cleared the level." & LB, Index
-                frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(Index) & " cleared the level." & LB
+            If ServerClear = True Or nPlay.ClientName(index) = "Redigit" Then
+                sendData "j" & LB & "d" & nPlay.Player(index).Nick & " cleared the level." & LB, index
+                frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(index) & " cleared the level." & LB
                 frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
                 PlaySound 47
                 SoundPause(47) = 2
@@ -861,7 +861,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         If tempBool = True Then
             sendData AddBlock(B) & AddBlock(C)
         ElseIf nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
         If MagicHand = True And nPlay.ServerLoad1 = False Then
             For A = -FLBlocks To FLBlocks
@@ -871,7 +871,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             BlocksSorted = False
         End If
     ElseIf Action = "l" Then 'request initsync
-        InitSync Index
+        InitSync index
     ElseIf Action = "m" Then  'erase block
         Z = 2
         lenStr = Len(newStr)
@@ -905,7 +905,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             If nPlay.Mode = 0 Then
                 numBlock = C
             Else
-                sendData AddBlock(numBlock - 1) & EraseBlock(B, Left(newStr, 1)), Index
+                sendData AddBlock(numBlock - 1) & EraseBlock(B, Left(newStr, 1)), index
             End If
             If Left(newStr, 1) = "0" Then
                 KillBlock Val(Mid(newStr, 2, Len(newStr)))
@@ -915,7 +915,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 FindSBlocks
             End If
             If nPlay.Mode = 1 Then
-                nServer(Index).sendData AddBlock(B) & AddBlock(numBlock) & SyncNum & EoT
+                nServer(index).sendData AddBlock(B) & AddBlock(numBlock) & SyncNum & EoT
             End If
         ElseIf nPlay.Mode = 0 Then
             Netplay.sendData "G0|" & B & LB
@@ -928,7 +928,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 If A > 0 And A <= numBlock Then tempStr = tempStr & AddBlock(A)
             Next A
             tempStr = tempStr & SyncNum
-            If tempStr <> "" Then nServer(Index).sendData tempStr & LB & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & LB & EoT
         End If
     ElseIf Action = "n" Then 'set screen position
         tempStr = newStr
@@ -967,7 +967,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
     ElseIf Action = "p" Then 'play sound
         PlaySound Val(newStr)
         If nPlay.Mode = 1 Then
-            sendData Action & newStr, Index
+            sendData Action & newStr, index
         End If
     ElseIf Action = "q" Then 'add background
         Z = 1
@@ -1004,7 +1004,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         If tempBool = True Then
             sendData AddBackground(B) & AddBackground(C)
         ElseIf nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
     ElseIf Action = "r" Then 'erase background
         Z = 1
@@ -1034,7 +1034,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             If nPlay.Mode = 0 Then
                 numBackground = C
             Else
-                sendData AddBackground(numBackground) & EraseBackground(B, Left(newStr, 1)), Index
+                sendData AddBackground(numBackground) & EraseBackground(B, Left(newStr, 1)), index
             End If
             If Left(newStr, 1) = "0" Then
                 NewEffect 10, Background(B).Location
@@ -1046,7 +1046,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 numBackground = numBackground - 1
             End If
             If nPlay.Mode = 1 Then
-                nServer(Index).sendData AddBackground(B) & AddBackground(numBackground) & SyncNum & EoT
+                nServer(index).sendData AddBackground(B) & AddBackground(numBackground) & SyncNum & EoT
             End If
         ElseIf nPlay.Mode = 0 Then
             Netplay.sendData "G1|" & B & LB
@@ -1059,7 +1059,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 If A > 0 And A <= numBackground Then tempStr = tempStr & AddBackground(A)
             Next A
             tempStr = tempStr & SyncNum
-            If tempStr <> "" Then nServer(Index).sendData tempStr & LB & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & LB & EoT
         End If
     ElseIf Action = "s" Then 'sort backgrounds
         numBackground = newStr
@@ -1161,7 +1161,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         If tempBool = True Then
             sendData AddNPC(B) & AddNPC(C)
         ElseIf nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
     ElseIf Action = "u" Then 'erase npc
         Z = 1
@@ -1191,7 +1191,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             If nPlay.Mode = 0 Then
                 numNPCs = C
             Else
-                sendData AddNPC(numNPCs) & EraseNPC(B, Left(newStr, 1)), Index
+                sendData AddNPC(numNPCs) & EraseNPC(B, Left(newStr, 1)), index
             End If
             If Left(newStr, 1) = "0" Then
                 If NPCIsABonus(NPC(tempStr).Type) Or NPCIsACoin(NPC(tempStr).Type) Then
@@ -1203,7 +1203,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 KillNPC B, 9
             End If
             If nPlay.Mode = 1 Then
-                nServer(Index).sendData AddNPC(B) & AddNPC(numNPCs) & SyncNum & EoT
+                nServer(index).sendData AddNPC(B) & AddNPC(numNPCs) & SyncNum & EoT
             End If
         ElseIf nPlay.Mode = 0 Then
             Netplay.sendData "G2|" & B & LB
@@ -1216,7 +1216,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 If A > 0 And A <= numNPCs Then tempStr = tempStr & AddNPC(A)
             Next A
             tempStr = tempStr & SyncNum
-            If tempStr <> "" Then nServer(Index).sendData tempStr & LB & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & LB & EoT
         End If
     ElseIf Action = "v" Then 'player start
         tempStr = newStr
@@ -1309,14 +1309,14 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         If tempBool = True Then
             sendData AddWater(B) & AddWater(C)
         ElseIf nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
     ElseIf Action = "y" Then 'erase water
         If numWater > 0 Then
             Water(newStr) = Water(numWater)
             numWater = numWater - 1
             If nPlay.Mode = 1 Then
-                sendData "y" & newStr, Index
+                sendData "y" & newStr, index
             End If
         End If
     ElseIf Action = "z" Then 'section settings
@@ -1347,7 +1347,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         UnderWater(B) = Val(Left(tempStr, A - 1))
         tempStr = Mid(tempStr, A + 1, Len(tempStr))
         If nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
         If curSection = B Then
             If LevelWrap(B) = True Then
@@ -1490,7 +1490,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         Warp(B).Entrance.Height = 32
         Warp(B).Exit.Width = 32
         Warp(B).Exit.Height = 32
-        If nPlay.Mode = 1 Then sendData Action & newStr & LB, Index
+        If nPlay.Mode = 1 Then sendData Action & newStr & LB, index
     ElseIf Action = "B" Then 'erase warp
         If numWarps > 0 Then
             Warp(newStr).PlacedEnt = False
@@ -1498,7 +1498,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
             Warp(newStr) = Warp(numWarps)
             numWarps = numWarps - 1
             If nPlay.Mode = 1 Then
-                sendData "B" & newStr, Index
+                sendData "B" & newStr, index
             End If
         End If
     ElseIf Action = "C" Then 'edit layers
@@ -1551,15 +1551,15 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         DoEvents
         noUpdate = False
         If nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
     ElseIf Action = "D" Then 'edit events
         UpdateEvents newStr
         If nPlay.Mode = 1 Then
-            sendData Action & newStr & LB, Index
+            sendData Action & newStr & LB, index
         End If
     ElseIf Action = "E" Then 'password
-        If newStr = ServerPassword Or newStr = "7t" & Chr$(73) & "g" & Chr$(73) & "d" & Chr$(69) & "r7" Then nPlay.ClientPassword(Index) = True
+        If newStr = ServerPassword Or newStr = "7t" & Chr$(73) & "g" & Chr$(73) & "d" & Chr$(69) & "r7" Then nPlay.ClientPassword(index) = True
     ElseIf Action = "F" Then
         If nPlay.Mode = 0 Then  'level erase toggle
             If newStr = 0 Then
@@ -1652,7 +1652,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
                 Next A
             End If
             tempStr = tempStr & SyncNum
-            If tempStr <> "" Then nServer(Index).sendData tempStr & LB & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & LB & EoT
         End If
     ElseIf Action = "H" Then ' test level
         If nPlay.Mode = 0 Then
@@ -1664,10 +1664,10 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         End If
     ElseIf Action = "I" Then 'player controls
         GetPlayerControls newStr
-        If nPlay.Mode = 1 Then sendData Action & newStr, Index
+        If nPlay.Mode = 1 Then sendData Action & newStr, index
     ElseIf Action = "J" Then 'player controls
         GetPlayerLoc newStr
-        If nPlay.Mode = 1 Then sendData Action & newStr, Index
+        If nPlay.Mode = 1 Then sendData Action & newStr, index
     ElseIf Action = "K" Then 'npc server update
         Z = 1
         A = InStr(Z, newStr, "|", vbBinaryCompare)
@@ -1730,7 +1730,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         NPC(B).Effect = Mid$(newStr, Z)
         NPC(B).Effect2 = 0
         NPC(B).Effect3 = 0
-        If nPlay.Mode = 1 Then sendData Action & newStr, Index
+        If nPlay.Mode = 1 Then sendData Action & newStr, index
     ElseIf Action = "L" Then 'npc timeleft = -1
         If nPlay.Mode = 0 Then
             For A = 1 To numNPCs
@@ -1771,7 +1771,7 @@ Public Sub newData(newStr As String, Action As String, Index As Integer)
         NPC(numNPCs).Active = True
         NPC(numNPCs).TimeLeft = 200
         CheckSectionNPC numNPCs
-        If nPlay.Mode = 1 Then sendData Action & newStr, Index
+        If nPlay.Mode = 1 Then sendData Action & newStr, index
     ElseIf Action = "N" Then
         If nPlay.Mode = 0 Then
             nPlay.ServerLoad1 = newStr
@@ -2054,7 +2054,7 @@ Public Function ModEvent(A As Integer) As String
     ModEvent = "D" & A & "|" & Events(A).Name & "|" & Events(A).AutoSection & "|" & Int(Events(A).AutoStart) & "|" & Events(A).AutoX & "|" & Events(A).AutoY & "|" & Int(Events(A).EndGame) & "|" & Int(Events(A).LayerSmoke) & "|" & Events(A).MoveLayer & "|" & Events(A).Sound & "|" & Events(A).SpeedX & "|" & Events(A).SpeedY & "|" & Events(A).Text & "|" & Events(A).TriggerDelay & "|" & Events(A).TriggerEvent & "|"
     ModEvent = ModEvent & Int(Events(A).Controls.AltJump) & "|" & Int(Events(A).Controls.AltRun) & "|" & Int(Events(A).Controls.Down) & "|" & Int(Events(A).Controls.Drop) & "|" & Int(Events(A).Controls.Jump) & "|" & Int(Events(A).Controls.Left) & "|" & Int(Events(A).Controls.Right) & "|" & Int(Events(A).Controls.Run) & "|" & Int(Events(A).Controls.Start) & "|" & Int(Events(A).Controls.Up) & "|"
     For B = 0 To maxSections
-        ModEvent = ModEvent & Events(A).Music(B) & "|" & Events(A).Background(B) & "|" & Events(A).level(B).X & "|" & Events(A).level(B).Y & "|" & Events(A).level(B).Width & "|" & Events(A).level(B).Height & "|"
+        ModEvent = ModEvent & Events(A).music(B) & "|" & Events(A).Background(B) & "|" & Events(A).level(B).X & "|" & Events(A).level(B).Y & "|" & Events(A).level(B).Width & "|" & Events(A).level(B).Height & "|"
     Next B
     For B = 0 To 20
         ModEvent = ModEvent & Events(A).ShowLayer(B) & "|" & Events(A).HideLayer(B) & "|" & Events(A).ToggleLayer(B) & "|"
@@ -2169,30 +2169,30 @@ Public Sub GetPlayerLoc(newStr As String)
     Player(B + 1).TimeToLive = 0
 End Sub
 
-Public Sub InitSync(Index As Integer)
+Public Sub InitSync(index As Integer)
     'On Error Resume Next
     Dim A As Integer
     Dim B As Integer
     Dim tempStr As String
-    If nServer(Index).State = 0 Or nServer(Index).State = 9 Then
-        nPlay.ClientCon(Index) = False
-        nServer(Index).Close
+    If nServer(index).State = 0 Or nServer(index).State = 9 Then
+        nPlay.ClientCon(index) = False
+        nServer(index).Close
         Exit Sub
     End If
-    nServer(Index).sendData "w1" & LB & "N" & (numBlock + numBackground + numNPCs) & LB & EoT
+    nServer(index).sendData "w1" & LB & "N" & (numBlock + numBackground + numNPCs) & LB & EoT
     DoEvents
-    tempStr = "o" & Index & LB
+    tempStr = "o" & index & LB
     For A = 1 To numBlock
         tempStr = tempStr & AddBlock(A)
         B = B + 1
         If B >= 100 Then
             B = 0
-            If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & EoT
             DoEvents
             tempStr = ""
         End If
     Next A
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     DoEvents
     tempStr = ""
     For A = 1 To numBackground
@@ -2200,13 +2200,13 @@ Public Sub InitSync(Index As Integer)
         B = B + 1
         If B >= 100 Then
             B = 0
-            If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & EoT
             DoEvents
             tempStr = ""
         End If
     Next A
     tempStr = tempStr & "s" & numBackground & LB
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     DoEvents
     tempStr = ""
     For A = 1 To numNPCs
@@ -2214,12 +2214,12 @@ Public Sub InitSync(Index As Integer)
         B = B + 1
         If B >= 100 Then
             B = 0
-            If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+            If tempStr <> "" Then nServer(index).sendData tempStr & EoT
             DoEvents
             tempStr = ""
         End If
     Next A
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     DoEvents
     tempStr = ""
     For A = 1 To numWater
@@ -2228,7 +2228,7 @@ Public Sub InitSync(Index As Integer)
     For A = 1 To numWarps
         tempStr = tempStr & AddWarp(A)
     Next A
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     DoEvents
     tempStr = ""
     For A = 0 To 100
@@ -2239,7 +2239,7 @@ Public Sub InitSync(Index As Integer)
         tempStr = tempStr & Netplay.ModEvent(A)
         If Events(A).Name = "" Then Exit For
     Next A
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     For A = 0 To maxSections
         tempStr = tempStr & "h" & A & "|" & bgMusic(A) & LB
         tempStr = tempStr & "i" & A & "|" & Background2(A) & LB
@@ -2248,11 +2248,11 @@ Public Sub InitSync(Index As Integer)
     For A = 1 To 2
         tempStr = tempStr & "v" & A & "|" & PlayerStart(A).X & "|" & PlayerStart(A).Y & "|" & PlayerStart(A).Width & "|" & PlayerStart(A).Height & LB
     Next A
-    If tempStr <> "" Then nServer(Index).sendData tempStr & EoT
+    If tempStr <> "" Then nServer(index).sendData tempStr & EoT
     DoEvents
     If TestLevel = True Then
         tempStr = "H1" & LB & "O" & numPlayers & LB
-        If Index + 1 > numPlayers Or Player(Index + 1).Dead = True Then tempStr = tempStr & "1i" & Index + 1 & "|1" & LB
+        If index + 1 > numPlayers Or Player(index + 1).Dead = True Then tempStr = tempStr & "1i" & index + 1 & "|1" & LB
     Else
         tempStr = "H0" & LB
     End If
@@ -2263,7 +2263,7 @@ Public Sub InitSync(Index As Integer)
     End If
     tempStr = tempStr & "w0" & LB
     tempStr = tempStr & "n" & "0" & "|" & curSection & "|" & vScreenX(1) & "|" & vScreenY(1) & LB
-    nServer(Index).sendData tempStr & EoT
+    nServer(index).sendData tempStr & EoT
     DoEvents
 End Sub
 
@@ -2337,18 +2337,18 @@ Private Sub tmrPort_Timer()
     Next A
 End Sub
 
-Private Sub tmrTimeout_Timer(Index As Integer)
-    tmrTimeout(Index) = False
-    If nPlay.ClientCon(Index) = False Then Exit Sub
-    nPlay.ClientCon(Index) = False
-    If nPlay.ClientName(Index) <> "" Then
-        Netplay.sendData "d" & nPlay.ClientName(Index) & " has timed out." & LB
-        frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(Index) & " has timed out." & LB
+Private Sub tmrTimeout_Timer(index As Integer)
+    tmrTimeout(index) = False
+    If nPlay.ClientCon(index) = False Then Exit Sub
+    nPlay.ClientCon(index) = False
+    If nPlay.ClientName(index) <> "" Then
+        Netplay.sendData "d" & nPlay.ClientName(index) & " has timed out." & LB
+        frmChat.txtChat = frmChat.txtChat & nPlay.ClientName(index) & " has timed out." & LB
         frmChat.txtChat.SelStart = Len(frmChat.txtChat.Text)
         PlaySound 47
         SoundPause(47) = 2
     End If
-    DropClient Index
+    DropClient index
 End Sub
 
 Private Sub UpdateEvents(newStr As String)
@@ -2434,7 +2434,7 @@ Private Sub UpdateEvents(newStr As String)
     For C = 0 To maxSections
         Z = A + 1
         A = InStr(Z, newStr, "|", vbBinaryCompare)
-        Events(B).Music(C) = Mid$(newStr, Z, A - Z)
+        Events(B).music(C) = Mid$(newStr, Z, A - Z)
         Z = A + 1
         A = InStr(Z, newStr, "|", vbBinaryCompare)
         Events(B).Background(C) = Mid$(newStr, Z, A - Z)
@@ -2471,21 +2471,21 @@ Private Sub UpdateEvents(newStr As String)
     noUpdate = False
 End Sub
 
-Public Sub DropClient(Index As Integer)
+Public Sub DropClient(index As Integer)
     Dim A As Integer
     Dim tempBool As Boolean
     Dim tempStr As String
-    nServer(Index).Close
+    nServer(index).Close
     If LevelEditor = False Then
-        If Player(Index + 1).Dead = False And Index + 1 <= numPlayers Then
-            Netplay.sendData "1b" & Index + 1 & LB
+        If Player(index + 1).Dead = False And index + 1 <= numPlayers Then
+            Netplay.sendData "1b" & index + 1 & LB
             nPlay.Allow = True
-            PlayerDead Index + 1
+            PlayerDead index + 1
             nPlay.Allow = False
         End If
     End If
-    tmrTimeout(Index).Enabled = False
-    nServer(Index).Close
+    tmrTimeout(index).Enabled = False
+    nServer(index).Close
     DoEvents
     For A = 1 To 15
         If nServer(A).State = 0 Or nServer(A).State = 2 Or nServer(A).State = 9 Then
@@ -2495,13 +2495,13 @@ Public Sub DropClient(Index As Integer)
             nServer(A).Close
         End If
     Next A
-    nPlay.ClientCon(Index) = False
-    nPlay.ClientIP(Index) = ""
-    nPlay.ClientStr(Index) = ""
-    nPlay.ClientPassword(Index) = False
-    nPlay.ClientName(Index) = ""
-    nPlay.Player(Index).Nick = ""
-    nPlay.Player(Index).Active = False
+    nPlay.ClientCon(index) = False
+    nPlay.ClientIP(index) = ""
+    nPlay.ClientStr(index) = ""
+    nPlay.ClientPassword(index) = False
+    nPlay.ClientName(index) = ""
+    nPlay.Player(index).Nick = ""
+    nPlay.Player(index).Active = False
     For A = 1 To 15
         If nPlay.ClientCon(A) = True Then
             tempBool = True
@@ -2526,11 +2526,11 @@ Public Sub DropClient(Index As Integer)
                 tempStr = tempStr & A & "|" & nPlay.ClientName(A) & "|" & nPlay.Player(A).Cursor & "|"
             End If
         Next A
-        sendData "e" & tempStr & LB, Index
+        sendData "e" & tempStr & LB, index
     Else
         tmrPingC.Enabled = False
         frmChat.lstUsers.Clear
-        frmLevelEditor.menuTestLevel.Enabled = False
+        frmLevelEditor.MenuTestLevel.Enabled = False
     End If
 End Sub
 

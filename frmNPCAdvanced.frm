@@ -64,9 +64,9 @@ Begin VB.Form frmNPCAdvanced
       Begin VB.ComboBox cmbCheep 
          Enabled         =   0   'False
          Height          =   315
-         ItemData        =   "frmNPCAdvanced.frx":628A
+         ItemData        =   "frmNPCAdvanced.frx":0B3A
          Left            =   120
-         List            =   "frmNPCAdvanced.frx":629D
+         List            =   "frmNPCAdvanced.frx":0B4D
          Style           =   2  'Dropdown List
          TabIndex        =   6
          Top             =   240
@@ -111,9 +111,9 @@ Begin VB.Form frmNPCAdvanced
       Begin VB.ComboBox cmbPara 
          Enabled         =   0   'False
          Height          =   315
-         ItemData        =   "frmNPCAdvanced.frx":62D8
+         ItemData        =   "frmNPCAdvanced.frx":0B88
          Left            =   120
-         List            =   "frmNPCAdvanced.frx":62E8
+         List            =   "frmNPCAdvanced.frx":0B98
          Style           =   2  'Dropdown List
          TabIndex        =   1
          Top             =   240

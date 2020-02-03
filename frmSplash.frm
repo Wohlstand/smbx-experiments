@@ -7,10 +7,11 @@ Begin VB.Form frmSplash
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   6840
+   Icon            =   "frmSplash.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   Picture         =   "frmSplash.frx":0000
+   Picture         =   "frmSplash.frx":628A
    ScaleHeight     =   281
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   456
@@ -23,7 +24,7 @@ Begin VB.Form frmSplash
       BorderStyle     =   0  'None
       Height          =   480
       Left            =   6240
-      Picture         =   "frmSplash.frx":2A7A
+      Picture         =   "frmSplash.frx":8D04
       ScaleHeight     =   32
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   28
@@ -35,7 +36,7 @@ Begin VB.Form frmSplash
    Begin VB.Image Image1 
       Height          =   240
       Left            =   4320
-      Picture         =   "frmSplash.frx":2E8E
+      Picture         =   "frmSplash.frx":9118
       Top             =   3840
       Width           =   1770
    End

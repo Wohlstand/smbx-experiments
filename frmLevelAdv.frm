@@ -30,9 +30,9 @@ Begin VB.Form frmLevelAdv
       End
       Begin VB.ComboBox CloneT 
          Height          =   315
-         ItemData        =   "frmLevelAdv.frx":628A
+         ItemData        =   "frmLevelAdv.frx":0B3A
          Left            =   840
-         List            =   "frmLevelAdv.frx":628C
+         List            =   "frmLevelAdv.frx":0B3C
          TabIndex        =   4
          Top             =   600
          Width           =   1695

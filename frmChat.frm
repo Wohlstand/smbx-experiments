@@ -31,9 +31,9 @@ Begin VB.Form frmChat
    End
    Begin VB.ListBox lstUsers 
       Height          =   2790
-      ItemData        =   "frmChat.frx":628A
+      ItemData        =   "frmChat.frx":0B3A
       Left            =   5280
-      List            =   "frmChat.frx":628C
+      List            =   "frmChat.frx":0B3C
       TabIndex        =   0
       Top             =   0
       Width           =   1455

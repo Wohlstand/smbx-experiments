@@ -17,7 +17,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   32
       Left            =   7920
-      Picture         =   "frmPaths.frx":628A
+      Picture         =   "frmPaths.frx":0B3A
       Style           =   1  'Graphical
       TabIndex        =   32
       Top             =   120
@@ -27,7 +27,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   31
       Left            =   7920
-      Picture         =   "frmPaths.frx":65F7
+      Picture         =   "frmPaths.frx":0EA7
       Style           =   1  'Graphical
       TabIndex        =   31
       Top             =   720
@@ -37,7 +37,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   30
       Left            =   6720
-      Picture         =   "frmPaths.frx":696D
+      Picture         =   "frmPaths.frx":121D
       Style           =   1  'Graphical
       TabIndex        =   30
       Top             =   120
@@ -47,7 +47,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   29
       Left            =   6720
-      Picture         =   "frmPaths.frx":6D05
+      Picture         =   "frmPaths.frx":15B5
       Style           =   1  'Graphical
       TabIndex        =   29
       Top             =   720
@@ -57,7 +57,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   28
       Left            =   7320
-      Picture         =   "frmPaths.frx":70A4
+      Picture         =   "frmPaths.frx":1954
       Style           =   1  'Graphical
       TabIndex        =   28
       Top             =   720
@@ -67,7 +67,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   27
       Left            =   7320
-      Picture         =   "frmPaths.frx":7443
+      Picture         =   "frmPaths.frx":1CF3
       Style           =   1  'Graphical
       TabIndex        =   27
       Top             =   120
@@ -77,7 +77,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   26
       Left            =   6120
-      Picture         =   "frmPaths.frx":77DB
+      Picture         =   "frmPaths.frx":208B
       Style           =   1  'Graphical
       TabIndex        =   26
       Top             =   720
@@ -87,7 +87,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   25
       Left            =   5520
-      Picture         =   "frmPaths.frx":7BA9
+      Picture         =   "frmPaths.frx":2459
       Style           =   1  'Graphical
       TabIndex        =   25
       Top             =   120
@@ -97,7 +97,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   24
       Left            =   5520
-      Picture         =   "frmPaths.frx":7F34
+      Picture         =   "frmPaths.frx":27E4
       Style           =   1  'Graphical
       TabIndex        =   24
       Top             =   720
@@ -107,7 +107,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   23
       Left            =   4920
-      Picture         =   "frmPaths.frx":82C3
+      Picture         =   "frmPaths.frx":2B73
       Style           =   1  'Graphical
       TabIndex        =   23
       Top             =   120
@@ -126,7 +126,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   22
       Left            =   6120
-      Picture         =   "frmPaths.frx":8639
+      Picture         =   "frmPaths.frx":2EE9
       Style           =   1  'Graphical
       TabIndex        =   22
       Top             =   120
@@ -136,7 +136,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   21
       Left            =   4320
-      Picture         =   "frmPaths.frx":89AB
+      Picture         =   "frmPaths.frx":325B
       Style           =   1  'Graphical
       TabIndex        =   21
       Top             =   720
@@ -146,7 +146,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   20
       Left            =   4920
-      Picture         =   "frmPaths.frx":8D36
+      Picture         =   "frmPaths.frx":35E6
       Style           =   1  'Graphical
       TabIndex        =   20
       Top             =   720
@@ -156,7 +156,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   19
       Left            =   3720
-      Picture         =   "frmPaths.frx":90BF
+      Picture         =   "frmPaths.frx":396F
       Style           =   1  'Graphical
       TabIndex        =   19
       Top             =   720
@@ -166,7 +166,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   18
       Left            =   3720
-      Picture         =   "frmPaths.frx":9D01
+      Picture         =   "frmPaths.frx":45B1
       Style           =   1  'Graphical
       TabIndex        =   18
       Top             =   120
@@ -176,7 +176,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   16
       Left            =   720
-      Picture         =   "frmPaths.frx":A943
+      Picture         =   "frmPaths.frx":51F3
       Style           =   1  'Graphical
       TabIndex        =   17
       Top             =   6600
@@ -187,7 +187,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   15
       Left            =   1320
-      Picture         =   "frmPaths.frx":B585
+      Picture         =   "frmPaths.frx":5E35
       Style           =   1  'Graphical
       TabIndex        =   16
       Top             =   6600
@@ -198,7 +198,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   14
       Left            =   120
-      Picture         =   "frmPaths.frx":C1C7
+      Picture         =   "frmPaths.frx":6A77
       Style           =   1  'Graphical
       TabIndex        =   15
       Top             =   6600
@@ -209,7 +209,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   13
       Left            =   120
-      Picture         =   "frmPaths.frx":CE09
+      Picture         =   "frmPaths.frx":76B9
       Style           =   1  'Graphical
       TabIndex        =   14
       Top             =   720
@@ -219,7 +219,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   12
       Left            =   720
-      Picture         =   "frmPaths.frx":DA4B
+      Picture         =   "frmPaths.frx":82FB
       Style           =   1  'Graphical
       TabIndex        =   13
       Top             =   720
@@ -229,7 +229,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   11
       Left            =   120
-      Picture         =   "frmPaths.frx":E68D
+      Picture         =   "frmPaths.frx":8F3D
       Style           =   1  'Graphical
       TabIndex        =   12
       Top             =   120
@@ -239,7 +239,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   10
       Left            =   720
-      Picture         =   "frmPaths.frx":F2CF
+      Picture         =   "frmPaths.frx":9B7F
       Style           =   1  'Graphical
       TabIndex        =   11
       Top             =   120
@@ -249,7 +249,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   9
       Left            =   1920
-      Picture         =   "frmPaths.frx":FF11
+      Picture         =   "frmPaths.frx":A7C1
       Style           =   1  'Graphical
       TabIndex        =   10
       Top             =   120
@@ -259,7 +259,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   8
       Left            =   1320
-      Picture         =   "frmPaths.frx":10B53
+      Picture         =   "frmPaths.frx":B403
       Style           =   1  'Graphical
       TabIndex        =   9
       Top             =   720
@@ -269,7 +269,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   7
       Left            =   1920
-      Picture         =   "frmPaths.frx":11795
+      Picture         =   "frmPaths.frx":C045
       Style           =   1  'Graphical
       TabIndex        =   8
       Top             =   720
@@ -279,7 +279,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   6
       Left            =   1320
-      Picture         =   "frmPaths.frx":123D7
+      Picture         =   "frmPaths.frx":CC87
       Style           =   1  'Graphical
       TabIndex        =   7
       Top             =   120
@@ -289,7 +289,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   5
       Left            =   3120
-      Picture         =   "frmPaths.frx":13019
+      Picture         =   "frmPaths.frx":D8C9
       Style           =   1  'Graphical
       TabIndex        =   6
       Top             =   120
@@ -299,7 +299,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   17
       Left            =   1920
-      Picture         =   "frmPaths.frx":13C5B
+      Picture         =   "frmPaths.frx":E50B
       Style           =   1  'Graphical
       TabIndex        =   5
       Top             =   6600
@@ -310,7 +310,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   4
       Left            =   4320
-      Picture         =   "frmPaths.frx":1489D
+      Picture         =   "frmPaths.frx":F14D
       Style           =   1  'Graphical
       TabIndex        =   4
       Top             =   120
@@ -320,7 +320,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   2
       Left            =   2520
-      Picture         =   "frmPaths.frx":154DF
+      Picture         =   "frmPaths.frx":FD8F
       Style           =   1  'Graphical
       TabIndex        =   3
       Top             =   720
@@ -331,7 +331,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   3
       Left            =   3120
-      Picture         =   "frmPaths.frx":16121
+      Picture         =   "frmPaths.frx":109D1
       Style           =   1  'Graphical
       TabIndex        =   2
       Top             =   720
@@ -341,7 +341,7 @@ Begin VB.Form frmPaths
       Height          =   540
       Index           =   1
       Left            =   2520
-      Picture         =   "frmPaths.frx":16D63
+      Picture         =   "frmPaths.frx":11613
       Style           =   1  'Graphical
       TabIndex        =   1
       Top             =   120
@@ -353,7 +353,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub WorldPath_Click(Index As Integer)
+Private Sub WorldPath_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

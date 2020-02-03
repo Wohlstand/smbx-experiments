@@ -89,9 +89,9 @@ Begin VB.Form frmGlobal
       End
       Begin VB.ListBox lstSavedEvent 
          Height          =   2790
-         ItemData        =   "frmGlobal.frx":628A
+         ItemData        =   "frmGlobal.frx":0B3A
          Left            =   120
-         List            =   "frmGlobal.frx":628C
+         List            =   "frmGlobal.frx":0B3C
          TabIndex        =   1
          Top             =   240
          Width           =   2295

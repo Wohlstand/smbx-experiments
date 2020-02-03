@@ -110,10 +110,10 @@ Attribute VB_Exposed = False
 Private Sub Quicksand_Click()
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    If QuickSand.Caption = "No" Then
-        QuickSand.Caption = "Yes"
+    If Quicksand.Caption = "No" Then
+        Quicksand.Caption = "Yes"
     Else
-        QuickSand.Caption = "No"
+        Quicksand.Caption = "No"
     End If
 End Sub
 

@@ -14,10 +14,12 @@ Begin VB.Form frmEvents
    ScaleHeight     =   8280
    ScaleWidth      =   9150
    Begin VB.Frame Frame19 
-      Caption         =   "Saved Events"
+      Caption         =   "Saved Events [WIP by Red]"
+      Enabled         =   0   'False
       Height          =   1815
       Left            =   6840
       TabIndex        =   72
+      ToolTipText     =   "Old WIP thing by Redigit, unfinished and left for a while"
       Top             =   5520
       Width           =   2175
       Begin VB.Frame Frame21 
@@ -140,9 +142,9 @@ Begin VB.Form frmEvents
       Width           =   2175
       Begin VB.ComboBox cmbLayerMove 
          Height          =   315
-         ItemData        =   "frmEvents.frx":628A
+         ItemData        =   "frmEvents.frx":0B3A
          Left            =   120
-         List            =   "frmEvents.frx":6363
+         List            =   "frmEvents.frx":0C13
          TabIndex        =   61
          Top             =   240
          Width           =   1935
@@ -275,9 +277,9 @@ Begin VB.Form frmEvents
       Width           =   2055
       Begin VB.ComboBox TriggerEvent 
          Height          =   315
-         ItemData        =   "frmEvents.frx":663C
+         ItemData        =   "frmEvents.frx":0EEC
          Left            =   120
-         List            =   "frmEvents.frx":663E
+         List            =   "frmEvents.frx":0EEE
          TabIndex        =   42
          Top             =   240
          Width           =   1815
@@ -317,9 +319,9 @@ Begin VB.Form frmEvents
       Width           =   2055
       Begin VB.ComboBox cmbEndGame 
          Height          =   315
-         ItemData        =   "frmEvents.frx":6640
+         ItemData        =   "frmEvents.frx":0EF0
          Left            =   120
-         List            =   "frmEvents.frx":664A
+         List            =   "frmEvents.frx":0EFA
          TabIndex        =   37
          Top             =   240
          Width           =   1815
@@ -334,9 +336,9 @@ Begin VB.Form frmEvents
       Width           =   2055
       Begin VB.ComboBox cmbSound 
          Height          =   315
-         ItemData        =   "frmEvents.frx":6663
+         ItemData        =   "frmEvents.frx":0F13
          Left            =   120
-         List            =   "frmEvents.frx":6772
+         List            =   "frmEvents.frx":1022
          TabIndex        =   31
          Top             =   240
          Width           =   1815
@@ -513,9 +515,9 @@ Begin VB.Form frmEvents
       End
       Begin VB.ListBox lstEvent 
          Height          =   2790
-         ItemData        =   "frmEvents.frx":6B18
+         ItemData        =   "frmEvents.frx":13C8
          Left            =   120
-         List            =   "frmEvents.frx":6B25
+         List            =   "frmEvents.frx":13D5
          TabIndex        =   12
          Top             =   720
          Width           =   2055
@@ -571,9 +573,9 @@ Begin VB.Form frmEvents
          End
          Begin VB.ListBox lstToggleLayer 
             Height          =   1035
-            ItemData        =   "frmEvents.frx":6B5A
+            ItemData        =   "frmEvents.frx":140A
             Left            =   120
-            List            =   "frmEvents.frx":6B5C
+            List            =   "frmEvents.frx":140C
             TabIndex        =   33
             Top             =   240
             Width           =   1695
@@ -588,9 +590,9 @@ Begin VB.Form frmEvents
          Width           =   1935
          Begin VB.ListBox lstShowLayer 
             Height          =   1035
-            ItemData        =   "frmEvents.frx":6B5E
+            ItemData        =   "frmEvents.frx":140E
             Left            =   120
-            List            =   "frmEvents.frx":6B60
+            List            =   "frmEvents.frx":1410
             TabIndex        =   9
             Top             =   240
             Width           =   1695
@@ -638,9 +640,9 @@ Begin VB.Form frmEvents
          End
          Begin VB.ListBox lstHideLayer 
             Height          =   1035
-            ItemData        =   "frmEvents.frx":6B62
+            ItemData        =   "frmEvents.frx":1412
             Left            =   120
-            List            =   "frmEvents.frx":6B64
+            List            =   "frmEvents.frx":1414
             TabIndex        =   3
             Top             =   240
             Width           =   1695
@@ -648,9 +650,9 @@ Begin VB.Form frmEvents
       End
       Begin VB.ListBox lstLayers 
          Height          =   1620
-         ItemData        =   "frmEvents.frx":6B66
+         ItemData        =   "frmEvents.frx":1416
          Left            =   120
-         List            =   "frmEvents.frx":6B68
+         List            =   "frmEvents.frx":1418
          TabIndex        =   1
          Top             =   480
          Width           =   1935
@@ -870,15 +872,15 @@ Private Sub cmdAdd_Click()
     EventText.Text = ""
 End Sub
 
-Private Sub cmdBackground_Click(Index As Integer)
+Private Sub cmdBackground_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If Index = 0 Then
+            If index = 0 Then
                 Events(A).Background(curSection) = -1
-            ElseIf Index = 1 Then
+            ElseIf index = 1 Then
                 Events(A).Background(curSection) = -2
             Else
                 Events(A).Background(curSection) = Background2(curSection)
@@ -1005,18 +1007,18 @@ Private Sub cmdHideRemove_Click()
     RefreshEvents
 End Sub
 
-Private Sub cmdMusic_Click(Index As Integer)
+Private Sub cmdMusic_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If Index = 0 Then
-                Events(A).Music(curSection) = -1
-            ElseIf Index = 1 Then
-                Events(A).Music(curSection) = -2
+            If index = 0 Then
+                Events(A).music(curSection) = -1
+            ElseIf index = 1 Then
+                Events(A).music(curSection) = -2
             Else
-                Events(A).Music(curSection) = bgMusic(curSection)
+                Events(A).music(curSection) = bgMusic(curSection)
             End If
         End If
     Next A
@@ -1024,15 +1026,15 @@ Private Sub cmdMusic_Click(Index As Integer)
     RefreshEvents
 End Sub
 
-Private Sub cmdPosition_Click(Index As Integer)
+Private Sub cmdPosition_Click(index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If Index = 0 Then
+            If index = 0 Then
                 Events(A).level(curSection).X = -1
-            ElseIf Index = 1 Then
+            ElseIf index = 1 Then
                 Events(A).level(curSection).X = -2
             Else
                 Events(A).level(curSection).X = level(curSection).X
@@ -1207,6 +1209,10 @@ End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Cancel = 1
     Me.Hide
+End Sub
+
+Private Sub Frame19_DragDrop(Source As Control, X As Single, Y As Single)
+
 End Sub
 
 Private Sub lstEvent_Click()
@@ -1402,12 +1408,12 @@ Public Sub RefreshEvents()
                         Next C
                     End If
                 Next B
-                If .Music(curSection) >= 0 Then
+                If .music(curSection) >= 0 Then
                     cmdMusic(2).Value = True
-                    cmdMusic(2).Caption = frmLevelSettings.optMusic(Events(A).Music(curSection)).Caption
+                    cmdMusic(2).Caption = frmLevelSettings.optMusic(Events(A).music(curSection)).Caption
                 Else
                     cmdMusic(2).Caption = "Use Current"
-                    If .Music(curSection) = -1 Then
+                    If .music(curSection) = -1 Then
                         cmdMusic(0).Value = True
                     Else
                         cmdMusic(1).Value = True

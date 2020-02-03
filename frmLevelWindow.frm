@@ -16,7 +16,7 @@ Begin VB.Form frmLevelWindow
       Height          =   9060
       Index           =   1
       Left            =   0
-      MouseIcon       =   "frmLevelWindow.frx":628A
+      MouseIcon       =   "frmLevelWindow.frx":0B3A
       MousePointer    =   99  'Custom
       ScaleHeight     =   600
       ScaleMode       =   3  'Pixel
@@ -78,21 +78,21 @@ Private Sub Form_Unload(Cancel As Integer)
     Cancel = 1
 End Sub
 
-Private Sub vScreen_KeyDown(Index As Integer, KeyCode As Integer, Shift As Integer)
+Private Sub vScreen_KeyDown(index As Integer, KeyCode As Integer, Shift As Integer)
     If KeyCode = vbKeyF12 Then
         TakeScreen = True
     End If
 End Sub
 
-Private Sub vScreen_KeyPress(Index As Integer, KeyAscii As Integer)
+Private Sub vScreen_KeyPress(index As Integer, KeyAscii As Integer)
     CheatCode Chr(KeyAscii)
 End Sub
 
-Private Sub vScreen_LostFocus(Index As Integer)
+Private Sub vScreen_LostFocus(index As Integer)
     HideCursor
 End Sub
 
-Private Sub vScreen_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub vScreen_MouseDown(index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 1 Then
         EditorControls.Mouse1 = True
     ElseIf Button = 2 Then
@@ -107,18 +107,18 @@ Private Sub vScreen_MouseDown(Index As Integer, Button As Integer, Shift As Inte
     End If
 End Sub
 
-Private Sub vScreen_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub vScreen_MouseMove(index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     On Error Resume Next
     With EditorCursor
-        .X = Int(X * ScreenW / vScreen(Index).ScaleWidth)
-        .Y = Int(Y * ScreenH / vScreen(Index).ScaleHeight)
+        .X = Int(X * ScreenW / vScreen(index).ScaleWidth)
+        .Y = Int(Y * ScreenH / vScreen(index).ScaleHeight)
     End With
-    MouseMove Int(X * ScreenW / vScreen(Index).ScaleWidth), Int(Y * ScreenH / vScreen(Index).ScaleHeight), True
+    MouseMove Int(X * ScreenW / vScreen(index).ScaleWidth), Int(Y * ScreenH / vScreen(index).ScaleHeight), True
     MouseRelease = True
 End Sub
 
-Private Sub vScreen_MouseUp(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If Index = 1 Then
+Private Sub vScreen_MouseUp(index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If index = 1 Then
         EditorControls.Mouse1 = False
     End If
 End Sub

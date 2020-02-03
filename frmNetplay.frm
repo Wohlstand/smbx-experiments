@@ -34,7 +34,7 @@ Begin VB.Form frmNetplay
          Height          =   750
          Index           =   4
          Left            =   1920
-         Picture         =   "frmNetplay.frx":628A
+         Picture         =   "frmNetplay.frx":0B3A
          Style           =   1  'Graphical
          TabIndex        =   34
          Top             =   240
@@ -46,7 +46,7 @@ Begin VB.Form frmNetplay
          Height          =   750
          Index           =   3
          Left            =   1320
-         Picture         =   "frmNetplay.frx":670E
+         Picture         =   "frmNetplay.frx":0FBE
          Style           =   1  'Graphical
          TabIndex        =   33
          Top             =   240
@@ -57,7 +57,7 @@ Begin VB.Form frmNetplay
          Height          =   750
          Index           =   2
          Left            =   720
-         Picture         =   "frmNetplay.frx":6BBC
+         Picture         =   "frmNetplay.frx":146C
          Style           =   1  'Graphical
          TabIndex        =   31
          Top             =   240
@@ -68,7 +68,7 @@ Begin VB.Form frmNetplay
          Height          =   750
          Index           =   1
          Left            =   120
-         Picture         =   "frmNetplay.frx":73F6
+         Picture         =   "frmNetplay.frx":1CA6
          Style           =   1  'Graphical
          TabIndex        =   30
          Top             =   240
@@ -87,7 +87,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   7
          Left            =   1920
-         Picture         =   "frmNetplay.frx":7CA8
+         Picture         =   "frmNetplay.frx":2558
          Style           =   1  'Graphical
          TabIndex        =   22
          Top             =   840
@@ -98,7 +98,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   6
          Left            =   1920
-         Picture         =   "frmNetplay.frx":8096
+         Picture         =   "frmNetplay.frx":2946
          Style           =   1  'Graphical
          TabIndex        =   21
          Top             =   240
@@ -109,7 +109,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   5
          Left            =   1320
-         Picture         =   "frmNetplay.frx":8484
+         Picture         =   "frmNetplay.frx":2D34
          Style           =   1  'Graphical
          TabIndex        =   20
          Top             =   840
@@ -120,7 +120,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   4
          Left            =   1320
-         Picture         =   "frmNetplay.frx":8872
+         Picture         =   "frmNetplay.frx":3122
          Style           =   1  'Graphical
          TabIndex        =   19
          Top             =   240
@@ -131,7 +131,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   3
          Left            =   720
-         Picture         =   "frmNetplay.frx":8C60
+         Picture         =   "frmNetplay.frx":3510
          Style           =   1  'Graphical
          TabIndex        =   18
          Top             =   840
@@ -142,7 +142,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   2
          Left            =   120
-         Picture         =   "frmNetplay.frx":904E
+         Picture         =   "frmNetplay.frx":38FE
          Style           =   1  'Graphical
          TabIndex        =   17
          Top             =   840
@@ -153,7 +153,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   1
          Left            =   720
-         Picture         =   "frmNetplay.frx":943C
+         Picture         =   "frmNetplay.frx":3CEC
          Style           =   1  'Graphical
          TabIndex        =   16
          Top             =   240
@@ -164,7 +164,7 @@ Begin VB.Form frmNetplay
          Height          =   585
          Index           =   0
          Left            =   120
-         Picture         =   "frmNetplay.frx":982A
+         Picture         =   "frmNetplay.frx":40DA
          Style           =   1  'Graphical
          TabIndex        =   15
          Top             =   240
@@ -457,10 +457,10 @@ Private Sub cPassword_Change()
     ClientPassword = cPassword.Text
 End Sub
 
-Private Sub Cursor_Click(Index As Integer)
+Private Sub Cursor_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    LocalCursor = Index
+    LocalCursor = index
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -468,14 +468,14 @@ Private Sub Form_Unload(Cancel As Integer)
     Me.Hide
 End Sub
 
-Private Sub optMode_Click(Index As Integer)
+Private Sub optMode_Click(index As Integer)
     frmMode(0).Enabled = False
     frmMode(1).Enabled = False
-    frmMode(Index).Enabled = True
-    nPlay.Mode = Index
+    frmMode(index).Enabled = True
+    nPlay.Mode = index
 End Sub
 
-Private Sub optPlayer_Click(Index As Integer)
+Private Sub optPlayer_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

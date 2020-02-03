@@ -612,232 +612,232 @@ Private Sub Form_Unload(Cancel As Integer)
     Me.Hide
 End Sub
 
-Private Sub optBlackYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 5
+Private Sub optBlackYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 5
 End Sub
 
-Private Sub optBlueBoot_Click(Index As Integer)
-    testPlayer(Index).Mount = 1
-    testPlayer(Index).MountType = 3
+Private Sub optBlueBoot_Click(index As Integer)
+    testPlayer(index).Mount = 1
+    testPlayer(index).MountType = 3
 End Sub
 
-Private Sub optBlueYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 2
+Private Sub optBlueYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 2
 End Sub
 
-Private Sub optBoot_Click(Index As Integer)
-    testPlayer(Index).Mount = 1
-    testPlayer(Index).MountType = 1
+Private Sub optBoot_Click(index As Integer)
+    testPlayer(index).Mount = 1
+    testPlayer(index).MountType = 1
 End Sub
 
-Private Sub optChrLink_Click(Index As Integer)
-    testPlayer(Index).Character = 5
-    optMario(Index).Caption = "Link (1 HP)"
-    optSuperMario(Index).Caption = "Link (2 HP)"
-    optFireMario(Index).Caption = "Fire Link"
-    optRacoonMario(Index).Caption = "Fairy Link"
-    optTanookiMario(Index).Caption = "Gold Link"
-    optHammerMario(Index).Caption = "Shadow Link"
-    optIceMario(Index).Caption = "Ice Link"
+Private Sub optChrLink_Click(index As Integer)
+    testPlayer(index).Character = 5
+    optMario(index).Caption = "Link (1 HP)"
+    optSuperMario(index).Caption = "Link (2 HP)"
+    optFireMario(index).Caption = "Fire Link"
+    optRacoonMario(index).Caption = "Fairy Link"
+    optTanookiMario(index).Caption = "Gold Link"
+    optHammerMario(index).Caption = "Shadow Link"
+    optIceMario(index).Caption = "Ice Link"
     
-    ShowAll Index
+    ShowAll index
     'optMario(Index).Value = True
     'optSuperMario(Index).Visible = False
     'optRacoonMario(Index).Visible = False
     'optTanookiMario(Index).Visible = False
     'optHammerMario(Index).Visible = False
     
-    optNoMount(Index).Value = True
-    optGreenYoshi(Index).Visible = False
-    optRedYoshi(Index).Visible = False
-    optYellowYoshi(Index).Visible = False
-    optBlueYoshi(Index).Visible = False
-    optBlackYoshi(Index).Visible = False
-    optPinkYoshi(Index).Visible = False
-    optPurpleYoshi(Index).Visible = False
-    optIceYoshi(Index).Visible = False
-    optBoot(Index).Visible = False
-    optRedBoot(Index).Visible = False
-    optBlueBoot(Index).Visible = False
+    optNoMount(index).Value = True
+    optGreenYoshi(index).Visible = False
+    optRedYoshi(index).Visible = False
+    optYellowYoshi(index).Visible = False
+    optBlueYoshi(index).Visible = False
+    optBlackYoshi(index).Visible = False
+    optPinkYoshi(index).Visible = False
+    optPurpleYoshi(index).Visible = False
+    optIceYoshi(index).Visible = False
+    optBoot(index).Visible = False
+    optRedBoot(index).Visible = False
+    optBlueBoot(index).Visible = False
 End Sub
 
-Private Sub optChrLuigi_Click(Index As Integer)
-    testPlayer(Index).Character = 2
-    optMario(Index).Caption = "Luigi"
-    optSuperMario(Index).Caption = "Super Luigi"
-    optFireMario(Index).Caption = "Fire Luigi"
-    optRacoonMario(Index).Caption = "Racoon Luigi"
-    optTanookiMario(Index).Caption = "Tanooki Luigi"
-    optHammerMario(Index).Caption = "Hammer Luigi"
-    optIceMario(Index).Caption = "Ice Luigi"
+Private Sub optChrLuigi_Click(index As Integer)
+    testPlayer(index).Character = 2
+    optMario(index).Caption = "Luigi"
+    optSuperMario(index).Caption = "Super Luigi"
+    optFireMario(index).Caption = "Fire Luigi"
+    optRacoonMario(index).Caption = "Racoon Luigi"
+    optTanookiMario(index).Caption = "Tanooki Luigi"
+    optHammerMario(index).Caption = "Hammer Luigi"
+    optIceMario(index).Caption = "Ice Luigi"
     
-    ShowAll Index
-    optMario(Index).Value = True
-    optNoMount(Index).Value = True
+    ShowAll index
+    optMario(index).Value = True
+    optNoMount(index).Value = True
 End Sub
 
-Private Sub optChrMario_Click(Index As Integer)
-    testPlayer(Index).Character = 1
-    optMario(Index).Caption = "Mario"
-    optSuperMario(Index).Caption = "Super Mario"
-    optFireMario(Index).Caption = "Fire Mario"
-    optRacoonMario(Index).Caption = "Racoon Mario"
-    optTanookiMario(Index).Caption = "Tanooki Mario"
-    optHammerMario(Index).Caption = "Hammer Mario"
-    optIceMario(Index).Caption = "Ice Mario"
+Private Sub optChrMario_Click(index As Integer)
+    testPlayer(index).Character = 1
+    optMario(index).Caption = "Mario"
+    optSuperMario(index).Caption = "Super Mario"
+    optFireMario(index).Caption = "Fire Mario"
+    optRacoonMario(index).Caption = "Racoon Mario"
+    optTanookiMario(index).Caption = "Tanooki Mario"
+    optHammerMario(index).Caption = "Hammer Mario"
+    optIceMario(index).Caption = "Ice Mario"
     
-    ShowAll Index
-    optMario(Index).Value = True
-    optNoMount(Index).Value = True
+    ShowAll index
+    optMario(index).Value = True
+    optNoMount(index).Value = True
 End Sub
 
-Private Sub optChrPeach_Click(Index As Integer)
-    testPlayer(Index).Character = 3
-    optMario(Index).Caption = "Peach"
-    optSuperMario(Index).Caption = "Super Peach"
-    optFireMario(Index).Caption = "Fire Peach"
-    optRacoonMario(Index).Caption = "Racoon Peach"
-    optTanookiMario(Index).Caption = "Tanooki Peach"
-    optHammerMario(Index).Caption = "Bomb Peach"
-    optIceMario(Index).Caption = "Ice Peach"
+Private Sub optChrPeach_Click(index As Integer)
+    testPlayer(index).Character = 3
+    optMario(index).Caption = "Peach"
+    optSuperMario(index).Caption = "Super Peach"
+    optFireMario(index).Caption = "Fire Peach"
+    optRacoonMario(index).Caption = "Racoon Peach"
+    optTanookiMario(index).Caption = "Tanooki Peach"
+    optHammerMario(index).Caption = "Bomb Peach"
+    optIceMario(index).Caption = "Ice Peach"
     
-    ShowAll Index
+    ShowAll index
     'optMario(Index).Value = True
     'optRacoonMario(Index).Visible = False
     'optTanookiMario(Index).Visible = False
     'optHammerMario(Index).Visible = False
-    optNoMount(Index).Value = True
-    optGreenYoshi(Index).Visible = False
-    optRedYoshi(Index).Visible = False
-    optYellowYoshi(Index).Visible = False
-    optBlueYoshi(Index).Visible = False
-    optBlackYoshi(Index).Visible = False
-    optPinkYoshi(Index).Visible = False
-    optPurpleYoshi(Index).Visible = False
-    optIceYoshi(Index).Visible = False
+    optNoMount(index).Value = True
+    optGreenYoshi(index).Visible = False
+    optRedYoshi(index).Visible = False
+    optYellowYoshi(index).Visible = False
+    optBlueYoshi(index).Visible = False
+    optBlackYoshi(index).Visible = False
+    optPinkYoshi(index).Visible = False
+    optPurpleYoshi(index).Visible = False
+    optIceYoshi(index).Visible = False
 End Sub
 
-Private Sub optChrToad_Click(Index As Integer)
-    testPlayer(Index).Character = 4
-    optMario(Index).Caption = "Toad"
-    optSuperMario(Index).Caption = "Super Toad"
-    optFireMario(Index).Caption = "Fire Toad"
-    optRacoonMario(Index).Caption = "Racoon Toad"
-    optTanookiMario(Index).Caption = "Tanooki Toad"
-    optHammerMario(Index).Caption = "Boomerang Toad"
-    optIceMario(Index).Caption = "Ice Toad"
+Private Sub optChrToad_Click(index As Integer)
+    testPlayer(index).Character = 4
+    optMario(index).Caption = "Toad"
+    optSuperMario(index).Caption = "Super Toad"
+    optFireMario(index).Caption = "Fire Toad"
+    optRacoonMario(index).Caption = "Racoon Toad"
+    optTanookiMario(index).Caption = "Tanooki Toad"
+    optHammerMario(index).Caption = "Boomerang Toad"
+    optIceMario(index).Caption = "Ice Toad"
     
-    ShowAll Index
+    ShowAll index
     'optMario(Index).Value = True
     'optRacoonMario(Index).Visible = False
     'optTanookiMario(Index).Visible = False
     'optHammerMario(Index).Visible = False
-    optNoMount(Index).Value = True
-    optGreenYoshi(Index).Visible = False
-    optRedYoshi(Index).Visible = False
-    optYellowYoshi(Index).Visible = False
-    optBlueYoshi(Index).Visible = False
-    optBlackYoshi(Index).Visible = False
-    optPinkYoshi(Index).Visible = False
-    optPurpleYoshi(Index).Visible = False
-    optIceYoshi(Index).Visible = False
+    optNoMount(index).Value = True
+    optGreenYoshi(index).Visible = False
+    optRedYoshi(index).Visible = False
+    optYellowYoshi(index).Visible = False
+    optBlueYoshi(index).Visible = False
+    optBlackYoshi(index).Visible = False
+    optPinkYoshi(index).Visible = False
+    optPurpleYoshi(index).Visible = False
+    optIceYoshi(index).Visible = False
 End Sub
 
-Private Sub optFireMario_Click(Index As Integer)
-    testPlayer(Index).State = 3
+Private Sub optFireMario_Click(index As Integer)
+    testPlayer(index).State = 3
 End Sub
 
-Private Sub optGreenYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 1
+Private Sub optGreenYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 1
 End Sub
 
-Private Sub optKoopaClownCar_Click(Index As Integer)
-    testPlayer(Index).Mount = 2
+Private Sub optKoopaClownCar_Click(index As Integer)
+    testPlayer(index).Mount = 2
 End Sub
 
-Private Sub optHammerMario_Click(Index As Integer)
-    testPlayer(Index).State = 6
+Private Sub optHammerMario_Click(index As Integer)
+    testPlayer(index).State = 6
 End Sub
 
-Private Sub optIceMario_Click(Index As Integer)
-    testPlayer(Index).State = 7
+Private Sub optIceMario_Click(index As Integer)
+    testPlayer(index).State = 7
 End Sub
 
-Private Sub optIceYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 8
+Private Sub optIceYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 8
 End Sub
 
-Private Sub optMario_Click(Index As Integer)
-    testPlayer(Index).State = 1
+Private Sub optMario_Click(index As Integer)
+    testPlayer(index).State = 1
 End Sub
 
-Private Sub optMarioC_Click(Index As Integer)
-    testPlayer(1).Character = Index
+Private Sub optMarioC_Click(index As Integer)
+    testPlayer(1).Character = index
 End Sub
 
-Private Sub optNoMount_Click(Index As Integer)
-    testPlayer(Index).Mount = 0
+Private Sub optNoMount_Click(index As Integer)
+    testPlayer(index).Mount = 0
 End Sub
 
-Private Sub optPinkYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 7
+Private Sub optPinkYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 7
 End Sub
 
-Private Sub optPurpleYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 6
+Private Sub optPurpleYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 6
 End Sub
 
-Private Sub optRacoonMario_Click(Index As Integer)
-    testPlayer(Index).State = 4
+Private Sub optRacoonMario_Click(index As Integer)
+    testPlayer(index).State = 4
 End Sub
 
-Private Sub optRedBoot_Click(Index As Integer)
-    testPlayer(Index).Mount = 1
-    testPlayer(Index).MountType = 2
+Private Sub optRedBoot_Click(index As Integer)
+    testPlayer(index).Mount = 1
+    testPlayer(index).MountType = 2
 End Sub
 
-Private Sub optRedYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 4
+Private Sub optRedYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 4
 End Sub
 
-Private Sub optSuperMario_Click(Index As Integer)
-    testPlayer(Index).State = 2
+Private Sub optSuperMario_Click(index As Integer)
+    testPlayer(index).State = 2
 End Sub
 
-Private Sub optTanookiMario_Click(Index As Integer)
-    testPlayer(Index).State = 5
+Private Sub optTanookiMario_Click(index As Integer)
+    testPlayer(index).State = 5
 End Sub
 
-Private Sub optYellowYoshi_Click(Index As Integer)
-    testPlayer(Index).Mount = 3
-    testPlayer(Index).MountType = 3
+Private Sub optYellowYoshi_Click(index As Integer)
+    testPlayer(index).Mount = 3
+    testPlayer(index).MountType = 3
 End Sub
 
-Private Sub ShowAll(Index As Integer)
-    optMario(Index).Value = True
-    optMario(Index).Visible = True
-    optSuperMario(Index).Visible = True
-    optFireMario(Index).Visible = True
-    optRacoonMario(Index).Visible = True
-    optTanookiMario(Index).Visible = True
-    optHammerMario(Index).Visible = True
-    optGreenYoshi(Index).Visible = True
-    optRedYoshi(Index).Visible = True
-    optYellowYoshi(Index).Visible = True
-    optBlueYoshi(Index).Visible = True
-    optBlackYoshi(Index).Visible = True
-    optPinkYoshi(Index).Visible = True
-    optPurpleYoshi(Index).Visible = True
-    optIceYoshi(Index).Visible = True
-    optBoot(Index).Visible = True
-    optRedBoot(Index).Visible = True
-    optBlueBoot(Index).Visible = True
-    optNoMount(Index).Visible = True
+Private Sub ShowAll(index As Integer)
+    optMario(index).Value = True
+    optMario(index).Visible = True
+    optSuperMario(index).Visible = True
+    optFireMario(index).Visible = True
+    optRacoonMario(index).Visible = True
+    optTanookiMario(index).Visible = True
+    optHammerMario(index).Visible = True
+    optGreenYoshi(index).Visible = True
+    optRedYoshi(index).Visible = True
+    optYellowYoshi(index).Visible = True
+    optBlueYoshi(index).Visible = True
+    optBlackYoshi(index).Visible = True
+    optPinkYoshi(index).Visible = True
+    optPurpleYoshi(index).Visible = True
+    optIceYoshi(index).Visible = True
+    optBoot(index).Visible = True
+    optRedBoot(index).Visible = True
+    optBlueBoot(index).Visible = True
+    optNoMount(index).Visible = True
 End Sub

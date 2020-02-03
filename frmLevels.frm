@@ -18,7 +18,7 @@ Begin VB.Form frmLevels
       Height          =   540
       Index           =   0
       Left            =   2880
-      Picture         =   "frmLevels.frx":628A
+      Picture         =   "frmLevels.frx":0B3A
       Style           =   1  'Graphical
       TabIndex        =   61
       Top             =   10560
@@ -29,7 +29,7 @@ Begin VB.Form frmLevels
       Height          =   540
       Index           =   29
       Left            =   3480
-      Picture         =   "frmLevels.frx":6ECC
+      Picture         =   "frmLevels.frx":177C
       Style           =   1  'Graphical
       TabIndex        =   60
       Top             =   10560
@@ -202,9 +202,9 @@ Begin VB.Form frmLevels
       Begin VB.ComboBox cmbExit 
          Height          =   315
          Index           =   4
-         ItemData        =   "frmLevels.frx":7B0E
+         ItemData        =   "frmLevels.frx":23BE
          Left            =   960
-         List            =   "frmLevels.frx":7B30
+         List            =   "frmLevels.frx":23E0
          TabIndex        =   14
          Text            =   "0 - None"
          Top             =   1320
@@ -213,9 +213,9 @@ Begin VB.Form frmLevels
       Begin VB.ComboBox cmbExit 
          Height          =   315
          Index           =   3
-         ItemData        =   "frmLevels.frx":7BDA
+         ItemData        =   "frmLevels.frx":248A
          Left            =   960
-         List            =   "frmLevels.frx":7BFC
+         List            =   "frmLevels.frx":24AC
          TabIndex        =   13
          Text            =   "0 - None"
          Top             =   960
@@ -224,9 +224,9 @@ Begin VB.Form frmLevels
       Begin VB.ComboBox cmbExit 
          Height          =   315
          Index           =   2
-         ItemData        =   "frmLevels.frx":7CA6
+         ItemData        =   "frmLevels.frx":2556
          Left            =   960
-         List            =   "frmLevels.frx":7CC8
+         List            =   "frmLevels.frx":2578
          TabIndex        =   12
          Text            =   "0 - None"
          Top             =   600
@@ -235,9 +235,9 @@ Begin VB.Form frmLevels
       Begin VB.ComboBox cmbExit 
          Height          =   315
          Index           =   1
-         ItemData        =   "frmLevels.frx":7D72
+         ItemData        =   "frmLevels.frx":2622
          Left            =   960
-         List            =   "frmLevels.frx":7D94
+         List            =   "frmLevels.frx":2644
          TabIndex        =   11
          Text            =   "0 - None"
          Top             =   240
@@ -312,7 +312,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   32
          Left            =   7920
-         Picture         =   "frmLevels.frx":7E3E
+         Picture         =   "frmLevels.frx":26EE
          Style           =   1  'Graphical
          TabIndex        =   63
          Top             =   840
@@ -323,7 +323,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   31
          Left            =   7320
-         Picture         =   "frmLevels.frx":825D
+         Picture         =   "frmLevels.frx":2B0D
          Style           =   1  'Graphical
          TabIndex        =   62
          Top             =   840
@@ -334,7 +334,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   30
          Left            =   4320
-         Picture         =   "frmLevels.frx":867C
+         Picture         =   "frmLevels.frx":2F2C
          Style           =   1  'Graphical
          TabIndex        =   59
          Top             =   240
@@ -345,7 +345,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   28
          Left            =   4320
-         Picture         =   "frmLevels.frx":8A7C
+         Picture         =   "frmLevels.frx":332C
          Style           =   1  'Graphical
          TabIndex        =   57
          Top             =   840
@@ -356,7 +356,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   27
          Left            =   4920
-         Picture         =   "frmLevels.frx":8F4D
+         Picture         =   "frmLevels.frx":37FD
          Style           =   1  'Graphical
          TabIndex        =   56
          Top             =   240
@@ -367,7 +367,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   26
          Left            =   4920
-         Picture         =   "frmLevels.frx":934D
+         Picture         =   "frmLevels.frx":3BFD
          Style           =   1  'Graphical
          TabIndex        =   55
          Top             =   840
@@ -378,7 +378,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   25
          Left            =   5520
-         Picture         =   "frmLevels.frx":975A
+         Picture         =   "frmLevels.frx":400A
          Style           =   1  'Graphical
          TabIndex        =   54
          Top             =   840
@@ -389,7 +389,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   24
          Left            =   2520
-         Picture         =   "frmLevels.frx":9B5A
+         Picture         =   "frmLevels.frx":440A
          Style           =   1  'Graphical
          TabIndex        =   53
          Top             =   840
@@ -400,7 +400,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   23
          Left            =   3120
-         Picture         =   "frmLevels.frx":A04C
+         Picture         =   "frmLevels.frx":48FC
          Style           =   1  'Graphical
          TabIndex        =   52
          Top             =   840
@@ -411,7 +411,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   22
          Left            =   1920
-         Picture         =   "frmLevels.frx":A617
+         Picture         =   "frmLevels.frx":4EC7
          Style           =   1  'Graphical
          TabIndex        =   51
          Top             =   840
@@ -422,7 +422,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   21
          Left            =   3720
-         Picture         =   "frmLevels.frx":AAAC
+         Picture         =   "frmLevels.frx":535C
          Style           =   1  'Graphical
          TabIndex        =   50
          Top             =   840
@@ -433,7 +433,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   20
          Left            =   6120
-         Picture         =   "frmLevels.frx":AFB2
+         Picture         =   "frmLevels.frx":5862
          Style           =   1  'Graphical
          TabIndex        =   40
          Top             =   840
@@ -444,7 +444,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   19
          Left            =   9120
-         Picture         =   "frmLevels.frx":B37F
+         Picture         =   "frmLevels.frx":5C2F
          Style           =   1  'Graphical
          TabIndex        =   39
          Top             =   240
@@ -455,7 +455,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   18
          Left            =   9720
-         Picture         =   "frmLevels.frx":B760
+         Picture         =   "frmLevels.frx":6010
          Style           =   1  'Graphical
          TabIndex        =   38
          Top             =   240
@@ -466,7 +466,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   17
          Left            =   7920
-         Picture         =   "frmLevels.frx":BB21
+         Picture         =   "frmLevels.frx":63D1
          Style           =   1  'Graphical
          TabIndex        =   37
          Top             =   240
@@ -477,7 +477,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   16
          Left            =   6120
-         Picture         =   "frmLevels.frx":BF13
+         Picture         =   "frmLevels.frx":67C3
          Style           =   1  'Graphical
          TabIndex        =   36
          Top             =   240
@@ -488,7 +488,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   15
          Left            =   8520
-         Picture         =   "frmLevels.frx":C310
+         Picture         =   "frmLevels.frx":6BC0
          Style           =   1  'Graphical
          TabIndex        =   35
          Top             =   240
@@ -499,7 +499,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   14
          Left            =   2520
-         Picture         =   "frmLevels.frx":C6E5
+         Picture         =   "frmLevels.frx":6F95
          Style           =   1  'Graphical
          TabIndex        =   28
          Top             =   240
@@ -510,7 +510,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   13
          Left            =   1320
-         Picture         =   "frmLevels.frx":CB09
+         Picture         =   "frmLevels.frx":73B9
          Style           =   1  'Graphical
          TabIndex        =   27
          Top             =   240
@@ -521,7 +521,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   12
          Left            =   120
-         Picture         =   "frmLevels.frx":CEBE
+         Picture         =   "frmLevels.frx":776E
          Style           =   1  'Graphical
          TabIndex        =   26
          Top             =   840
@@ -532,7 +532,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   11
          Left            =   6720
-         Picture         =   "frmLevels.frx":D2E7
+         Picture         =   "frmLevels.frx":7B97
          Style           =   1  'Graphical
          TabIndex        =   25
          Top             =   840
@@ -543,7 +543,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   10
          Left            =   1320
-         Picture         =   "frmLevels.frx":D6D0
+         Picture         =   "frmLevels.frx":7F80
          Style           =   1  'Graphical
          TabIndex        =   24
          Top             =   840
@@ -554,7 +554,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   9
          Left            =   1920
-         Picture         =   "frmLevels.frx":DAAD
+         Picture         =   "frmLevels.frx":835D
          Style           =   1  'Graphical
          TabIndex        =   23
          Top             =   240
@@ -565,7 +565,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   8
          Left            =   720
-         Picture         =   "frmLevels.frx":DED1
+         Picture         =   "frmLevels.frx":8781
          Style           =   1  'Graphical
          TabIndex        =   22
          Top             =   840
@@ -576,7 +576,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   7
          Left            =   6720
-         Picture         =   "frmLevels.frx":E2A7
+         Picture         =   "frmLevels.frx":8B57
          Style           =   1  'Graphical
          TabIndex        =   21
          Top             =   240
@@ -587,7 +587,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   6
          Left            =   7320
-         Picture         =   "frmLevels.frx":EEE9
+         Picture         =   "frmLevels.frx":9799
          Style           =   1  'Graphical
          TabIndex        =   18
          Top             =   240
@@ -598,7 +598,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   5
          Left            =   3120
-         Picture         =   "frmLevels.frx":FB2B
+         Picture         =   "frmLevels.frx":A3DB
          Style           =   1  'Graphical
          TabIndex        =   17
          Top             =   240
@@ -609,7 +609,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   4
          Left            =   5520
-         Picture         =   "frmLevels.frx":1076D
+         Picture         =   "frmLevels.frx":B01D
          Style           =   1  'Graphical
          TabIndex        =   16
          Top             =   240
@@ -620,7 +620,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   3
          Left            =   3720
-         Picture         =   "frmLevels.frx":113AF
+         Picture         =   "frmLevels.frx":BC5F
          Style           =   1  'Graphical
          TabIndex        =   15
          Top             =   240
@@ -631,7 +631,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   2
          Left            =   720
-         Picture         =   "frmLevels.frx":11FF1
+         Picture         =   "frmLevels.frx":C8A1
          Style           =   1  'Graphical
          TabIndex        =   3
          Top             =   240
@@ -642,7 +642,7 @@ Begin VB.Form frmLevels
          Height          =   540
          Index           =   1
          Left            =   120
-         Picture         =   "frmLevels.frx":12C33
+         Picture         =   "frmLevels.frx":D4E3
          Style           =   1  'Graphical
          TabIndex        =   2
          Top             =   240
@@ -656,12 +656,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub cmbExit_Change(Index As Integer)
+Private Sub cmbExit_Change(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub cmbExit_Click(Index As Integer)
+Private Sub cmbExit_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
@@ -676,7 +676,7 @@ Private Sub scrWarp_Change()
     End If
 End Sub
 
-Private Sub WorldLevel_Click(Index As Integer)
+Private Sub WorldLevel_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

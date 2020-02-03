@@ -160,7 +160,7 @@ Private Sub Form_Unload(Cancel As Integer)
     Spawn.Caption = "No"
 End Sub
 
-Private Sub optEffect_Click(Index As Integer)
+Private Sub optEffect_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
@@ -204,7 +204,7 @@ Public Sub CheckSpawn()
     End If
 End Sub
 
-Private Sub optSpawnDirection_Click(Index As Integer)
+Private Sub optSpawnDirection_Click(index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

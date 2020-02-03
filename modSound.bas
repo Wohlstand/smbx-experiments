@@ -439,7 +439,7 @@ Public Sub InitSound() 'readys sound and music to be played
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-boss.mp3" & Chr(34) & " alias music6", 0, 0, 0
     AddMusic "music6", App.Path & "\music\smb3-boss.spc", App.Path & "\music\smb3-boss.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-underground.mp3" & Chr(34) & " alias music7", 0, 0, 0
-    AddMusic "music7", App.Path & "\music\super-mario-bros-nes-NSF-ID2098.nsf|2", App.Path & "\music\smb-underground.mp3"
+    AddMusic "music7", App.Path & "\music\super-mario-bros-nes-NSF-ID2098.nsf|1", App.Path & "\music\smb-underground.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sf-corneria.mp3" & Chr(34) & " alias music8", 0, 0, 0
     AddMusic "music8", App.Path & "\music\sf-corneria.spc", App.Path & "\music\sf-corneria.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-overworld.mp3" & Chr(34) & " alias music9", 0, 0, 0

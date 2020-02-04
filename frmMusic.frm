@@ -201,8 +201,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-Private Sub optMusic_Click(index As Integer)
+Private Sub optMusic_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    PlayMusic "wmusic" & index
+    PlayMusic "wmusic" & Index
 End Sub

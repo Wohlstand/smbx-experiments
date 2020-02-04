@@ -2507,11 +2507,11 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Background_Click(index As Integer)
+Private Sub Background_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     For A = 1 To Background.Count '- 1
-        If index <> A Then Background(A).Value = False
+        If Index <> A Then Background(A).Value = False
     Next A
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
@@ -2533,12 +2533,12 @@ Private Sub Form_Unload(Cancel As Integer)
     frmLevelEditor.optCursor(13).Value = True
 End Sub
 
-Private Sub optGame_Click(index As Integer)
+Private Sub optGame_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To Game.Count - 1
-        If A = index Then
+        If A = Index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False

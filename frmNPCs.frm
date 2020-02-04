@@ -4071,22 +4071,22 @@ Private Sub Lakitu_Click()
     End If
 End Sub
 
-Private Sub NPC_Click(index As Integer)
+Private Sub NPC_Click(Index As Integer)
     Dim A As Integer
     Dim W As Single
     Dim H As Single
     On Error Resume Next
-    ResetNPC index
+    ResetNPC Index
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 1 To NPC.Count
-        If index <> A Then NPC(A).Value = False
+        If Index <> A Then NPC(A).Value = False
     Next A
-    If NPCHeight(index) > 36 Or NPCWidth(index) > 36 Or NPCWidthGFX(index) > 36 Or NPCHeightGFX(index) > 36 Then
-        W = NPCWidth(index)
-        H = NPCHeight(index)
-        If NPCWidthGFX(index) > W Then W = NPCWidthGFX(index)
-        If NPCHeightGFX(index) > H Then H = NPCHeightGFX(index)
-        If (W <= 32 And H <= 54) Or (H <= 32 And W <= 54) Or index = 134 Then
+    If NPCHeight(Index) > 36 Or NPCWidth(Index) > 36 Or NPCWidthGFX(Index) > 36 Or NPCHeightGFX(Index) > 36 Then
+        W = NPCWidth(Index)
+        H = NPCHeight(Index)
+        If NPCWidthGFX(Index) > W Then W = NPCWidthGFX(Index)
+        If NPCHeightGFX(Index) > H Then H = NPCHeightGFX(Index)
+        If (W <= 32 And H <= 54) Or (H <= 32 And W <= 54) Or Index = 134 Then
             Bubble.Enabled = True
             Frame(1).Enabled = True
         Else
@@ -4116,15 +4116,15 @@ Private Sub NPC_Click(index As Integer)
         frmNPCAdvanced.cmbCheep.ListIndex = 0
     End If
     optNPCDirection(1).Caption = "Random"
-    If index = 60 Or index = 62 Or index = 64 Or index = 66 Or index = 104 Then
+    If Index = 60 Or Index = 62 Or Index = 64 Or Index = 66 Or Index = 104 Then
         frmDirection.Caption = "Active"
         optNPCDirection(0).Caption = "Off"
         optNPCDirection(2).Caption = "On"
-    ElseIf index = 106 Or (NPCIsAParaTroopa(index) = True And frmNPCAdvanced.cmbPara.ListIndex = 3) Then
+    ElseIf Index = 106 Or (NPCIsAParaTroopa(Index) = True And frmNPCAdvanced.cmbPara.ListIndex = 3) Then
         frmDirection.Caption = "Direction"
         optNPCDirection(0).Caption = "Up"
         optNPCDirection(2).Caption = "Down"
-    ElseIf index = 259 Or index = 260 Then
+    ElseIf Index = 259 Or Index = 260 Then
         frmDirection.Caption = "Direction"
         optNPCDirection(0).Caption = "Bottom"
         optNPCDirection(2).Caption = "Top"
@@ -4134,7 +4134,7 @@ Private Sub NPC_Click(index As Integer)
         optNPCDirection(2).Caption = "Right"
     End If
     
-    If index = 57 Or index = 60 Or index = 62 Or index = 64 Or index = 66 Then ' no random direction
+    If Index = 57 Or Index = 60 Or Index = 62 Or Index = 64 Or Index = 66 Then ' no random direction
         optNPCDirection(1).Enabled = False
         If optNPCDirection(1).Value = True Then
             optNPCDirection(0).Value = True
@@ -4142,7 +4142,7 @@ Private Sub NPC_Click(index As Integer)
     Else
         optNPCDirection(1).Enabled = True
     End If
-    If index = 288 Or index = 289 Then
+    If Index = 288 Or Index = 289 Then
         frmNPCAdvanced.WarpFrame.Enabled = True
         frmNPCAdvanced.WarpSection.Enabled = True
     Else
@@ -4150,34 +4150,34 @@ Private Sub NPC_Click(index As Integer)
         frmNPCAdvanced.WarpFrame.Enabled = False
         frmNPCAdvanced.WarpSection.Enabled = False
     End If
-    If index = 15 Or index = 39 Or index = 86 Then
+    If Index = 15 Or Index = 39 Or Index = 86 Then
         frmNPCAdvanced.LegacyFrame.Enabled = True
         frmNPCAdvanced.Legacy.Enabled = True
     Else
         frmNPCAdvanced.LegacyFrame.Enabled = False
         frmNPCAdvanced.Legacy.Enabled = False
     End If
-    If NPCIsAParaTroopa(index) = True Then
+    If NPCIsAParaTroopa(Index) = True Then
         frmNPCAdvanced.ParaFrame.Enabled = True
         frmNPCAdvanced.cmbPara.Enabled = True
     Else
         frmNPCAdvanced.ParaFrame.Enabled = False
         frmNPCAdvanced.cmbPara.Enabled = False
     End If
-    If NPCIsCheep(index) = True Then
+    If NPCIsCheep(Index) = True Then
         frmNPCAdvanced.CheepFrame.Enabled = True
         frmNPCAdvanced.cmbCheep.Enabled = True
     Else
         frmNPCAdvanced.CheepFrame.Enabled = False
         frmNPCAdvanced.cmbCheep.Enabled = False
     End If
-    If index = 151 Then
+    If Index = 151 Then
         frmNPCs.Friendly.Value = True
         frmNPCs.Friendly.Enabled = False
     Else
         frmNPCs.Friendly.Enabled = True
     End If
-    If index = 260 Then
+    If Index = 260 Then
         frmNPCAdvanced.FireFrame.Enabled = True
         frmNPCAdvanced.scrFire.Enabled = True
         frmNPCAdvanced.lbFire.Enabled = True
@@ -4192,17 +4192,17 @@ Private Sub NPCText_Change()
     Friendly.Caption = "Yes"
 End Sub
 
-Private Sub optEffect_Click(index As Integer)
+Private Sub optEffect_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optGame_Click(index As Integer)
+Private Sub optGame_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To Game.Count - 1
-        If A = index Then
+        If A = Index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False
@@ -4216,7 +4216,7 @@ Private Sub optGame_Click(index As Integer)
     Next A
 End Sub
 
-Private Sub optNPCDirection_Click(index As Integer)
+Private Sub optNPCDirection_Click(Index As Integer)
     On Error Resume Next
     ResetNPC EditorCursor.NPC.Type
     If Me.Visible = True Then FocusNinja.SetFocus

@@ -147,11 +147,11 @@ Public Sub RefreshSavedEvents()
     Next A
 End Sub
 
-Private Sub SwitchBlock_Click(index As Integer)
-    If SwitchBlock(index).Value = 0 Then
-        BlockSwitch(index) = False
+Private Sub SwitchBlock_Click(Index As Integer)
+    If SwitchBlock(Index).Value = 0 Then
+        BlockSwitch(Index) = False
     Else
-        BlockSwitch(index) = True
+        BlockSwitch(Index) = True
     End If
 End Sub
 

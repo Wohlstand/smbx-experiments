@@ -191,20 +191,20 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub chkChar_Click(index As Integer)
+Private Sub chkChar_Click(Index As Integer)
     Dim A As Integer
     Dim B As Integer
-    If chkChar(index).Value = 1 Then
-        blockCharacter(index) = True
+    If chkChar(Index).Value = 1 Then
+        blockCharacter(Index) = True
     Else
-        blockCharacter(index) = False
+        blockCharacter(Index) = False
     End If
     For A = 1 To numCharacters
         If blockCharacter(A) = False Then B = B + 1
     Next A
     If B <= 0 Then
-        blockCharacter(index) = False
-        chkChar(index).Value = 0
+        blockCharacter(Index) = False
+        chkChar(Index).Value = 0
     End If
 End Sub
 

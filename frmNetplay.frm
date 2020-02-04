@@ -457,10 +457,10 @@ Private Sub cPassword_Change()
     ClientPassword = cPassword.Text
 End Sub
 
-Private Sub Cursor_Click(index As Integer)
+Private Sub Cursor_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    LocalCursor = index
+    LocalCursor = Index
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -468,14 +468,14 @@ Private Sub Form_Unload(Cancel As Integer)
     Me.Hide
 End Sub
 
-Private Sub optMode_Click(index As Integer)
+Private Sub optMode_Click(Index As Integer)
     frmMode(0).Enabled = False
     frmMode(1).Enabled = False
-    frmMode(index).Enabled = True
-    nPlay.Mode = index
+    frmMode(Index).Enabled = True
+    nPlay.Mode = Index
 End Sub
 
-Private Sub optPlayer_Click(index As Integer)
+Private Sub optPlayer_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

@@ -872,15 +872,15 @@ Private Sub cmdAdd_Click()
     EventText.Text = ""
 End Sub
 
-Private Sub cmdBackground_Click(index As Integer)
+Private Sub cmdBackground_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If index = 0 Then
+            If Index = 0 Then
                 Events(A).Background(curSection) = -1
-            ElseIf index = 1 Then
+            ElseIf Index = 1 Then
                 Events(A).Background(curSection) = -2
             Else
                 Events(A).Background(curSection) = Background2(curSection)
@@ -1007,18 +1007,18 @@ Private Sub cmdHideRemove_Click()
     RefreshEvents
 End Sub
 
-Private Sub cmdMusic_Click(index As Integer)
+Private Sub cmdMusic_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If index = 0 Then
-                Events(A).music(curSection) = -1
-            ElseIf index = 1 Then
-                Events(A).music(curSection) = -2
+            If Index = 0 Then
+                Events(A).Music(curSection) = -1
+            ElseIf Index = 1 Then
+                Events(A).Music(curSection) = -2
             Else
-                Events(A).music(curSection) = bgMusic(curSection)
+                Events(A).Music(curSection) = bgMusic(curSection)
             End If
         End If
     Next A
@@ -1026,15 +1026,15 @@ Private Sub cmdMusic_Click(index As Integer)
     RefreshEvents
 End Sub
 
-Private Sub cmdPosition_Click(index As Integer)
+Private Sub cmdPosition_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     If DontRefresh = True Then Exit Sub
     For A = 0 To 100
         If LCase(Events(A).Name) = LCase(lstEvent.List(lstEvent.ListIndex)) Then
-            If index = 0 Then
+            If Index = 0 Then
                 Events(A).level(curSection).X = -1
-            ElseIf index = 1 Then
+            ElseIf Index = 1 Then
                 Events(A).level(curSection).X = -2
             Else
                 Events(A).level(curSection).X = level(curSection).X
@@ -1209,10 +1209,6 @@ End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Cancel = 1
     Me.Hide
-End Sub
-
-Private Sub Frame19_DragDrop(Source As Control, X As Single, Y As Single)
-
 End Sub
 
 Private Sub lstEvent_Click()
@@ -1408,12 +1404,12 @@ Public Sub RefreshEvents()
                         Next C
                     End If
                 Next B
-                If .music(curSection) >= 0 Then
+                If .Music(curSection) >= 0 Then
                     cmdMusic(2).Value = True
-                    cmdMusic(2).Caption = frmLevelSettings.optMusic(Events(A).music(curSection)).Caption
+                    cmdMusic(2).Caption = frmLevelSettings.optMusic(Events(A).Music(curSection)).Caption
                 Else
                     cmdMusic(2).Caption = "Use Current"
-                    If .music(curSection) = -1 Then
+                    If .Music(curSection) = -1 Then
                         cmdMusic(0).Value = True
                     Else
                         cmdMusic(1).Value = True

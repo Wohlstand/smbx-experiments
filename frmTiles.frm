@@ -3429,12 +3429,12 @@ Private Sub Form_Load()
     Next A
 End Sub
 
-Private Sub optGame_Click(index As Integer)
+Private Sub optGame_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = o To Game.Count - 1
-        If A = index Then
+        If A = Index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False
@@ -3442,11 +3442,11 @@ Private Sub optGame_Click(index As Integer)
     Next A
 End Sub
 
-Private Sub Tile_Click(index As Integer)
+Private Sub Tile_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 1 To Tile.Count
-        If A <> index Then Tile(A).Value = False
+        If A <> Index Then Tile(A).Value = False
     Next A
 End Sub

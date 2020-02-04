@@ -406,25 +406,25 @@ Private Sub Form_Unload(Cancel As Integer)
     frmLevelEditor.optCursor(13).Value = True
 End Sub
 
-Private Sub optDirection_Click(index As Integer)
+Private Sub optDirection_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optDirection2_Click(index As Integer)
+Private Sub optDirection2_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optE_Click(index As Integer)
+Private Sub optE_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optEffect_Click(index As Integer)
+Private Sub optEffect_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
-    If index = 2 Then
+    If Index = 2 Then
         optDirection(1).Value = True
         For A = 1 To 4
             optDirection(A).Enabled = False

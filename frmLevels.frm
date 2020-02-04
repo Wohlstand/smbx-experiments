@@ -656,12 +656,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub cmbExit_Change(index As Integer)
+Private Sub cmbExit_Change(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub cmbExit_Click(index As Integer)
+Private Sub cmbExit_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
@@ -676,7 +676,7 @@ Private Sub scrWarp_Change()
     End If
 End Sub
 
-Private Sub WorldLevel_Click(index As Integer)
+Private Sub WorldLevel_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub

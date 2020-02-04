@@ -8489,19 +8489,19 @@ Attribute VB_Exposed = False
 Dim BlockSD As Integer
 Dim StopIt As Boolean
 
-Private Sub Block_Click(index As Integer)
+Private Sub Block_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    If BlockIsSizable(index) Then
+    If BlockIsSizable(Index) Then
         chkFill.Enabled = False
     Else
         chkFill.Enabled = True
     End If
     For A = 1 To Block.Count
-        If index <> A Then Block(A).Value = False
+        If Index <> A Then Block(A).Value = False
     Next A
-    If index = 5 Or index = 88 Or index = 193 Or index = 224 Then
+    If Index = 5 Or Index = 88 Or Index = 193 Or Index = 224 Then
         optBlockS.Value = -1
     Else
         optBlockS.Value = 0
@@ -8510,7 +8510,7 @@ Private Sub Block_Click(index As Integer)
     chkFill.Value = 0
     cmdInvis.Caption = "No"
     cmdSlip.Caption = "No"
-    If index = 189 Or index = 190 Or index = 191 Or index = 270 Or index = 271 Or index = 272 Or index = 620 Or index = 621 Or index = 633 Or index = 634 Or index = 241 Or index = 242 Then
+    If Index = 189 Or Index = 190 Or Index = 191 Or Index = 270 Or Index = 271 Or Index = 272 Or Index = 620 Or Index = 621 Or Index = 633 Or Index = 634 Or Index = 241 Or Index = 242 Then
         cmdSlip.Caption = "Yes"
     End If
 End Sub
@@ -8612,17 +8612,17 @@ Private Sub optBlockS_Scroll()
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optBlockSpecial_Click(index As Integer)
+Private Sub optBlockSpecial_Click(Index As Integer)
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optGame_Click(index As Integer)
+Private Sub optGame_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To Game.Count - 1
-        If A = index Then
+        If A = Index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False
@@ -8630,11 +8630,11 @@ Private Sub optGame_Click(index As Integer)
     Next A
 End Sub
 
-Private Sub optMisc_Click(index As Integer)
+Private Sub optMisc_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To Misc.Count - 1
-        If A = index Then
+        If A = Index Then
             Misc(A).Visible = True
         Else
             Misc(A).Visible = False
@@ -8643,11 +8643,11 @@ Private Sub optMisc_Click(index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMW_Click(index As Integer)
+Private Sub optSMW_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMW.Count - 1
-        If A = index Then
+        If A = Index Then
             SMW(A).Visible = True
         Else
             SMW(A).Visible = False
@@ -8656,11 +8656,11 @@ Private Sub optSMW_Click(index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB3_Click(index As Integer)
+Private Sub optSMB3_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB3.Count - 1
-        If A = index Then
+        If A = Index Then
             SMB3(A).Visible = True
         Else
             SMB3(A).Visible = False
@@ -8669,11 +8669,11 @@ Private Sub optSMB3_Click(index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB2_Click(index As Integer)
+Private Sub optSMB2_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB2.Count - 1
-        If A = index Then
+        If A = Index Then
             SMB2(A).Visible = True
         Else
             SMB2(A).Visible = False
@@ -8682,11 +8682,11 @@ Private Sub optSMB2_Click(index As Integer)
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub optSMB1_Click(index As Integer)
+Private Sub optSMB1_Click(Index As Integer)
     On Error Resume Next
     Dim A As Integer
     For A = 0 To SMB1.Count - 1
-        If A = index Then
+        If A = Index Then
             SMB1(A).Visible = True
         Else
             SMB1(A).Visible = False
@@ -8696,14 +8696,14 @@ Private Sub optSMB1_Click(index As Integer)
 End Sub
 
 
-Private Sub qBlockS_Click(index As Integer)
+Private Sub qBlockS_Click(Index As Integer)
     On Error Resume Next
-    optBlockS.Value = index
+    optBlockS.Value = Index
     If Me.Visible = True Then FocusNinja.SetFocus
 End Sub
 
-Private Sub qCoin_Click(index As Integer)
-    optBlockS.Value = -index
+Private Sub qCoin_Click(Index As Integer)
+    optBlockS.Value = -Index
 End Sub
 
 Public Sub CheckBlock()

@@ -1942,28 +1942,28 @@ Private Sub Form_Unload(Cancel As Integer)
     frmLevelEditor.optCursor(13).Value = True
 End Sub
 
-Private Sub optBackground_Click(index As Integer)
+Private Sub optBackground_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To optBackground.Count - 1
-        If A <> index Then optBackground(A).Value = False
+        If A <> Index Then optBackground(A).Value = False
     Next A
-    Background2(curSection) = index
-    If noUpdate = False Then Netplay.sendData "i" & curSection & "|" & index
+    Background2(curSection) = Index
+    If noUpdate = False Then Netplay.sendData "i" & curSection & "|" & Index
 End Sub
 
-Private Sub optBackgroundColor_Click(index As Integer)
-    bgColor(curSection) = optBackgroundColor(index).BackColor
+Private Sub optBackgroundColor_Click(Index As Integer)
+    bgColor(curSection) = optBackgroundColor(Index).BackColor
     GFX.BackgroundColor(1).BackColor = bgColor(curSection)
 End Sub
 
-Private Sub optGame_Click(index As Integer)
+Private Sub optGame_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To Game.Count - 1
-        If A = index Then
+        If A = Index Then
             Game(A).Visible = True
         Else
             Game(A).Visible = False
@@ -1971,51 +1971,51 @@ Private Sub optGame_Click(index As Integer)
     Next A
 End Sub
 
-Private Sub optLevel_Click(index As Integer)
+Private Sub optLevel_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To optLevel.Count - 1
-        If A <> index Then optLevel(A).Value = False
+        If A <> Index Then optLevel(A).Value = False
     Next A
 End Sub
 
-Private Sub optMusic_Click(index As Integer)
+Private Sub optMusic_Click(Index As Integer)
     Dim A As Integer
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
     For A = 0 To optMusic.Count - 1
-        If A <> index Then optMusic(A).Value = False
+        If A <> Index Then optMusic(A).Value = False
     Next A
     If curMusic <> -1 Then
         StopMusic
-        bgMusic(curSection) = index
+        bgMusic(curSection) = Index
         StartMusic curSection
     End If
-    If noUpdate = False Then Netplay.sendData "h" & curSection & "|" & index
+    If noUpdate = False Then Netplay.sendData "h" & curSection & "|" & Index
 End Sub
 
-Private Sub optSection_Click(index As Integer)
+Private Sub optSection_Click(Index As Integer)
     Dim A As Integer
     txtMusic.Enabled = False
-    txtMusic.Text = CustomMusic(index)
+    txtMusic.Text = CustomMusic(Index)
     txtMusic.Enabled = True
     On Error Resume Next
     If Me.Visible = True Then FocusNinja.SetFocus
-    If bgMusic(curSection) <> bgMusic(index) Then
+    If bgMusic(curSection) <> bgMusic(Index) Then
         StopMusic
-        StartMusic index
+        StartMusic Index
     ElseIf bgMusic(curSection) = 24 Then
-        If CustomMusic(curSection) <> CustomMusic(index) Then
+        If CustomMusic(curSection) <> CustomMusic(Index) Then
             StopMusic
-            StartMusic index
+            StartMusic Index
         End If
     End If
-    If bgColor(curSection) <> bgColor(index) Then
-        GFX.BackgroundColor(1).BackColor = bgColor(index)
+    If bgColor(curSection) <> bgColor(Index) Then
+        GFX.BackgroundColor(1).BackColor = bgColor(Index)
     End If
-    curSection = index
-    optMusic(bgMusic(index)).Value = True
+    curSection = Index
+    optMusic(bgMusic(Index)).Value = True
     For A = 1 To optBackgroundColor.Count
         If optBackgroundColor(A).BackColor = bgColor(curSection) Then
             optBackgroundColor(A).Value = True

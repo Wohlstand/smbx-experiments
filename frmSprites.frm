@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form frmSprites 
    Caption         =   "Sprites"
-   ClientHeight    =   13185
-   ClientLeft      =   120
-   ClientTop       =   450
+   ClientHeight    =   13110
+   ClientLeft      =   165
+   ClientTop       =   555
    ClientWidth     =   18525
    LinkTopic       =   "Form1"
-   ScaleHeight     =   13185
+   ScaleHeight     =   13110
    ScaleWidth      =   18525
    StartUpPosition =   3  'Windows Default
    Begin VB.PictureBox pic 

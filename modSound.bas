@@ -396,68 +396,68 @@ Public Sub InitSound() 'readys sound and music to be played
     modLoadGFX.UpdateLoad
 'WORLD / MISC MUSIC
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world1.mp3" & Chr(34) & " alias wmusic1", 0, 0, 0
-    AddMusic "wmusic1", App.Path & "\music\smb3-world1.spc|0;g=3.5", App.Path & "\music\smb3-world1.mp3"
+    AddMusic "wmusic1", App.Path & "\music\smb3-world1.spc|0;g=2.7", App.Path & "\music\smb3-world1.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world4.mp3" & Chr(34) & " alias wmusic2", 0, 0, 0
-    AddMusic "wmusic2", App.Path & "\music\smb3-world4.spc|0;g=3.5", App.Path & "\music\smb3-world4.mp3"
+    AddMusic "wmusic2", App.Path & "\music\smb3-world4.spc|0;g=2.7", App.Path & "\music\smb3-world4.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world7.mp3" & Chr(34) & " alias wmusic3", 0, 0, 0
-    AddMusic "wmusic3", App.Path & "\music\smb3-world7.spc|0;g=3.5", App.Path & "\music\smb3-world7.mp3"
+    AddMusic "wmusic3", App.Path & "\music\smb3-world7.spc|0;g=2.7", App.Path & "\music\smb3-world7.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-worldmap.mp3" & Chr(34) & " alias wmusic4", 0, 0, 0
-    AddMusic "wmusic4", App.Path & "\music\smw-worldmap.spc|0;g=3.5", App.Path & "\music\smw-worldmap.mp3"
+    AddMusic "wmusic4", App.Path & "\music\smw-worldmap.spc|0;g=2.7", App.Path & "\music\smw-worldmap.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\nsmb-world.mp3" & Chr(34) & " alias wmusic5", 0, 0, 0
     AddMusic "wmusic5", App.Path & "\music\nsmb-world.ogg", App.Path & "\music\nsmb-world.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world2.mp3" & Chr(34) & " alias wmusic6", 0, 0, 0
-    AddMusic "wmusic6", App.Path & "\music\smb3-world2.spc|0;g=3.5", App.Path & "\music\smb3-world2.mp3"
+    AddMusic "wmusic6", App.Path & "\music\smb3-world2.spc|0;g=2.7", App.Path & "\music\smb3-world2.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-forestofillusion.mp3" & Chr(34) & " alias wmusic7", 0, 0, 0
-    AddMusic "wmusic7", App.Path & "\music\smw-forestofillusion.spc|0;g=3.5", App.Path & "\music\smw-forestofillusion.mp3"
+    AddMusic "wmusic7", App.Path & "\music\smw-forestofillusion.spc|0;g=2.7", App.Path & "\music\smw-forestofillusion.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world3.mp3" & Chr(34) & " alias wmusic8", 0, 0, 0
-    AddMusic "wmusic8", App.Path & "\music\smb3-world3.spc|0;g=3.5", App.Path & "\music\smb3-world3.mp3"
+    AddMusic "wmusic8", App.Path & "\music\smb3-world3.spc|0;g=2.7", App.Path & "\music\smb3-world3.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world8.mp3" & Chr(34) & " alias wmusic9", 0, 0, 0
-    AddMusic "wmusic9", App.Path & "\music\smb3-world8.spc|0;g=3.5", App.Path & "\music\smb3-world8.mp3"
+    AddMusic "wmusic9", App.Path & "\music\smb3-world8.spc|0;g=2.7", App.Path & "\music\smb3-world8.mp3"
     modLoadGFX.UpdateLoad
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world6.mp3" & Chr(34) & " alias wmusic10", 0, 0, 0
-    AddMusic "wmusic10", App.Path & "\music\smb3-world6.spc|0;g=3.5", App.Path & "\music\smb3-world6.mp3"
+    AddMusic "wmusic10", App.Path & "\music\smb3-world6.spc|0;g=2.7", App.Path & "\music\smb3-world6.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-world5.mp3" & Chr(34) & " alias wmusic11", 0, 0, 0
-    AddMusic "wmusic11", App.Path & "\music\smb3-world5.spc|0;g=3.5", App.Path & "\music\smb3-world5.mp3"
+    AddMusic "wmusic11", App.Path & "\music\smb3-world5.spc|0;g=2.7", App.Path & "\music\smb3-world5.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-special.mp3" & Chr(34) & " alias wmusic12", 0, 0, 0
-    AddMusic "wmusic12", App.Path & "\music\smw-special.spc|0;g=3.5", App.Path & "\music\smw-special.mp3"
+    AddMusic "wmusic12", App.Path & "\music\smw-special.spc|0;g=2.7", App.Path & "\music\smw-special.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-bowserscastle.mp3" & Chr(34) & " alias wmusic13", 0, 0, 0
-    AddMusic "wmusic13", App.Path & "\music\smw-bowserscastle.spc|0;g=3.5", App.Path & "\music\smw-bowserscastle.mp3"
+    AddMusic "wmusic13", App.Path & "\music\smw-bowserscastle.spc|0;g=2.7", App.Path & "\music\smw-bowserscastle.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-starroad.mp3" & Chr(34) & " alias wmusic14", 0, 0, 0
-    AddMusic "wmusic14", App.Path & "\music\smw-starroad.spc|0;g=3.5", App.Path & "\music\smw-starroad.mp3"
+    AddMusic "wmusic14", App.Path & "\music\smw-starroad.spc|0;g=2.7", App.Path & "\music\smw-starroad.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-yoshisisland.mp3" & Chr(34) & " alias wmusic15", 0, 0, 0
-    AddMusic "wmusic15", App.Path & "\music\smw-yoshisisland.spc|0;g=3.5", App.Path & "\music\smw-yoshisisland.mp3"
+    AddMusic "wmusic15", App.Path & "\music\smw-yoshisisland.spc|0;g=2.7", App.Path & "\music\smw-yoshisisland.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-vanilladome.mp3" & Chr(34) & " alias wmusic16", 0, 0, 0
-    AddMusic "wmusic16", App.Path & "\music\smw-vanilladome.spc|0;g=3.5", App.Path & "\music\smw-vanilladome.mp3"
+    AddMusic "wmusic16", App.Path & "\music\smw-vanilladome.spc|0;g=2.7", App.Path & "\music\smw-vanilladome.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smw-switch.mp3" & Chr(34) & " alias smusic", 0, 0, 0 'p switch music
-    AddMusic "smusic", App.Path & "\music\smw-switch.spc|0;g=3.5", App.Path & "\music\smw-switch.mp3"
+    AddMusic "smusic", App.Path & "\music\smw-switch.spc|0;g=2.7", App.Path & "\music\smw-switch.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smb3-switch.mp3" & Chr(34) & " alias stmusic", 0, 0, 0 'p switch music
-    AddMusic "stmusic", App.Path & "\music\smb3-switch.spc|0;g=3.5", App.Path & "\music\smb3-switch.mp3"
+    AddMusic "stmusic", App.Path & "\music\smb3-switch.spc|0;g=2.7", App.Path & "\music\smb3-switch.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smg-title.mp3" & Chr(34) & " alias tmusic", 0, 0, 0 'credit music
     AddMusic "tmusic", App.Path & "\music\smg-title.ogg", App.Path & "\music\smg-title.mp3"
     
 'LEVEL MUSIC
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-overworld.mp3" & Chr(34) & " alias music1", 0, 0, 0
-    AddMusic "music1", App.Path & "\music\smb3-overworld.spc|0;g=3.5", App.Path & "\music\smb3-overworld.mp3"
+    AddMusic "music1", App.Path & "\music\smb3-overworld.spc|0;g=2.7", App.Path & "\music\smb3-overworld.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-sky.mp3" & Chr(34) & " alias music2", 0, 0, 0
-    AddMusic "music2", App.Path & "\music\smb3-sky.spc|0;g=3.5", App.Path & "\music\smb3-sky.mp3"
+    AddMusic "music2", App.Path & "\music\smb3-sky.spc|0;g=2.7", App.Path & "\music\smb3-sky.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-castle.mp3" & Chr(34) & " alias music3", 0, 0, 0
-    AddMusic "music3", App.Path & "\music\smb3-castle.spc|0;g=3.5", App.Path & "\music\smb3-castle.mp3"
+    AddMusic "music3", App.Path & "\music\smb3-castle.spc|0;g=2.7", App.Path & "\music\smb3-castle.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-underground.mp3" & Chr(34) & " alias music4", 0, 0, 0
-    AddMusic "music4", App.Path & "\music\smb3-underground.spc|0;g=3.5", App.Path & "\music\smb3-underground.mp3"
+    AddMusic "music4", App.Path & "\music\smb3-underground.spc|0;g=2.7", App.Path & "\music\smb3-underground.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb2-overworld.mp3" & Chr(34) & " alias music5", 0, 0, 0
-    AddMusic "music5", App.Path & "\music\smb2-overworld.spc|0;g=3.5", App.Path & "\music\smb2-overworld.mp3"
+    AddMusic "music5", App.Path & "\music\smb2-overworld.spc|0;g=2.7", App.Path & "\music\smb2-overworld.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-boss.mp3" & Chr(34) & " alias music6", 0, 0, 0
-    AddMusic "music6", App.Path & "\music\smb3-boss.spc|0;g=3.5", App.Path & "\music\smb3-boss.mp3"
+    AddMusic "music6", App.Path & "\music\smb3-boss.spc|0;g=2.7", App.Path & "\music\smb3-boss.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-underground.mp3" & Chr(34) & " alias music7", 0, 0, 0
-    AddMusic "music7", App.Path & "\music\super-mario-bros-nes-NSF-ID2098.nsf|1;g=2.5", App.Path & "\music\smb-underground.mp3"
+    AddMusic "music7", App.Path & "\music\super-mario-bros-nes-NSF-ID2098.nsf|1;g=2.0", App.Path & "\music\smb-underground.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sf-corneria.mp3" & Chr(34) & " alias music8", 0, 0, 0
     AddMusic "music8", App.Path & "\music\sf-corneria.spc|0;g=2.6", App.Path & "\music\sf-corneria.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-overworld.mp3" & Chr(34) & " alias music9", 0, 0, 0
-    AddMusic "music9", App.Path & "\music\smb-overworld.spc|0;g=3.5", App.Path & "\music\smb-overworld.mp3"
+    AddMusic "music9", App.Path & "\music\smb-overworld.spc|0;g=2.7", App.Path & "\music\smb-overworld.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-overworld.mp3" & Chr(34) & " alias music10", 0, 0, 0
-    AddMusic "music10", App.Path & "\music\smw-overworld.spc|0;g=3.5", App.Path & "\music\smw-overworld.mp3"
+    AddMusic "music10", App.Path & "\music\smw-overworld.spc|0;g=2.7", App.Path & "\music\smw-overworld.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sm-brinstar.mp3" & Chr(34) & " alias music11", 0, 0, 0
-    AddMusic "music11", App.Path & "\music\sm-brinstar.spc|0;g=3.5", App.Path & "\music\sm-brinstar.mp3"
+    AddMusic "music11", App.Path & "\music\sm-brinstar.spc|0;g=2.7", App.Path & "\music\sm-brinstar.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sm-crateria.mp3" & Chr(34) & " alias music12", 0, 0, 0
     AddMusic "music12", App.Path & "\music\sm-crateria.spc|0;g=2.7", App.Path & "\music\sm-crateria.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\nsmb-overworld.mp3" & Chr(34) & " alias music13", 0, 0, 0
@@ -465,7 +465,7 @@ Public Sub InitSound() 'readys sound and music to be played
     ' mciSendString "open " & Chr(34) & App.path & "\music\sm64-desert.mp3" & Chr(34) & " alias music14", 0, 0, 0
     AddMusic "music14", App.Path & "\music\sm64-desert.ogg", App.Path & "\music\sm64-desert.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb2-boss.mp3" & Chr(34) & " alias music15", 0, 0, 0
-    AddMusic "music15", App.Path & "\music\smb2-boss.spc|0;g=3.5", App.Path & "\music\smb2-boss.mp3"
+    AddMusic "music15", App.Path & "\music\smb2-boss.spc|0;g=2.7", App.Path & "\music\smb2-boss.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mariorpg-forestmaze.mp3" & Chr(34) & " alias music16", 0, 0, 0
     AddMusic "music16", App.Path & "\music\mariorpg-forestmaze.spc|0;g=2.0", App.Path & "\music\mariorpg-forestmaze.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-ghosthouse.mp3" & Chr(34) & " alias music17", 0, 0, 0
@@ -482,17 +482,17 @@ Public Sub InitSound() 'readys sound and music to be played
     ' mciSendString "open " & Chr(34) & App.path & "\music\tds-metroid-charge.mp3" & Chr(34) & " alias music22", 0, 0, 0
     AddMusic "music22", App.Path & "\music\tds-metroid-charge.ogg", App.Path & "\music\tds-metroid-charge.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\z3-lost-woods.mp3" & Chr(34) & " alias music23", 0, 0, 0
-    AddMusic "music23", App.Path & "\music\z3-lost-woods.spc|0;g=3.5", App.Path & "\music\z3-lost-woods.mp3"
+    AddMusic "music23", App.Path & "\music\z3-lost-woods.spc|0;g=2.7", App.Path & "\music\z3-lost-woods.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb2-underground.mp3" & Chr(34) & " alias music25", 0, 0, 0
-    AddMusic "music25", App.Path & "\music\smb2-underground.spc|0;g=3.5", App.Path & "\music\smb2-underground.mp3"
+    AddMusic "music25", App.Path & "\music\smb2-underground.spc|0;g=2.7", App.Path & "\music\smb2-underground.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mario64-castle.mp3" & Chr(34) & " alias music26", 0, 0, 0
     AddMusic "music26", App.Path & "\music\mario64-castle.ogg", App.Path & "\music\mario64-castle.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mario64-maintheme.mp3" & Chr(34) & " alias music27", 0, 0, 0
     AddMusic "music27", App.Path & "\music\mario64-maintheme.ogg", App.Path & "\music\mario64-maintheme.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-sky.mp3" & Chr(34) & " alias music28", 0, 0, 0
-    AddMusic "music28", App.Path & "\music\smw-sky.spc|0;g=3.5", App.Path & "\music\smw-sky.mp3"
+    AddMusic "music28", App.Path & "\music\smw-sky.spc|0;g=2.7", App.Path & "\music\smw-sky.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-cave.mp3" & Chr(34) & " alias music29", 0, 0, 0
-    AddMusic "music29", App.Path & "\music\smw-cave.spc|0;g=3.5", App.Path & "\music\smw-cave.mp3"
+    AddMusic "music29", App.Path & "\music\smw-cave.spc|0;g=2.7", App.Path & "\music\smw-cave.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mariorpg-mariospad.mp3" & Chr(34) & " alias music30", 0, 0, 0
     AddMusic "music30", App.Path & "\music\mariorpg-mariospad.spc|0;g=2.0", App.Path & "\music\mariorpg-mariospad.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mariorpg-seasidetown.mp3" & Chr(34) & " alias music31", 0, 0, 0
@@ -517,33 +517,33 @@ Public Sub InitSound() 'readys sound and music to be played
     AddMusic "music40", App.Path & "\music\ssbb-meta.ogg", App.Path & "\music\ssbb-meta.mp3"
     modLoadGFX.UpdateLoad
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-castle.mp3" & Chr(34) & " alias music41", 0, 0, 0
-    AddMusic "music41", App.Path & "\music\smw-castle.spc|0;g=3.5", App.Path & "\music\smw-castle.mp3"
+    AddMusic "music41", App.Path & "\music\smw-castle.spc|0;g=2.7", App.Path & "\music\smw-castle.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-castle.mp3" & Chr(34) & " alias music42", 0, 0, 0
-    AddMusic "music42", App.Path & "\music\smb-castle.spc|0;g=3.5", App.Path & "\music\smb-castle.mp3"
+    AddMusic "music42", App.Path & "\music\smb-castle.spc|0;g=2.7", App.Path & "\music\smb-castle.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb2-wart.mp3" & Chr(34) & " alias music43", 0, 0, 0
-    AddMusic "music43", App.Path & "\music\smb2-wart.spc|0;g=3.5", App.Path & "\music\smb2-wart.mp3"
+    AddMusic "music43", App.Path & "\music\smb2-wart.spc|0;g=2.7", App.Path & "\music\smb2-wart.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sm-itemroom.mp3" & Chr(34) & " alias music44", 0, 0, 0
-    AddMusic "music44", App.Path & "\music\sm-itemroom.spc|0;g=3.5", App.Path & "\music\sm-itemroom.mp3"
+    AddMusic "music44", App.Path & "\music\sm-itemroom.spc|0;g=2.7", App.Path & "\music\sm-itemroom.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\sm-brain.mp3" & Chr(34) & " alias music45", 0, 0, 0
-    AddMusic "music45", App.Path & "\music\sm-brain.spc|0;g=3.0", App.Path & "\music\sm-brain.mp3"
+    AddMusic "music45", App.Path & "\music\sm-brain.spc|0;g=2.7", App.Path & "\music\sm-brain.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb-water.mp3" & Chr(34) & " alias music46", 0, 0, 0
-    AddMusic "music46", App.Path & "\music\smb-water.spc|0;g=3.5", App.Path & "\music\smb-water.mp3"
+    AddMusic "music46", App.Path & "\music\smb-water.spc|0;g=2.7", App.Path & "\music\smb-water.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-water.mp3" & Chr(34) & " alias music47", 0, 0, 0
-    AddMusic "music47", App.Path & "\music\smb3-water.spc|0;g=3.5", App.Path & "\music\smb3-water.mp3"
+    AddMusic "music47", App.Path & "\music\smb3-water.spc|0;g=2.7", App.Path & "\music\smb3-water.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-water.mp3" & Chr(34) & " alias music48", 0, 0, 0
-    AddMusic "music48", App.Path & "\music\smw-water.spc|0;g=3.5", App.Path & "\music\smw-water.mp3"
+    AddMusic "music48", App.Path & "\music\smw-water.spc|0;g=2.7", App.Path & "\music\smw-water.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mario64-water.mp3" & Chr(34) & " alias music49", 0, 0, 0
     AddMusic "music49", App.Path & "\music\mario64-water.ogg", App.Path & "\music\mario64-water.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mario64-cave.mp3" & Chr(34) & " alias music50", 0, 0, 0
     AddMusic "music50", App.Path & "\music\mario64-cave.ogg", App.Path & "\music\mario64-cave.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smw-boss.mp3" & Chr(34) & " alias music51", 0, 0, 0
-    AddMusic "music51", App.Path & "\music\smw-boss.spc|0;g=3.5", App.Path & "\music\smw-boss.mp3"
+    AddMusic "music51", App.Path & "\music\smw-boss.spc|0;g=2.7", App.Path & "\music\smw-boss.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\ssbb-underground.mp3" & Chr(34) & " alias music52", 0, 0, 0
     AddMusic "music52", App.Path & "\music\ssbb-underground.ogg", App.Path & "\music\ssbb-underground.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\ssbb-waluigi.mp3" & Chr(34) & " alias music53", 0, 0, 0
     AddMusic "music53", App.Path & "\music\ssbb-waluigi.ogg", App.Path & "\music\ssbb-waluigi.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-hammer.mp3" & Chr(34) & " alias music54", 0, 0, 0
-    AddMusic "music54", App.Path & "\music\smb3-hammer.spc|0;g=3.5", App.Path & "\music\smb3-hammer.mp3"
+    AddMusic "music54", App.Path & "\music\smb3-hammer.spc|0;g=2.7", App.Path & "\music\smb3-hammer.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\smg2-fg.mp3" & Chr(34) & " alias music55", 0, 0, 0
     AddMusic "music55", App.Path & "\music\smg2-fg.ogg", App.Path & "\music\smg2-fg.mp3"
     ' mciSendString "open " & Chr(34) & App.path & "\music\mkwii-mushroom-gorge.mp3" & Chr(34) & " alias music56", 0, 0, 0
@@ -642,5 +642,4 @@ Public Sub UpdateSound() 'checks to loop music and update the soundpause variabl
         If SoundPause(A) > 0 Then SoundPause(A) = SoundPause(A) - 1
     Next A
 End Sub
-
 

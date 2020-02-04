@@ -185,7 +185,7 @@ Public Declare Function Mix_LoadMUSType_RW_ARG Lib "SDL2MixerVB.dll" _
 'void Mix_FreeChunk(Mix_Chunk *chunk);
 Public Declare Sub Mix_FreeChunk Lib "SDL2MixerVB.dll" (ByVal Chunk As Long)
 'void Mix_FreeMusic(Mix_Music *music);
-Public Declare Sub Mix_FreeMusic Lib "SDL2MixerVB.dll" (ByVal music As Long)
+Public Declare Sub Mix_FreeMusic Lib "SDL2MixerVB.dll" (ByVal Music As Long)
 
 
 'Get a list of chunk/music decoders that this build of SDL_mixer provides.
@@ -219,27 +219,27 @@ Public Declare Function Mix_GetMusicDecoder Lib "SDL2MixerVB.dll" (ByVal index A
 'Mix_MusicType Mix_GetMusicType(const Mix_Music *music);
 'Find out the music format of a mixer music, or the currently playing
 'music, if 'music' is NULL.
-Public Declare Function Mix_GetMusicType Lib "SDL2MixerVB.dll" (ByVal music As Long) As Long
+Public Declare Function Mix_GetMusicType Lib "SDL2MixerVB.dll" (ByVal Music As Long) As Long
 
 '/* Get music title from meta-tag if possible. If title tag is empty, filename will be returned */
 'const char* Mix_GetMusicTitle(const Mix_Music *music);
-Public Declare Function Mix_GetMusicTitle Lib "SDL2MixerVB.dll" (ByVal music As Long) As String
+Public Declare Function Mix_GetMusicTitle Lib "SDL2MixerVB.dll" (ByVal Music As Long) As String
 
 '/* Get music title from meta-tag if possible */
 'const char* Mix_GetMusicTitleTag(const Mix_Music *music);
-Public Declare Function Mix_GetMusicTitleTag Lib "SDL2MixerVB.dll" (ByVal music As Long) As String
+Public Declare Function Mix_GetMusicTitleTag Lib "SDL2MixerVB.dll" (ByVal Music As Long) As String
 
 '/* Get music artist from meta-tag if possible */
 'const char* Mix_GetMusicArtistTag(const Mix_Music *music);
-Public Declare Function Mix_GetMusicArtistTag Lib "SDL2MixerVB.dll" (ByVal music As Long) As String
+Public Declare Function Mix_GetMusicArtistTag Lib "SDL2MixerVB.dll" (ByVal Music As Long) As String
 
 '/* Get music album from meta-tag if possible */
 'const char* Mix_GetMusicAlbumTag(const Mix_Music *music);
-Public Declare Function Mix_GetMusicAlbumTag Lib "SDL2MixerVB.dll" (ByVal music As Long) As String
+Public Declare Function Mix_GetMusicAlbumTag Lib "SDL2MixerVB.dll" (ByVal Music As Long) As String
 
 '/* Get music copyright from meta-tag if possible */
 'const char* Mix_GetMusicCopyrightTag(const Mix_Music *music);
-Public Declare Function Mix_GetMusicCopyrightTag Lib "SDL2MixerVB.dll" (ByVal music As Long) As String
+Public Declare Function Mix_GetMusicCopyrightTag Lib "SDL2MixerVB.dll" (ByVal Music As Long) As String
 
 
 '/* Set the panning of a channel. The left and right channels are specified
@@ -316,13 +316,13 @@ Public Declare Function Mix_PlayChannelTimedVolume Lib "SDL2MixerVB.dll" (ByVal 
 '==== See Function Delcarison of 'Mix_PlayChannelVol' in bottom
 
 'int Mix_PlayMusic(Mix_Music *music, int loops);
-Public Declare Function Mix_PlayMusic Lib "SDL2MixerVB.dll" (ByVal music As Long, ByVal loops As Long) As Long
+Public Declare Function Mix_PlayMusic Lib "SDL2MixerVB.dll" (ByVal Music As Long, ByVal loops As Long) As Long
 
 '/* Fade in music or a channel over "ms" milliseconds, same semantics as the "Play" functions */
 'int Mix_FadeInMusic(Mix_Music *music, int loops, int ms);
-Public Declare Function Mix_FadeInMusic Lib "SDL2MixerVB.dll" (ByVal music As Long, ByVal loops As Long, ByVal milliseconds As Long) As Long
+Public Declare Function Mix_FadeInMusic Lib "SDL2MixerVB.dll" (ByVal Music As Long, ByVal loops As Long, ByVal milliseconds As Long) As Long
 'int Mix_FadeInMusicPos(Mix_Music *music, int loops, int ms, double position);
-Public Declare Function Mix_FadeInMusicPos Lib "SDL2MixerVB.dll" (ByVal music As Long, ByVal loops As Long, ByVal milliseconds As Long, ByVal position As Double) As Long
+Public Declare Function Mix_FadeInMusicPos Lib "SDL2MixerVB.dll" (ByVal Music As Long, ByVal loops As Long, ByVal milliseconds As Long, ByVal position As Double) As Long
 
 '#define Mix_FadeInChannel(channel,chunk,loops,ms) Mix_FadeInChannelTimed(channel,chunk,loops,ms,-1)
 Public Declare Function Mix_FadeInChannel Lib "SDL2MixerVB.dll" Alias "Mix_FadeInChannelTimed" (ByVal Channel As Long, ByVal Chunk As Long, ByVal loops As Long, ByVal milliseconds As Long, Optional ByVal ticks As Long = -1) As Long

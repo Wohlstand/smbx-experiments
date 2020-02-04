@@ -138,7 +138,7 @@ Public conJoystick(1 To 2) As conJoystick
 Public useJoystick(1 To 2) As Integer
 Public Type NPC 'The NPC Type
     AttLayer As String
-    Quicksand As Integer
+    QuickSand As Integer
     RespawnDelay As Integer
     Bouce As Boolean
     Pinched1 As Integer  'getting smashed by a block
@@ -226,7 +226,7 @@ Public Type Player              'The player data type.
     DoubleJump As Boolean
     FlySparks As Boolean
     Driving As Boolean
-    Quicksand As Integer
+    QuickSand As Integer
     Bombs As Integer
     Slippy As Boolean
     Fairy As Boolean
@@ -357,7 +357,7 @@ Public Type Water
     Layer As String
     Hidden As Boolean
     Buoy As Single 'not used
-    Quicksand As Boolean
+    QuickSand As Boolean
     Location As Location
 End Type
 Public Type Block   'Blocks
@@ -403,7 +403,7 @@ Public Type vScreen 'Screen controls
     Width As Double
     Height As Double
     Visible As Boolean
-    TempX As Double
+    tempX As Double
     TempY As Double
     TempDelay As Integer
 End Type
@@ -852,7 +852,7 @@ Public Type Events
     HideLayer(0 To 20) As String
     ShowLayer(0 To 20) As String
     ToggleLayer(0 To 20) As String
-    music(0 To maxSections) As Integer
+    Music(0 To maxSections) As Integer
     Background(0 To maxSections) As Integer
     level(0 To maxSections) As Location
     EndGame As Integer
@@ -5533,7 +5533,7 @@ Public Sub MenuLoop()   'The loop for the menu
             If .CanFly = False And .CanFly2 = False And (.State = 4 Or .State = 5) And .Slide = False Then
                 .Controls.Jump = True
             End If
-            If .Quicksand > 0 Then
+            If .QuickSand > 0 Then
                 .CanJump = True
                 .Controls.Jump = True
             End If
@@ -5836,7 +5836,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
                 Write #1, .Location.Width
                 Write #1, .Location.Height
                 Write #1, .Buoy
-                Write #1, .Quicksand
+                Write #1, .QuickSand
                 Write #1, .Layer
             End With
         Next A
@@ -5867,7 +5867,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
                 Write #1, Events(A).ToggleLayer(B)
             Next B
             For B = 0 To maxSections
-                Write #1, Events(A).music(B)
+                Write #1, Events(A).Music(B)
                 Write #1, Events(A).Background(B)
                 Write #1, Events(A).level(B).X
                 Write #1, Events(A).level(B).Y
@@ -6207,7 +6207,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                     Input #1, .Location.Width
                     Input #1, .Location.Height
                     Input #1, .Buoy
-                    If FileRelease >= 62 Then Input #1, .Quicksand
+                    If FileRelease >= 62 Then Input #1, .QuickSand
                     Input #1, .Layer
                 End With
             Loop
@@ -6246,7 +6246,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
             Next B
             If FileRelease >= 13 Then
                 For B = 0 To maxSections
-                    Input #1, Events(A).music(B)
+                    Input #1, Events(A).Music(B)
                     Input #1, Events(A).Background(B)
                     Input #1, Events(A).level(B).X
                     Input #1, Events(A).level(B).Y
@@ -6416,7 +6416,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
         Events(A) = blankEvent
         For B = 0 To maxSections
             Events(A).Background(B) = -1
-            Events(A).music(B) = -1
+            Events(A).Music(B) = -1
             Events(A).level(B).X = -1
         Next B
     Next A

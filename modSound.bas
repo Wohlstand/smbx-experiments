@@ -71,9 +71,10 @@ Public Sub AddSfx(Alias As String, Path As String, FallBack As String)
     Else
         PathToLoad = FallBack
     End If
+    DebugMsg "Loading SFX " & PathToLoad & "..."
     list_sfx(list_sfx_count).Chunk = Mix_LoadWAV(PathToLoad)
     If list_sfx(list_sfx_count).Chunk = 0 Then
-        MsgBox "SFX " & PathToLoad & " loading error: " & SDL_GetError, vbOKOnly + vbExclamation
+        DebugMsg "ERROR: SFX " & PathToLoad & " loading error: " & SDL_GetError
     End If
     list_sfx(list_sfx_count).Volume = 128
     list_sfx(list_sfx_count).Chan = list_sfx_count
@@ -119,6 +120,7 @@ End Sub
 Public Sub PlaySfx(Alias As String)
     For i = 0 To 200
         If list_sfx(i).Alias = Alias Then
+            DebugMsg "Play SFX by alias '" & Alias & "' in channel " & list_sfx(i).Chan
             Mix_PlayChannel list_sfx(i).Chan, list_sfx(i).Chunk, 0
         End If
     Next
@@ -565,6 +567,7 @@ Public Sub PlaySound(A As Integer) 'play a sound
             ' soundString = "play sound" & A & " from 10"
             ' mciSendString soundString, 0, 0, 0
             PlaySfx "sound" & A
+            DebugMsg "Play sound 'sound" & A & "'"
 
 'set the delay before a sound can be played again
             If A = 2 Then

@@ -52,6 +52,7 @@ Module=modCustom; modCustom.bas
 Form=frmLevelAdv.frm
 Form=frmGlobal.frm
 Module=SDL2_mixer_ext_vb6; modSDL2_mixer_ext_vb6.bas
+Form=frmDebugLog.frm
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

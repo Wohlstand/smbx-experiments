@@ -1068,6 +1068,12 @@ Public Function FileExists(FileName As String) As Boolean
     FileExists = Len(Dir(FileName, vbNormal)) > 0
 End Function
 
+Public Sub DebugMsg(Text As String)
+    If frmDebugLog.Visible Then
+        frmDebugLog.AddMsg Text
+    End If
+End Sub
+
 Public Sub SetupPhysics()
     With Physics
         .PlayerJumpVelocity = -5.7      'Jump velocity

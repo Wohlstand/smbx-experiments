@@ -2,16 +2,25 @@ VERSION 5.00
 Begin VB.Form frmDebugLog 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Debug log"
-   ClientHeight    =   6075
+   ClientHeight    =   6465
    ClientLeft      =   195
    ClientTop       =   585
-   ClientWidth     =   9330
+   ClientWidth     =   9345
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6075
-   ScaleWidth      =   9330
+   ScaleHeight     =   6465
+   ScaleWidth      =   9345
+   Begin VB.CommandButton CleanLog 
+      Caption         =   "Clear"
+      Height          =   375
+      Left            =   7920
+      TabIndex        =   1
+      Top             =   6000
+      Width           =   1335
+   End
    Begin VB.TextBox debugOutput 
+      BackColor       =   &H00000000&
       BeginProperty Font 
          Name            =   "Courier New"
          Size            =   8.25
@@ -21,13 +30,14 @@ Begin VB.Form frmDebugLog
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H0000C000&
       Height          =   5895
-      Left            =   120
+      Left            =   0
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
       TabIndex        =   0
-      Top             =   120
-      Width           =   9135
+      Top             =   0
+      Width           =   9375
    End
 End
 Attribute VB_Name = "frmDebugLog"
@@ -37,6 +47,10 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Option Explicit
+
+Private Sub CleanLog_Click()
+    Me.debugOutput.Text = ""
+End Sub
 
 Private Sub Form_Load()
     Me.Icon = frmMain.Icon

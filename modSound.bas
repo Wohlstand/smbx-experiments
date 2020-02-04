@@ -18,21 +18,29 @@ Public Type SfxEntry
     Chan As Long
 End Type
 
-Dim list_music(200) As MusicEntry
+Const list_music_max As Integer = 200
+Dim list_music(list_music_max) As MusicEntry
 Dim list_music_count As Integer
 
-Dim list_sfx(200) As SfxEntry
+Const list_sfx_max As Integer = 200
+Dim list_sfx(list_sfx_max) As SfxEntry
 Dim list_sfx_count As Integer
 
 Public Sub InitMixerX()
     If noSound = True Then Exit Sub
     musicX = 0
     list_music_count = 0
-    For i = 0 To 200
+    list_sfx_count = 0
+    For i = 0 To list_music_max
         list_music(i).Alias = ""
         list_music(i).Path = ""
     Next
-
+    For i = 0 To list_sfx_max
+        list_sfx(i).Alias = ""
+        list_sfx(i).Volume = 128
+        list_sfx(i).Chan = i
+        list_sfx(i).Chunk = 0
+    Next
     If SDL_InitAudio < 0 Then         'Initialize SDL Library first
         MsgBox "SDL Error: " & SDL_GetError, vbOKOnly + vbExclamation
         Exit Sub
@@ -40,7 +48,7 @@ Public Sub InitMixerX()
     Mix_Init '0                                   'Init SDL Mixer itself
     Mix_OpenAudio 44100, AUDIO_S16LSB, 2, 2048   'Init Open audio stream
     Mix_VolumeMusic 64
-    Mix_AllocateChannels 80
+    Mix_AllocateChannels 91
 End Sub
 
 Public Sub QuitMixerX()
@@ -82,7 +90,7 @@ Public Sub AddSfx(Alias As String, Path As String, FallBack As String)
 End Sub
 
 Public Sub SetMusicVolume(Alias As String, Volume As Long)
-    For i = 0 To 200
+    For i = 0 To list_music_count
         If list_music(i).Alias = Alias Then
             list_music(i).Volume = Volume
         End If
@@ -103,7 +111,7 @@ Public Sub PlayMusic(Alias As String)
         Mix_FreeMusic musicX
         musicX = 0
     End If
-    For i = 0 To 200
+    For i = 0 To list_music_count
         If list_music(i).Alias = Alias Then
             musicX = Mix_LoadMUS(list_music(i).Path)
             If musicX = 0 Then
@@ -118,7 +126,7 @@ Public Sub PlayMusic(Alias As String)
 End Sub
 
 Public Sub PlaySfx(Alias As String)
-    For i = 0 To 200
+    For i = 0 To list_sfx_count
         If list_sfx(i).Alias = Alias Then
             DebugMsg "Play SFX by alias '" & Alias & "' in channel " & list_sfx(i).Chan
             Mix_PlayChannel list_sfx(i).Chan, list_sfx(i).Chunk, 0
@@ -127,7 +135,7 @@ Public Sub PlaySfx(Alias As String)
 End Sub
 
 Public Sub StopSfx(Alias As String)
-    For i = 0 To 200
+    For i = 0 To list_sfx_count
         If list_sfx(i).Alias = Alias Then
             Mix_HaltChannel list_sfx(i).Chan
         End If

@@ -23,7 +23,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       Height          =   480
       Left            =   11400
-      Picture         =   "frmMain.frx":EFBF
+      Picture         =   "frmMain.frx":7B9A
       ScaleHeight     =   32
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   28
@@ -34,7 +34,7 @@ Begin VB.Form frmMain
    Begin VB.Image Loader 
       Height          =   240
       Left            =   9480
-      Picture         =   "frmMain.frx":F3D3
+      Picture         =   "frmMain.frx":7FAE
       Top             =   8640
       Width           =   1770
    End

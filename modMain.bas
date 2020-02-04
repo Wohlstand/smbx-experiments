@@ -138,7 +138,7 @@ Public conJoystick(1 To 2) As conJoystick
 Public useJoystick(1 To 2) As Integer
 Public Type NPC 'The NPC Type
     AttLayer As String
-    QuickSand As Integer
+    Quicksand As Integer
     RespawnDelay As Integer
     Bouce As Boolean
     Pinched1 As Integer  'getting smashed by a block
@@ -226,7 +226,7 @@ Public Type Player              'The player data type.
     DoubleJump As Boolean
     FlySparks As Boolean
     Driving As Boolean
-    QuickSand As Integer
+    Quicksand As Integer
     Bombs As Integer
     Slippy As Boolean
     Fairy As Boolean
@@ -357,7 +357,7 @@ Public Type Water
     Layer As String
     Hidden As Boolean
     Buoy As Single 'not used
-    QuickSand As Boolean
+    Quicksand As Boolean
     Location As Location
 End Type
 Public Type Block   'Blocks
@@ -5533,7 +5533,7 @@ Public Sub MenuLoop()   'The loop for the menu
             If .CanFly = False And .CanFly2 = False And (.State = 4 Or .State = 5) And .Slide = False Then
                 .Controls.Jump = True
             End If
-            If .QuickSand > 0 Then
+            If .Quicksand > 0 Then
                 .CanJump = True
                 .Controls.Jump = True
             End If
@@ -5836,7 +5836,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
                 Write #1, .Location.Width
                 Write #1, .Location.Height
                 Write #1, .Buoy
-                Write #1, .QuickSand
+                Write #1, .Quicksand
                 Write #1, .Layer
             End With
         Next A
@@ -6207,7 +6207,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                     Input #1, .Location.Width
                     Input #1, .Location.Height
                     Input #1, .Buoy
-                    If FileRelease >= 62 Then Input #1, .QuickSand
+                    If FileRelease >= 62 Then Input #1, .Quicksand
                     Input #1, .Layer
                 End With
             Loop

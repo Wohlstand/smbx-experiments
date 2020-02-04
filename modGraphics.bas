@@ -2547,7 +2547,7 @@ Public Sub GetvScreen(A As Integer) ' Get the screen position
         If Player(nPlay.MySlot + 1).Mount = 2 Then Player(nPlay.MySlot + 1).Location.Height = 0
         vScreenX(1) = -Player(nPlay.MySlot + 1).Location.X + (vScreen(1).Width * 0.5) - Player(nPlay.MySlot + 1).Location.Width / 2
         vScreenY(1) = -Player(nPlay.MySlot + 1).Location.Y + (vScreen(1).Height * 0.5) - vScreenYOffset - Player(nPlay.MySlot + 1).Location.Height
-        vScreenX(1) = vScreenX(1) - vScreen(1).TempX
+        vScreenX(1) = vScreenX(1) - vScreen(1).tempX
         vScreenY(1) = vScreenY(1) - vScreen(1).TempY
         If -vScreenX(1) < level(Player(nPlay.MySlot + 1).Section).X Then vScreenX(1) = -level(Player(nPlay.MySlot + 1).Section).X
         If -vScreenX(1) + vScreen(1).Width > level(Player(nPlay.MySlot + 1).Section).Width Then vScreenX(1) = -(level(Player(nPlay.MySlot + 1).Section).Width - vScreen(1).Width)
@@ -2556,8 +2556,8 @@ Public Sub GetvScreen(A As Integer) ' Get the screen position
         If vScreen(1).TempDelay > 0 Then
             vScreen(1).TempDelay = vScreen(1).TempDelay - 1
         Else
-            If vScreen(1).TempX > 0 Then vScreen(1).TempX = vScreen(1).TempX - 1
-            If vScreen(1).TempX < 0 Then vScreen(1).TempX = vScreen(1).TempX + 1
+            If vScreen(1).tempX > 0 Then vScreen(1).tempX = vScreen(1).tempX - 1
+            If vScreen(1).tempX < 0 Then vScreen(1).tempX = vScreen(1).tempX + 1
             If vScreen(1).TempY > 0 Then vScreen(1).TempY = vScreen(1).TempY - 1
             If vScreen(1).TempY < 0 Then vScreen(1).TempY = vScreen(1).TempY + 1
         End If
@@ -2566,7 +2566,7 @@ Public Sub GetvScreen(A As Integer) ' Get the screen position
         If Player(A).Mount = 2 Then Player(A).Location.Height = 0
         vScreenX(A) = -Player(A).Location.X + (vScreen(A).Width * 0.5) - Player(A).Location.Width / 2
         vScreenY(A) = -Player(A).Location.Y + (vScreen(A).Height * 0.5) - vScreenYOffset - Player(A).Location.Height
-        vScreenX(A) = vScreenX(A) - vScreen(A).TempX
+        vScreenX(A) = vScreenX(A) - vScreen(A).tempX
         vScreenY(A) = vScreenY(A) - vScreen(A).TempY
         If -vScreenX(A) < level(Player(A).Section).X Then vScreenX(A) = -level(Player(A).Section).X
         If -vScreenX(A) + vScreen(A).Width > level(Player(A).Section).Width Then vScreenX(A) = -(level(Player(A).Section).Width - vScreen(A).Width)
@@ -2575,8 +2575,8 @@ Public Sub GetvScreen(A As Integer) ' Get the screen position
         If vScreen(A).TempDelay > 0 Then
             vScreen(A).TempDelay = vScreen(A).TempDelay - 1
         Else
-            If vScreen(A).TempX > 0 Then vScreen(A).TempX = vScreen(A).TempX - 1
-            If vScreen(A).TempX < 0 Then vScreen(A).TempX = vScreen(A).TempX + 1
+            If vScreen(A).tempX > 0 Then vScreen(A).tempX = vScreen(A).tempX - 1
+            If vScreen(A).tempX < 0 Then vScreen(A).tempX = vScreen(A).tempX + 1
             If vScreen(A).TempY > 0 Then vScreen(A).TempY = vScreen(A).TempY - 1
             If vScreen(A).TempY < 0 Then vScreen(A).TempY = vScreen(A).TempY + 1
         End If
@@ -2782,7 +2782,7 @@ Public Sub DynamicScreen() 'for the split screen stuff
                 If DScreenType <> 1 Then PlaySound 13
                 For A = 1 To 2
                     vScreen(A).TempDelay = 200
-                    vScreen(A).TempX = 0
+                    vScreen(A).tempX = 0
                     vScreen(A).TempY = -vScreenY(1) + ScreenH * 0.5 - Player(A).Location.Y - vScreenYOffset - Player(A).Location.Height
                 Next A
                 vScreen(2).Visible = True
@@ -2800,7 +2800,7 @@ Public Sub DynamicScreen() 'for the split screen stuff
                 If DScreenType <> 2 Then PlaySound 13
                 For A = 1 To 2
                     vScreen(A).TempDelay = 200
-                    vScreen(A).TempX = 0
+                    vScreen(A).tempX = 0
                     vScreen(A).TempY = -vScreenY(1) + ScreenH * 0.5 - Player(A).Location.Y - vScreenYOffset - Player(A).Location.Height
                 Next A
                 DScreenType = 2
@@ -2819,7 +2819,7 @@ Public Sub DynamicScreen() 'for the split screen stuff
                 For A = 1 To 2
                     vScreen(A).TempDelay = 200
                     vScreen(A).TempY = 0
-                    vScreen(A).TempX = -vScreenX(1) + ScreenW * 0.5 - Player(A).Location.X - Player(A).Location.Width * 0.5
+                    vScreen(A).tempX = -vScreenX(1) + ScreenW * 0.5 - Player(A).Location.X - Player(A).Location.Width * 0.5
                 Next A
                 vScreen(2).Visible = True
                 DScreenType = 3
@@ -2837,7 +2837,7 @@ Public Sub DynamicScreen() 'for the split screen stuff
                 For A = 1 To 2
                     vScreen(A).TempDelay = 200
                     vScreen(A).TempY = 0
-                    vScreen(A).TempX = -vScreenX(1) + ScreenW * 0.5 - Player(A).Location.X - Player(A).Location.Width * 0.5
+                    vScreen(A).tempX = -vScreenX(1) + ScreenW * 0.5 - Player(A).Location.X - Player(A).Location.Width * 0.5
                 Next A
                 vScreen(2).Visible = True
                 DScreenType = 4
@@ -2849,9 +2849,9 @@ Public Sub DynamicScreen() 'for the split screen stuff
                     vScreen(1).Width = ScreenW
                     vScreen(1).Left = 0
                     vScreen(1).Top = 0
-                    vScreen(1).TempX = 0
+                    vScreen(1).tempX = 0
                     vScreen(1).TempY = 0
-                    vScreen(2).TempX = 0
+                    vScreen(2).tempX = 0
                     vScreen(2).TempY = 0
                 End If
                 DScreenType = 5
@@ -2859,8 +2859,8 @@ Public Sub DynamicScreen() 'for the split screen stuff
             For A = 1 To 2
                 If vScreen(A).TempY > (vScreen(A).Height * 0.25) Then vScreen(A).TempY = (vScreen(A).Height * 0.25)
                 If vScreen(A).TempY < -(vScreen(A).Height * 0.25) Then vScreen(A).TempY = -(vScreen(A).Height * 0.25)
-                If vScreen(A).TempX > (vScreen(A).Width * 0.25) Then vScreen(A).TempX = (vScreen(A).Width * 0.25)
-                If vScreen(A).TempX < -(vScreen(A).Width * 0.25) Then vScreen(A).TempX = -(vScreen(A).Width * 0.25)
+                If vScreen(A).tempX > (vScreen(A).Width * 0.25) Then vScreen(A).tempX = (vScreen(A).Width * 0.25)
+                If vScreen(A).tempX < -(vScreen(A).Width * 0.25) Then vScreen(A).tempX = -(vScreen(A).Width * 0.25)
             Next A
         Else
             vScreen(1).Height = ScreenH / 2
@@ -2871,9 +2871,9 @@ Public Sub DynamicScreen() 'for the split screen stuff
             vScreen(2).Width = ScreenW
             vScreen(2).Left = 0
             vScreen(2).Top = ScreenH / 2
-            vScreen(1).TempX = 0
+            vScreen(1).tempX = 0
             vScreen(1).TempY = 0
-            vScreen(2).TempX = 0
+            vScreen(2).tempX = 0
             vScreen(2).TempY = 0
             GetvScreenAverage2
             If DScreenType <> 6 Then PlaySound 13
@@ -2889,9 +2889,9 @@ Public Sub DynamicScreen() 'for the split screen stuff
             vScreen(1).Left = 0
             vScreen(1).Top = 0
             vScreen(1).Visible = True
-            vScreen(1).TempX = 0
+            vScreen(1).tempX = 0
             vScreen(1).TempY = 0
-            vScreen(2).TempX = 0
+            vScreen(2).tempX = 0
             vScreen(2).TempY = 0
         End If
     End If

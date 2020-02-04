@@ -210,11 +210,11 @@ Public Declare Sub Mix_FreeMusic Lib "SDL2MixerVB.dll" (ByVal Music As Long)
 'int Mix_GetNumChunkDecoders(void);
 Public Declare Function Mix_GetNumChunkDecoders Lib "SDL2MixerVB.dll" () As Long
 'const char * Mix_GetChunkDecoder(int index);
-Public Declare Function Mix_GetChunkDecoder Lib "SDL2MixerVB.dll" (ByVal index As Long) As String
+Public Declare Function Mix_GetChunkDecoder Lib "SDL2MixerVB.dll" (ByVal Index As Long) As String
 'extern DECLSPEC int SDLCALL Mix_GetNumMusicDecoders(void);
 Public Declare Function Mix_GetNumMusicDecoders Lib "SDL2MixerVB.dll" () As Long
 'extern DECLSPEC const char * SDLCALL Mix_GetMusicDecoder(int index);
-Public Declare Function Mix_GetMusicDecoder Lib "SDL2MixerVB.dll" (ByVal index As Long) As String
+Public Declare Function Mix_GetMusicDecoder Lib "SDL2MixerVB.dll" (ByVal Index As Long) As String
 
 'Mix_MusicType Mix_GetMusicType(const Mix_Music *music);
 'Find out the music format of a mixer music, or the currently playing

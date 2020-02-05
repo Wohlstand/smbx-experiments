@@ -1,4 +1,4 @@
-# smbx-legacy-source
+# smbx-experiments
 Source Code for SMBX 1.3
 
 This is research prove ground branch made by Wohlstand, used for the development of [PGE Engine](https://github.com/WohlSoft/PGE-Project). Can be freely used as a ready for work reference for anything.

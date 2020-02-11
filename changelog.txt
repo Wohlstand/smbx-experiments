@@ -6,6 +6,14 @@ Change in this research mod by Wohlstand:
 -Launcher dialog now is more compact and has the LunaLua incompatibility notice
 -Added the debugger dialog where are some log messages can be printed by a game
 -Replaced some built-in images and icons
+-Fixed the 100% overload problem by adding Sleep(1) into all loops:
+ *launcher (used WaitMessage() instead)
+ *main menu
+ *world map
+ *level playback
+ *pause menu
+ *world map's path opener
+ *background inactivity waiter
 
 
 Changes for 1.3:

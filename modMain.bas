@@ -18,6 +18,7 @@ Public Declare Function GetDesktopWindow Lib "user32.dll" () As Long
 Public Declare Function GetWindowDC Lib "user32.dll" (ByVal hWnd As Long) As Long
 Declare Function GetActiveWindow Lib "user32" () As Integer
 Public Declare Function GetTickCount& Lib "kernel32" ()
+Public Declare Function WaitMessage Lib "user32" () As Long
 Public OnlineDisc As Boolean
 
 
@@ -1063,6 +1064,7 @@ Public BattleIntro As Integer
 Public BattleOutro As Integer
 Public LevelName As String
 Public Const curRelease As Integer = 64
+Public Const sleepDelay As Long = 1
 
 Public Function FileExists(FileName As String) As Boolean
     FileExists = Len(Dir(FileName, vbNormal)) > 0
@@ -1305,6 +1307,7 @@ Sub Main()
     FrameSkip = True
     frmLoader.Show 'show the Splash screen
     Do
+        WaitMessage
         DoEvents
     Loop While StartMenu = False 'wait until the player clicks a button
     
@@ -1424,6 +1427,7 @@ Sub Main()
                         fpsCount = 0
                     End If
                 End If
+                Sleep sleepDelay
             Loop While LevelEditor = True
             
             
@@ -1522,6 +1526,7 @@ Sub Main()
                         fpsCount = 0
                     End If
                 End If
+                Sleep sleepDelay
             Loop While GameOutro = True
         ElseIf GameMenu = True Then 'The Game Menu
             BattleIntro = 0
@@ -1637,6 +1642,7 @@ Sub Main()
                         fpsCount = 0
                     End If
                 End If
+                Sleep sleepDelay
             Loop While GameMenu = True
         ElseIf LevelSelect = True Then 'World Map
             CheatString = ""
@@ -1718,6 +1724,7 @@ Sub Main()
                             fpsCount = 0
                         End If
                     End If
+                    Sleep sleepDelay
                 Loop While LevelSelect = True
             End If
         Else 'MAIN GAME
@@ -1830,6 +1837,7 @@ Sub Main()
                         EveryonesDead
                     End If
                 End If
+                Sleep sleepDelay
             Loop While LevelSelect = False And GameMenu = False
             If TestLevel = True Then
                 TestLevel = False
@@ -7553,6 +7561,7 @@ Public Sub PathWait()
                 fpsCount = 0
             End If
         End If
+        Sleep sleepDelay
     Loop Until C >= 24
     overTime = 0
     GoalTime = GetTickCount + 1000
@@ -8126,6 +8135,7 @@ Public Sub PauseGame(plr As Integer)
             End With
         End If
         If qScreen = True Then stopPause = False
+        Sleep sleepDelay
     Loop Until stopPause = True
     GamePaused = False
     Player(plr).UnStart = False
@@ -8327,6 +8337,7 @@ Private Sub CheckActive()
             ' If noSound = False Then mciSendString "pause all", 0, 0, 0
             If noSound = False Then SoundPauseAll
         End If
+        Sleep sleepDelay
     Loop
     If noSound = False Then
         If MusicPaused = True Then

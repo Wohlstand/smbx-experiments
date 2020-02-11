@@ -1,5 +1,12 @@
 Super Mario Bros. X Changelog.
 
+Change in this research mod by Wohlstand:
+-MCI was replaced with MixerX library to make the sound system better
+-Removed web-box from the launcher dialog
+-Launcher dialog now is more compact and has the LunaLua incompatibility notice
+-Added the debugger dialog where are some log messages can be printed by a game
+-Replaced some built-in images and icons
+
 
 Changes for 1.3:
 

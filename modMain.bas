@@ -8321,6 +8321,7 @@ Private Sub CheckActive()
     'If LevelEditor = False And TestLevel = False Then Exit Sub
     'If LevelEditor = False Then Exit Sub
     Do While GetActiveWindow = 0
+        WaitMessage
         DoEvents
         If LevelEditor = True Or MagicHand = True Then frmLevelWindow.vScreen(1).MousePointer = 0
         overTime = 0
@@ -8337,7 +8338,7 @@ Private Sub CheckActive()
             ' If noSound = False Then mciSendString "pause all", 0, 0, 0
             If noSound = False Then SoundPauseAll
         End If
-        Sleep sleepDelay
+        'Sleep sleepDelay
     Loop
     If noSound = False Then
         If MusicPaused = True Then

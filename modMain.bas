@@ -11735,9 +11735,15 @@ End Sub
 Public Function FixComma(newStr As String) As String
     Dim A As Integer
     Dim tempStr As String
+    Dim commaSample As String
+    Dim commaSign As String
+    commaSample = CStr(1.2)
+    commaSign = Mid(commaSample, 2, 1)
     For A = 1 To Len(newStr)
         If Mid(newStr, A, 1) = "," Then
-            tempStr = tempStr & "."
+            tempStr = tempStr & commaSign
+        ElseIf Mid(newStr, A, 1) = "." Then
+            tempStr = tempStr & commaSign
         Else
             tempStr = tempStr & Mid(newStr, A, 1)
         End If

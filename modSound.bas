@@ -171,6 +171,7 @@ Public Sub StartMusic(A As Integer) 'play music
             'mciSendString "setaudio music24 volume to 400", 0, 0, 0
             musicX = Mix_LoadMUS(FileNamePath & "\" & CustomMusic(A))
             Mix_PlayMusic musicX, -1
+            Mix_VolumeMusic 52
         Else
             PlayMusic ("music" & bgMusic(A))
         End If

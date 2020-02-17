@@ -2217,7 +2217,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                 NPC(-A).Special2 = BlockSlope(Block(B).Type)
                                                 .StandingOnNPC = -A
                                                 movingBlock = True
-                                                If (.Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX < 0 And BlockSlope(Block(B).Type)) < 0 Or (.Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX > 0 And BlockSlope(Block(B).Type) > 0) Then
+                                                If (.Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX < 0 And BlockSlope(Block(B).Type) < 0) Or (.Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX > 0 And BlockSlope(Block(B).Type) > 0) Then
                                                     If (.Location.SpeedX < 0 And Block(B).Location.SpeedX > 0) Or (.Location.SpeedX > 0 And Block(B).Location.SpeedX < 0) Then
                                                         .Location.SpeedY = 12
                                                     End If

@@ -1772,7 +1772,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     End If
                                                 End If
 'beech koopa kicking an ice block
-                                                If (.Type = 55 Or .Type) = 119 And Block(B).IsNPC = 45 Then
+                                                If (.Type = 55 Or .Type = 119) And Block(B).IsNPC = 45 Then
                                                     If HitSpot = 2 Or HitSpot = 4 Then
                                                         If .Location.SpeedY = Physics.NPCGravity Or .Location.SpeedY = 0 Or .Slope > 0 Or oldSlope > 0 And NPC(Block(B).IsReally).Projectile = False Then
                                                             NPC(Block(B).IsReally).Special = 1

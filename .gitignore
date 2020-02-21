@@ -3,8 +3,7 @@ graphics/*
 worlds/*
 music/*
 sound/*
-Netplay.log
-frmLoader.log
+*.log
 Mario.vbw
 config.dat
 *.OBJ

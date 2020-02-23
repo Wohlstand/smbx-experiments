@@ -1507,6 +1507,7 @@ wasSlippy = .Slippy
                             
                             If .ShellSurf = True Then
                                 If .Mount <> 0 Then .ShellSurf = False
+                                ' FIXME: Some dead code because of "1 == 2" comparison
                                 If .Direction <> NPC(.StandingOnNPC).Direction And 1 = 2 Then
                                     .ShellSurf = False
                                     .Location.SpeedY = NPC(.StandingOnNPC).Location.SpeedY

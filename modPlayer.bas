@@ -2732,7 +2732,7 @@ End If
                         
 'check vine backgrounds
     For B = 1 To numBackground
-        If BackgroundFence(Background(B).Type) = True Then
+        If BackgroundFence(Background(B).Type) = True And Not Background(B).Hidden Then
             If CheckCollision(.Location, Background(B).Location) Then
                 tempLocation = Background(B).Location
                 tempLocation.Height = tempLocation.Height - 16

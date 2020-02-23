@@ -15,6 +15,7 @@ Change in this research mod by Wohlstand:
  *world map's path opener
  *background inactivity waiter
 -Made a TRUE fix for decimal values inside of NPCtxt
+-Fixed an ability to climb invisible fences (that was a bug)
 
 
 Changes for 1.3:

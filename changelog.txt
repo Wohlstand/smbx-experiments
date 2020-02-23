@@ -17,6 +17,8 @@ Change in this research mod by Wohlstand:
 -Made a TRUE fix for decimal values inside of NPCtxt
 -Fixed an ability to climb invisible BGO fences (that was a bug)
 -Fixed a wrong mystical move speed while climbing BGO fences
+-Fixed a crash of mushroom falling into the lavel (reason of crash - while check, using block ID for NPC array)
+-Fixed a crash when bump block by puting veggie (reason - a check of a part of condition that shound NOT be checked)
 
 
 Changes for 1.3:

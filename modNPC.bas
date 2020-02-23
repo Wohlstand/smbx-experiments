@@ -4858,6 +4858,12 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             If B = 9 Then .Killed = B
 'Veggies
         ElseIf NPCIsVeggie(.Type) Then
+            Dim b4NpcCondition As Boolean
+            b4NpcCondition = False
+            If B = 4 Then ' Condition from below moved to here to avoid a crash
+                b4NpcCondition = (NPC(C).Type <> .Type Or A = C)
+            End If
+
             If B = 5 Then
                 Player(.HoldingPlayer).HoldingNPC = 0
                 .CantHurtPlayer = .HoldingPlayer
@@ -4866,7 +4872,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 .Location.SpeedX = 3 * -.Direction
                 .Location.SpeedY = -3
                 .Projectile = True
-            ElseIf B = 4 And (NPC(C).Type <> .Type Or A = C) Then
+            ElseIf B = 4 And b4NpcCondition Then
                 If Not NPC(C).Type = 202 And Not NPC(C).Type = 201 Then
                     If .Location.SpeedY > -4 Then .Location.SpeedY = -4
                     If .Location.SpeedX = 0 Then
@@ -5612,7 +5618,9 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 .Location.SpeedY = -5
                 .Location.Y = Block(C).Location.Y - .Location.Height - 0.01
             ElseIf B = 6 Or B = 5 Or B = 4 Then
-                If Not (NPC(C).Type = 13 Or NPC(C).Type = 108 Or NPC(C).Type = 171 Or NPCIsVeggie(NPC(C).Type)) Then
+                If B = 6 Then
+                    .Killed = B
+                ElseIf Not (NPC(C).Type = 13 Or NPC(C).Type = 108 Or NPC(C).Type = 171 Or NPCIsVeggie(NPC(C).Type)) Then
                     .Killed = B
                 End If
             ElseIf B = 7 Then

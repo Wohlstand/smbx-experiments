@@ -244,6 +244,7 @@ Public Type Player              'The player data type.
     GrabTime As Integer 'how long the player has been trying to grab an npc from above
     GrabSpeed As Single
     VineNPC As Double 'the NPC that the player is climbing
+    VineBGO As Double 'the Background (fence) that the player is climbing
     Wet As Integer 'weather or not the player is under water
     WetFrame As Boolean 'true if the play should be swimming
     SwimCount As Integer 'cool down between swim strokes

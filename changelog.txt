@@ -15,7 +15,8 @@ Change in this research mod by Wohlstand:
  *world map's path opener
  *background inactivity waiter
 -Made a TRUE fix for decimal values inside of NPCtxt
--Fixed an ability to climb invisible fences (that was a bug)
+-Fixed an ability to climb invisible BGO fences (that was a bug)
+-Fixed a wrong mystical move speed while climbing BGO fences
 
 
 Changes for 1.3:

@@ -124,6 +124,8 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
             .WetFrame = False
             .Slide = False
             .Vine = 0
+            .VineNPC = 0
+            .VineBGO = 0
             .Fairy = False
             .GrabSpeed = 0
             .GrabTime = 0
@@ -751,8 +753,13 @@ SlippySpeedX = .Location.SpeedX
                             Else
                                 .Location.SpeedY = 0
                             End If
-                            .Location.SpeedX = .Location.SpeedX + NPC(.VineNPC).Location.SpeedX
-                            .Location.SpeedY = .Location.SpeedY + NPC(.VineNPC).Location.SpeedY
+                            If .VineBGO > 0 Then
+                                .Location.SpeedX = .Location.SpeedX + Background(.VineBGO).Location.SpeedX
+                                .Location.SpeedY = .Location.SpeedY + Background(.VineBGO).Location.SpeedY
+                            Else
+                                .Location.SpeedX = .Location.SpeedX + NPC(.VineNPC).Location.SpeedX
+                                .Location.SpeedY = .Location.SpeedY + NPC(.VineNPC).Location.SpeedY
+                            End If
                         Else
                         
 'if none of the above apply then the player controls like normal. remeber this is for the players X movement
@@ -2764,7 +2771,10 @@ End If
                                 If .Location.Y >= Background(B).Location.Y - 20 And .Vine < 2 Then .Vine = 2
                                 If .Location.Y >= Background(B).Location.Y - 18 Then .Vine = 3
                             End If
-                            If .Vine > 0 Then .VineNPC = -1
+                            If .Vine > 0 Then
+                                .VineNPC = -1
+                                .VineBGO = B
+                            End If
                         End If
                     End If
                 End If
@@ -3012,7 +3022,10 @@ End If
                                                         If .Location.Y >= NPC(B).Location.Y - 20 And .Vine < 2 Then .Vine = 2
                                                         If .Location.Y >= NPC(B).Location.Y - 18 Then .Vine = 3
                                                     End If
-                                                    If .Vine > 0 Then .VineNPC = B
+                                                    If .Vine > 0 Then
+                                                        .VineNPC = B
+                                                        .VineBGO = 0
+                                                    End If
                                                 End If
                                             End If
                                         End If
@@ -4395,7 +4408,17 @@ Public Sub PlayerFrame(A As Integer)
         End If
 'climbing a vine/ladder
         If .Vine > 0 Then
-            If .Location.SpeedX <> NPC(.VineNPC).Location.SpeedX Or .Location.SpeedY < NPC(.VineNPC).Location.SpeedY - 0.1 Then 'Or .Location.SpeedY > 0.1 Then
+            Dim DoesPlayerMove As Boolean
+            DoesPlayerMove = False
+            If .VineBGO > 0 Then
+                DoesPlayerMove = .Location.SpeedX <> Background(.VineBGO).Location.SpeedX Or _
+                                 .Location.SpeedY < Background(.VineBGO).Location.SpeedY - 0.1
+            Else
+                DoesPlayerMove = .Location.SpeedX <> NPC(.VineNPC).Location.SpeedX Or _
+                                 .Location.SpeedY < NPC(.VineNPC).Location.SpeedY - 0.1
+            End If
+
+            If DoesPlayerMove = True Then 'Or .Location.SpeedY > 0.1
                 .FrameCount = .FrameCount + 1
                 If .FrameCount >= 8 Then
                     .Frame = .Frame + 1

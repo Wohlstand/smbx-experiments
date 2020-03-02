@@ -6658,6 +6658,7 @@ End Sub
             LevelMacroCounter = LevelMacroCounter + 1
             If LevelMacroCounter >= 300 Then Exit Do
         End If
+        Sleep sleepDelay
     Loop
         LevelBeatCode = 4
         EndLevel = True

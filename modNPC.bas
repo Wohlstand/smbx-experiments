@@ -3080,7 +3080,10 @@ End If
                                             KillBlock B
                                         End If
                                     Next B
-                                    If .Legacy = True And 1 = 2 Then
+
+                                    ' If .Legacy = True And 1 = 2 Then ' Literally invalid condition, made by Redigit
+
+                                    If .Legacy = True And .Special7 = 1 Then 'Keep old behavior for old files prior to SMBX9
                                         fBlock = FirstBlock((level(.Section).X / 32) - 1)
                                         lBlock = LastBlock(((level(.Section).Width) / 32) + 2)
                                         For B = fBlock To lBlock

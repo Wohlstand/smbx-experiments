@@ -200,6 +200,7 @@ Public Type NPC 'The NPC Type
     Special4 As Double
     Special5 As Double
     Special6 As Double
+    Special7 As Double 'EXTRA by Wohlstand
     TurnAround As Boolean 'if the NPC needs to turn around
     Killed As Integer 'Flags the NPC to die a specific way.
     Active As Boolean 'If on screen
@@ -6114,6 +6115,11 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                 If .Type = 260 Then
                     Input #1, .Special
                     .DefaultSpecial = .Special
+                End If
+                If .Type = 86 And FileRelease < 9 Then
+                    .Special7 = 1
+                Else
+                    .Special7 = 0
                 End If
                 If FileRelease >= 3 Then
                     Input #1, .Generator

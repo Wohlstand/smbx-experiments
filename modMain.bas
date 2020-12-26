@@ -620,7 +620,7 @@ Public numWorldLevels As Integer
 Public WorldMusic(1 To maxWorldMusic) As WorldMusic
 Public numWorldMusic As Integer
 Public WorldLevel(1 To maxWorldLevels) As WorldLevel
-Public Background(1 To maxBackgrounds) As Background
+Public Background(1 To (maxBackgrounds + maxWarps)) As Background
 Public Effect(1 To maxEffects) As Effect
 Public NPC(-128 To maxNPCs) As NPC
 Public Block(0 To maxBlocks) As Block
@@ -5967,6 +5967,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     FullFileName = FilePath
     numBlock = 0
     numBackground = 0
+    numLocked = 0
     numNPCs = 0
     numWarps = 0
     
@@ -6515,6 +6516,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     Next A
     numEffects = 0
     numBackground = 0
+    numLocked = 0
     PlayerStart(1) = BlankLocation
     PlayerStart(2) = BlankLocation
     If LevelEditor = True Then

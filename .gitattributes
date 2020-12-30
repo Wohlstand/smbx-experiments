@@ -1,3 +1,3 @@
 *.txt		text eol=crlf
-*.bas   linguist-language=VisualBasic
-*.frm   linguist-language=VisualBasic
+*.bas   linguist-language=vb6
+*.frm   linguist-language=vb6

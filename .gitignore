@@ -1,0 +1,11 @@
+battle/*
+graphics/*
+worlds/*
+music/*
+sound/*
+*.log
+Mario.vbw
+config.dat
+*.OBJ
+*.obj
+smbx*.exe

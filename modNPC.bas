@@ -8793,6 +8793,7 @@ Public Sub NPCSpecial(A As Integer)
     Dim fBlock As Double
     Dim lBlock As Double
     Dim straightLine As Boolean
+    Dim pausePlatforms As Boolean
     Dim tempBool As Boolean
     Dim tempBool2 As Boolean
     Dim tempLocation As Location
@@ -10184,7 +10185,7 @@ Public Sub NPCSpecial(A As Integer)
                             
 'Platform movement
                         ElseIf .Type = 60 Or .Type = 62 Or .Type = 64 Or .Type = 66 Or .Type = 104 Or .Type = 179 Then
-                        straightLine = False
+                            straightLine = False
                             tempBool = False
                             For B = 1 To numPlayers
                                 If Player(B).Section = .Section Then tempBool = True
@@ -10196,8 +10197,19 @@ Public Sub NPCSpecial(A As Integer)
                                 .Location.Height = 32
                             End If
                             If .Direction = 1 And tempBool = True Or .Type = 179 Then
-                                .Location.SpeedY = .Special
-                                .Location.SpeedX = .Special2
+                                pausePlatforms = False
+
+                                For B = 1 To numPlayers
+                                    If Not (Player(B).Effect = 0 Or Player(B).Effect = 3 Or Player(B).Effect = 9 Or Player(B).Effect = 10) Then
+                                        pausePlatforms = True
+                                    End If
+                                Next B
+
+                                If Not pausePlatforms Then
+                                    .Location.SpeedY = .Special
+                                    .Location.SpeedX = .Special2
+                                End If
+
                                 tempBool = False
                                 tempBool2 = False
                                 tempLocation = .Location
@@ -10282,14 +10294,21 @@ Public Sub NPCSpecial(A As Integer)
                                     .Location.SpeedX = .Location.SpeedX + E
                                     .Location.SpeedY = .Location.SpeedY + D
                                 End If
-                                .Special = .Location.SpeedY
-                                .Special2 = .Location.SpeedX
-                                For B = 1 To numPlayers
-                                    If Not (Player(B).Effect = 0 Or Player(B).Effect = 3 Or Player(B).Effect = 9 Or Player(B).Effect = 10) Then
-                                        .Location.SpeedX = 0
-                                        .Location.SpeedY = 0
-                                    End If
-                                Next B
+
+                                If Not pausePlatforms Then
+                                    .Special = .Location.SpeedY
+                                    .Special2 = .Location.SpeedX
+                                Else
+                                    .Location.SpeedX = 0
+                                    .Location.SpeedY = 0
+                                End If
+
+                                'For B = 1 To numPlayers
+                                '    If Not (Player(B).Effect = 0 Or Player(B).Effect = 3 Or Player(B).Effect = 9 Or Player(B).Effect = 10) Then
+                                '        .Location.SpeedX = 0
+                                '        .Location.SpeedY = 0
+                                '    End If
+                                'Next B
                             Else
                                 .Location.SpeedX = 0
                                 .Location.SpeedY = 0

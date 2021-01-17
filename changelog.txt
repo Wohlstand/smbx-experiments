@@ -21,6 +21,7 @@ Change in this research mod by Wohlstand:
 -Fixed a crash when bump block by puting veggie (reason - a check of a part of condition that shound NOT be checked)
 -Fixed a broken behavior of Bowser battle in a first The Invasion from SMBX 1.0 (a condition of work - file must be saved in format of SMBX Build prior to 9)
 -Fixed a crash, caused by the incremental locked warps counter that leads BGO array go out of range
+-Fixed a case when free-falling platforms getting confused when the player changes their power-up state
 
 
 Changes for 1.3:

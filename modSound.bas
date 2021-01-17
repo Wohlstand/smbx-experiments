@@ -46,7 +46,7 @@ Public Sub InitMixerX()
         Exit Sub
     End If
     Mix_Init '0                                   'Init SDL Mixer itself
-    Mix_OpenAudio 44100, AUDIO_S16LSB, 2, 2048   'Init Open audio stream
+    Mix_OpenAudio 44100, AUDIO_F32LSB, 2, 512   'Init Open audio stream
     Mix_VolumeMusic 64
     Mix_AllocateChannels 91
 End Sub

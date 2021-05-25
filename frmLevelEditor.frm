@@ -9,6 +9,7 @@ Begin VB.MDIForm frmLevelEditor
    ClientWidth     =   14085
    Icon            =   "frmLevelEditor.frx":0000
    LinkTopic       =   "MDIForm1"
+   OLEDropMode     =   1  'Manual
    StartUpPosition =   2  'CenterScreen
    WindowState     =   2  'Maximized
    Begin VB.PictureBox picWorld 
@@ -652,30 +653,59 @@ Private Sub mnuChat_Click()
     frmChat.Show
 End Sub
 
+Private Sub toggleLevelEdit()
+    menuLevelDebugger.Visible = True
+    WorldEditor = False
+    For A = 0 To optCursor.Count - 1
+        optCursor(A).Value = False
+    Next A
+    optCursor(13).Value = True
+    EditorCursor.Mode = 13
+    FileName = ""
+    FullFileName = ""
+    vScreenX(1) = 0
+    vScreenY(1) = 0
+    menuView.Enabled = True
+    MenuTestLevel.Enabled = True
+    ClearWorld
+    ClearLevel
+    mnuOnline.Enabled = True
+    frmChat.Hide
+    frmNetplay.Hide
+End Sub
+
+Private Sub toggleWorldEdit()
+    mnuOnline.Enabled = False
+    Unload frmLevelDebugger
+    menuLevelDebugger.Visible = False
+    WorldEditor = True
+    ClearLevel
+    ClearWorld
+    For A = 0 To optCursor.Count - 1
+        optCursor(A).Value = False
+    Next A
+    optCursor(14).Value = True
+    EditorCursor.Mode = 14
+    FileName = ""
+    FullFileName = ""
+    vScreenX(1) = 0
+    vScreenY(1) = 0
+    ClearLevel
+    ClearWorld
+    frmEvents.Hide
+    frmLayers.Hide
+    frmTestSettings.Hide
+    frmChat.Hide
+    frmNetplay.Hide
+End Sub
+
 Private Sub mnuLevelEditor_Click()
     Dim A As Integer
-    
+
     A = MsgBox("All unsaved changes will be lost, proceed?", vbYesNo, "Proceed?")
     If A = 6 Then
-        menuLevelDebugger.Visible = True
-        WorldEditor = False
-        For A = 0 To optCursor.Count - 1
-            optCursor(A).Value = False
-        Next A
-        optCursor(13).Value = True
-        EditorCursor.Mode = 13
-        FileName = ""
-        FullFileName = ""
-        vScreenX(1) = 0
-        vScreenY(1) = 0
-        menuView.Enabled = True
-        MenuTestLevel.Enabled = True
-        ClearWorld
-        ClearLevel
+        toggleLevelEdit
         PlaySound 32
-        mnuOnline.Enabled = True
-        frmChat.Hide
-        frmNetplay.Hide
     End If
 End Sub
 
@@ -687,29 +717,8 @@ Private Sub mnuWorldEditor_Click()
     Dim A As Integer
     A = MsgBox("All unsaved changes will be lost, proceed?", vbYesNo, "Proceed?")
     If A = 6 Then
-        mnuOnline.Enabled = False
-        Unload frmLevelDebugger
-        menuLevelDebugger.Visible = False
-        WorldEditor = True
-        ClearLevel
-        ClearWorld
-        For A = 0 To optCursor.Count - 1
-            optCursor(A).Value = False
-        Next A
-        optCursor(14).Value = True
-        EditorCursor.Mode = 14
-        FileName = ""
-        FullFileName = ""
-        vScreenX(1) = 0
-        vScreenY(1) = 0
-        ClearLevel
-        ClearWorld
-        frmEvents.Hide
-        frmLayers.Hide
-        frmTestSettings.Hide
+        toggleWorldEdit
         PlaySound 32
-        frmChat.Hide
-        frmNetplay.Hide
     End If
 End Sub
 
@@ -806,4 +815,33 @@ Private Sub optCursor_Click(Index As Integer)
     If Index = 0 Or Index = 6 Or Index = 13 Or Index = 14 Then
         frmLevelWindow.SetFocus
     End If
+End Sub
+
+Private Sub MDIForm_OLEDragDrop(Data As DataObject, Effect As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Dim intFile As Integer
+    Dim fileToOpen As String
+
+    With Data
+        For intFile = 1 To .Files.Count
+            fileToOpen = Data.Files.Item(intFile)
+        Next intFile
+    End With 'Data
+
+    If LCase(Right(fileToOpen, 4)) = ".lvl" Then
+        If WorldEditor Then
+            toggleLevelEdit
+        End If
+
+        frmLevelEditor.optCursor(13).Value = True
+        ClearLevel
+        OpenLevel fileToOpen
+    ElseIf LCase(Right(fileToOpen, 4)) = ".wld" Then
+        If Not WorldEditor Then
+            toggleWorldEdit
+        End If
+
+        frmLevelEditor.optCursor(14).Value = True
+        OpenWorld fileToOpen
+    End If
+
 End Sub

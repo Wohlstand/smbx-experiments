@@ -1466,6 +1466,9 @@ Sub Main()
     frmMain.LoadCoin.Visible = False
     frmMain.Loader.Visible = False
 
+    SMBX_Init
+    libSMBX_InitArrays
+
     Do
     
         If GameMenu = True Then
@@ -5819,6 +5822,7 @@ Public Sub KillIt() 'Cleans up the buffer before ending the program
     If resChanged = True Then SetOrigRes
     ' mciSendString "close all", 0, 0, 0
     QuitMixerX
+    SMBX_Quit
     DeleteDC myBackBuffer
     DeleteObject myBufferBMP
     UnloadGFX

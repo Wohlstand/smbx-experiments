@@ -3739,6 +3739,8 @@ SuperWarp A 'this sub checks warps
                 .DuckRelease = True
             End If
         End With
+
+        If Not GameMenu Then Call SMBX_printPlayerLocationIntoFile(A)
     Next A
     C = 0
     For A = numNPCs To 1 Step -1

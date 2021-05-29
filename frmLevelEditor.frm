@@ -244,6 +244,15 @@ Begin VB.MDIForm frmLevelEditor
          Caption         =   "&Open"
          Shortcut        =   ^O
       End
+      Begin VB.Menu mnuFil3 
+         Caption         =   "-"
+      End
+      Begin VB.Menu menuCurDirOpen 
+         Caption         =   "Open episode directory..."
+      End
+      Begin VB.Menu menuCurLevelDataOpen 
+         Caption         =   "Open level data directory..."
+      End
       Begin VB.Menu mnuFile2 
          Caption         =   "-"
       End
@@ -518,21 +527,41 @@ Private Sub menAbout_Click()
     frmAbout.Show vbModal, Me
 End Sub
 
+Private Sub menChangeLog_Click()
+    On Error GoTo Bugs
+    Shell "notepad " & Chr(34) & App.Path & "\changelog.txt" & Chr(34), vbNormalFocus
+    Exit Sub
+Bugs:
+    MsgBox "The help file 'changelog.txt' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
+End Sub
+
 Private Sub menGetSrc_Click()
     ShellExecuteA Me.hWnd, "open", urlSourceCode, "", "", 4
 End Sub
 
 Private Sub menHelp_Click()
     On Error GoTo Bugs
-    Shell "write " & Chr(34) & App.Path & "\SMBx Editor Help.rtf" & Chr(34)
+    Shell "write " & Chr(34) & App.Path & "\SMBx Editor Help.rtf" & Chr(34), vbNormalFocus
     Exit Sub
 Bugs:
     MsgBox "The help file 'SMBx Editor Help.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
 End Sub
 
+Private Sub menuCurDirOpen_Click()
+    If FileNamePath <> "" Then
+        ShellExecuteA Me.hWnd, "open", FileNamePath, "", "", 4
+    End If
+End Sub
+
+Private Sub menuCurLevelDataOpen_Click()
+    If FileNamePath <> "" Then
+        ShellExecuteA Me.hWnd, "open", FileNamePath & "\" & Left(FileName, Len(FileName) - 4), "", "", 4
+    End If
+End Sub
+
 Private Sub menuGameplay_Click()
     On Error GoTo Bugs
-    Shell "write " & Chr(34) & App.Path & "\SMBx Gameplay Manual.rtf" & Chr(34)
+    Shell "write " & Chr(34) & App.Path & "\SMBx Gameplay Manual.rtf" & Chr(34), vbNormalFocus
     Exit Sub
 Bugs:
     MsgBox "The help file 'SMBx Gameplay Manual.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"

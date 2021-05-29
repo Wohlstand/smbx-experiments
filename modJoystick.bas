@@ -145,6 +145,9 @@ Public Sub UpdateControls() 'Gets players controls
                     .AltRun = True
                 End If
             End If
+            If B = 1 Then
+                Call speedRun_syncControlKeys()
+            End If
             If .Left = True And .Right = True Then
                 .Left = False
                 .Right = False

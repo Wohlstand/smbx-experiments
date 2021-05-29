@@ -1406,6 +1406,14 @@ Sub Main()
             loadFileOnStartDoTest = True
             LevelEditor = True
             DoShowLauncher = False
+        ElseIf LCase(Left(Astr, 18)) = "--replay-controls=" Then
+            g_speedRunnerControlFile = 25
+            Open Right(Astr, Len(Astr) - 18) For Input As #g_speedRunnerControlFile
+        ElseIf LCase(Left(Astr, 15)) = "--gameplay-log=" Then
+            g_speedRunnerControlFile = 30
+            Open Right(Astr, Len(Astr) - 15) For Output As #g_speedRunnerGameplayLog
+            MaxFPS = True
+            ShowFPS = True
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Astr
@@ -5822,6 +5830,12 @@ Public Sub KillIt() 'Cleans up the buffer before ending the program
     DeleteDC myBackBuffer
     DeleteObject myBufferBMP
     UnloadGFX
+    If Not g_speedRunnerControlFile = 0 Then
+        Close #g_speedRunnerControlFile
+    End If
+    If Not g_speedRunnerGameplayLog = 0 Then
+        Close #g_speedRunnerGameplayLog
+    End If
     Do
     Loop Until ShowCursor(1) >= 1
     End

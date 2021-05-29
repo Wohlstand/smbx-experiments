@@ -1667,13 +1667,16 @@ Public Sub zTestLevel()
     Dim C As Integer
     Dim blankPlayer As Player
     qScreen = False
+
     If nPlay.Online = True Then Checkpoint = ""
+
     If FullFileName <> "" Or nPlay.Online = True Then
-        If nPlay.Online = False Then
+        If Not nPlay.Online And Not loadFileOnStartDoTest Then
             A = MsgBox("Do you want to save the level first? All changes since last save will be lost.", vbYesNoCancel, "Save first?")
         Else
             A = 1
         End If
+
         If A = 2 Then
         Else
             If A = 6 Then SaveLevel FullFileName
@@ -1688,7 +1691,6 @@ Public Sub zTestLevel()
                     'If .Generator = True Then
                         .TimeLeft = 0
                         .Active = False
-                        
                     'End If
                 End With
             Next A

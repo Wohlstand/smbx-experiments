@@ -19,8 +19,16 @@ Public Declare Function GetWindowDC Lib "user32.dll" (ByVal hWnd As Long) As Lon
 Declare Function GetActiveWindow Lib "user32" () As Integer
 Public Declare Function GetTickCount& Lib "kernel32" ()
 Public Declare Function WaitMessage Lib "user32" () As Long
+Public Declare Function ShellExecuteA Lib "shell32.dll" ( _
+    ByVal hWnd As Long, _
+    ByVal lpOperation As String, _
+    ByVal lpFile As String, _
+    ByVal lpParameters As String, _
+    ByVal lpDirectory As String, _
+    ByVal nShowCmd As Integer) As Long
 Public OnlineDisc As Boolean
 
+Public Const urlSourceCode As String = "https://github.com/Wohlstand/smbx-experiments"
 
 'Saved Events
 Public Const MaxSavedEvents As Integer = 200
@@ -28,7 +36,6 @@ Public numSavedEvents As Integer
 Public SavedEvents(1 To MaxSavedEvents) As String
 Public BlockSwitch(1 To 4) As Boolean
 'Public PowerUpUnlock(2 To 7) As Boolean
-
 
 Public Const ScreenW As Integer = 800  'Game Screen Width
 Public Const ScreenH As Integer = 600  'Game Screen Height
@@ -1056,6 +1063,10 @@ Public SyncCount As Integer
 Public noUpdate As Boolean
 Public gameTime As Double
 Public noSound As Boolean
+Public runWhenUnfocused As Boolean
+Public loadFileOnStart As Boolean
+Public loadFileOnStartPath As String
+Public loadFileOnStartDoTest As Boolean
 Public tempTime As Double
 Dim ScrollDelay As Integer
 'battlemode stuff
@@ -1296,30 +1307,136 @@ Public Sub SetupPhysics()
     End With
 End Sub
 
+Function GetCommandLine(Optional MaxArgs)
+    Dim C, CmdLine, CmdLnLen, InArg, i, NumArgs
+    Dim quoteOpen As Boolean
+
+    If IsMissing(MaxArgs) Then MaxArgs = 10
+    ReDim ArgArray(MaxArgs) As String
+    NumArgs = 0: InArg = False
+    CmdLine = Command()
+    CmdLnLen = Len(CmdLine)
+
+    quoteOpen = False
+
+    For i = 1 To CmdLnLen
+        C = Mid(CmdLine, i, 1)
+
+        If C = Chr$(34) Then
+            If quoteOpen Then
+                quoteOpen = False
+            Else
+                quoteOpen = True
+            End If
+            GoTo ContinueCmdLnLen
+        End If
+
+        If quoteOpen Or (C <> " " And C <> vbTab) Then
+            If Not InArg Then
+                If NumArgs = MaxArgs Then Exit For
+                NumArgs = NumArgs + 1
+                InArg = True
+            End If
+            If C <> Chr$(34) Then
+                ArgArray(NumArgs) = ArgArray(NumArgs) & C
+            End If
+        Else
+            InArg = False
+        End If
+ContinueCmdLnLen:
+    Next i
+
+    'Resize array just enough to hold arguments.
+    ReDim Preserve ArgArray(NumArgs)
+    'Return Array in Function name.
+    GetCommandLine = ArgArray()
+End Function
+
 Sub Main()
     Dim blankPlayer As Player
     Dim A As Integer
     Dim B As Integer
     Dim C As Integer
     Dim tempBool As Boolean
+    Dim Arg As Integer
+    Dim DoShowLauncher As Boolean
+    ReDim Argv(42) As String
+
+    DoShowLauncher = True
+    runWhenUnfocused = False
+    noSound = False
+    loadFileOnStart = False
+    loadFileOnStartDoTest = False
+    loadFileOnStartPath = ""
+
+    ' Hack: keep the app path being a working directory
+    ChDir App.Path
+
     Shell "regsvr32 /s" & Chr$(34) & App.Path & "\mswinsck.ocx" & Chr$(34) 'register mswinsck.ocx
+    Shell "regsvr32 /s" & Chr$(34) & App.Path & "\comdlg32.ocx" & Chr$(34) 'register comdlg32.ocx
+
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled
     Randomize Timer
     FrameSkip = True
-    frmLoader.Show 'show the Splash screen
-    Do
-        WaitMessage
-        DoEvents
-    Loop While StartMenu = False 'wait until the player clicks a button
-    
-    If frmLoader.chkFrameskip.Value <> 0 Then FrameSkip = False
-    If frmLoader.chkSound.Value <> 0 Then noSound = True
-    
-    Unload frmLoader
-    
-    
-    
+
+    Argv = GetCommandLine(42)
+
+    For Arg = 1 To UBound(Argv, 1)
+        Dim Astr As String
+        Astr = Argv(Arg)
+
+        If Astr = "--console" Then
+            frmDebugLog.Show
+        ElseIf Astr = "--no-frame-skip" Then
+            FrameSkip = False
+        ElseIf Astr = "--no-sound" Then
+            noSound = True
+        ElseIf Astr = "--runWhenUnfocused" Then
+            runWhenUnfocused = True
+        ElseIf Astr = "--game" Then
+            LevelEditor = False
+            DoShowLauncher = False
+        ElseIf Astr = "--leveleditor" Then
+            LevelEditor = True
+            DoShowLauncher = False
+        ElseIf LCase(Left(Astr, 12)) = "--testlevel=" And LCase(Right(Astr, 4)) = ".lvl" Then
+            loadFileOnStart = True
+            loadFileOnStartPath = Right(Astr, Len(Astr) - 12)
+            loadFileOnStartDoTest = True
+            LevelEditor = True
+            DoShowLauncher = False
+        ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
+            loadFileOnStart = True
+            loadFileOnStartPath = Astr
+            LevelEditor = True
+            DoShowLauncher = False
+        ElseIf LCase(Right(Astr, 4)) = ".wld" Then
+            loadFileOnStart = True
+            loadFileOnStartPath = Astr
+            LevelEditor = True
+            WorldEditor = True
+            DoShowLauncher = False
+        End If
+    Next Arg
+
+    For Arg = 1 To UBound(Argv, 1)
+        DebugMsg "Argument: " & Argv(Arg)
+    Next Arg
+
+    If DoShowLauncher Then
+        frmLoader.Show 'show the Splash screen
+        Do
+            WaitMessage
+            DoEvents
+        Loop While StartMenu = False 'wait until the player clicks a button
+
+        If frmLoader.chkFrameskip.Value <> 0 Then FrameSkip = False
+        If frmLoader.chkSound.Value <> 0 Then noSound = True
+
+        Unload frmLoader
+    End If
+
     If LevelEditor = False Then
         frmMain.Show
         GameMenu = True
@@ -1376,19 +1493,47 @@ Sub Main()
             frmLevelEditor.optCursor(5).Enabled = True
             frmLevelEditor.optCursor(15).Enabled = True
             frmLevelEditor.optCursor(2).Enabled = True
+
             If nPlay.Online = True Then
                 If nPlay.Mode = 0 Then frmLevelEditor.MenuTest.Enabled = False
             End If
+
             For A = 0 To frmLevelSettings.optLevel.Count - 1
                 frmLevelSettings.optLevel(A).Enabled = True
             Next A
+
             For A = 0 To frmLevelSettings.optSection.Count - 1
                 frmLevelSettings.optSection(A).Enabled = True
             Next A
+
             With EditorCursor
                 .Location.Height = 32
                 .Location.Width = 32
             End With
+
+            If loadFileOnStart Then
+            
+                If WorldEditor Then
+                    frmLevelEditor.toggleWorldEdit
+                    frmLevelEditor.optCursor(14).Value = True
+                    OpenWorld loadFileOnStartPath
+                Else
+                    frmLevelEditor.toggleLevelEdit
+                    frmLevelEditor.optCursor(13).Value = True
+                    ClearLevel
+                    OpenLevel loadFileOnStartPath
+                    If loadFileOnStartDoTest Then
+                        BattleMode = False
+                        BattleIntro = 0
+                        BattleOutro = 0
+                        numPlayers = 1
+                        zTestLevel
+                    End If
+                End If
+                loadFileOnStart = False
+                loadFileOnStartDoTest = False
+            End If
+
             overTime = 0
             GoalTime = GetTickCount + 1000
             fpsCount = 0
@@ -6804,6 +6949,7 @@ Public Sub SaveWorld(FilePath As String)   'Saves the world!
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
+    FullFileName = FilePath
     FileName = Right(FilePath, (Len(FilePath) - A))
     FileNamePath = Left(FilePath, (A))
     WorldName = frmWorld.txtWorldName
@@ -6895,6 +7041,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
     For A = Len(FilePath) To 1 Step -1
         If Mid(FilePath, A, 1) = "/" Or Mid(FilePath, A, 1) = "\" Then Exit For
     Next A
+    FullFileName = FilePath
     FileName = Right(FilePath, (Len(FilePath) - A))
     FileNamePath = Left(FilePath, (A))
     LoadWorldCustomGFX
@@ -8327,7 +8474,10 @@ End Sub
 
 Private Sub CheckActive()
     Dim MusicPaused As Boolean
-    If nPlay.Online = True Then Exit Sub
+
+    If nPlay.Online Then Exit Sub
+    If runWhenUnfocused Then Exit Sub
+
     'If LevelEditor = False And TestLevel = False Then Exit Sub
     'If LevelEditor = False Then Exit Sub
     Do While GetActiveWindow = 0

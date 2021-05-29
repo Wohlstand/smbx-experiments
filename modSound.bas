@@ -2,6 +2,7 @@ Attribute VB_Name = "modSound"
 Public musicPlaying As Boolean
 Public musicLoop As Integer
 Public musicName As String
+Private mixStarted As Boolean
 
 Dim musicX As Long
 
@@ -31,31 +32,38 @@ Public Sub InitMixerX()
     musicX = 0
     list_music_count = 0
     list_sfx_count = 0
+
     For i = 0 To list_music_max
         list_music(i).Alias = ""
         list_music(i).Path = ""
     Next
+
     For i = 0 To list_sfx_max
         list_sfx(i).Alias = ""
         list_sfx(i).Volume = 128
         list_sfx(i).Chan = i
         list_sfx(i).Chunk = 0
     Next
+
     If SDL_InitAudio < 0 Then         'Initialize SDL Library first
         MsgBox "SDL Error: " & SDL_GetError, vbOKOnly + vbExclamation
         Exit Sub
     End If
+
     Mix_Init '0                                   'Init SDL Mixer itself
     Mix_OpenAudio 44100, AUDIO_F32LSB, 2, 512   'Init Open audio stream
     Mix_VolumeMusic 64
     Mix_AllocateChannels 91
+    mixStarted = True
 End Sub
 
 Public Sub QuitMixerX()
     If noSound = True Then Exit Sub
-    Mix_CloseAudio
-    Mix_Quit
-    SDL_Quit
+    If mixStarted Then
+        Mix_CloseAudio
+        Mix_Quit
+        SDL_Quit
+    End If
 End Sub
 
 Public Sub AddMusic(Alias As String, Path As String, FallBack As String)

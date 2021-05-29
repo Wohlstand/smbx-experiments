@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmLoader 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "<Research by Wohlstand> Super Mario Bros. X - Version 1.3"
+   Caption         =   "Super Mario Bros. X - Version 1.3 [Wohlstand's Edition]"
    ClientHeight    =   4065
    ClientLeft      =   45
    ClientTop       =   375
@@ -118,6 +118,8 @@ End Sub
 Private Sub Form_Load()
     ' No more needed. Wohlstand
     ' Splash.Navigate "http://www.supermariobrothers.org/splash/"
+    chkFrameskip.Value = IIf(FrameSkip, 0, 1)
+    chkSound.Value = IIf(noSound, 1, 0)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

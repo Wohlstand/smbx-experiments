@@ -3,7 +3,7 @@ Begin VB.Form frmMain
    Appearance      =   0  'Flat
    AutoRedraw      =   -1  'True
    BackColor       =   &H00000000&
-   Caption         =   "Super Mario Bros. X - Version 1.3 <research by Wohlstand>"
+   Caption         =   "<Title defined at Load() call>"
    ClientHeight    =   9000
    ClientLeft      =   120
    ClientTop       =   510
@@ -92,6 +92,7 @@ Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
 End Sub
 
 Private Sub Form_Load()
+    Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
     LockSize = True
         Do While frmMain.ScaleWidth > 800
             Me.Width = Me.Width - 5

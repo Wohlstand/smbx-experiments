@@ -1,11 +1,29 @@
 Super Mario Bros. X Changelog.
 
-Change in this research mod by Wohlstand:
+
+Changes for 1.3.1 (made by Wohlstand):
+
+Misc.
 -MCI was replaced with MixerX library to make the sound system better
 -Removed web-box from the launcher dialog
 -Launcher dialog now is more compact and has the LunaLua incompatibility notice
 -Added the debugger dialog where are some log messages can be printed by a game
 -Replaced some built-in images and icons
+-Made a TRUE fix for decimal values inside of NPCtxt
+-Added the Drag & Drop ability to open level and world map files at the editor
+-File dialogs has been replaced with better
+-Added the command-line arguments support
+-Added an ability to assign level and world files to open in the editor
+-Added the "Save As" menu item
+
+Bug Fixes
+-Fixed an ability to climb invisible BGO fences (that was a bug)
+-Fixed a wrong mystical move speed while climbing BGO fences
+-Fixed a crash of mushroom falling into the lavel (reason of crash - while check, using block ID for NPC array)
+-Fixed a crash when bump block by puting veggie (reason - a check of a part of condition that shound NOT be checked)
+-Fixed a broken behavior of Bowser battle in a first The Invasion from SMBX 1.0 (a condition of work - file must be saved in format of SMBX Build prior to 9)
+-Fixed a crash, caused by the incremental locked warps counter that leads BGO array go out of range
+-Fixed a case when free-falling platforms getting confused when the player changes their power-up state
 -Fixed the 100% overload problem by adding Sleep(1) into all loops:
  *launcher (used WaitMessage() instead)
  *main menu
@@ -14,15 +32,7 @@ Change in this research mod by Wohlstand:
  *pause menu
  *world map's path opener
  *background inactivity waiter
--Made a TRUE fix for decimal values inside of NPCtxt
--Fixed an ability to climb invisible BGO fences (that was a bug)
--Fixed a wrong mystical move speed while climbing BGO fences
--Fixed a crash of mushroom falling into the lavel (reason of crash - while check, using block ID for NPC array)
--Fixed a crash when bump block by puting veggie (reason - a check of a part of condition that shound NOT be checked)
--Fixed a broken behavior of Bowser battle in a first The Invasion from SMBX 1.0 (a condition of work - file must be saved in format of SMBX Build prior to 9)
--Fixed a crash, caused by the incremental locked warps counter that leads BGO array go out of range
--Fixed a case when free-falling platforms getting confused when the player changes their power-up state
--Added the Drag & Drop ability to open level and world map files at the editor
+
 
 
 Changes for 1.3:

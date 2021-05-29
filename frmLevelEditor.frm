@@ -1,8 +1,9 @@
 VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Begin VB.MDIForm frmLevelEditor 
    AutoShowChildren=   0   'False
    BackColor       =   &H8000000C&
-   Caption         =   "Super Mario Bros. X - Level Editor - Version 1.3 - www.SuperMarioBrothers.org"
+   Caption         =   "<title defined at Load() call>"
    ClientHeight    =   11700
    ClientLeft      =   120
    ClientTop       =   750
@@ -12,6 +13,13 @@ Begin VB.MDIForm frmLevelEditor
    OLEDropMode     =   1  'Manual
    StartUpPosition =   2  'CenterScreen
    WindowState     =   2  'Maximized
+   Begin MSComDlg.CommonDialog CommonDialog1 
+      Left            =   120
+      Top             =   120
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
    Begin VB.PictureBox picWorld 
       Align           =   2  'Align Bottom
       BorderStyle     =   0  'None
@@ -228,6 +236,10 @@ Begin VB.MDIForm frmLevelEditor
          Caption         =   "&Save"
          Shortcut        =   ^S
       End
+      Begin VB.Menu menuFileSaveAs 
+         Caption         =   "Sav&e As..."
+         Shortcut        =   +{F3}
+      End
       Begin VB.Menu menufileOpen 
          Caption         =   "&Open"
          Shortcut        =   ^O
@@ -342,7 +354,7 @@ Begin VB.MDIForm frmLevelEditor
          Shortcut        =   ^I
       End
    End
-   Begin VB.Menu menuHelp 
+   Begin VB.Menu menuhelp 
       Caption         =   "&Help"
       Begin VB.Menu menHelp 
          Caption         =   "&Editor Help"
@@ -351,6 +363,18 @@ Begin VB.MDIForm frmLevelEditor
       Begin VB.Menu menuGameplay 
          Caption         =   "&Gameplay Manual"
          Shortcut        =   {F2}
+      End
+      Begin VB.Menu menuhelpline 
+         Caption         =   "-"
+      End
+      Begin VB.Menu menChangeLog 
+         Caption         =   "&Changelog"
+      End
+      Begin VB.Menu menGetSrc 
+         Caption         =   "Get &source code"
+      End
+      Begin VB.Menu menAbout 
+         Caption         =   "&About..."
       End
    End
 End
@@ -370,6 +394,9 @@ End Sub
 Private Sub MDIForm_Load()
     On Error Resume Next
     Dim A As Integer
+
+    Me.Caption = "Super Mario Bros. X - Level Editor - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition] - https://wohlsoft.ru/"
+
     testPlayer(1).Character = 1
     testPlayer(2).Character = 2
     Load frmLevelWindow
@@ -487,6 +514,14 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     KillIt
 End Sub
 
+Private Sub menAbout_Click()
+    frmAbout.Show vbModal, Me
+End Sub
+
+Private Sub menGetSrc_Click()
+    ShellExecuteA Me.hWnd, "open", urlSourceCode, "", "", 4
+End Sub
+
 Private Sub menHelp_Click()
     On Error GoTo Bugs
     Shell "write " & Chr(34) & App.Path & "\SMBx Editor Help.rtf" & Chr(34)
@@ -538,13 +573,105 @@ Private Sub menuFileNew_Click()
 End Sub
 
 Private Sub menuFileOpen_Click()
-    Me.Enabled = False
-    frmOpen.Show
+    'frmOpen.Show vbModal, Me
+    CommonDialog1.FileName = ""
+    
+    If FileNamePath = "" Then
+        CommonDialog1.InitDir = App.Path & "\worlds"
+    Else
+        CommonDialog1.InitDir = FileNamePath
+    End If
+
+    If WorldEditor Then
+        CommonDialog1.Filter = "SMBX64 World files (*.wld)|*.wld|All files (*.*)|*.*"
+        CommonDialog1.DefaultExt = "wld"
+        CommonDialog1.DialogTitle = "Open the SMBX64 World file"
+        CommonDialog1.ShowOpen
+
+        If CommonDialog1.FileName <> "" Then
+            frmLevelEditor.optCursor(14).Value = True
+            OpenWorld CommonDialog1.FileName
+        End If
+
+    Else
+        CommonDialog1.Filter = "SMBX64 Level files (*.lvl)|*.lvl|All files (*.*)|*.*"
+        CommonDialog1.DefaultExt = "lvl"
+        CommonDialog1.DialogTitle = "Open the SMBX64 Level file"
+        CommonDialog1.ShowOpen
+
+        If CommonDialog1.FileName <> "" Then
+            frmLevelEditor.optCursor(13).Value = True
+            ClearLevel
+            OpenLevel CommonDialog1.FileName
+        End If
+    End If
+
+    ' Hack: keep the app path being a working directory
+    ChDir App.Path
+End Sub
+
+Private Sub DoSaveFile(FilePath As String)
+    Dim tempName As String
+
+    ChDir App.Path
+
+    If WorldEditor = True Then
+        If Right(FilePath, 4) = ".wld" Then
+            tempName = FilePath
+        Else
+            tempName = FilePath & ".wld"
+        End If
+        SaveWorld tempName
+    Else
+        If Right(FilePath, 4) = ".lvl" Then
+            tempName = FilePath
+        Else
+            tempName = FilePath & ".lvl"
+        End If
+        SaveLevel tempName
+    End If
 End Sub
 
 Private Sub menuFileSave_Click()
-    Me.Enabled = False
-    frmSave.Show
+    If FullFileName = "" Then
+        menuFileSaveAs_Click
+    Else
+        DoSaveFile FullFileName
+    End If
+End Sub
+
+Private Sub menuFileSaveAs_Click()
+    ' frmSave.Show vbModal, Me
+    CommonDialog1.FileName = ""
+
+    If FileNamePath = "" Then
+        CommonDialog1.InitDir = App.Path & "\worlds"
+    Else
+        CommonDialog1.InitDir = FileNamePath
+    End If
+
+    If WorldEditor Then
+        CommonDialog1.Filter = "SMBX64 World files (*.wld)|*.wld"
+        CommonDialog1.DefaultExt = "wld"
+        CommonDialog1.DialogTitle = "Save the SMBX64 World file"
+        CommonDialog1.ShowSave
+
+        If CommonDialog1.FileName <> "" Then
+            DoSaveFile CommonDialog1.FileName
+        End If
+    Else
+        CommonDialog1.Filter = "SMBX64 Level files (*.lvl)|*.lvl"
+        CommonDialog1.DefaultExt = "lvl"
+        CommonDialog1.DialogTitle = "Save the SMBX64 Level file"
+        CommonDialog1.ShowSave
+
+        If CommonDialog1.FileName <> "" Then
+            DoSaveFile CommonDialog1.FileName
+        End If
+    End If
+
+    ' Hack: keep the app path being a working directory
+    ChDir App.Path
 End Sub
 
 Private Sub menuLayers_Click()
@@ -653,7 +780,7 @@ Private Sub mnuChat_Click()
     frmChat.Show
 End Sub
 
-Private Sub toggleLevelEdit()
+Public Sub toggleLevelEdit()
     menuLevelDebugger.Visible = True
     WorldEditor = False
     For A = 0 To optCursor.Count - 1
@@ -674,7 +801,7 @@ Private Sub toggleLevelEdit()
     frmNetplay.Hide
 End Sub
 
-Private Sub toggleWorldEdit()
+Public Sub toggleWorldEdit()
     mnuOnline.Enabled = False
     Unload frmLevelDebugger
     menuLevelDebugger.Visible = False

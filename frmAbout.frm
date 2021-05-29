@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmAbout 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "About Super Mario Bros. X"
-   ClientHeight    =   4995
+   ClientHeight    =   5805
    ClientLeft      =   2340
    ClientTop       =   1935
    ClientWidth     =   5730
@@ -11,7 +11,7 @@ Begin VB.Form frmAbout
    LinkTopic       =   "Form2"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3447.638
+   ScaleHeight     =   4006.715
    ScaleMode       =   0  'User
    ScaleWidth      =   5380.766
    ShowInTaskbar   =   0   'False
@@ -35,7 +35,7 @@ Begin VB.Form frmAbout
       Height          =   345
       Left            =   4245
       TabIndex        =   0
-      Top             =   4065
+      Top             =   4905
       Width           =   1260
    End
    Begin VB.CommandButton cmdSysInfo 
@@ -43,8 +43,36 @@ Begin VB.Form frmAbout
       Height          =   345
       Left            =   4260
       TabIndex        =   2
-      Top             =   4515
+      Top             =   5355
       Width           =   1245
+   End
+   Begin VB.Label thextechWiki 
+      Caption         =   "https://github.com/Wohlstand/TheXTech/wiki"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   255
+      Left            =   1080
+      MousePointer    =   10  'Up Arrow
+      TabIndex        =   10
+      Top             =   4320
+      Width           =   4335
+   End
+   Begin VB.Label Label2 
+      Caption         =   "This game is used to verify the compatibility while developing TheXTech Engine."
+      ForeColor       =   &H00008000&
+      Height          =   495
+      Left            =   1080
+      TabIndex        =   9
+      Top             =   3720
+      Width           =   4095
    End
    Begin VB.Label srcUrl 
       Caption         =   "<url-here>"
@@ -62,7 +90,7 @@ Begin VB.Form frmAbout
       Left            =   240
       MousePointer    =   10  'Up Arrow
       TabIndex        =   8
-      Top             =   4560
+      Top             =   5400
       Width           =   3615
    End
    Begin VB.Label Label1 
@@ -70,7 +98,7 @@ Begin VB.Form frmAbout
       Height          =   255
       Left            =   240
       TabIndex        =   7
-      Top             =   4320
+      Top             =   5160
       Width           =   3975
    End
    Begin VB.Line Line1 
@@ -79,8 +107,8 @@ Begin VB.Form frmAbout
       Index           =   1
       X1              =   84.515
       X2              =   5309.398
-      Y1              =   2681.496
-      Y2              =   2681.496
+      Y1              =   3261.279
+      Y2              =   3261.279
    End
    Begin VB.Label lblDescription 
       Caption         =   $"frmAbout.frx":27B4
@@ -93,12 +121,21 @@ Begin VB.Form frmAbout
    End
    Begin VB.Label lblTitle 
       Caption         =   "Super Mario Bros. X - Wohlstand's Edition"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H00000000&
-      Height          =   480
+      Height          =   360
       Left            =   1050
       TabIndex        =   5
       Top             =   240
-      Width           =   3885
+      Width           =   4485
    End
    Begin VB.Line Line1 
       BorderColor     =   &H00FFFFFF&
@@ -106,16 +143,25 @@ Begin VB.Form frmAbout
       Index           =   0
       X1              =   112.686
       X2              =   5323.484
-      Y1              =   2691.85
-      Y2              =   2691.85
+      Y1              =   3271.633
+      Y2              =   3271.633
    End
    Begin VB.Label lblVersion 
       Caption         =   "Version - x.x.x"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   225
       Left            =   1050
       TabIndex        =   6
-      Top             =   780
-      Width           =   3885
+      Top             =   720
+      Width           =   4485
    End
    Begin VB.Label lblDisclaimer 
       Caption         =   "Licensed under MIT license"
@@ -123,7 +169,7 @@ Begin VB.Form frmAbout
       Height          =   225
       Left            =   255
       TabIndex        =   4
-      Top             =   4065
+      Top             =   4905
       Width           =   3990
    End
 End
@@ -263,4 +309,8 @@ End Function
 
 Private Sub srcUrl_Click()
     ShellExecuteA Me.hWnd, "open", urlSourceCode, "", "", 4
+End Sub
+
+Private Sub thextechWiki_Click()
+    ShellExecuteA Me.hWnd, "open", "https://github.com/Wohlstand/TheXTech/wiki", "", "", 4
 End Sub

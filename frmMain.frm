@@ -142,7 +142,7 @@ Private Sub Form_Resize()
     LockSize = True
         If Me.WindowState = 0 Then
             Me.BorderStyle = 2
-            Me.Caption = "Super Mario Bros. X - Version 1.3 - <Research by Wohlstand>"
+            Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
         ElseIf Me.WindowState = 2 Then
             Me.WindowState = 0
             Me.BorderStyle = 0

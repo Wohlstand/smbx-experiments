@@ -9853,7 +9853,7 @@ End Sub
 Public Sub SetupCredits()
     Dim A As Integer
     numCredits = 0
-    AddCredit "SMBX <Research>"
+    AddCredit "Super Mario Bros. X v" & App.Major & "." & App.Minor & "." & App.Revision
     AddCredit ""
     AddCredit ""
     AddCredit ""
@@ -9865,7 +9865,7 @@ Public Sub SetupCredits()
     AddCredit "'Redigit'"
     AddCredit ""
     AddCredit ""
-    AddCredit "Later, modded By:"
+    AddCredit "Updated By:"
     AddCredit ""
     AddCredit "Vitaly Novichkov"
     AddCredit "'Wohlstand'"
@@ -9942,11 +9942,9 @@ Public Sub SetupCredits()
     AddCredit ""
     AddCredit ""
     AddCredit ""
-    AddCredit "'He has delivered us from the power"
-    AddCredit "of darkness and conveyed us into"
-    AddCredit "the kingdom of the Son of His love.'"
+    AddCredit "'It just works!'"
     AddCredit ""
-    AddCredit "Colossians 1:13"
+    AddCredit "Todd Howard"
     AddCredit ""
     AddCredit ""
     AddCredit ""
@@ -9965,8 +9963,7 @@ Public Sub SetupCredits()
     AddCredit ""
     AddCredit ""
     AddCredit ""
-    AddCredit "supermariobrosx.org"
-
+    AddCredit "wohlsoft.ru"
 
     For A = 1 To numCredits
         With Credit(A)

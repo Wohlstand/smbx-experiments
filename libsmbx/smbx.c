@@ -192,15 +192,14 @@ typedef struct
 } Player_t;
 #pragma pack(pop)
 
-static Player_t** s_players = NULL;
+static Player_t* s_players = NULL;
 static size_t s_players_size = 0;
 static FILE *s_logFile = NULL;
 
 void KOEXPORT SMBX_Init(void);
 void KOEXPORT SMBX_cleanArrays(void);
 void KOEXPORT SMBX_Quit(void);
-void KOEXPORT SMBX_initPlayers(short playersCount);
-void KOEXPORT SMBX_setPlayer(Player_t *player, short playerId);
+void KOEXPORT SMBX_initPlayers(Player_t *playerFirst, short playersCount);
 void KOEXPORT SMBX_printPlayerLocationIntoFile(short playerId);
 
 
@@ -219,27 +218,21 @@ void KOSTDCALL SMBX_Quit(void)
 
 void KOSTDCALL SMBX_cleanArrays(void)
 {
-    if(s_players)
-        free(s_players);
     s_players = NULL;
+    s_players_size = 0;
 }
 
-void KOSTDCALL SMBX_initPlayers(short playersCount)
+void KOSTDCALL SMBX_initPlayers(Player_t *playerFirst, short playersCount)
 {
-    s_players = (Player_t**)malloc(sizeof(Player_t**) * (playersCount + 1));
+    s_players = playerFirst;
     s_players_size = (size_t)playersCount + 1;
-}
-
-void KOEXPORT SMBX_setPlayer(Player_t *player, short playerId)
-{
-    s_players[playerId] = player;
 }
 
 void KOSTDCALL SMBX_printPlayerLocationIntoFile(short playerId)
 {
     if(s_logFile)
     {
-        fprintf(s_logFile, "player %d pos: x=%g, y=%g\r\n", playerId, s_players[playerId]->Location.X, s_players[playerId]->Location.Y);
+        fprintf(s_logFile, "player %d pos: x=%g, y=%g\r\n", playerId, s_players[playerId].Location.X, s_players[playerId].Location.Y);
         fflush(s_logFile);
     }
 }

@@ -1410,7 +1410,7 @@ Sub Main()
             g_speedRunnerControlFile = 25
             Open Right(Astr, Len(Astr) - 18) For Input As #g_speedRunnerControlFile
         ElseIf LCase(Left(Astr, 15)) = "--gameplay-log=" Then
-            g_speedRunnerControlFile = 30
+            g_speedRunnerGameplayLog = 30
             Open Right(Astr, Len(Astr) - 15) For Output As #g_speedRunnerGameplayLog
             MaxFPS = True
             ShowFPS = True

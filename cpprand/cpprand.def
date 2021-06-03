@@ -1,0 +1,4 @@
+LIBRARY		cpprand
+EXPORTS
+	cpprand_double
+	cpprand_seed

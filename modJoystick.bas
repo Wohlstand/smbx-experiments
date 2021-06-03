@@ -145,9 +145,16 @@ Public Sub UpdateControls() 'Gets players controls
                     .AltRun = True
                 End If
             End If
-            If B = 1 Then
-                Call speedRun_syncControlKeys()
-            End If
+        End With
+    Next B
+    record_sync
+    For B = 1 To numPlayers
+        If B = 2 And numPlayers = 2 Then
+            A = 2
+        Else
+            A = 1
+        End If
+        With Player(A).Controls
             If .Left = True And .Right = True Then
                 .Left = False
                 .Right = False

@@ -483,7 +483,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
     
 'frame skip code
     cycleCount = cycleCount + 1
-    If FrameSkip = True And TakeScreen = False Then
+    If FrameSkip = True And TakeScreen = False And g_recordGameplay = False Then
         If GetTickCount + Int(1000 * (1 - (cycleCount / 63))) > GoalTime Then   'Don't draw this frame
             numScreens = 1
             If LevelEditor = False Then
@@ -544,7 +544,11 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         End If
     End If
     fpsCount = fpsCount + 1
-    
+
+    g_recordNumRenderedNPCs = 0
+    g_recordNumRenderedBlocks = 0
+    g_recordNumRenderedBGOs = 0
+
     Dim SuperText As String
     Dim tempText As String
     Dim BoxY As Integer
@@ -823,7 +827,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                             .Section = Player(D).Section
                             .Location.SpeedX = Player(D).Location.SpeedX
                             .Location.SpeedY = Player(D).Location.SpeedY
-                            .Location.SpeedY = Rnd * 12 - 6
+                            .Location.SpeedY = random_double * 12 - 6
                             .CanJump = True
                         End If
                     End With
@@ -835,11 +839,13 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 With Background(A)
                     If .Type = 11 Then
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackgroundMask(.Type), 0, 0, vbSrcAnd
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, 0, vbSrcPaint
                         End If
                     ElseIf .Type = 12 Or .Type = 60 Or .Type = 61 Or .Type = 75 Or .Type = 76 Or .Type = 77 Or .Type = 78 Or .Type = 79 Then
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, 0, vbSrcCopy
                         End If
                     End If
@@ -850,11 +856,13 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 With Background(A)
                     If BackgroundHasNoMask(Background(A).Type) = False Then
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackgroundMask(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcAnd
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcPaint
                         End If
                     Else
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, GFXBackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcCopy
                         End If
                     End If
@@ -867,6 +875,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             With Block(sBlockArray(A))
                 If BlockIsSizable(.Type) And (Not .Invis = True Or LevelEditor = True) Then
                     If vScreenCollision(Z, .Location) And .Hidden = False Then
+                        g_recordNumRenderedBlocks = g_recordNumRenderedBlocks + 1
                         For B = 0 To (.Location.Height / 32) - 1
                             For C = 0 To (.Location.Width / 32) - 1
                                 tempLocation.X = .Location.X + C * 32
@@ -907,6 +916,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 With Background(A)
                     If Not (.Type = 11 Or .Type = 12 Or .Type = 60 Or .Type = 61 Or .Type = 75 Or .Type = 76 Or .Type = 77 Or .Type = 78 Or .Type = 79) Then
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             If BackgroundHasNoMask(.Type) = False Then
                                 BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackgroundMask(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcAnd
                                 BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcPaint
@@ -921,6 +931,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             For A = MidBackground To LastBackground 'Second backgrounds
                 With Background(A)
                     If vScreenCollision(Z, .Location) And .Hidden = False Then
+                        g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                         If BackgroundHasNoMask(.Type) = False Then
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackgroundMask(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcAnd
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcPaint
@@ -934,6 +945,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         For A = numBackground + 1 To numBackground + numLocked 'Locked doors
             With Background(A)
                 If vScreenCollision(Z, .Location) And (.Type = 98 Or .Type = 160) And .Hidden = False Then
+                    g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                     If BackgroundHasNoMask(.Type) = False Then
                         BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackgroundMask(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcAnd
                         BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, BackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcPaint
@@ -950,12 +962,15 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
                             If .Active = True Then
                                 If .Type = 8 Or .Type = 74 Or .Type = 93 Or .Type = 245 Or .Type = 256 Or .Type = 270 Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * NPCHeight(.Type), vbSrcAnd
                                     If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * NPCHeight(.Type), vbSrcPaint
                                 ElseIf .Type = 51 Or .Type = 257 Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * NPCHeight(.Type) + NPCHeight(.Type) - .Location.Height, vbSrcAnd
                                     If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * NPCHeight(.Type) + NPCHeight(.Type) - .Location.Height, vbSrcPaint
                                 ElseIf .Type = 52 Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     If .Direction = -1 Then
                                         BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * NPCHeight(.Type), vbSrcAnd
                                         If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * NPCHeight(.Type), vbSrcPaint
@@ -964,9 +979,11 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                                         If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), NPCWidth(.Type) - .Location.Width, .Frame * NPCHeight(.Type), vbSrcPaint
                                     End If
                                 ElseIf NPCWidthGFX(.Type) = 0 Or .Effect = 1 Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * NPCHeight(.Type), vbSrcAnd
                                     If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * NPCHeight(.Type), vbSrcPaint
                                 Else
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPCMask(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcAnd
                                     If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPC(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcPaint
                                 End If
@@ -1274,6 +1291,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             With Block(A)
                 If Not BlockIsSizable(.Type) And (Not .Invis = True Or (LevelEditor = True And BlockFlash <= 30)) And Not .Type = 0 And Not BlockKills(.Type) Then
                     If vScreenCollision(Z, .Location) And .Hidden = False Then
+                        g_recordNumRenderedBlocks = g_recordNumRenderedBlocks + 1
                         If BlockHasNoMask(.Type) = True Then
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y + .ShakeY3, .Location.Width, .Location.Height, GFXBlock(.Type), 0, BlockFrame(.Type) * 32, vbSrcCopy
                         Else
@@ -1302,6 +1320,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                         'If Not NPCIsACoin(.Type) Then
                             If (vScreenCollision(Z, .Location) Or vScreenCollision(Z, newLoc(.Location.X - (NPCWidthGFX(.Type) - .Location.Width) / 2, .Location.Y, CDbl(NPCWidthGFX(.Type)), CDbl(NPCHeight(.Type))))) And .Hidden = False Then
                                 If .Active = True Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     If NPCWidthGFX(.Type) = 0 Then
                                         BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * .Location.Height, vbSrcAnd
                                         If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * .Location.Height, vbSrcPaint
@@ -1343,6 +1362,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             With NPC(A)
                 If .Type = 263 And .Effect = 0 And .HoldingPlayer = 0 Then
                     If (vScreenCollision(Z, .Location) Or vScreenCollision(Z, newLoc(.Location.X - (NPCWidthGFX(.Type) - .Location.Width) / 2, .Location.Y, CDbl(NPCWidthGFX(.Type)), CDbl(NPCHeight(.Type))))) And .Hidden = False Then
+                        g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                         DrawFrozenNPC Z, A
                         If .Reset(Z) = True Or .Active = True Then
                             If .Active = False Then
@@ -1382,6 +1402,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                                     NPC(A).Killed = 9
                                     KillNPC A, 9
                                 ElseIf .Active = True Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     If NPCIsYoshi(.Type) = False Then
                                         If NPCWidthGFX(.Type) = 0 Then
                                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * .Location.Height, vbSrcAnd
@@ -1531,6 +1552,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 If .Active = True And .Chat = True Then
                     B = NPCHeightGFX(.Type) - .Location.Height
                     If B < 0 Then B = 0
+                    ' count this one
+                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - GFX.Chat.ScaleWidth / 2, vScreenY(Z) + .Location.Y - 30 - B, GFX.Chat.ScaleWidth, GFX.Chat.ScaleHeight, GFX.ChatMask.hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - GFX.Chat.ScaleWidth / 2, vScreenY(Z) + .Location.Y - 30 - B, GFX.Chat.ScaleWidth, GFX.Chat.ScaleHeight, GFX.Chat.hdc, 0, 0, vbSrcPaint
                 End If
@@ -1592,6 +1615,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         For A = 1 To numNPCs 'Put held NPCs on top
             With NPC(A)
                 If (((.HoldingPlayer > 0 And Player(.HoldingPlayer).Effect <> 3) Or (.Type = 50 And .standingOnPlayer = 0) Or .Type = 17 And .CantHurt > 0) Or .Effect = 5) And Not .Type = 91 And Player(.HoldingPlayer).Dead = False Then
+                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                     If .Type = 263 Then
                         DrawFrozenNPC Z, A
                     ElseIf NPCIsYoshi(.Type) = False And .Type > 0 Then
@@ -1624,6 +1648,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 With Background(A)
                     If Foreground(.Type) = True Then
                         If vScreenCollision(Z, .Location) And .Hidden = False Then
+                            g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                             If BackgroundHasNoMask(.Type) Then
                                 'BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, GFXBackgroundWidth(.Type), GFXBackgroundHeight(.Type), GFXBackground(.Type), 0, 0, vbSrcCopy
                                 BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, GFXBackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcCopy
@@ -1639,6 +1664,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             For A = LastBackground + 1 To numBackground 'Foreground objects
                 With Background(A)
                     If vScreenCollision(Z, .Location) And .Hidden = False Then
+                        g_recordNumRenderedBGOs = g_recordNumRenderedBGOs + 1
                         If BackgroundHasNoMask(.Type) Then
                             'BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, GFXBackgroundWidth(.Type), GFXBackgroundHeight(.Type), GFXBackground(.Type), 0, 0, vbSrcCopy
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, GFXBackgroundWidth(.Type), BackgroundHeight(.Type), GFXBackground(.Type), 0, BackgroundHeight(.Type) * BackgroundFrame(.Type), vbSrcCopy
@@ -1657,6 +1683,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                         If Not NPCIsACoin(.Type) Then
                             If vScreenCollision(Z, .Location) And .Hidden = False Then
                                 If .Active = True Then
+                                    g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                     If NPCWidthGFX(.Type) = 0 Then
                                         BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * .Location.Height, vbSrcAnd
                                         If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * .Location.Height, vbSrcPaint
@@ -1697,6 +1724,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             With Block(A)
                 If BlockKills(.Type) Then
                     If vScreenCollision(Z, .Location) And .Hidden = False Then
+                        g_recordNumRenderedBlocks = g_recordNumRenderedBlocks + 1
                         If BlockHasNoMask(.Type) = True Then
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y + .ShakeY3, .Location.Width, .Location.Height, GFXBlock(.Type), 0, BlockFrame(.Type) * 32, vbSrcCopy
                         Else
@@ -1809,6 +1837,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                             If .Effect2 Mod 3 <> 0 Then
                                 If vScreenCollision(Z, .Location) Then
                                     If .Active = True Then
+                                        g_recordNumRenderedNPCs = g_recordNumRenderedNPCs + 1
                                         If NPCWidthGFX(.Type) = 0 Then
                                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * .Location.Height, vbSrcAnd
                                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPC(.Type), 0, .Frame * .Location.Height, vbSrcPaint
@@ -2265,11 +2294,11 @@ If nPlay.Online = True Then
         With nPlay.Player(A)
             If nPlay.Player(A).Active = True And nPlay.Player(A).IsMe = False Then
                 If nPlay.Player(A).Nick = "Redigit" Then
-                    nPlay.Player(A).Cursor = Int(Rnd * 8)
-                    If Rnd * 100 > 80 Then
+                    nPlay.Player(A).Cursor = Int(random_double * 8)
+                    If random_double * 100 > 80 Then
                         NewEffect 80, newLoc(.ECurserX, .ECurserY)
-                        Effect(numEffects).Location.SpeedX = Rnd * 4 - 2
-                        Effect(numEffects).Location.SpeedY = Rnd * 4 - 2
+                        Effect(numEffects).Location.SpeedX = random_double * 4 - 2
+                        Effect(numEffects).Location.SpeedY = random_double * 4 - 2
                     End If
                 End If
                 BitBlt myBackBuffer, vScreenX(Z) + .ECurserX, vScreenY(Z) + .ECurserY, GFX.nCursor(.Cursor).ScaleWidth, GFX.nCursor(.Cursor).ScaleHeight, GFX.nCursorMask(.Cursor).hdc, 0, 0, vbSrcAnd
@@ -2493,8 +2522,8 @@ End If
             If TestLevel = True And resChanged = False Then
                 If ScreenShake > 0 Then
                     ScreenShake = ScreenShake - 1
-                    A = Int(Rnd * ScreenShake * 4) - ScreenShake * 2
-                    B = Int(Rnd * ScreenShake * 4) - ScreenShake * 2
+                    A = Int(random_double * ScreenShake * 4) - ScreenShake * 2
+                    B = Int(random_double * ScreenShake * 4) - ScreenShake * 2
                     StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
                 Else
                     StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
@@ -2502,8 +2531,8 @@ End If
             Else
                 If ScreenShake > 0 Then
                     ScreenShake = ScreenShake - 1
-                    A = Int(Rnd * ScreenShake * 4) - ScreenShake * 2
-                    B = Int(Rnd * ScreenShake * 4) - ScreenShake * 2
+                    A = Int(random_double * ScreenShake * 4) - ScreenShake * 2
+                    B = Int(random_double * ScreenShake * 4) - ScreenShake * 2
                     StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
                 Else
                     StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH), vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy

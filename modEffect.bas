@@ -41,7 +41,7 @@ Public Sub UpdateEffects() 'Updates the effects
                 .Location.SpeedX = 0
             ElseIf .Type = 112 Then
                 If .Life Mod 5 = 0 Then
-                    NewEffect 108, newLoc(.Location.X + Rnd * .Location.Width, .Location.Y + Rnd * .Location.Height)
+                    NewEffect 108, newLoc(.Location.X + random_double * .Location.Width, .Location.Y + random_double * .Location.Height)
                 End If
             ElseIf .Type = 111 Then
                 .Location.SpeedY = .Location.SpeedY + 0.5
@@ -135,7 +135,7 @@ Public Sub UpdateEffects() 'Updates the effects
                     .Frame = 0
                 End If
                 .Location.Y = .Location.Y - 2
-                .Location.X = .Location.X + Rnd * 2 - 1
+                .Location.X = .Location.X + random_double * 2 - 1
             ElseIf .Type = 57 Then 'egg shells
                 .Location.SpeedY = .Location.SpeedY + 0.6
                 .Location.SpeedX = .Location.SpeedX * 0.99
@@ -350,8 +350,8 @@ Public Sub UpdateEffects() 'Updates the effects
                     If .Frame = 3 Then .Life = 0
                 End If
             ElseIf .Type = 77 Or .Type = 139 Then ' Small Fireball Tail
-                .Location.X = .Location.X + Rnd * 2 - 1
-                .Location.Y = .Location.Y + Rnd * 2 - 1
+                .Location.X = .Location.X + random_double * 2 - 1
+                .Location.Y = .Location.Y + random_double * 2 - 1
                 .FrameCount = .FrameCount + 1
                 If .FrameCount >= 4 Then
                     .FrameCount = 0
@@ -393,10 +393,10 @@ Public Sub UpdateEffects() 'Updates the effects
                         .Frame = .Frame + 1
                         If .Frame >= 4 Then .Frame = 0
                     End If
-                If .Type = 148 And Rnd * 10 > 8 Then
+                If .Type = 148 And random_double * 10 > 8 Then
                     NewEffect 77, .Location, 3
-                    Effect(numEffects).Location.SpeedX = Rnd * 3 - 1.5
-                    Effect(numEffects).Location.SpeedY = Rnd * 3 - 1.5
+                    Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5
+                    Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5
                 End If
             ElseIf .Type = 125 Then 'POW Block
                 .FrameCount = .FrameCount + 1
@@ -592,8 +592,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                 Else
                     .Location.SpeedY = -7
                 End If
-                .Location.SpeedX = .Location.SpeedX + Rnd * 2 - 1
-                .Location.SpeedY = .Location.SpeedY + Rnd * 4 - 2
+                .Location.SpeedX = .Location.SpeedX + random_double * 2 - 1
+                .Location.SpeedY = .Location.SpeedY + random_double * 4 - 2
                 If B = 1 Then
                     .Location.X = Location.X
                     .Location.Y = Location.Y
@@ -738,8 +738,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     .Location.SpeedX = 1.5
                 End If
                 If B = 1 Or B = 3 Then .Location.SpeedX = -.Location.SpeedX
-                .Location.SpeedX = .Location.SpeedX + (Rnd * 0.5 - 0.25)
-                .Location.SpeedY = .Location.SpeedY + (Rnd * 1 - 0.5)
+                .Location.SpeedX = .Location.SpeedX + (random_double * 0.5 - 0.25)
+                .Location.SpeedY = .Location.SpeedY + (random_double * 1 - 0.5)
                 If B = 1 Then
                     .Frame = 0
                 ElseIf B = 2 Then .Frame = 1
@@ -748,8 +748,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     .Frame = 2
                 End If
                 
-                '.Location.SpeedX = .Location.SpeedX + Rnd * 2 - 1
-                '.Location.SpeedY = .Location.SpeedY + Rnd * 4 - 2
+                '.Location.SpeedX = .Location.SpeedX + random_double * 2 - 1
+                '.Location.SpeedY = .Location.SpeedY + random_double * 4 - 2
                 If B = 1 Then
                     .Location.X = Location.X
                     .Location.Y = Location.Y
@@ -902,8 +902,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Location.Height = EffectHeight(.Type)
             .Location.X = Location.X - .Location.Width * 0.5 + Location.Width * 0.5
             .Location.Y = Location.Y - .Location.Height * 0.5 + Location.Height * 0.5
-            .Location.X = .Location.X + Rnd * 32 - 16
-            .Location.Y = .Location.Y + Rnd * 32 - 16
+            .Location.X = .Location.X + random_double * 32 - 16
+            .Location.Y = .Location.Y + random_double * 32 - 16
             .Location.SpeedY = -2
             .Location.SpeedX = 0
             .Frame = 0
@@ -1005,7 +1005,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     .Location.X = .Location.X + .Location.SpeedX * 3
                     .Location.Y = .Location.Y + .Location.SpeedY * 3
                     
-                    .Frame = Int(Rnd * 4)
+                    .Frame = Int(random_double * 4)
                     .Type = A
                 End With
             End If
@@ -1114,19 +1114,19 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Location.SpeedY = 0
             .Location.SpeedX = 0
             If A = 132 Then
-                .Location.Y = .Location.Y + Rnd * 16 - 8
-                .Location.X = .Location.X + Rnd * 16 - 8
+                .Location.Y = .Location.Y + random_double * 16 - 8
+                .Location.X = .Location.X + random_double * 16 - 8
             End If
             .Frame = 0
             .Life = 12
             .Type = A
             If .Type = 147 Then .Life = 24
             If A = 73 Or A = 75 Then
-                .Location.X = .Location.X + Rnd * 16 - 8
-                .Location.Y = .Location.Y + Rnd * 16 - 8
+                .Location.X = .Location.X + random_double * 16 - 8
+                .Location.Y = .Location.Y + random_double * 16 - 8
             ElseIf A = 74 Then
-                .Location.X = .Location.X + Rnd * 4 - 2
-                .Location.Y = .Location.Y + Rnd * 4 - 2
+                .Location.X = .Location.X + random_double * 4 - 2
+                .Location.Y = .Location.Y + random_double * 4 - 2
             End If
         End With
     ElseIf A = 144 Then 'bubble pop
@@ -1177,7 +1177,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Shadow = Shadow
             .Location.Width = 8
             .Location.Height = 8
-            .Location.X = Location.X + 4 + Rnd * 12
+            .Location.X = Location.X + 4 + random_double * 12
             .Location.Y = Location.Y + 40
             '.Location.SpeedY = -8
             .Location.SpeedX = 0
@@ -1193,11 +1193,11 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Location.Height = 16
             .Location.X = Location.X
             .Location.Y = Location.Y
-            .Location.SpeedY = -2 - Rnd * 10
-            .Location.SpeedX = Rnd * 8 - 4
+            .Location.SpeedY = -2 - random_double * 10
+            .Location.SpeedX = random_double * 8 - 4
             .Frame = 0
-            If Int(Rnd * 2) = 1 Then .Frame = 7
-            .Frame = .Frame + Int(Rnd * 7)
+            If Int(random_double * 2) = 1 Then .Frame = 7
+            .Frame = .Frame + Int(random_double * 7)
             .Life = 300
             .Type = A
         End With
@@ -1222,8 +1222,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Shadow = Shadow
             .Location.Width = EffectWidth(A)
             .Location.Height = EffectHeight(A)
-            .Location.X = Location.X + Location.Width / 2 - EffectWidth(A) / 2 + Rnd * 4 - 2
-            .Location.Y = Location.Y + Location.Height / 2 - EffectHeight(A) / 2 + Rnd * 4 - 2
+            .Location.X = Location.X + Location.Width / 2 - EffectWidth(A) / 2 + random_double * 4 - 2
+            .Location.Y = Location.Y + Location.Height / 2 - EffectHeight(A) / 2 + random_double * 4 - 2
             .Location.SpeedY = 0
             .Location.SpeedX = 0
             .Frame = 0
@@ -1240,8 +1240,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Shadow = Shadow
             .Location.Width = 16
             .Location.Height = 16
-            .Location.X = Location.X + Location.Width / 2 - 4 + Rnd * 4 - 2
-            .Location.Y = Location.Y + Location.Height / 2 - 4 + Rnd * 4 - 2
+            .Location.X = Location.X + Location.Width / 2 - 4 + random_double * 4 - 2
+            .Location.Y = Location.Y + Location.Height / 2 - 4 + random_double * 4 - 2
             .Location.SpeedY = 0
             .Location.SpeedX = 0
             .Frame = 0

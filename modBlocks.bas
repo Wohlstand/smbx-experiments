@@ -67,7 +67,7 @@ Public Sub BlockHit(A As Integer, Optional HitDown As Boolean = False, Optional 
         oldSpecial = .Special
         If .ShakeY <> 0 Or .ShakeY2 <> 0 Or .ShakeY3 <> 0 Then 'if the block has just been hit, ignore
             If .RapidHit > 0 And Player(whatPlayer).Character = 4 And whatPlayer > 0 Then
-                .RapidHit = Int(Rnd * 3) + 1
+                .RapidHit = Int(random_double * 3) + 1
             End If
             Exit Sub
         End If
@@ -181,7 +181,7 @@ End If
             newBlock = 2
         End If
         If .Special > 0 And .Special < 100 Then 'Block has coins
-            If whatPlayer > 0 And Player(whatPlayer).Character = 4 Then .RapidHit = Int(Rnd * 3) + 1
+            If whatPlayer > 0 And Player(whatPlayer).Character = 4 Then .RapidHit = Int(random_double * 3) + 1
             If HitDown = False Then
                 BlockShakeUp A
             Else
@@ -212,8 +212,8 @@ End If
                             End If
                             If Player(whatPlayer).Character = 5 Then
                                 .Type = 251
-                                If Rnd * 20 <= 3 Then .Type = 252
-                                If Rnd * 60 <= 3 Then .Type = 253
+                                If random_double * 20 <= 3 Then .Type = 252
+                                If random_double * 60 <= 3 Then .Type = 253
                                 PlaySound 81
                             Else
                                 PlaySound 14
@@ -222,8 +222,8 @@ End If
                             .Location.Height = NPCHeight(.Type)
                             .Location.X = Block(A).Location.X + Block(A).Location.Width / 2 - .Location.Width / 2
                             .Location.Y = Block(A).Location.Y - .Location.Height - 0.01
-                            .Location.SpeedX = Rnd * 3 - 1.5
-                            .Location.SpeedY = -Rnd * 4 - 3
+                            .Location.SpeedX = random_double * 3 - 1.5
+                            .Location.SpeedY = -random_double * 4 - 3
                             If HitDown = True Then
                                 .Location.SpeedY = -.Location.SpeedY * 0.5
                                 .Location.Y = Block(A).Location.Y + Block(A).Location.Height
@@ -231,6 +231,7 @@ End If
                             .Special = 1
                             .Immune = 20
                             CheckSectionNPC numNPCs
+                            Debug.Print "Made coin", .Type, "with speed", .Location.SpeedX, .Location.SpeedY
                         End With
                         If B > 20 Or (Player(whatPlayer).Character = 5 And B > 5) Then Exit For
                     Next B
@@ -277,8 +278,8 @@ End If
                         .Location.Height = NPCHeight(.Type)
                         .Location.X = Block(A).Location.X + Block(A).Location.Width / 2 - .Location.Width / 2
                         .Location.Y = Block(A).Location.Y - .Location.Height - 0.01
-                        .Location.SpeedX = Rnd * 3 - 1.5
-                        .Location.SpeedY = -Rnd * 4 - 3
+                        .Location.SpeedX = random_double * 3 - 1.5
+                        .Location.SpeedY = -random_double * 4 - 3
                         .Special = 1
                         .Immune = 20
                         PlaySound 14
@@ -1529,7 +1530,7 @@ Public Sub PowBlock() 'drops coins and shakes all blocks on screen when player t
         If NPC(A).Active = True Then
             If NPCIsACoin(NPC(A).Type) Then
                 NPC(A).Special = 1
-                NPC(A).Location.SpeedX = Rnd * 1 - 0.5
+                NPC(A).Location.SpeedX = random_double * 1 - 0.5
             End If
         End If
     Next A

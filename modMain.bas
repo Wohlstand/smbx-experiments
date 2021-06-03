@@ -1314,7 +1314,7 @@ Function GetCommandLine(Optional MaxArgs)
     If IsMissing(MaxArgs) Then MaxArgs = 10
     ReDim ArgArray(MaxArgs) As String
     NumArgs = 0: InArg = False
-    CmdLine = Command()
+    CmdLine = command()
     CmdLnLen = Len(CmdLine)
 
     quoteOpen = False
@@ -1377,7 +1377,8 @@ Sub Main()
 
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled
-    Randomize Timer
+    random_init
+    g_recordReplayId = -1
     FrameSkip = True
 
     Argv = GetCommandLine(42)
@@ -1406,14 +1407,21 @@ Sub Main()
             loadFileOnStartDoTest = True
             LevelEditor = True
             DoShowLauncher = False
-        ElseIf LCase(Left(Astr, 18)) = "--replay-controls=" Then
-            g_speedRunnerControlFile = 25
-            Open Right(Astr, Len(Astr) - 18) For Input As #g_speedRunnerControlFile
-        ElseIf LCase(Left(Astr, 15)) = "--gameplay-log=" Then
-            g_speedRunnerGameplayLog = 30
-            Open Right(Astr, Len(Astr) - 15) For Output As #g_speedRunnerGameplayLog
+        ElseIf LCase(Left(Astr, 8)) = "--record" Then
+            g_recordControlRecord = True
+            g_recordGameplay = True
+        ElseIf LCase(Left(Astr, 12)) = "--replay-id=" Then
+            g_recordControlReplay = True
+            g_recordGameplay = True
+            g_recordReplayId = CInt(Mid(Astr, 13))
             MaxFPS = True
             ShowFPS = True
+        ElseIf LCase(Left(Astr, 8)) = "--replay" Then
+            g_recordControlReplay = True
+            g_recordGameplay = True
+            MaxFPS = True
+            ShowFPS = True
+            Open "output1.txt" For Output As #7
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Astr
@@ -1623,12 +1631,12 @@ Sub Main()
                     End If
                     If A = 4 Then
                         .Mount = 1
-                        .MountType = Int(Rnd * 3) + 1
+                        .MountType = random_int(3) + 1
                     End If
                     .Character = A
                     If A = 2 Then
                         .Mount = 3
-                        .MountType = Int(Rnd * 8) + 1
+                        .MountType = random_int(8) + 1
                     End If
                     .HeldBonus = 0
                     .Section = 0
@@ -1733,14 +1741,14 @@ Sub Main()
             SetupPlayers
             For A = 1 To numPlayers
                 With Player(A)
-                    .State = Int(Rnd * 6) + 2
-                    .Character = Int(Rnd * 5) + 1
+                    .State = random_int(6) + 2
+                    .Character = random_int(5) + 1
                     If A >= 1 And A <= 5 Then .Character = A
                     .HeldBonus = 0
                     .Section = 0
                     .Location.Height = Physics.PlayerHeight(.Character, .State)
                     .Location.Width = Physics.PlayerWidth(.Character, .State)
-                    .Location.X = level(.Section).X + ((128 + Rnd * 64) * A)
+                    .Location.X = level(.Section).X + ((128 + random_double * 64) * A)
                     .Location.Y = level(.Section).Height - .Location.Height - 65
                     Do
                         tempBool = True
@@ -1885,6 +1893,7 @@ Sub Main()
         Else 'MAIN GAME
             CheatString = "" 'clear the cheat codes
             EndLevel = False
+            record_init ' initialize level data recording
             If numPlayers = 1 Then
                 ScreenType = 0 'Follow 1 player
             ElseIf numPlayers = 2 Then
@@ -1994,6 +2003,7 @@ Sub Main()
                 End If
                 Sleep sleepDelay
             Loop While LevelSelect = False And GameMenu = False
+            record_finish
             If TestLevel = True Then
                 TestLevel = False
                 LevelEditor = True
@@ -5509,7 +5519,7 @@ Public Sub MenuLoop()   'The loop for the menu
                 If .Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0 Then .CanJump = True
             End If
             If .HoldingNPC = 0 Then
-                If (.State = 3 Or .State = 6 Or .State = 7) And Rnd * 100 > 90 Then
+                If (.State = 3 Or .State = 6 Or .State = 7) And random_double * 100 > 90 Then
                     If .FireBallCD = 0 And .RunRelease = False Then
                         .Controls.Run = False
                     End If
@@ -5588,13 +5598,13 @@ Public Sub MenuLoop()   'The loop for the menu
             If .Location.X > -vScreenX(1) + 600 And -vScreenX(1) + 850 < level(0).Width Then .Controls.Run = False
             If -vScreenX(1) <= level(0).X And (.Dead = True Or .TimeToLive > 0) Then
                 .ForceHold = 65
-                .State = Int(Rnd * 6) + 2
+                .State = random_int(6) + 2
                 .CanFly = False
                 .CanFly2 = False
                 .TailCount = 0
                 .Dead = False
                 .TimeToLive = 0
-                .Character = Int(Rnd * 5) + 1
+                .Character = random_int(5) + 1
                 If A >= 1 And A <= 5 Then .Character = A
                 .HeldBonus = 0
                 .Section = 0
@@ -5644,9 +5654,9 @@ Public Sub MenuLoop()   'The loop for the menu
                     Next B
                 Loop While tempBool = False
                 If UnderWater(.Section) = False Then
-                    If Int(Rnd * 25) + 1 = 25 Then
+                    If random_int(25) + 1 = 25 Then
                         .Mount = 1
-                        .MountType = Int(Rnd * 3) + 1
+                        .MountType = random_int(3) + 1
                         If .State = 1 Then
                             .Location.Height = Physics.PlayerHeight(1, 2)
                             .Location.Y = .Location.Y - Physics.PlayerHeight(1, 2) + Physics.PlayerHeight(.Character, 1)
@@ -5654,9 +5664,9 @@ Public Sub MenuLoop()   'The loop for the menu
                     End If
                 End If
                 If .Mount = 0 And .Character <= 2 Then
-                    If Int(Rnd * 15) + 1 = 15 Then
+                    If random_int(15) + 1 = 15 Then
                         .Mount = 3
-                        .MountType = Int(Rnd * 7) + 1
+                        .MountType = random_int(7) + 1
                         .Location.Y = .Location.Y + .Location.Height
                         .Location.Height = Physics.PlayerHeight(2, 2)
                         .Location.Y = .Location.Y - .Location.Height - 0.01
@@ -5672,7 +5682,7 @@ Public Sub MenuLoop()   'The loop for the menu
                     With NPC(numNPCs)
                         Do
                             Do
-                                .Type = Int(Rnd * 286) + 1
+                                .Type = random_int(286) + 1
                             Loop While .Type = 11 Or .Type = 16 Or .Type = 18 Or .Type = 15 Or .Type = 21 Or .Type = 12 Or .Type = 13 Or .Type = 30 Or .Type = 17 Or .Type = 31 Or .Type = 32 Or (.Type >= 37 And .Type <= 44) Or .Type = 46 Or .Type = 47 Or .Type = 50 Or (.Type >= 56 And .Type <= 70) Or .Type = 8 Or .Type = 74 Or .Type = 51 Or .Type = 52 Or .Type = 75 Or .Type = 34 Or NPCIsToad(.Type) Or NPCIsAnExit(.Type) Or NPCIsYoshi(.Type) Or (.Type >= 78 And .Type <= 87) Or .Type = 91 Or .Type = 93 Or (.Type >= 104 And .Type <= 108) Or .Type = 125 Or .Type = 133 Or (.Type >= 148 And .Type <= 151) Or .Type = 159 Or .Type = 160 Or .Type = 164 Or .Type = 168 Or (.Type >= 154 And .Type <= 157) Or .Type = 159 Or .Type = 160 Or .Type = 164 Or .Type = 165 Or .Type = 171 Or .Type = 178 Or .Type = 197 Or .Type = 180 Or .Type = 181 Or .Type = 190 Or .Type = 192 Or .Type = 196 Or .Type = 197 Or (UnderWater(0) = True And NPCIsBoot(.Type) = True) Or (.Type >= 198 And .Type <= 228) Or .Type = 234
                         Loop While .Type = 235 Or .Type = 231 Or .Type = 179 Or .Type = 49 Or .Type = 237 Or .Type = 238 Or .Type = 239 Or .Type = 240 Or .Type = 245 Or .Type = 246 Or .Type = 248 Or .Type = 254 Or .Type = 255 Or .Type = 256 Or .Type = 257 Or .Type = 259 Or .Type = 260 Or .Type = 262 Or .Type = 263 Or .Type = 265 Or .Type = 266 Or (.Type >= 267 And .Type <= 272) Or .Type = 275 Or .Type = 276 Or (.Type >= 280 And .Type <= 284) Or .Type = 241
                         .Active = True
@@ -5690,11 +5700,11 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
             If .WetFrame = True Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Then .CanJump = True
-                If Rnd * 100 > 98 Or .Location.SpeedY = 0 Or .Slope > 0 Then .Controls.Jump = True
+                If random_double * 100 > 98 Or .Location.SpeedY = 0 Or .Slope > 0 Then .Controls.Jump = True
             End If
-            If Rnd * 100 > 95 And .HoldingNPC = 0 And .Slide = False And .CanAltJump = True And .Mount = 0 Then .Controls.AltJump = True
-            If Rnd * 1000 >= 999 And .CanFly2 = False Then .Controls.Run = False
-            If .Mount = 3 And Rnd * 100 >= 98 And .RunRelease = False Then .Controls.Run = False
+            If random_double * 100 > 95 And .HoldingNPC = 0 And .Slide = False And .CanAltJump = True And .Mount = 0 Then .Controls.AltJump = True
+            If random_double * 1000 >= 999 And .CanFly2 = False Then .Controls.Run = False
+            If .Mount = 3 And random_double * 100 >= 98 And .RunRelease = False Then .Controls.Run = False
             If NPC(.HoldingNPC).Type = 22 Or NPC(.HoldingNPC).Type = 49 Then .Controls.Run = True
             If .Slide = True And .CanJump = True Then
                 If .Location.SpeedX > -2 And .Location.SpeedX < 2 Then .Controls.Jump = True
@@ -5706,13 +5716,13 @@ Public Sub MenuLoop()   'The loop for the menu
                 .CanJump = True
                 .Controls.Jump = True
             End If
-            If .FloatTime > 0 Or (.CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 And Rnd * 100 > 95) Then
+            If .FloatTime > 0 Or (.CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 And random_double * 100 > 95) Then
                 .Controls.Jump = True
             End If
-            If NPC(.HoldingNPC).Type = 13 And Rnd * 100 > 95 Then
+            If NPC(.HoldingNPC).Type = 13 And random_double * 100 > 95 Then
                 .Controls.Run = False
-                If Rnd * 2 > 1 Then .Controls.Up = True
-                If Rnd * 2 > 1 Then .Controls.Right = False
+                If random_double * 2 > 1 Then .Controls.Up = True
+                If random_double * 2 > 1 Then .Controls.Right = False
             End If
             
             If .Slide = False And (.Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0) Then
@@ -5770,10 +5780,10 @@ Public Sub MenuLoop()   'The loop for the menu
     
     
     If MenuMouseDown = True Then
-        If Rnd * 100 > 40 Then
+        If random_double * 100 > 40 Then
             NewEffect 80, newLoc(MenuMouseX - vScreenX(1), MenuMouseY - vScreenY(1))
-            Effect(numEffects).Location.SpeedX = Rnd * 4 - 2
-            Effect(numEffects).Location.SpeedY = Rnd * 4 - 2
+            Effect(numEffects).Location.SpeedX = random_double * 4 - 2
+            Effect(numEffects).Location.SpeedY = random_double * 4 - 2
         End If
         For A = 1 To numNPCs
             If NPC(A).Active = True Then
@@ -5830,12 +5840,6 @@ Public Sub KillIt() 'Cleans up the buffer before ending the program
     DeleteDC myBackBuffer
     DeleteObject myBufferBMP
     UnloadGFX
-    If Not g_speedRunnerControlFile = 0 Then
-        Close #g_speedRunnerControlFile
-    End If
-    If Not g_speedRunnerGameplayLog = 0 Then
-        Close #g_speedRunnerGameplayLog
-    End If
     Do
     Loop Until ShowCursor(1) >= 1
     End
@@ -6577,6 +6581,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     Dim BlankBackground As Background
     Dim BlankLocation As Location
     Dim blankEvent As Events
+    Dim blankEffect As Effect
     NPCScore(274) = 6
     LevelName = ""
     LoadNPCDefaults
@@ -6672,6 +6677,9 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     Next A
     For A = 1 To numWarps
         Warp(A) = blankWarp
+    Next A
+    For A = 1 To numEffects
+        Effect(A) = blankEffect
     Next A
     numEffects = 0
     numBackground = 0
@@ -8128,6 +8136,7 @@ Public Sub PauseGame(plr As Integer)
     fpsTime = 0
     cycleCount = 0
     gameTime = 0
+    Print #7, "PAUSE"
     Do
         tempTime = GetTickCount
         If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
@@ -8308,6 +8317,7 @@ Public Sub PauseGame(plr As Integer)
         If qScreen = True Then stopPause = False
         Sleep sleepDelay
     Loop Until stopPause = True
+    Print #7, "RESUME"
     GamePaused = False
     Player(plr).UnStart = False
     Player(plr).CanJump = False
@@ -9085,10 +9095,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9103,10 +9113,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9121,10 +9131,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9139,10 +9149,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9157,10 +9167,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9175,10 +9185,10 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9194,7 +9204,7 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * 24 - 12
+                            Player(C).Location.SpeedY = random_double * 24 - 12
                         End If
                         If C = 1 Then
                             Player(C).Character = 1
@@ -9216,7 +9226,7 @@ Public Sub CheatCode(NewKey As String)
                             End If
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -9228,7 +9238,7 @@ Public Sub CheatCode(NewKey As String)
                     Next C
                     For C = 1 To numPlayers
                         If C <> B Then
-                            Bomb Player(C).Location, Int(Rnd * 2) + 2
+                            Bomb Player(C).Location, random_int(2) + 2
                         End If
                     Next C
                     numPlayers = 1
@@ -9263,7 +9273,7 @@ Public Sub CheatCode(NewKey As String)
                     For C = 1 To numPlayers
                         If C <> B Then
                             Player(C) = Player(B)
-                            Player(C).Location.SpeedY = Rnd * -12
+                            Player(C).Location.SpeedY = random_double * -12
                         End If
                         If C = 1 Then
                             Player(C).Character = 1
@@ -9285,7 +9295,7 @@ Public Sub CheatCode(NewKey As String)
                             End If
                         End If
                     Next C
-                    Bomb Player(B).Location, Int(Rnd * 2) + 2
+                    Bomb Player(B).Location, random_int(2) + 2
                 End If
                 CheatString = ""
                 Exit For
@@ -11893,7 +11903,7 @@ Public Sub StartBattleMode()
     Sleep 500
     ClearLevel
     If selWorld = 1 Then
-        selWorld = Int(Rnd * (NumSelectWorld - 1)) + 2
+        selWorld = random_int((NumSelectWorld - 1)) + 2
     End If
     
     OpenLevel SelectWorld(selWorld).WorldFile

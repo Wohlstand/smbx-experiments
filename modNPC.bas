@@ -103,7 +103,7 @@ Public Sub UpdateNPCs()
                 If .TimeLeft = 0 Then Deactivate A
                 If .Killed > 0 Then
                     If .Location.SpeedX = 0 Then
-                        .Location.SpeedX = Rnd * 2 - 1
+                        .Location.SpeedX = random_double * 2 - 1
                         If .Location.SpeedX < 0 Then
                             .Location.SpeedX = .Location.SpeedX - 0.5
                         Else
@@ -229,7 +229,7 @@ Public Sub UpdateNPCs()
                                         NPC(numNPCs).Location.SpeedX = 0
                                         NewEffect 10, newLoc(.Location.X, .Location.Y + 16, 32, 32)
                                         If NPCIsVeggie(NPC(numNPCs).Type) = True Then
-                                            NPC(numNPCs).Location.SpeedX = Rnd * 2 - 1
+                                            NPC(numNPCs).Location.SpeedX = random_double * 2 - 1
                                             'NPC(numNPCs).Location.SpeedY = -1
                                         End If
                                     ElseIf .GeneratorDirection = 2 Then
@@ -511,7 +511,7 @@ Public Sub UpdateNPCs()
                         .Special = 100
                     End If
                 End If
-                If .Type = 84 Or .Type = 181 Then .Special = Int(Rnd * 200)
+                If .Type = 84 Or .Type = 181 Then .Special = Int(random_double * 200)
                 .JustActivated = 0
                 .CantHurt = 0
                 .CantHurtPlayer = 0
@@ -632,7 +632,7 @@ Public Sub UpdateNPCs()
             
 
                 If .Type = 147 Then
-                    B = Int(Rnd * 9)
+                    B = Int(random_double * 9)
                     .Type = 139 + B
                     If .Type = 147 Then .Type = 92
                     .Location.X = .Location.X + .Location.Width / 2
@@ -724,7 +724,7 @@ Public Sub UpdateNPCs()
                                 .Location.Height = NPCHeight(.Type)
                                 .Location.Width = NPCWidth(.Type)
                                 If .Type = 147 Then
-                                    B = Int(Rnd * 9)
+                                    B = Int(random_double * 9)
                                     .Type = 139 + B
                                     If .Type = 147 Then .Type = 92
                                     .Location.X = .Location.X + .Location.Width / 2
@@ -771,13 +771,13 @@ Public Sub UpdateNPCs()
                                 Next B
                             End If
                             If .Type = 237 Or .Type = 263 Then   'Yoshi Ice
-                                If Rnd * 100 > 93 Then
+                                If random_double * 100 > 93 Then
                                     tempLocation.Height = EffectHeight(80)
                                     tempLocation.Width = EffectWidth(80)
                                     tempLocation.SpeedX = 0
                                     tempLocation.SpeedY = 0
-                                    tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                                    tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                                     NewEffect 80, tempLocation
                                 End If
                             End If
@@ -871,7 +871,7 @@ Public Sub UpdateNPCs()
                     'Default Movement Code
                         If (NPCDefaultMovement(.Type) = True Or (NPCIsCheep(.Type) = True And .Special <> 2)) And Not ((.Type = 55 Or .Type = 119) And .Special > 0) And .Type <> 91 Then
                             If .Direction = 0 Then
-                                If Int(Rnd * 2) = 0 Then
+                                If Int(random_double * 2) = 0 Then
                                     .Direction = -1
                                 Else
                                     .Direction = 1
@@ -2881,7 +2881,7 @@ End If
                                 .Special4 = 2
                             Else
                                 Do
-                                    B = Int(Rnd * numPlayers) + 1
+                                    B = Int(random_double * numPlayers) + 1
                                 Loop While Player(B).Dead = True Or Player(B).TimeToLive > 0
                                 .Special5 = B
                             End If
@@ -2895,12 +2895,12 @@ End If
                                 If .Direction > 0 Then tempBool = True
                             End If
                         End If
-                        .Special2 = .Special2 + Rnd
+                        .Special2 = .Special2 + random_double
                         If .Special4 = 0 And tempBool = True Then
-                            If .Special2 >= 200 + Rnd * 400 - Rnd * 200 Then 'hop on player
-                                If .Special2 >= 200 + Rnd * 600 Then .Special2 = 0
+                            If .Special2 >= 200 + random_double * 400 - random_double * 200 Then 'hop on player
+                                If .Special2 >= 200 + random_double * 600 Then .Special2 = 0
                                 .Special4 = 3
-                            ElseIf (.Special2 >= 80 And .Special2 <= 130) Or (.Special2 >= 160 + Rnd * 300 And .Special2 <= 180 + Rnd * 800) Then ' shoot fireball
+                            ElseIf (.Special2 >= 80 And .Special2 <= 130) Or (.Special2 >= 160 + random_double * 300 And .Special2 <= 180 + random_double * 800) Then ' shoot fireball
                                 .Special4 = 4
                             End If
                         End If
@@ -3423,7 +3423,7 @@ End If
                             End If
                             If .Location.SpeedY = 0 Or .Slope > 0 Then
                                 .Location.SpeedX = 0
-                                If .Special = 0 Then .Special = Int(Rnd * 3) + 1
+                                If .Special = 0 Then .Special = Int(random_double * 3) + 1
                                 If .Special = 1 Then
                                     .FrameCount = .FrameCount + 1
                                     .Special2 = .Special2 + 1
@@ -3682,7 +3682,7 @@ End If
         With NPC(A)
             If .Killed > 0 Then
                 If .Location.SpeedX = 0 Then
-                    .Location.SpeedX = Rnd * 2 - 1
+                    .Location.SpeedX = random_double * 2 - 1
                     If .Location.SpeedX < 0 Then
                         .Location.SpeedX = .Location.SpeedX - 0.5
                     Else
@@ -4221,12 +4221,12 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                     tempLocation.Width = EffectWidth(80)
                     tempLocation.SpeedX = 0
                     tempLocation.SpeedY = 0
-                    tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                    tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                     NewEffect 80, tempLocation
-                    Effect(numEffects).Location.SpeedX = Rnd * 2 - 1
-                    Effect(numEffects).Location.SpeedY = Rnd * 2 - 1
-                    Effect(numEffects).Frame = Int(Rnd * 3)
+                    Effect(numEffects).Location.SpeedX = random_double * 2 - 1
+                    Effect(numEffects).Location.SpeedY = random_double * 2 - 1
+                    Effect(numEffects).Frame = Int(random_double * 3)
                 Next C
                 
                 PlaySound 9
@@ -4369,7 +4369,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             .Location.Height = NPCHeight(.Type)
             .Location.Width = NPCWidth(.Type)
             .Location.Y = .Location.Y - .Location.Height
-            .Location.SpeedX = (3 + Rnd * 1) * Player(C).Direction
+            .Location.SpeedX = (3 + random_double * 1) * Player(C).Direction
             If .Type = 17 Then .Location.SpeedX = 5 * Player(C).Direction
             .Location.SpeedY = -4
             .CantHurtPlayer = C
@@ -4378,10 +4378,10 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 If .Type <> 252 Then
                     .Type = 251
                 End If
-                .Location.SpeedX = (1 + Rnd * 0.5) * Player(C).Direction
+                .Location.SpeedX = (1 + random_double * 0.5) * Player(C).Direction
                 .Location.SpeedY = -5
-                If Rnd * 20 < 3 Then .Type = 252
-                If Rnd * 40 < 3 Then .Type = 253
+                If random_double * 20 < 3 Then .Type = 252
+                If random_double * 40 < 3 Then .Type = 253
                 .Location.X = .Location.X + .Location.Width / 2
                 .Location.Y = .Location.Y + .Location.Height
                 .Location.Width = NPCWidth(.Type)
@@ -4879,7 +4879,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 If Not NPC(C).Type = 202 And Not NPC(C).Type = 201 Then
                     If .Location.SpeedY > -4 Then .Location.SpeedY = -4
                     If .Location.SpeedX = 0 Then
-                        If Rnd * 2 > 1 Then
+                        If random_double * 2 > 1 Then
                             .Location.SpeedX = 2
                         Else
                             .Location.SpeedX = -2
@@ -5217,7 +5217,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 End If
             ElseIf B = 6 Then
                 tempLocation.Y = .Location.Y + .Location.Height - 2
-                tempLocation.X = .Location.X - 4 + Rnd * (.Location.Width + 8) - 4
+                tempLocation.X = .Location.X - 4 + random_double * (.Location.Width + 8) - 4
                 NewEffect 74, tempLocation
             ElseIf B = 8 Then
                 .Killed = 8
@@ -5253,7 +5253,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             ElseIf B = 6 Then
                 If .Type = 195 Then
                     tempLocation.Y = .Location.Y + .Location.Height - 2
-                    tempLocation.X = .Location.X - 4 + Rnd * (.Location.Width + 8) - 4
+                    tempLocation.X = .Location.X - 4 + random_double * (.Location.Width + 8) - 4
                     NewEffect 74, tempLocation
                 Else
                     .Killed = B
@@ -5479,7 +5479,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                     If .Type = 191 Then
                         tempLocation.Y = .Location.Y + .Location.Height - 2
                         'tempLocation.X = .Location.X + .Location.Width / 2 - 4 '+ 4 * .Direction
-                        tempLocation.X = .Location.X - 4 + Rnd * (.Location.Width + 8) - 4
+                        tempLocation.X = .Location.X - 4 + random_double * (.Location.Width + 8) - 4
                         NewEffect 74, tempLocation
                     Else
                         If .Type = 26 Then .Location.Y = .Location.Y - 16
@@ -5768,12 +5768,12 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                 tempLocation.Width = EffectWidth(80)
                 tempLocation.SpeedX = 0
                 tempLocation.SpeedY = 0
-                tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width
-                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height
+                tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width
+                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height
                 NewEffect 80, tempLocation
-                Effect(numEffects).Location.SpeedX = Rnd * 4 - 2 - .Location.SpeedX * 0.2
-                Effect(numEffects).Location.SpeedY = Rnd * 4 - 2 + .Location.SpeedY * 0.2
-                Effect(numEffects).Frame = Int(Rnd * 3)
+                Effect(numEffects).Location.SpeedX = random_double * 4 - 2 - .Location.SpeedX * 0.2
+                Effect(numEffects).Location.SpeedY = random_double * 4 - 2 + .Location.SpeedY * 0.2
+                Effect(numEffects).Frame = Int(random_double * 3)
             Next C
             PlaySound 9
             .Type = .Special
@@ -5873,11 +5873,11 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                 PlaySound 53
                 NewEffect 63, .Location
                 B = 9
-                If Rnd * 10 <= 3 Then
+                If random_double * 10 <= 3 Then
                     numNPCs = numNPCs + 1
                     NPC(numNPCs).Type = 251
-                    If Rnd * 15 <= 3 Then NPC(numNPCs).Type = 252
-                    If Rnd * 40 <= 3 Then NPC(numNPCs).Type = 253
+                    If random_double * 15 <= 3 Then NPC(numNPCs).Type = 252
+                    If random_double * 40 <= 3 Then NPC(numNPCs).Type = 253
                     NPC(numNPCs).Location.Width = NPCWidth(NPC(numNPCs).Type)
                     NPC(numNPCs).Location.X = .Location.X + .Location.Width / 2 - NPC(numNPCs).Location.Width / 2
                     NPC(numNPCs).Location.Height = NPCHeight(NPC(numNPCs).Type)
@@ -5894,7 +5894,8 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     NPC(numNPCs).TailCD = 10
                     NPC(numNPCs).Special = 1
                     NPC(numNPCs).Location.SpeedY = -5
-                    NPC(numNPCs).Location.SpeedX = (1 + Rnd * 0.5) * .Direction
+                    NPC(numNPCs).Location.SpeedX = (1 + random_double * 0.5) * .Direction
+                    CheckSectionNPC numNPCs
                 End If
             End If
         End If
@@ -5970,12 +5971,12 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                             tempLocation.Width = EffectWidth(80)
                             tempLocation.SpeedX = 0
                             tempLocation.SpeedY = 0
-                            tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width
-                            tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height
+                            tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width
+                            tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height
                             NewEffect 80, tempLocation
-                            Effect(numEffects).Location.SpeedX = Rnd * 2 - 1 - .Location.SpeedX * 0.3
-                            Effect(numEffects).Location.SpeedY = Rnd * 2 - 1 + .Location.SpeedY * 0.3
-                            Effect(numEffects).Frame = Int(Rnd * 3)
+                            Effect(numEffects).Location.SpeedX = random_double * 2 - 1 - .Location.SpeedX * 0.3
+                            Effect(numEffects).Location.SpeedY = random_double * 2 - 1 + .Location.SpeedY * 0.3
+                            Effect(numEffects).Frame = Int(random_double * 3)
                         Next C
                     Else
                         NewEffect 88, .Location, .Direction
@@ -5987,7 +5988,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
             ElseIf .Type = 208 Then
                 PlaySound 67
                 For C = 1 To 100
-                    NewEffect 111, newLoc(.Location.X + Rnd * .Location.Width - 16, .Location.Y + Rnd * .Location.Height - 16)
+                    NewEffect 111, newLoc(.Location.X + random_double * .Location.Width - 16, .Location.Y + random_double * .Location.Height - 16)
                 Next C
             ElseIf .Type = 209 Then
                 PlaySound 69
@@ -6620,8 +6621,8 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                         Else
                             NewEffect 77, .Location, CSng(.Special), , .Shadow
                         End If
-                        Effect(numEffects).Location.SpeedX = Rnd * 3 - 1.5 + .Location.SpeedX * 0.1
-                        Effect(numEffects).Location.SpeedY = Rnd * 3 - 1.5 - .Location.SpeedY * 0.1
+                        Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5 + .Location.SpeedX * 0.1
+                        Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5 - .Location.SpeedY * 0.1
                     Next C
                     .Location.X = .Location.X + .Location.Width / 2 - EffectWidth(10) / 2
                     .Location.Y = .Location.Y + .Location.Height / 2 - EffectHeight(10) / 2
@@ -6975,7 +6976,7 @@ Public Sub Bomb(Location As Location, Game As Integer, Optional ImmunePlayer As 
                         If NPCIsVeggie(NPC(i).Type) Then
                             NPC(i).Projectile = True
                             .Location.SpeedY = -5
-                            .Location.SpeedX = Rnd * 4 - 2
+                            .Location.SpeedX = random_double * 4 - 2
                         End If
                     End If
                 End If
@@ -7760,10 +7761,10 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                     .Frame = 3
                 End If
             End If
-            If Int(Rnd * 4) = 0 Then
+            If Int(random_double * 4) = 0 Then
                 NewEffect 80, newLoc(.Location.X + .Location.Width / 2 - 4, .Location.Y + .Location.Height / 2 - 4), , , .Shadow
-                Effect(numEffects).Location.SpeedX = Rnd * 1 - 0.5
-                Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
+                Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
+                Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
             End If
 
              
@@ -7801,8 +7802,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                      .Frame = 3
                  End If
                  NewEffect 80, newLoc(.Location.X + .Location.Width / 2 - 8, .Location.Y + .Location.Height / 2 - 8), , , .Shadow
-                 Effect(numEffects).Location.SpeedX = Rnd * 1 - 0.5
-                 Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
+                 Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
+                 Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
                  
              End If
              
@@ -7904,10 +7905,10 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             Else 'If .Special3 >= 16 Then
                 .Special3 = 0
             End If
-            If Rnd * 10 > 9.2 Then
+            If random_double * 10 > 9.2 Then
                 NewEffect 80, newLoc(.Location.X + .Location.Width / 2 - 4, .Location.Y + .Location.Height / 2 - 6), , , .Shadow
-                Effect(numEffects).Location.SpeedX = Rnd * 1 - 0.5
-                Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
+                Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
+                Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
             End If
             
          ElseIf .Type = 91 Then .Frame = SpecialFrame(5)
@@ -8318,7 +8319,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
          ElseIf .Type = 13 Or .Type = 30 Or .Type = 246 Or .Type = 265 Then 'Frame finder for Fireball / Hammer
             If (.Type = 13 Or .Type = 265) And .Quicksand = 0 Then
                 If .Wet > 0 Then
-                    If Rnd * 100 > 95 Then
+                    If random_double * 100 > 95 Then
                         tempLocation = newLoc(.Location.X + 4, .Location.Y + 4, 8, 8)
                         If UnderWater(.Section) = False Then
                             NewEffect 113, tempLocation, , , .Shadow
@@ -8326,33 +8327,33 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                             NewEffect 113, tempLocation, 1, 1, .Shadow
                         End If
                     End If
-                    If Rnd * 100 > 85 Then
+                    If random_double * 100 > 85 Then
                         If .Type = 265 Then
                             If .Special = 5 Then
                                 NewEffect 139, .Location, , , .Shadow
-                                If Rnd * 10 > 8 Then
+                                If random_double * 10 > 8 Then
                                     tempLocation.Height = EffectHeight(80)
                                     tempLocation.Width = EffectWidth(80)
                                     tempLocation.SpeedX = 0
                                     tempLocation.SpeedY = 0
-                                    tempLocation.X = .Location.X + Rnd * 16 - EffectWidth(80) / 2 - 4 - .Location.SpeedX * 3
-                                    tempLocation.Y = .Location.Y + Rnd * 16 - EffectHeight(80) / 2 - 4
+                                    tempLocation.X = .Location.X + random_double * 16 - EffectWidth(80) / 2 - 4 - .Location.SpeedX * 3
+                                    tempLocation.Y = .Location.Y + random_double * 16 - EffectHeight(80) / 2 - 4
                                     NewEffect 80, tempLocation
                                     Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.5
                                     Effect(numEffects).Location.SpeedY = .Location.SpeedY * 0.5
-                                    Effect(numEffects).Frame = Int(Rnd * 3)
+                                    Effect(numEffects).Frame = Int(random_double * 3)
                                 End If
-                            ElseIf Rnd * 10 > 6 Then
+                            ElseIf random_double * 10 > 6 Then
                                 tempLocation.Height = EffectHeight(80)
                                 tempLocation.Width = EffectWidth(80)
                                 tempLocation.SpeedX = 0
                                 tempLocation.SpeedY = 0
-                                tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                                tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                                 NewEffect 80, tempLocation, , , .Shadow
                                 Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.25
                                 Effect(numEffects).Location.SpeedY = .Location.SpeedY * 0.25
-                                Effect(numEffects).Frame = Int(Rnd * 3)
+                                Effect(numEffects).Frame = Int(random_double * 3)
                             End If
                         Else
                             NewEffect 77, .Location, CSng(.Special), , .Shadow
@@ -8362,29 +8363,29 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                     If .Type = 265 Then
                         If .Special = 5 Then
                             NewEffect 139, .Location, , , .Shadow
-                            If Rnd * 10 > 8 Then
+                            If random_double * 10 > 8 Then
                                 tempLocation.Height = EffectHeight(80)
                                 tempLocation.Width = EffectWidth(80)
                                 tempLocation.SpeedX = 0
                                 tempLocation.SpeedY = 0
-                                tempLocation.X = .Location.X + Rnd * 16 - EffectWidth(80) / 2 - 4 - .Location.SpeedX * 3
-                                tempLocation.Y = .Location.Y + Rnd * 16 - EffectHeight(80) / 2 - 4
+                                tempLocation.X = .Location.X + random_double * 16 - EffectWidth(80) / 2 - 4 - .Location.SpeedX * 3
+                                tempLocation.Y = .Location.Y + random_double * 16 - EffectHeight(80) / 2 - 4
                                 NewEffect 80, tempLocation
                                 Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.5
                                 Effect(numEffects).Location.SpeedY = .Location.SpeedY * 0.5
-                                Effect(numEffects).Frame = Int(Rnd * 3)
+                                Effect(numEffects).Frame = Int(random_double * 3)
                             End If
-                        ElseIf Rnd * 10 > 6 Then
+                        ElseIf random_double * 10 > 6 Then
                             tempLocation.Height = EffectHeight(80)
                             tempLocation.Width = EffectWidth(80)
                             tempLocation.SpeedX = 0
                             tempLocation.SpeedY = 0
-                            tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                            tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                            tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                            tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                             NewEffect 80, tempLocation, , , .Shadow
                             Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.25
                             Effect(numEffects).Location.SpeedY = .Location.SpeedY * 0.25
-                            Effect(numEffects).Frame = Int(Rnd * 3)
+                            Effect(numEffects).Frame = Int(random_double * 3)
                         End If
                     Else
                         NewEffect 77, .Location, CSng(.Special), , .Shadow
@@ -8898,9 +8899,9 @@ Public Sub NPCSpecial(A As Integer)
                 Bomb .Location, 0, Int(C)
                 For B = 1 To 5
                     NewEffect 80, newLoc(.Location.X + .Location.Width / 2 - 4, .Location.Y + .Location.Height / 2 - 6), , , .Shadow
-                    Effect(numEffects).Location.SpeedX = Rnd * 6 - 3
-                    Effect(numEffects).Location.SpeedY = Rnd * 6 - 3
-                    Effect(numEffects).Frame = Int(Rnd * 3)
+                    Effect(numEffects).Location.SpeedX = random_double * 6 - 3
+                    Effect(numEffects).Location.SpeedY = random_double * 6 - 3
+                    Effect(numEffects).Frame = Int(random_double * 3)
                 Next B
                 
                 
@@ -9024,10 +9025,10 @@ Public Sub NPCSpecial(A As Integer)
                 .Direction = .DefaultDirection
                 If NPCIsACoin(.Type) Then
                     .Special = 1
-                    .Location.SpeedX = Rnd * 1 - 0.5
+                    .Location.SpeedX = random_double * 1 - 0.5
                 End If
                 If .Direction = 0 Then
-                    If Rnd * 2 > 1 Then
+                    If random_double * 2 > 1 Then
                         .Direction = 1
                     Else
                         .Direction = -1
@@ -9176,7 +9177,7 @@ Public Sub NPCSpecial(A As Integer)
             If .Special5 = 0 Then 'Target a Random Player
                 C = 0
                 Do
-                    B = Int(Rnd) * numPlayers + 1
+                    B = Int(random_double) * numPlayers + 1
                     If Player(B).Dead = False And Player(B).Section = .Section And Player(B).TimeToLive = 0 Then
                         .Special5 = B
                     End If
@@ -9227,7 +9228,7 @@ Public Sub NPCSpecial(A As Integer)
                     If (.Location.SpeedX < -2 And .Direction < 0) Or (.Location.SpeedX > 2 And .Direction > 0) Then
                         If .Special3 >= 20 - .Damage * 2 Then
                             .Special3 = 0
-                            .Location.SpeedY = -3 - Rnd * 2
+                            .Location.SpeedY = -3 - random_double * 2
                         End If
                     End If
                 End If
@@ -9239,7 +9240,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Special2 = 0
                 End If
             ElseIf .Special = 2 Then
-                .Location.SpeedY = -5 - Rnd * 3
+                .Location.SpeedY = -5 - random_double * 3
                 If .Type = 281 Then .Location.SpeedY = .Location.SpeedY - 2
                 .Special = 3
             ElseIf .Special = 3 Then
@@ -9289,7 +9290,7 @@ Public Sub NPCSpecial(A As Integer)
             If .Special5 = 0 Then 'Target a Random Player
                 C = 0
                 Do
-                    B = Int(Rnd) * numPlayers + 1
+                    B = Int(random_double) * numPlayers + 1
                     If Player(B).Dead = False And Player(B).Section = .Section And Player(B).TimeToLive = 0 Then
                         .Special5 = B
                     End If
@@ -9320,16 +9321,16 @@ Public Sub NPCSpecial(A As Integer)
                 'jumping
                 If .Location.SpeedY = Physics.NPCGravity Then
                     .Special3 = .Special3 + 1
-                    If .Special3 >= 30 + Rnd * 100 Then
+                    If .Special3 >= 30 + random_double * 100 Then
                         .Special3 = 0
-                        .Location.SpeedY = -5 - Rnd * 4
+                        .Location.SpeedY = -5 - random_double * 4
                     End If
                 Else
                     .Special3 = 0
                 End If
                 'attack timer
                 .Special4 = .Special4 + 1
-                If .Special4 >= 100 + Rnd * 100 And .Location.SpeedY = Physics.NPCGravity Then
+                If .Special4 >= 100 + random_double * 100 And .Location.SpeedY = Physics.NPCGravity Then
                     .Special = 1
                     .Special5 = 0
                     .Special3 = 0
@@ -9413,7 +9414,7 @@ Public Sub NPCSpecial(A As Integer)
             If .Special5 = 0 Then 'Target a Random Player
                 C = 0
                 Do
-                    B = Int(Rnd) * numPlayers + 1
+                    B = Int(random_double) * numPlayers + 1
                     If Player(B).Dead = False And Player(B).Section = .Section And Player(B).TimeToLive = 0 Then
                         .Special5 = B
                     End If
@@ -9460,7 +9461,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Special6 = 0
                     .Special = 3
                     PlaySound 24
-                    .Location.SpeedY = -7 - Rnd * 2
+                    .Location.SpeedY = -7 - random_double * 2
                 End If
             ElseIf .Special = 3 Then
                     If .Location.SpeedY > 0 Then 'turn into shell
@@ -9548,26 +9549,26 @@ Public Sub NPCSpecial(A As Integer)
                     tempLocation.Width = EffectWidth(80)
                     tempLocation.SpeedX = 0
                     tempLocation.SpeedY = 0
-                    tempLocation.X = .Location.X + Rnd * 16 - EffectWidth(80) / 2 - 4 '+ .Location.SpeedX
-                    tempLocation.Y = .Location.Y + Rnd * 4 - EffectHeight(80) / 2 - 2
+                    tempLocation.X = .Location.X + random_double * 16 - EffectWidth(80) / 2 - 4 '+ .Location.SpeedX
+                    tempLocation.Y = .Location.Y + random_double * 4 - EffectHeight(80) / 2 - 2
                     NewEffect 80, tempLocation
-                    Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.3 + Rnd * 2 - 1
-                    Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
-                    Effect(numEffects).Frame = Int(Rnd * 3)
+                    Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.3 + random_double * 2 - 1
+                    Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
+                    Effect(numEffects).Frame = Int(random_double * 3)
                 Next B
                 
             End If
-            If Rnd * 10 > 5 Then
+            If random_double * 10 > 5 Then
                 tempLocation.Height = EffectHeight(80)
                 tempLocation.Width = EffectWidth(80)
                 tempLocation.SpeedX = 0
                 tempLocation.SpeedY = 0
-                tempLocation.X = .Location.X + Rnd * 16 - EffectWidth(80) / 2 - 4 '+ .Location.SpeedX
-                tempLocation.Y = .Location.Y + Rnd * 4 - EffectHeight(80) / 2 - 2
+                tempLocation.X = .Location.X + random_double * 16 - EffectWidth(80) / 2 - 4 '+ .Location.SpeedX
+                tempLocation.Y = .Location.Y + random_double * 4 - EffectHeight(80) / 2 - 2
                 NewEffect 80, tempLocation
                 Effect(numEffects).Location.SpeedX = .Location.SpeedX * 0.15
-                Effect(numEffects).Location.SpeedY = .Location.SpeedY '+ Rnd * 2 - 1
-                Effect(numEffects).Frame = Int(Rnd * 2) + 1
+                Effect(numEffects).Location.SpeedY = .Location.SpeedY '+ random_double * 2 - 1
+                Effect(numEffects).Frame = Int(random_double * 2) + 1
             End If
             
             
@@ -9587,7 +9588,7 @@ Public Sub NPCSpecial(A As Integer)
                     End If
                 Next B
             Else
-                If Rnd * 100 > 90 Then .Direction = -.Direction
+                If random_double * 100 > 90 Then .Direction = -.Direction
                 .Special3 = 0
                 .Special4 = 0
             End If
@@ -9604,11 +9605,11 @@ Public Sub NPCSpecial(A As Integer)
                     End If
                     .Special3 = .Special3 + 1
                     .Special4 = .Special4 + 1
-                    If .Special3 >= 100 + Rnd * 200 Then
+                    If .Special3 >= 100 + random_double * 200 Then
                         .Special3 = 0
                         .Location.SpeedX = 0
                         .Location.SpeedY = -5
-                    ElseIf .Special4 >= 20 + Rnd * 200 Then
+                    ElseIf .Special4 >= 20 + random_double * 200 Then
                         .Special4 = 0
                         .Special = -10
                     End If
@@ -9630,8 +9631,8 @@ Public Sub NPCSpecial(A As Integer)
                         .Location.X = NPC(A).Location.X + NPC(A).Location.Width / 2 - .Location.Width / 2 - 12 * .Direction
                         .TimeLeft = 100
                         .Section = NPC(A).Section
-                        .Location.SpeedX = (5 + Rnd * 3) * .Direction
-                        .Location.SpeedY = -5 - (Rnd * 3)
+                        .Location.SpeedX = (5 + random_double * 3) * .Direction
+                        .Location.SpeedY = -5 - (random_double * 3)
                     End With
                 End If
                 .Location.SpeedX = 0
@@ -9825,8 +9826,8 @@ Public Sub NPCSpecial(A As Integer)
                 C = B * 0.5
                 B = B * 15
                 C = C * 15
-                .Location.X = .DefaultLocation.X + Rnd * B - Rnd * C
-                .Location.Y = .DefaultLocation.Y + Rnd * B - Rnd * C
+                .Location.X = .DefaultLocation.X + random_double * B - random_double * C
+                .Location.Y = .DefaultLocation.Y + random_double * B - random_double * C
                 .Special = .Special + 1
                 If .Special >= 45 Then .Special = 0
             Else
@@ -9835,7 +9836,7 @@ Public Sub NPCSpecial(A As Integer)
         ElseIf .Type = 210 Then 'O thing
             If .Special = 0 Then
                 .Special2 = .Special2 + 1
-                If .Special2 >= 80 + Rnd * 20 Then
+                If .Special2 >= 80 + random_double * 20 Then
                     .Special = 1
                     C = 0
                     For B = 1 To numPlayers
@@ -9858,8 +9859,8 @@ Public Sub NPCSpecial(A As Integer)
             End If
         
         ElseIf .Type = 211 Then 'Metroid O shooter thing
-            .Special = .Special + 1 + Rnd
-            If .Special >= 200 + Rnd * 200 Then
+            .Special = .Special + 1 + random_double
+            If .Special >= 200 + random_double * 200 Then
                 .Special = 0
                 numNPCs = numNPCs + 1
                 NPC(numNPCs).Inert = .Inert
@@ -9883,7 +9884,7 @@ Public Sub NPCSpecial(A As Integer)
             tempBool2 = False
             If .Special = 0 Then
                 If .Direction = 0 Then
-                    If Rnd * 2 > 1 Then
+                    If random_double * 2 > 1 Then
                         .Direction = 1
                     Else
                         .Direction = -1
@@ -10132,7 +10133,7 @@ Public Sub NPCSpecial(A As Integer)
                             End If
                             If .Special = 0 Then
                                 .Special3 = .Special3 + 1
-                                If .Special3 >= 160 + Rnd * 140 Then
+                                If .Special3 >= 160 + random_double * 140 Then
                                     .Special = 1
                                     .Special3 = 0
                                 End If
@@ -10163,10 +10164,10 @@ Public Sub NPCSpecial(A As Integer)
                                     NPC(numNPCs).TimeLeft = 50
                                     NPC(numNPCs).Location.SpeedY = -7
                                     NPC(numNPCs).Location.SpeedX = 7 * NPC(numNPCs).Direction
-                                    NPC(numNPCs).Location.SpeedY = NPC(numNPCs).Location.SpeedY + Rnd * 6 - 3
+                                    NPC(numNPCs).Location.SpeedY = NPC(numNPCs).Location.SpeedY + random_double * 6 - 3
                                     NPC(numNPCs).Location.SpeedX = NPC(numNPCs).Location.SpeedX * (1 - (.Special3 / 140))
                                 End If
-                                If .Special3 >= 120 + Rnd * 40 Then
+                                If .Special3 >= 120 + random_double * 40 Then
                                     .Special = 0
                                     .Special3 = 0
                                 End If
@@ -10345,14 +10346,14 @@ Public Sub NPCSpecial(A As Integer)
                             End If
                             .Special5 = D
 
-                            If Rnd * 300 > 297 And .Special = 0 Then
+                            If random_double * 300 > 297 And .Special = 0 Then
                                 .Special = 1
                             End If
                             .Special4 = .Special4 + 1
                             If .Inert = True Then .Special4 = 150
                             
-                            If .Special4 <= 80 + Rnd * 40 Then
-                                If Rnd * 100 > 40 And .Special4 Mod 16 = 0 Then
+                            If .Special4 <= 80 + random_double * 40 Then
+                                If random_double * 100 > 40 And .Special4 Mod 16 = 0 Then
                                     PlaySound 25
                                     numNPCs = numNPCs + 1
                                     NPC(numNPCs).Inert = .Inert
@@ -10368,7 +10369,7 @@ Public Sub NPCSpecial(A As Integer)
                                     NPC(numNPCs).Location.SpeedY = -8
                                     NPC(numNPCs).Location.SpeedX = 3 * NPC(numNPCs).Direction
                                 End If
-                            ElseIf .Special4 > 300 + Rnd * 50 Then
+                            ElseIf .Special4 > 300 + random_double * 50 Then
                                 .Special4 = 0
                             End If
                             If .Inert = True Then .Special = 0
@@ -10421,7 +10422,7 @@ Public Sub NPCSpecial(A As Integer)
                                     If .Location.X > .DefaultLocation.X + .Location.Width * 1.5 Then .Special2 = 0
                                 End If
                                 If .Location.SpeedY = Physics.NPCGravity Or .Slope > 0 Then
-                                    If Rnd * 200 >= 198 Then
+                                    If random_double * 200 >= 198 Then
                                         .Location.SpeedY = -8
                                     End If
                                 End If
@@ -10643,12 +10644,12 @@ Public Sub SpecialNPC(A As Integer)
                             If .Type <> 30 And .Type <> 202 And .Type <> 210 And .Type <> 171 And .Type <> 13 And .Type <> 265 Then
                                 For C = 1 To 10
                                     NewEffect 77, .Location, CSng(.Special)
-                                    Effect(numEffects).Location.SpeedX = Rnd * 3 - 1.5 + .Location.SpeedX * 0.1
-                                    Effect(numEffects).Location.SpeedY = Rnd * 3 - 1.5 - .Location.SpeedY * 0.1
+                                    Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5 + .Location.SpeedX * 0.1
+                                    Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5 - .Location.SpeedY * 0.1
                                     If Effect(numEffects).Frame = 0 Then
-                                        Effect(numEffects).Frame = -Int(Rnd * 3)
+                                        Effect(numEffects).Frame = -Int(random_double * 3)
                                     Else
-                                        Effect(numEffects).Frame = 5 + Int(Rnd * 3)
+                                        Effect(numEffects).Frame = 5 + Int(random_double * 3)
                                     End If
                                 Next C
                             End If
@@ -10759,23 +10760,23 @@ Public Sub SpecialNPC(A As Integer)
                 .Location.SpeedX = 0
             End If
         ElseIf .Type = 237 Or .Type = 263 Then   'Yoshi Ice
-            If Rnd * 100 > 93 Then
+            If random_double * 100 > 93 Then
                 tempLocation.Height = EffectHeight(80)
                 tempLocation.Width = EffectWidth(80)
                 tempLocation.SpeedX = 0
                 tempLocation.SpeedY = 0
-                tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                 NewEffect 80, tempLocation
             End If
             If .Projectile = True Then
-                If Rnd * 100 > 80 Then
+                If random_double * 100 > 80 Then
                     tempLocation.Height = EffectHeight(80)
                     tempLocation.Width = EffectWidth(80)
                     tempLocation.SpeedX = 0
                     tempLocation.SpeedY = 0
-                    tempLocation.X = .Location.X - tempLocation.Width / 2 + Rnd * .Location.Width - 4
-                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + Rnd * .Location.Height - 4
+                    tempLocation.X = .Location.X - tempLocation.Width / 2 + random_double * .Location.Width - 4
+                    tempLocation.Y = .Location.Y - tempLocation.Height / 2 + random_double * .Location.Height - 4
                     NewEffect 80, tempLocation
                 End If
             End If
@@ -10854,7 +10855,7 @@ Public Sub SpecialNPC(A As Integer)
                         .Special3 = 0
                     End If
                     If .Special3 = 1 And .Wet = 0 Then
-                        .Location.SpeedY = -(.Location.Y - Player(B).Location.Y + Player(B).Location.Height / 2) * 0.05 + Rnd * 4 - 2
+                        .Location.SpeedY = -(.Location.Y - Player(B).Location.Y + Player(B).Location.Height / 2) * 0.05 + random_double * 4 - 2
                         If .Location.SpeedY < -9 Then .Location.SpeedY = -9
                         .Special3 = 0
                         .Special5 = 1
@@ -11326,8 +11327,8 @@ Public Sub SpecialNPC(A As Integer)
                     .Location.Y = .Location.Y + .Location.Height - 54
                     .Location.Height = 54
                 End If
-                .Special2 = .Special2 + Rnd * 2
-                If .Special2 >= 250 + Int(Rnd * 250) Then
+                .Special2 = .Special2 + random_double * 2
+                If .Special2 >= 250 + Int(random_double * 250) Then
                     .Special = 2
                     .Special2 = 0
                 End If
@@ -11342,8 +11343,8 @@ Public Sub SpecialNPC(A As Integer)
                     .Location.Y = .Location.Y + .Location.Height - 40
                     .Location.Height = 40
                 End If
-                .Special2 = .Special2 + Rnd * 2
-                If .Special2 >= 100 + Int(Rnd * 100) Then
+                .Special2 = .Special2 + random_double * 2
+                If .Special2 >= 100 + Int(random_double * 100) Then
                     .Special = 3
                     .Special2 = 0
                 End If
@@ -11533,7 +11534,7 @@ Public Sub SpecialNPC(A As Integer)
         'bowser statue
         ElseIf .Type = 84 Or .Type = 181 Then
             .Special = .Special + 1
-            If .Special >= 200 + Rnd * 200 Then
+            If .Special >= 200 + random_double * 200 Then
                 .Special = 0
                 numNPCs = numNPCs + 1
                 With NPC(numNPCs)
@@ -11553,7 +11554,7 @@ Public Sub SpecialNPC(A As Integer)
                     End If
                     .Location.SpeedX = 4 * .Direction
                     If .Direction = 1 Then .Frame = 4
-                    .FrameCount = Int(Rnd * 8)
+                    .FrameCount = Int(random_double * 8)
                     PlaySound 42
                 End With
             End If
@@ -11593,8 +11594,8 @@ Public Sub SpecialNPC(A As Integer)
                     .Special2 = 0
                 End If
             End If
-            .Special3 = .Special3 + Rnd * 2
-            If .Special3 >= 50 + Rnd * 1000 Then
+            .Special3 = .Special3 + random_double * 2
+            If .Special3 >= 50 + random_double * 1000 Then
                 If .Location.SpeedY = Physics.NPCGravity Then
                     .Location.SpeedY = -3
                     .Location.Y = .Location.Y - 1
@@ -11964,17 +11965,17 @@ Public Sub SpecialNPC(A As Integer)
                 .Special4 = .Special4 + 1
                 If .Special4 >= 5 Then
                     .Special4 = 0
-                    NewEffect 80, newLoc(.Location.X + Rnd * .Location.Width - 2, .Location.Y + Rnd * .Location.Height)
-                    Effect(numEffects).Location.SpeedX = Rnd * 1 - 0.5
-                    Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
+                    NewEffect 80, newLoc(.Location.X + random_double * .Location.Width - 2, .Location.Y + random_double * .Location.Height)
+                    Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
+                    Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
                 End If
             Else
                 .Special4 = .Special4 + 1
                 If .Special4 >= 10 Then
                     .Special4 = 0
-                    NewEffect 80, newLoc(.Location.X + Rnd * .Location.Width - 2, .Location.Y + Rnd * .Location.Height)
-                    Effect(numEffects).Location.SpeedX = Rnd * 1 - 0.5
-                    Effect(numEffects).Location.SpeedY = Rnd * 1 - 0.5
+                    NewEffect 80, newLoc(.Location.X + random_double * .Location.Width - 2, .Location.Y + random_double * .Location.Height)
+                    Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
+                    Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
                     Effect(numEffects).Frame = 1
                 End If
             End If
@@ -12220,7 +12221,7 @@ Public Sub SpecialNPC(A As Integer)
                             .CantHurtPlayer = NPC(A).CantHurtPlayer
                         End If
                         .Location.Y = .Location.Y + 8
-                        .Location.SpeedX = (1 + Rnd * 2) * .Direction
+                        .Location.SpeedX = (1 + random_double * 2) * .Direction
                         .Location.SpeedY = -7
                         .Active = True
                         .Section = NPC(A).Section
@@ -12369,7 +12370,7 @@ End Sub
 
 Public Function RandomBonus()
     Dim B As Integer
-    B = Int(Rnd * 6)
+    B = Int(random_double * 6)
     If B = 0 Then
         RandomBonus = 9
     ElseIf B = 1 Then

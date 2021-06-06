@@ -4,7 +4,6 @@ Attribute VB_Name = "modRecord"
 
 Public g_recordControlReplay As Boolean
 Public g_recordControlRecord As Boolean
-Public g_recordGameplay As Boolean
 Public g_recordReplayId As Integer
 
 Public g_recordNumRenderedNPCs As Integer
@@ -26,7 +25,7 @@ Public Sub record_init()
     g_recordNumRenderedBlocks = 0
     g_recordNumRenderedBGOs = 0
 
-    If g_recordControlRecord Or g_recordControlReplay Or g_recordGameplay Then
+    If g_recordControlRecord Or g_recordControlReplay Then
         Call random_seed(310)
     End If
 
@@ -44,16 +43,14 @@ Public Sub record_init()
     End If
     lastId = Mid(Str(nextrun - 1), 2)
 
-    If g_recordControlRecord = True Then
+    If g_recordControlRecord = True And g_recordControlReplay = False Then
         If s_recordControlFD = 0 Then
             s_recordControlFD = 25
             Open FullFileName + "." + idStr + ".c.txt" For Output As #s_recordControlFD
         End If
-        If g_recordGameplay = True Then
-            If s_recordGameplayFD = 0 Then
-                s_recordGameplayFD = 30
-                Open FullFileName + "." + idStr + ".g.txt" For Output As #s_recordGameplayFD
-            End If
+        If s_recordGameplayFD = 0 Then
+            s_recordGameplayFD = 30
+            Open FullFileName + "." + idStr + ".g.txt" For Output As #s_recordGameplayFD
         End If
     ElseIf g_recordControlReplay = True Then
         If s_recordControlFD = 0 And Dir(FullFileName + "." + lastId + ".c.txt") <> "" Then
@@ -68,11 +65,9 @@ Public Sub record_init()
             s_recordGameplayFD = 0
         End If
         If Not s_recordControlFD = 0 Then
-            If g_recordGameplay = True Then
-                If s_recordGameplayFD = 0 Then
-                    s_recordGameplayFD = 30
-                    Open FullFileName + "." + lastId + ".r.smbx.txt" For Output As #s_recordGameplayFD
-                End If
+            If s_recordGameplayFD = 0 Then
+                s_recordGameplayFD = 30
+                Open FullFileName + "." + lastId + ".r.smbx.txt" For Output As #s_recordGameplayFD
             End If
         End If
     End If

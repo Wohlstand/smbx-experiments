@@ -483,7 +483,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
     
 'frame skip code
     cycleCount = cycleCount + 1
-    If FrameSkip = True And TakeScreen = False And g_recordGameplay = False Then
+    If FrameSkip = True And TakeScreen = False And g_recordControlRecord = False And g_recordControlReplay = False Then
         If GetTickCount + Int(1000 * (1 - (cycleCount / 63))) > GoalTime Then   'Don't draw this frame
             numScreens = 1
             If LevelEditor = False Then

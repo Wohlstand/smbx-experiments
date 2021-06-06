@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmLoader 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "<Title defined at Load()>"
-   ClientHeight    =   4065
+   ClientHeight    =   4845
    ClientLeft      =   45
    ClientTop       =   375
    ClientWidth     =   4890
@@ -10,9 +10,18 @@ Begin VB.Form frmLoader
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   4065
+   ScaleHeight     =   4845
    ScaleWidth      =   4890
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox chkRecord 
+      Caption         =   "Record Gameplay Data"
+      Height          =   255
+      Left            =   240
+      TabIndex        =   10
+      Top             =   1560
+      Value           =   1  'Checked
+      Width           =   2175
+   End
    Begin VB.CheckBox chkFrameskip 
       Caption         =   "Disable Frameskip"
       Height          =   255
@@ -34,7 +43,7 @@ Begin VB.Form frmLoader
       Height          =   375
       Left            =   1680
       TabIndex        =   2
-      Top             =   3600
+      Top             =   4320
       Width           =   1575
    End
    Begin VB.CommandButton cmdEditor 
@@ -63,7 +72,7 @@ Begin VB.Form frmLoader
    End
    Begin VB.Frame Frame2 
       Caption         =   "Settings"
-      Height          =   615
+      Height          =   1335
       Left            =   120
       TabIndex        =   6
       Top             =   960
@@ -83,7 +92,7 @@ Begin VB.Form frmLoader
       Height          =   855
       Left            =   120
       TabIndex        =   8
-      Top             =   2640
+      Top             =   3360
       Width           =   4695
    End
    Begin VB.Label Label1 
@@ -91,7 +100,7 @@ Begin VB.Form frmLoader
       Height          =   855
       Left            =   120
       TabIndex        =   7
-      Top             =   1680
+      Top             =   2400
       Width           =   4695
    End
 End
@@ -121,6 +130,7 @@ Private Sub Form_Load()
     Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
     chkFrameskip.Value = IIf(FrameSkip, 0, 1)
     chkSound.Value = IIf(noSound, 1, 0)
+    chkRecord.Value = IIf(g_recordControlRecord, 1, 0)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

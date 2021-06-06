@@ -1379,6 +1379,7 @@ Sub Main()
     EoT = "" 'EoT is disabled
     random_init
     g_recordReplayId = -1
+    g_recordControlRecord = True
     FrameSkip = True
 
     Argv = GetCommandLine(42)
@@ -1409,16 +1410,13 @@ Sub Main()
             DoShowLauncher = False
         ElseIf LCase(Left(Astr, 8)) = "--record" Then
             g_recordControlRecord = True
-            g_recordGameplay = True
         ElseIf LCase(Left(Astr, 12)) = "--replay-id=" Then
             g_recordControlReplay = True
-            g_recordGameplay = True
             g_recordReplayId = CInt(Mid(Astr, 13))
             MaxFPS = True
             ShowFPS = True
         ElseIf LCase(Left(Astr, 8)) = "--replay" Then
             g_recordControlReplay = True
-            g_recordGameplay = True
             MaxFPS = True
             ShowFPS = True
             Open "output1.txt" For Output As #7
@@ -1449,6 +1447,7 @@ Sub Main()
 
         If frmLoader.chkFrameskip.Value <> 0 Then FrameSkip = False
         If frmLoader.chkSound.Value <> 0 Then noSound = True
+        If frmLoader.chkRecord.Value <> 0 Then g_recordControlRecord = True
 
         Unload frmLoader
     End If

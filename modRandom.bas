@@ -23,7 +23,6 @@ Public Function random_double() As Double
         random_double = Rnd()
     Else
         random_double = cpprand_double()
-        'Print #7, "r", n_calls
         n_calls = n_calls + 1
     End If
 End Function

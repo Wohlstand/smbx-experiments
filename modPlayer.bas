@@ -7375,8 +7375,6 @@ Public Sub LinkFrame(A As Integer)
                     Dim dub As Double
                     dub = random_double
                     .SlideCounter = 2 + dub * 2
-                    Print #7, "dub", dub
-                    Print #7, "nsc", Player(A).SlideCounter
                     tempLocation.Y = .Location.Y + .Location.Height - 4
                     If .Location.SpeedX < 0 Then
                         tempLocation.X = .Location.X + .Location.Width / 2 - 6 - 4

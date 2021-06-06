@@ -1419,7 +1419,6 @@ Sub Main()
             g_recordControlReplay = True
             MaxFPS = True
             ShowFPS = True
-            Open "output1.txt" For Output As #7
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Astr
@@ -8135,7 +8134,6 @@ Public Sub PauseGame(plr As Integer)
     fpsTime = 0
     cycleCount = 0
     gameTime = 0
-    Print #7, "PAUSE"
     Do
         tempTime = GetTickCount
         If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
@@ -8316,7 +8314,6 @@ Public Sub PauseGame(plr As Integer)
         If qScreen = True Then stopPause = False
         Sleep sleepDelay
     Loop Until stopPause = True
-    Print #7, "RESUME"
     GamePaused = False
     Player(plr).UnStart = False
     Player(plr).CanJump = False

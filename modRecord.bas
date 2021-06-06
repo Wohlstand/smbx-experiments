@@ -372,6 +372,5 @@ Public Sub record_sync()
             Print #s_recordGameplayFD, Player(i).Location.Y
         Next i
     End If
-    Print #7, "f", frame_no
     frame_no = frame_no + 1
 End Sub

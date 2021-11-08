@@ -4963,50 +4963,52 @@ End Sub
 
 
 Public Function pfrX(plrFrame As Integer) As Integer
-    Dim A As Integer
-    A = plrFrame
-    A = A - 50
-    Do While A > 100
-        A = A - 100
-    Loop
-    If A > 90 Then
-        A = 9
-    ElseIf A > 90 Then
-        A = 9
-    ElseIf A > 80 Then
-        A = 8
-    ElseIf A > 70 Then
-        A = 7
-    ElseIf A > 60 Then
-        A = 6
-    ElseIf A > 50 Then
-        A = 5
-    ElseIf A > 40 Then
-        A = 4
-    ElseIf A > 30 Then
-        A = 3
-    ElseIf A > 20 Then
-        A = 2
-    ElseIf A > 10 Then
-        A = 1
-    Else
-        A = 0
-    End If
-    pfrX = A * 100
+    pfrX = ((plrFrame - 100 + 49) \ 10) * 100
+'    Dim A As Integer
+'    A = plrFrame
+'    A = A - 50
+'    Do While A > 100
+'        A = A - 100
+'    Loop
+'    If A > 90 Then
+'        A = 9
+'    ElseIf A > 90 Then
+'        A = 9
+'    ElseIf A > 80 Then
+'        A = 8
+'    ElseIf A > 70 Then
+'        A = 7
+'    ElseIf A > 60 Then
+'        A = 6
+'    ElseIf A > 50 Then
+'        A = 5
+'    ElseIf A > 40 Then
+'        A = 4
+'    ElseIf A > 30 Then
+'        A = 3
+'    ElseIf A > 20 Then
+'        A = 2
+'    ElseIf A > 10 Then
+'        A = 1
+'    Else
+'        A = 0
+'    End If
+'    pfrX = A * 100
 End Function
 
 Public Function pfrY(plrFrame As Integer) As Integer
-    Dim A As Integer
-    A = plrFrame
-    A = A - 50
-    Do While A > 100
-        A = A - 100
-    Loop
-    A = A - 1
-    Do While A > 9
-        A = A - 10
-    Loop
-    pfrY = A * 100
+    pfrY = ((plrFrame - 100 + 49) Mod 10) * 100
+'    Dim A As Integer
+'    A = plrFrame
+'    A = A - 50
+'    Do While A > 100
+'        A = A - 100
+'    Loop
+'    A = A - 1
+'    Do While A > 9
+'        A = A - 10
+'    Loop
+'    pfrY = A * 100
 End Function
 
 Public Sub GameThing()

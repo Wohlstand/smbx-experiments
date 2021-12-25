@@ -231,7 +231,6 @@ End If
                             .Special = 1
                             .Immune = 20
                             CheckSectionNPC numNPCs
-                            Debug.Print "Made coin", .Type, "with speed", .Location.SpeedX, .Location.SpeedY
                         End With
                         If B > 20 Or (Player(whatPlayer).Character = 5 And B > 5) Then Exit For
                     Next B

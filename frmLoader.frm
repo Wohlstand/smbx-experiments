@@ -130,7 +130,7 @@ Private Sub Form_Load()
     Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
     chkFrameskip.Value = IIf(FrameSkip, 0, 1)
     chkSound.Value = IIf(noSound, 1, 0)
-    chkRecord.Value = IIf(g_recordControlRecord, 1, 0)
+    chkRecord.Value = IIf(g_recordEnabled, 1, 0)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

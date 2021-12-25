@@ -5,7 +5,6 @@ Private n_calls As Long
 Private Declare Sub cpprand_seed Lib "cpprand.dll" (ByVal seed As Integer)
 Private Declare Function cpprand_double Lib "cpprand.dll" () As Double
 
-
 Public Sub random_init()
     Randomize Timer
     use_cpp = False
@@ -31,3 +30,6 @@ Public Function random_int(max As Integer) As Integer
     random_int = Int(random_double() * max)
 End Function
 
+Public Function random_ncalls() As Long
+    random_ncalls = n_calls
+End Function

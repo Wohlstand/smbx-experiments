@@ -1378,8 +1378,7 @@ Sub Main()
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled
     random_init
-    g_recordReplayId = -1
-    g_recordControlRecord = True
+    g_recordEnabled = True
     FrameSkip = True
 
     Argv = GetCommandLine(42)
@@ -1408,17 +1407,17 @@ Sub Main()
             loadFileOnStartDoTest = True
             LevelEditor = True
             DoShowLauncher = False
-        ElseIf LCase(Left(Astr, 8)) = "--record" Then
-            g_recordControlRecord = True
-        ElseIf LCase(Left(Astr, 12)) = "--replay-id=" Then
-            g_recordControlReplay = True
-            g_recordReplayId = CInt(Mid(Astr, 13))
-            MaxFPS = True
-            ShowFPS = True
-        ElseIf LCase(Left(Astr, 8)) = "--replay" Then
-            g_recordControlReplay = True
-            MaxFPS = True
-            ShowFPS = True
+        ' ElseIf LCase(Left(Astr, 8)) = "--record" Then
+        '     g_recordControlRecord = True
+        ' ElseIf LCase(Left(Astr, 12)) = "--replay-id=" Then
+        '     g_recordControlReplay = True
+        '     g_recordReplayId = CInt(Mid(Astr, 13))
+        '     MaxFPS = True
+        '     ShowFPS = True
+        ' ElseIf LCase(Left(Astr, 8)) = "--replay" Then
+        '     g_recordControlReplay = True
+        '     MaxFPS = True
+        '     ShowFPS = True
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Astr
@@ -1446,7 +1445,7 @@ Sub Main()
 
         If frmLoader.chkFrameskip.Value <> 0 Then FrameSkip = False
         If frmLoader.chkSound.Value <> 0 Then noSound = True
-        If frmLoader.chkRecord.Value <> 0 Then g_recordControlRecord = True
+        If frmLoader.chkRecord.Value <> 0 Then g_recordEnabled = True
 
         Unload frmLoader
     End If

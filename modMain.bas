@@ -1378,6 +1378,7 @@ Sub Main()
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled
     random_init
+    g_compatMode = False
     g_recordEnabled = True
     FrameSkip = True
 
@@ -1443,9 +1444,10 @@ Sub Main()
             DoEvents
         Loop While StartMenu = False 'wait until the player clicks a button
 
-        If frmLoader.chkFrameskip.Value <> 0 Then FrameSkip = False
-        If frmLoader.chkSound.Value <> 0 Then noSound = True
-        If frmLoader.chkRecord.Value <> 0 Then g_recordEnabled = True
+        FrameSkip = IIf(frmLoader.chkFrameskip.Value = 1, True, False)
+        noSound = IIf(frmLoader.chkSound.Value = 1, True, False)
+        g_recordEnabled = IIf(frmLoader.chkRecord.Value = 1, True, False)
+        g_compatMode = IIf(frmLoader.chkCompat.Value = 1, True, False)
 
         Unload frmLoader
     End If

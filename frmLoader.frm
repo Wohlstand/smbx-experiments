@@ -20,7 +20,7 @@ Begin VB.Form frmLoader
       TabIndex        =   10
       Top             =   1560
       Value           =   1  'Checked
-      Width           =   2175
+      Width           =   4455
    End
    Begin VB.CheckBox chkFrameskip 
       Caption         =   "Disable Frameskip"
@@ -36,7 +36,7 @@ Begin VB.Form frmLoader
       Left            =   1920
       TabIndex        =   3
       Top             =   1200
-      Width           =   1455
+      Width           =   1335
    End
    Begin VB.CommandButton cmdExit 
       Caption         =   "Exit"
@@ -77,6 +77,15 @@ Begin VB.Form frmLoader
       TabIndex        =   6
       Top             =   960
       Width           =   4695
+      Begin VB.CheckBox chkCompat 
+         Caption         =   "Strict compatibility mode"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   11
+         ToolTipText     =   "Ensure all in-game bugs of SMBX 1.3 will work"
+         Top             =   960
+         Width           =   4335
+      End
       Begin VB.CommandButton showLog 
          Caption         =   "Show debug log"
          Height          =   255
@@ -131,6 +140,7 @@ Private Sub Form_Load()
     chkFrameskip.Value = IIf(FrameSkip, 0, 1)
     chkSound.Value = IIf(noSound, 1, 0)
     chkRecord.Value = IIf(g_recordEnabled, 1, 0)
+    chkCompat.Value = IIf(g_compatMode, 1, 0)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

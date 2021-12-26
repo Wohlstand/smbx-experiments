@@ -307,6 +307,16 @@ Public Sub ProcEvent(EventName As String, Optional NoEffect As Boolean = False)
                                     Block(C).Location.SpeedY = Layer(B).SpeedY
                                 End If
                             Next C
+
+                            If Not g_compatMode Then
+                                For C = 1 To numBackground + numLocked
+                                    If Background(C).Layer = Layer(B).Name Then
+                                        Background(C).Location.SpeedX = Layer(B).SpeedX
+                                        Background(C).Location.SpeedY = Layer(B).SpeedY
+                                    End If
+                                Next C
+                            End If
+
                             For C = 1 To numNPCs
                                 If NPC(C).Layer = Layer(B).Name Then
                                     If NPCIsAVine(NPC(C).Type) Or NPC(C).Type = 91 Then
@@ -452,6 +462,15 @@ Public Sub UpdateLayers()
                         Block(B).Location.SpeedY = 0
                     End If
                 Next B
+
+                If Not g_compatMode Then
+                    For B = 1 To numBackground + numLocked
+                        If Background(B).Layer = Layer(A).Name Then
+                            Background(B).Location.SpeedX = Layer(A).SpeedX
+                            Background(B).Location.SpeedY = Layer(A).SpeedY
+                        End If
+                    Next B
+                End If
             End If
         Else
             If Layer(A).Name <> "" And (Layer(A).SpeedX <> 0 Or Layer(A).SpeedY <> 0) And Not (FreezeLayers = True And Layer(A).EffectStop = True) Then
@@ -472,18 +491,25 @@ Public Sub UpdateLayers()
                         Block(B).Location.SpeedY = Layer(A).SpeedY
                     End If
                 Next B
+
                 For B = 1 To numBackground + numLocked
                     If Background(B).Layer = Layer(A).Name Then
                         Background(B).Location.X = Background(B).Location.X + Layer(A).SpeedX
                         Background(B).Location.Y = Background(B).Location.Y + Layer(A).SpeedY
+                        If Not g_compatMode And BackgroundFence(Background(B).Type) Then
+                            Background(B).Location.SpeedX = Layer(A).SpeedX
+                            Background(B).Location.SpeedY = Layer(A).SpeedY
+                        End If
                     End If
                 Next B
+
                 For B = 1 To numWater
                     If Water(B).Layer = Layer(A).Name Then
                         Water(B).Location.X = Water(B).Location.X + Layer(A).SpeedX
                         Water(B).Location.Y = Water(B).Location.Y + Layer(A).SpeedY
                     End If
                 Next B
+
                 For B = 1 To numNPCs
                     If NPC(B).Layer = Layer(A).Name Then
                         NPC(B).DefaultLocation.X = NPC(B).DefaultLocation.X + Layer(A).SpeedX

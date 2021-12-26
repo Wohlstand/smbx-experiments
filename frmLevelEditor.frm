@@ -297,6 +297,17 @@ Begin VB.MDIForm frmLevelEditor
          Caption         =   "&Reset Game"
          Shortcut        =   {F8}
       End
+      Begin VB.Menu mnuTestLevel2 
+         Caption         =   "-"
+      End
+      Begin VB.Menu menuRecordGameplay 
+         Caption         =   "Record gameplay data"
+         Checked         =   -1  'True
+      End
+      Begin VB.Menu menuCompatMode 
+         Caption         =   "Strict compatibility mode"
+         Checked         =   -1  'True
+      End
       Begin VB.Menu MenuTestLeveld 
          Caption         =   "-"
          Visible         =   0   'False
@@ -499,6 +510,8 @@ Private Sub MDIForm_Load()
     frmEvents.Left = frmLevelWindow.Width
     frmEvents.RefreshEvents
 
+    frmLevelEditor.menuRecordGameplay.Checked = g_recordEnabled
+    frmLevelEditor.menuCompatMode.Checked = g_compatMode
     
     For A = 0 To maxSections
         bgColor(A) = GFX.BackgroundColor(1).BackColor
@@ -545,6 +558,11 @@ Private Sub menHelp_Click()
     Exit Sub
 Bugs:
     MsgBox "The help file 'SMBx Editor Help.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
+End Sub
+
+Private Sub menuCompatMode_Click()
+    frmLevelEditor.menuCompatMode.Checked = Not frmLevelEditor.menuCompatMode.Checked
+    g_compatMode = frmLevelEditor.menuCompatMode.Checked
 End Sub
 
 Private Sub menuCurDirOpen_Click()
@@ -719,6 +737,11 @@ Private Sub menuNetplay_Click()
     Else
         frmNetplay.Show
     End If
+End Sub
+
+Private Sub menuRecordGameplay_Click()
+    frmLevelEditor.menuRecordGameplay.Checked = Not frmLevelEditor.menuRecordGameplay.Checked
+    g_recordEnabled = frmLevelEditor.menuRecordGameplay.Checked
 End Sub
 
 Private Sub menureset_Click()

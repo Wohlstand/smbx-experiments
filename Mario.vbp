@@ -57,6 +57,7 @@ Form=frmDebugLog.frm
 Form=frmAbout.frm
 Module=modRecord; modRecord.bas
 Module=modRandom; modRandom.bas
+Module=modCompat; modCompat.bas
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

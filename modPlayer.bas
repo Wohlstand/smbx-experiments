@@ -753,7 +753,7 @@ SlippySpeedX = .Location.SpeedX
                             Else
                                 .Location.SpeedY = 0
                             End If
-                            If .VineBGO > 0 Then
+                            If Not g_compatMode And .VineBGO > 0 Then
                                 .Location.SpeedX = .Location.SpeedX + Background(.VineBGO).Location.SpeedX
                                 .Location.SpeedY = .Location.SpeedY + Background(.VineBGO).Location.SpeedY
                             Else
@@ -2740,7 +2740,7 @@ End If
                         
 'check vine backgrounds
     For B = 1 To numBackground
-        If BackgroundFence(Background(B).Type) = True And Not Background(B).Hidden Then
+        If BackgroundFence(Background(B).Type) = True And (Not Background(B).Hidden Or g_compatMode) Then
             If CheckCollision(.Location, Background(B).Location) Then
                 tempLocation = Background(B).Location
                 tempLocation.Height = tempLocation.Height - 16
@@ -2774,7 +2774,9 @@ End If
                             End If
                             If .Vine > 0 Then
                                 .VineNPC = -1
-                                .VineBGO = B
+                                If Not g_compatMode Then
+                                    .VineBGO = B
+                                End If
                             End If
                         End If
                     End If
@@ -3025,7 +3027,9 @@ End If
                                                     End If
                                                     If .Vine > 0 Then
                                                         .VineNPC = B
-                                                        .VineBGO = 0
+                                                        If Not g_compatMode Then
+                                                            .VineBGO = 0
+                                                        End If
                                                     End If
                                                 End If
                                             End If

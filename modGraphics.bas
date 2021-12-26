@@ -4963,50 +4963,52 @@ End Sub
 
 
 Public Function pfrX(plrFrame As Integer) As Integer
-    Dim A As Integer
-    A = plrFrame
-    A = A - 50
-    Do While A > 100
-        A = A - 100
-    Loop
-    If A > 90 Then
-        A = 9
-    ElseIf A > 90 Then
-        A = 9
-    ElseIf A > 80 Then
-        A = 8
-    ElseIf A > 70 Then
-        A = 7
-    ElseIf A > 60 Then
-        A = 6
-    ElseIf A > 50 Then
-        A = 5
-    ElseIf A > 40 Then
-        A = 4
-    ElseIf A > 30 Then
-        A = 3
-    ElseIf A > 20 Then
-        A = 2
-    ElseIf A > 10 Then
-        A = 1
-    Else
-        A = 0
-    End If
-    pfrX = A * 100
+    pfrX = ((plrFrame - 100 + 49) \ 10) * 100
+'    Dim A As Integer
+'    A = plrFrame
+'    A = A - 50
+'    Do While A > 100
+'        A = A - 100
+'    Loop
+'    If A > 90 Then
+'        A = 9
+'    ElseIf A > 90 Then
+'        A = 9
+'    ElseIf A > 80 Then
+'        A = 8
+'    ElseIf A > 70 Then
+'        A = 7
+'    ElseIf A > 60 Then
+'        A = 6
+'    ElseIf A > 50 Then
+'        A = 5
+'    ElseIf A > 40 Then
+'        A = 4
+'    ElseIf A > 30 Then
+'        A = 3
+'    ElseIf A > 20 Then
+'        A = 2
+'    ElseIf A > 10 Then
+'        A = 1
+'    Else
+'        A = 0
+'    End If
+'    pfrX = A * 100
 End Function
 
 Public Function pfrY(plrFrame As Integer) As Integer
-    Dim A As Integer
-    A = plrFrame
-    A = A - 50
-    Do While A > 100
-        A = A - 100
-    Loop
-    A = A - 1
-    Do While A > 9
-        A = A - 10
-    Loop
-    pfrY = A * 100
+    pfrY = ((plrFrame - 100 + 49) Mod 10) * 100
+'    Dim A As Integer
+'    A = plrFrame
+'    A = A - 50
+'    Do While A > 100
+'        A = A - 100
+'    Loop
+'    A = A - 1
+'    Do While A > 9
+'        A = A - 10
+'    Loop
+'    pfrY = A * 100
 End Function
 
 Public Sub GameThing()
@@ -5082,10 +5084,10 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                         
                     End If
                     'Yoshi's Body
-                    BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX, vScreenY(Z) + .Location.Y + .YoshiBY, 32, 32, GFXYoshiBMask(B), 0, 32 * .YoshiBFrame, vbSrcAnd
+                    BitBlt myBackBuffer, vScreenX(Z) + (.Location.X) + .YoshiBX, vScreenY(Z) + .Location.Y + .YoshiBY, 32, 32, GFXYoshiBMask(B), 0, 32 * .YoshiBFrame, vbSrcAnd
                     If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX, vScreenY(Z) + .Location.Y + .YoshiBY, 32, 32, GFXYoshiB(B), 0, 32 * .YoshiBFrame, vbSrcPaint
                     'Yoshi's Head
-                    BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiTX, vScreenY(Z) + .Location.Y + .YoshiTY, 32, 32, GFXYoshiTMask(B), 0, 32 * .YoshiTFrame, vbSrcAnd
+                    BitBlt myBackBuffer, vScreenX(Z) + (.Location.X) + .YoshiTX, vScreenY(Z) + .Location.Y + .YoshiTY, 32, 32, GFXYoshiTMask(B), 0, 32 * .YoshiTFrame, vbSrcAnd
                     If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiTX, vScreenY(Z) + .Location.Y + .YoshiTY, 32, 32, GFXYoshiT(B), 0, 32 * .YoshiTFrame, vbSrcPaint
                 End If
                 If .Fairy = True Then 'draw a fairy
@@ -5102,7 +5104,7 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                 ElseIf .Character = 1 Then 'draw mario
                     If .Mount = 0 Then
                         BitBlt myBackBuffer, _
-                            vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
+                            vScreenX(Z) + .Location.X + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
                             vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), _
                             99, 99, _
                             GFXMarioMask(.State), _
@@ -5112,7 +5114,7 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                         
                         If ShadowMode = False Then _
                             BitBlt myBackBuffer, _
-                                vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
+                                vScreenX(Z) + .Location.X + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
                                 vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), _
                                 99, 99, _
                                 GFXMario(.State), _
@@ -5121,28 +5123,28 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                                 vbSrcPaint
                     ElseIf .Mount = 1 Then
                         If .Duck = False Then
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - MarioFrameY((.State * 100) + (.Frame * .Direction)), GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - MarioFrameY((.State * 100) + (.Frame * .Direction)), GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - MarioFrameY((.State * 100) + (.Frame * .Direction)), GFXMario(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                         End If
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
                     ElseIf .Mount = 3 Then
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXMarioMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + MarioFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + MarioFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXMario(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     End If
                 ElseIf .Character = 2 Then 'draw luigi
                     If .Mount = 0 Then
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXLuigi(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     ElseIf .Mount = 1 Then
                         If .Duck = False Then
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - LuigiFrameY((.State * 100) + (.Frame * .Direction)), GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - LuigiFrameY((.State * 100) + (.Frame * .Direction)), GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - LuigiFrameY((.State * 100) + (.Frame * .Direction)), GFXLuigi(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                         End If
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
                     ElseIf .Mount = 3 Then
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXLuigiMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + LuigiFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LuigiFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXLuigi(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     End If
                 ElseIf .Character = 3 Then 'draw peach
@@ -5151,10 +5153,10 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + PeachFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXPeach(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     ElseIf .Mount = 1 Then
                         If .Duck = False Then
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + PeachFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - PeachFrameY((.State * 100) + (.Frame * .Direction)) - 2, GFXPeachMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X + PeachFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - PeachFrameY((.State * 100) + (.Frame * .Direction)) - 2, GFXPeachMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + PeachFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - PeachFrameY((.State * 100) + (.Frame * .Direction)) - 2, GFXPeach(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                         End If
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
                     End If
                 ElseIf .Character = 4 Then 'draw Toad
@@ -5164,14 +5166,14 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                     ElseIf .Mount = 1 Then
                         If .Duck = False Then
                             If .State = 1 Then
-                                BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + ToadFrameX((.State * 100) + (.Frame * .Direction)), 6 + vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToadMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                                BitBlt myBackBuffer, vScreenX(Z) + .Location.X + ToadFrameX((.State * 100) + (.Frame * .Direction)), 6 + vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToadMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                                 If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + ToadFrameX((.State * 100) + (.Frame * .Direction)), 6 + vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToad(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                             Else
-                                BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + ToadFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToadMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
+                                BitBlt myBackBuffer, vScreenX(Z) + .Location.X + ToadFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToadMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                                 If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + ToadFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + ToadFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 26 - .MountOffsetY - ToadFrameY((.State * 100) + (.Frame * .Direction)), GFXToad(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                             End If
                         End If
-                        BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
+                        BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .Location.Width / 2 - 16, vScreenY(Z) + .Location.Y + .Location.Height - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
                     End If
                 ElseIf .Character = 5 Then 'draw link
@@ -5180,6 +5182,7 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + LinkFrameX((.State * 100) + (.Frame * .Direction)), vScreenY(Z) + .Location.Y + LinkFrameY((.State * 100) + (.Frame * .Direction)), 99, 99, GFXLink(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     End If
                 End If
+
             'peach/toad held npcs
                 If (.Character = 3 Or .Character = 4) And .HoldingNPC > 0 And .Effect <> 7 Then
                     With NPC(.HoldingNPC)
@@ -5200,22 +5203,31 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                         End If
                     End With
                 End If
+
                 If .Fairy = False Then
                     If .Mount = 3 And .YoshiBlue = True Then
                         If .Direction = 1 Then
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX - 12, vScreenY(Z) + .Location.Y + .YoshiBY - 16, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
-                            If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX - 12, vScreenY(Z) + .Location.Y + .YoshiBY - 16, 32, 32, GFX.YoshiWings.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcPaint
+                            BitBlt myBackBuffer, _
+                                   vScreenX(Z) + .Location.X + .YoshiBX - 12, _
+                                   vScreenY(Z) + .Location.Y + .YoshiBY - 16, _
+                                   32, 32, _
+                                   GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
+                            If ShadowMode = False Then _
+                                BitBlt myBackBuffer, _
+                                       vScreenX(Z) + .Location.X + .YoshiBX - 12, _
+                                       vScreenY(Z) + .Location.Y + .YoshiBY - 16, _
+                                       32, 32, GFX.YoshiWings.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcPaint
                         Else
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX + 12, vScreenY(Z) + .Location.Y + .YoshiBY - 16, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X + .YoshiBX + 12, vScreenY(Z) + .Location.Y + .YoshiBY - 16, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + .YoshiBX + 12, vScreenY(Z) + .Location.Y + .YoshiBY - 16, 32, 32, GFX.YoshiWings.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcPaint
                         End If
                     End If
                     If .Mount = 1 And .MountType = 3 Then
                         If .Direction = 1 Then
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) - 24, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X - 24, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) - 24, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWings.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcPaint
                         Else
-                            BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + 16, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
+                            BitBlt myBackBuffer, vScreenX(Z) + .Location.X + 16, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWingsMask.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcAnd
                             If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.Location.X) + 16, vScreenY(Z) + .Location.Y + .Location.Height - 40, 32, 32, GFX.YoshiWings.hdc, 0, 0 + 32 * .YoshiWingsFrame, vbSrcPaint
                         End If
                     End If

@@ -1,8 +1,10 @@
 Super Mario Bros. X Changelog.
 
 
-Changes for 1.3.1+ (made by Wohlstand):
+Changes for 1.3.2 (made by Wohlstand):
 -Fixed the player jittering while moving camera
+-Added gameplay recording ability (made by ds-sloth)
+-Added compatibility mode to re-enable bugs of SMBX 1.3
 
 
 Changes for 1.3.1 (made by Wohlstand):

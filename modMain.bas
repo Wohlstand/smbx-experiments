@@ -6279,7 +6279,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                     Input #1, .Special
                     .DefaultSpecial = .Special
                 End If
-                If .Type = 86 And FileRelease < 9 Then
+                If .Type = 86 And FileRelease < 9 And Not g_compatMode Then
                     .Special7 = 1
                 Else
                     .Special7 = 0

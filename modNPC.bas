@@ -10206,7 +10206,7 @@ Public Sub NPCSpecial(A As Integer)
                                     End If
                                 Next B
 
-                                If Not pausePlatforms Then
+                                If g_compatMode Or Not pausePlatforms Then
                                     .Location.SpeedY = .Special
                                     .Location.SpeedX = .Special2
                                 End If
@@ -10296,10 +10296,12 @@ Public Sub NPCSpecial(A As Integer)
                                     .Location.SpeedY = .Location.SpeedY + D
                                 End If
 
-                                If Not pausePlatforms Then
+                                If g_compatMode Or Not pausePlatforms Then
                                     .Special = .Location.SpeedY
                                     .Special2 = .Location.SpeedX
-                                Else
+                                End If
+
+                                If pausePlatforms Then
                                     .Location.SpeedX = 0
                                     .Location.SpeedY = 0
                                 End If

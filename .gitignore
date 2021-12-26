@@ -3,6 +3,7 @@ graphics/*
 worlds/*
 music/*
 sound/*
+gameplay-records/*
 *.log
 Mario.vbw
 config.dat

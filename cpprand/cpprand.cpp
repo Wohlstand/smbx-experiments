@@ -23,10 +23,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-#include <random>
 #include <cstdio>
+#include <cmath>
+#include "pcg/pcg_random.hpp"
 
-static std::mt19937 engine;
+static pcg32 engine;
 
 #ifdef WIN32
 extern "C" __stdcall __declspec(dllexport)
@@ -41,7 +42,7 @@ extern "C" __stdcall __declspec(dllexport)
 #endif
 double cpprand_double()
 {
-    return (double)(engine()) / (double)0x100000000;
+    return ldexp(engine(), -32);
 }
 
 int main(int argc, char** argv)

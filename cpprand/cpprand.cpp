@@ -45,6 +45,14 @@ double cpprand_double()
     return ldexp(engine(), -32);
 }
 
+#ifdef WIN32
+extern "C" __stdcall __declspec(dllexport)
+#endif
+int cpprand_int32(int max)
+{
+    return engine() % max;
+}
+
 int main(int argc, char** argv)
 {
     printf("This is a library and can't be run, but if you want to try, then...\n");

@@ -393,7 +393,7 @@ Public Sub UpdateEffects() 'Updates the effects
                         .Frame = .Frame + 1
                         If .Frame >= 4 Then .Frame = 0
                     End If
-                If .Type = 148 And random_double * 10 > 8 Then
+                If .Type = 148 Then If random_int(10) >= 8 Then
                     NewEffect 77, .Location, 3
                     Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5
                     Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5
@@ -1005,7 +1005,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     .Location.X = .Location.X + .Location.SpeedX * 3
                     .Location.Y = .Location.Y + .Location.SpeedY * 3
                     
-                    .Frame = Int(random_double * 4)
+                    .Frame = random_int(4)
                     .Type = A
                 End With
             End If
@@ -1196,8 +1196,8 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Location.SpeedY = -2 - random_double * 10
             .Location.SpeedX = random_double * 8 - 4
             .Frame = 0
-            If Int(random_double * 2) = 1 Then .Frame = 7
-            .Frame = .Frame + Int(random_double * 7)
+            If random_int(2) = 0 Then .Frame = 7
+            .Frame = .Frame + random_int(7)
             .Life = 300
             .Type = A
         End With

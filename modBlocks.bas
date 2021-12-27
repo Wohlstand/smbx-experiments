@@ -67,7 +67,7 @@ Public Sub BlockHit(A As Integer, Optional HitDown As Boolean = False, Optional 
         oldSpecial = .Special
         If .ShakeY <> 0 Or .ShakeY2 <> 0 Or .ShakeY3 <> 0 Then 'if the block has just been hit, ignore
             If .RapidHit > 0 And Player(whatPlayer).Character = 4 And whatPlayer > 0 Then
-                .RapidHit = Int(random_double * 3) + 1
+                .RapidHit = random_int(3) + 1
             End If
             Exit Sub
         End If
@@ -181,7 +181,7 @@ End If
             newBlock = 2
         End If
         If .Special > 0 And .Special < 100 Then 'Block has coins
-            If whatPlayer > 0 And Player(whatPlayer).Character = 4 Then .RapidHit = Int(random_double * 3) + 1
+            If whatPlayer > 0 And Player(whatPlayer).Character = 4 Then .RapidHit = random_int(3) + 1
             If HitDown = False Then
                 BlockShakeUp A
             Else
@@ -212,8 +212,8 @@ End If
                             End If
                             If Player(whatPlayer).Character = 5 Then
                                 .Type = 251
-                                If random_double * 20 <= 3 Then .Type = 252
-                                If random_double * 60 <= 3 Then .Type = 253
+                                If random_int(20) < 3 Then .Type = 252
+                                If random_int(60) < 3 Then .Type = 253
                                 PlaySound 81
                             Else
                                 PlaySound 14

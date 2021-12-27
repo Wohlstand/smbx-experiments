@@ -5518,7 +5518,7 @@ Public Sub MenuLoop()   'The loop for the menu
                 If .Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0 Then .CanJump = True
             End If
             If .HoldingNPC = 0 Then
-                If (.State = 3 Or .State = 6 Or .State = 7) And random_double * 100 > 90 Then
+                If (.State = 3 Or .State = 6 Or .State = 7) Then If random_int(100) >= 90 Then
                     If .FireBallCD = 0 And .RunRelease = False Then
                         .Controls.Run = False
                     End If
@@ -5653,7 +5653,7 @@ Public Sub MenuLoop()   'The loop for the menu
                     Next B
                 Loop While tempBool = False
                 If UnderWater(.Section) = False Then
-                    If random_int(25) + 1 = 25 Then
+                    If random_int(25) = 0 Then
                         .Mount = 1
                         .MountType = random_int(3) + 1
                         If .State = 1 Then
@@ -5663,7 +5663,7 @@ Public Sub MenuLoop()   'The loop for the menu
                     End If
                 End If
                 If .Mount = 0 And .Character <= 2 Then
-                    If random_int(15) + 1 = 15 Then
+                    If random_int(15) = 0 Then
                         .Mount = 3
                         .MountType = random_int(7) + 1
                         .Location.Y = .Location.Y + .Location.Height
@@ -5699,11 +5699,11 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
             If .WetFrame = True Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Then .CanJump = True
-                If random_double * 100 > 98 Or .Location.SpeedY = 0 Or .Slope > 0 Then .Controls.Jump = True
+                If random_int(100) >= 98 Or .Location.SpeedY = 0 Or .Slope > 0 Then .Controls.Jump = True
             End If
-            If random_double * 100 > 95 And .HoldingNPC = 0 And .Slide = False And .CanAltJump = True And .Mount = 0 Then .Controls.AltJump = True
-            If random_double * 1000 >= 999 And .CanFly2 = False Then .Controls.Run = False
-            If .Mount = 3 And random_double * 100 >= 98 And .RunRelease = False Then .Controls.Run = False
+            If random_int(20) = 0 And .HoldingNPC = 0 And .Slide = False And .CanAltJump = True And .Mount = 0 Then .Controls.AltJump = True
+            If random_int(1000) = 0 And .CanFly2 = False Then .Controls.Run = False
+            If .Mount = 3 Then If random_int(50) = 0 And .RunRelease = False Then .Controls.Run = False
             If NPC(.HoldingNPC).Type = 22 Or NPC(.HoldingNPC).Type = 49 Then .Controls.Run = True
             If .Slide = True And .CanJump = True Then
                 If .Location.SpeedX > -2 And .Location.SpeedX < 2 Then .Controls.Jump = True
@@ -5715,13 +5715,15 @@ Public Sub MenuLoop()   'The loop for the menu
                 .CanJump = True
                 .Controls.Jump = True
             End If
-            If .FloatTime > 0 Or (.CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 And random_double * 100 > 95) Then
+            If .FloatTime > 0  Then
+                .Controls.Jump = True
+            Else If .CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 Then If random_int(20) = 0 Then
                 .Controls.Jump = True
             End If
-            If NPC(.HoldingNPC).Type = 13 And random_double * 100 > 95 Then
+            If NPC(.HoldingNPC).Type = 13 Then If random_int(20) = 0 Then
                 .Controls.Run = False
-                If random_double * 2 > 1 Then .Controls.Up = True
-                If random_double * 2 > 1 Then .Controls.Right = False
+                If random_int(2) = 0 Then .Controls.Up = True
+                If random_int(2) = 0 Then .Controls.Right = False
             End If
             
             If .Slide = False And (.Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0) Then
@@ -5779,7 +5781,7 @@ Public Sub MenuLoop()   'The loop for the menu
     
     
     If MenuMouseDown = True Then
-        If random_double * 100 > 40 Then
+        If random_int(5) >= 2 Then
             NewEffect 80, newLoc(MenuMouseX - vScreenX(1), MenuMouseY - vScreenY(1))
             Effect(numEffects).Location.SpeedX = random_double * 4 - 2
             Effect(numEffects).Location.SpeedY = random_double * 4 - 2

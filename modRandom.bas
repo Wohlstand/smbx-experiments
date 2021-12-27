@@ -2,8 +2,9 @@ Attribute VB_Name = "modRandom"
 Private use_cpp As Boolean
 Private n_calls As Long
 
-Private Declare Sub cpprand_seed Lib "cpprand.dll" (ByVal seed As Integer)
+Private Declare Sub cpprand_seed Lib "cpprand.dll" (ByVal seed As Long)
 Private Declare Function cpprand_double Lib "cpprand.dll" () As Double
+Private Declare Function cpprand_int32 Lib "cpprand.dll" (ByVal max As Long) As Long
 
 Public Sub random_init()
     Randomize Timer
@@ -27,7 +28,24 @@ Public Function random_double() As Double
 End Function
 
 Public Function random_int(max As Integer) As Integer
-    random_int = Int(random_double() * max)
+    If use_cpp = False Then
+        random_int = Int(Rnd() * max)
+    Else
+        random_int = cpprand_int32(max)
+        n_calls = n_calls + 1
+    End If
+End Function
+
+Public Function random_int_round(max As Integer) As Integer
+    If use_cpp = False Then
+        random_int = Rnd() * max
+    Else
+        Dim i As Long
+        i = cpprand_int32(max * 2)
+        If i = 0 Then random_int = max
+        Else random_int = i \ 2
+        n_calls = n_calls + 1
+    End If
 End Function
 
 Public Function random_ncalls() As Long

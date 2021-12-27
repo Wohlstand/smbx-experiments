@@ -969,7 +969,7 @@ SlippySpeedX = .Location.SpeedX
                     End If
                 'fairy stuff
                     If .FairyTime <> 0 And .Fairy = True Then
-                        If random_double * 10 > 9 Then
+                        If random_int(10) = 0 Then
                             NewEffect 80, newLoc(.Location.X - 8 + random_double * (.Location.Width + 16) - 4, .Location.Y - 8 + random_double * (.Location.Height + 16)), , , ShadowMode
                             Effect(numEffects).Location.SpeedX = random_double * 0.5 - 0.25
                             Effect(numEffects).Location.SpeedY = random_double * 0.5 - 0.25
@@ -1519,11 +1519,11 @@ wasSlippy = .Slippy
                                     .StandingOnNPC = 0
                                     .NoShellKick = 30
                                 Else
-                                    If random_double * 10 > 3 Then
+                                    If random_int(10) >= 3 Then
                                     tempLocation.Y = .Location.Y + .Location.Height - 2 + random_double * (NPC(.StandingOnNPC).Location.Height - 8) + 4
                                     tempLocation.X = .Location.X - 4 + random_double * (.Location.Width - 8) + 4 - 8 * .Direction
                                     NewEffect 80, tempLocation, , , ShadowMode
-                                    Effect(numEffects).Frame = Int(random_double * 3)
+                                    Effect(numEffects).Frame = random_int(3)
                                     Effect(numEffects).Location.SpeedY = (.Location.Y + .Location.Height + NPC(.StandingOnNPC).Location.Height / 32 - tempLocation.Y + 12) * 0.05
                                     End If
                                 End If
@@ -1725,7 +1725,7 @@ wasSlippy = .Slippy
                                     End If
                                     
                                     If Not ((.YoshiBlue = False And (.CanFly = True Or .CanFly2 = True)) Or .Mount = 3 And .CanFly2 = True) Then
-                                        If random_double * 10 > 9 Then
+                                        If random_int(10) = 0 Then
                                             NewEffect 80, newLoc(.Location.X - 8 + random_double * (.Location.Width + 16) - 4, .Location.Y - 8 + random_double * (.Location.Height + 16)), , , ShadowMode
                                             Effect(numEffects).Location.SpeedX = random_double * 0.5 - 0.25
                                             Effect(numEffects).Location.SpeedY = random_double * 0.5 - 0.25
@@ -1967,7 +1967,7 @@ wasSlippy = .Slippy
                     
                 'gives the players the sparkles when he is flying
                     If ((.YoshiBlue = False And (.CanFly = True Or .CanFly2 = True)) Or .Mount = 3 And .CanFly2 = True) Or .FlySparks = True Then
-                        If random_double * 4 > 3 Then
+                        If random_int(4) = 0 Then
                             NewEffect 80, newLoc(.Location.X - 8 + random_double * (.Location.Width + 16) - 4, .Location.Y - 8 + random_double * (.Location.Height + 16)), , , ShadowMode
                             Effect(numEffects).Location.SpeedX = random_double * 0.5 - 0.25
                             Effect(numEffects).Location.SpeedY = random_double * 0.5 - 0.25
@@ -2986,9 +2986,9 @@ End If
                                                         Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5 + .Location.SpeedX * 0.1
                                                         Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5 - .Location.SpeedY * 0.1
                                                         If Effect(numEffects).Frame = 0 Then
-                                                            Effect(numEffects).Frame = -Int(random_double * 3)
+                                                            Effect(numEffects).Frame = -random_int(3)
                                                         Else
-                                                            Effect(numEffects).Frame = 5 + Int(random_double * 3)
+                                                            Effect(numEffects).Frame = 5 + random_int(3)
                                                         End If
                                                     Next C
                                                     .Location.X = .Location.X + .Location.Width / 2 - EffectWidth(10) / 2
@@ -4383,7 +4383,7 @@ Public Sub PlayerFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 Then
-                        .SlideCounter = 2 + random_double * 2
+                        .SlideCounter = 2 + random_double_round(2) ' p(2) = 25%, p(3) = 50%, p(4) = 25%
                         tempLocation.Y = .Location.Y + .Location.Height - 5
                         tempLocation.X = .Location.X + .Location.Width / 2 - 4
                         NewEffect 74, tempLocation, , , ShadowMode
@@ -4397,7 +4397,7 @@ Public Sub PlayerFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 And .SlideKill = True Then
-                        .SlideCounter = 2 + random_double * 2
+                        .SlideCounter = 2 + random_double_round(2)
                         tempLocation.Y = .Location.Y + .Location.Height - 4
                         If .Location.SpeedX < 0 Then
                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 6
@@ -4532,7 +4532,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .WetFrame = False And .Duck = False Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double * 2
+                                            .SlideCounter = 2 + random_double_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 8 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4545,7 +4545,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .WetFrame = False And .Duck = False Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double * 2
+                                            .SlideCounter = 2 + random_double_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 8 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4582,7 +4582,7 @@ Public Sub PlayerFrame(A As Integer)
                         If .Mount <> 2 And ((.Controls.Left = True And .Location.SpeedX > 0) Or (.Controls.Right = True And .Location.SpeedX < 0)) And .Effect = 0 And .Duck = False Then
                             PlaySound 10
                             If .SlideCounter <= 0 Then
-                                .SlideCounter = 2 + random_double * 2
+                                .SlideCounter = 2 + random_double_round(2)
                                 tempLocation.Y = .Location.Y + .Location.Height - 5
                                 tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                 NewEffect 74, tempLocation, , , ShadowMode
@@ -4687,7 +4687,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .Wet = 0 Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double * 2
+                                            .SlideCounter = 2 + random_double_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 6 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4700,7 +4700,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .Wet = 0 Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double * 2
+                                            .SlideCounter = 2 + random_double_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4798,7 +4798,7 @@ Public Sub PlayerFrame(A As Integer)
                         If .Mount <> 2 And ((.Controls.Left = True And .Location.SpeedX > 0) Or (.Controls.Right = True And .Location.SpeedX < 0)) And .Effect = 0 And .Duck = False Then
                             PlaySound 10
                             If .SlideCounter <= 0 Then
-                                .SlideCounter = 2 + random_double * 2
+                                .SlideCounter = 2 + random_double_round(2)
                                 tempLocation.Y = .Location.Y + .Location.Height - 5
                                 tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                 NewEffect 74, tempLocation, , , ShadowMode
@@ -5331,7 +5331,7 @@ Public Sub YoshiEat(A As Integer)
                         .YoshiNPC = B
                     End If
                     If NPC(B).Type = 147 Then
-                        NPC(B).Type = 139 + Int(random_double * 9)
+                        NPC(B).Type = 139 + random_int(9)
                         If NPC(B).Type = 147 Then NPC(B).Type = 92
                         NPC(B).Location.X = NPC(B).Location.X + NPC(B).Location.Width / 2
                         NPC(B).Location.Y = NPC(B).Location.Y + NPC(B).Location.Height / 2
@@ -5868,7 +5868,7 @@ Public Sub YoshiEatCode(A As Integer)
                     End If
                 ElseIf .MountType = 7 And NPCIsABonus(NPC(.YoshiNPC).Type) = False Then
                     With NPC(.YoshiNPC)
-                        B = Int(random_double * 9)
+                        B = random_int(9)
                         .Type = 139 + B
                         If .Type = 147 Then .Type = 92
                         .Location.X = .Location.X + .Location.Width / 2
@@ -6204,7 +6204,7 @@ Private Sub WaterCheck(A As Integer)
                             .Location.SpeedY = Physics.PlayerJumpVelocity
                         End If
                     ElseIf .Wet = 2 And .Quicksand = 0 Then
-                        If random_double * 100 > 97 Then
+                        If random_int(100) >= 97 Then
                             If .Direction = 1 Then
                                 tempLocation = newLoc(.Location.X + .Location.Width - random_double * 8, .Location.Y + 4 + random_double * 8, 8, 8)
                             Else
@@ -6784,7 +6784,7 @@ Private Sub PlayerCollide(A As Integer)
                         ElseIf Player(A).Location.X + Player(A).Location.Width / 2 < Player(B).Location.X + Player(B).Location.Width / 2 Then
                             Player(A).Bumped2 = -1
                             Player(B).Bumped2 = 1
-                        ElseIf Int(random_double * 2) = 1 Then
+                        ElseIf random_int(2) = 0 Then
                             Player(A).Bumped2 = -1
                             Player(B).Bumped2 = 1
                         Else
@@ -6865,7 +6865,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                                 .Location.Height = NPCHeight(.Type)
                                 .Location.Width = NPCWidth(.Type)
                                 If .Type = 147 Then
-                                    B = Int(random_double * 9)
+                                    B = random_int(9)
                                     .Type = 139 + B
                                     If .Type = 147 Then .Type = 92
                                     .Location.X = .Location.X + .Location.Width / 2
@@ -7291,7 +7291,7 @@ Public Sub LinkFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 Then
-                        .SlideCounter = 2 + random_double * 2
+                        .SlideCounter = 2 + random_double_round(2)
                         tempLocation.Y = .Location.Y + .Location.Height - 5
                         tempLocation.X = .Location.X + .Location.Width / 2 - 4
                         NewEffect 74, tempLocation, , , ShadowMode
@@ -7376,9 +7376,7 @@ Public Sub LinkFrame(A As Integer)
             If .Location.SpeedX >= Physics.PlayerRunSpeed * 0.9 Or .Location.SpeedX <= -Physics.PlayerRunSpeed * 0.9 Then
                 If .SlideCounter <= 0 Then
                     PlaySound 86
-                    Dim dub As Double
-                    dub = random_double
-                    .SlideCounter = 2 + dub * 2
+                    .SlideCounter = 2 + random_double_round(2)
                     tempLocation.Y = .Location.Y + .Location.Height - 4
                     If .Location.SpeedX < 0 Then
                         tempLocation.X = .Location.X + .Location.Width / 2 - 6 - 4

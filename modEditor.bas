@@ -736,7 +736,7 @@ Public Sub UpdateEditor()
                             tempLocation = NPC(A).Location
                             If NPC(A).Type = 91 Then tempLocation.Y = tempLocation.Y - 16
                             If CursorCollision(.Location, tempLocation) = True And NPC(A).Hidden = False Then
-                                If Int(random_double * 2) = 0 Then
+                                If random_int(2) = 0 Then
                                     NPC(A).Location.SpeedX = Physics.NPCShellSpeed / 2
                                 Else
                                     NPC(A).Location.SpeedX = -(Physics.NPCShellSpeed / 2)
@@ -1830,7 +1830,7 @@ Public Function EditorNPCFrame(A As Integer, C As Single, Optional N As Integer)
     Dim E As Integer
     B = C
     Do While B = 0
-        B = Int(random_double * 3) - 1
+        B = random_int(3) - 1
     Loop
     If LevelEditor = False Then C = B
     If A = 241 Then EditorNPCFrame = 4

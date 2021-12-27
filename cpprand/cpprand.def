@@ -1,4 +1,5 @@
 LIBRARY		cpprand
 EXPORTS
 	cpprand_double
+	cpprand_int32
 	cpprand_seed

@@ -53,6 +53,7 @@ Public Sub record_init()
     Next i
 
     FrameSkip = False
+    g_compatMode = True
 End Sub
 
 Private Sub record_write_header()
@@ -63,7 +64,7 @@ Private Sub record_write_header()
     Print #s_recordFD, Replace(Replace(FullFileName, App.Path + "\", ""), "\", "/") ' level that was played
     Dim seed As Integer
     seed = random_int(32767)
-    random_seed(seed)
+    random_seed (seed)
     Print #s_recordFD, "Seed " + CStr(seed) ' random seed (THINK ABOUT THIS)
     If Checkpoint = FullFileName Then
         Print #s_recordFD, "Checkpoint 1"

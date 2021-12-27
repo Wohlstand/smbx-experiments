@@ -1444,10 +1444,10 @@ Sub Main()
             DoEvents
         Loop While StartMenu = False 'wait until the player clicks a button
 
-        FrameSkip = IIf(frmLoader.chkFrameskip.Value = 1, True, False)
-        noSound = IIf(frmLoader.chkSound.Value = 1, True, False)
-        g_recordEnabled = IIf(frmLoader.chkRecord.Value = 1, True, False)
-        g_compatMode = IIf(frmLoader.chkCompat.Value = 1, True, False)
+        FrameSkip = IIf(frmLoader.chkFrameskip.Value >= 1, True, False)
+        noSound = IIf(frmLoader.chkSound.Value >= 1, True, False)
+        g_recordEnabled = IIf(frmLoader.chkRecord.Value >= 1, True, False)
+        g_compatMode = IIf(frmLoader.chkCompat.Value >= 1, True, False)
 
         Unload frmLoader
     End If
@@ -5715,7 +5715,7 @@ Public Sub MenuLoop()   'The loop for the menu
                 .CanJump = True
                 .Controls.Jump = True
             End If
-            If .FloatTime > 0  Then
+            If .FloatTime > 0 Then
                 .Controls.Jump = True
             Else If .CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 Then If random_int(20) = 0 Then
                 .Controls.Jump = True

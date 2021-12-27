@@ -28,6 +28,7 @@ Begin VB.Form frmLoader
       Left            =   240
       TabIndex        =   4
       Top             =   1200
+      Value           =   2  'Grayed
       Width           =   1695
    End
    Begin VB.CheckBox chkSound 
@@ -84,6 +85,7 @@ Begin VB.Form frmLoader
          TabIndex        =   11
          ToolTipText     =   "Ensure all in-game bugs of SMBX 1.3 will work"
          Top             =   960
+         Value           =   2  'Grayed
          Width           =   4335
       End
       Begin VB.CommandButton showLog 
@@ -118,6 +120,16 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub chkRecord_Click()
+    If chkRecord.Value = 1 Then
+        chkFrameskip.Value = 2
+        chkCompat.Value = 2
+    Else
+        chkFrameskip.Value = 1
+        chkCompat.Value = 1
+    End If
+End Sub
+
 Private Sub cmdEditor_Click()
     DebugMsg "Starting Editor..."
     LevelEditor = True
@@ -141,6 +153,10 @@ Private Sub Form_Load()
     chkSound.Value = IIf(noSound, 1, 0)
     chkRecord.Value = IIf(g_recordEnabled, 1, 0)
     chkCompat.Value = IIf(g_compatMode, 1, 0)
+    If chkRecord.Value = 1 Then
+        chkFrameskip.Value = 2
+        chkCompat.Value = 2
+    End If
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

@@ -38,12 +38,15 @@ End Function
 
 Public Function random_int_round(max As Integer) As Integer
     If use_cpp = False Then
-        random_int = Rnd() * max
+        random_int_round = Rnd() * max
     Else
         Dim i As Long
         i = cpprand_int32(max * 2)
-        If i = 0 Then random_int = max
-        Else random_int = i \ 2
+        If i = 0 Then
+            random_int_round = max
+        Else
+            random_int_round = i \ 2
+        End If
         n_calls = n_calls + 1
     End If
 End Function

@@ -2905,8 +2905,10 @@ End If
                             '     .Special4 = 4
                             ElseIf .Special2 >= 80 And .Special2 <= 130 Then ' shoot fireball
                                 .Special4 = 4
-                            ElseIf .Special2 >= 160 + random_double * 300 Then If .Special2 <= 180 + random_double * 800
-                                .Special4 = 4
+                            ElseIf .Special2 >= 160 + random_double * 300 Then
+                                If .Special2 <= 180 + random_double * 800 Then
+                                    .Special4 = 4
+                                End If
                             End If
                         End If
                         If .Inert = True Then
@@ -5882,7 +5884,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     numNPCs = numNPCs + 1
                     NPC(numNPCs).Type = 251
                     If random_int(5) = 0 Then NPC(numNPCs).Type = 252
-                    If random_double(40) < 3 Then NPC(numNPCs).Type = 253
+                    If random_int(40) < 3 Then NPC(numNPCs).Type = 253
                     NPC(numNPCs).Location.Width = NPCWidth(NPC(numNPCs).Type)
                     NPC(numNPCs).Location.X = .Location.X + .Location.Width / 2 - NPC(numNPCs).Location.Width / 2
                     NPC(numNPCs).Location.Height = NPCHeight(NPC(numNPCs).Type)
@@ -10777,7 +10779,7 @@ Public Sub SpecialNPC(A As Integer)
                 NewEffect 80, tempLocation
             End If
             If .Projectile = True Then
-                If random_int(5) == 0 Then
+                If random_int(5) = 0 Then
                     tempLocation.Height = EffectHeight(80)
                     tempLocation.Width = EffectWidth(80)
                     tempLocation.SpeedX = 0

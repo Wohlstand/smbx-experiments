@@ -393,10 +393,12 @@ Public Sub UpdateEffects() 'Updates the effects
                         .Frame = .Frame + 1
                         If .Frame >= 4 Then .Frame = 0
                     End If
-                If .Type = 148 Then If random_int(10) >= 8 Then
-                    NewEffect 77, .Location, 3
-                    Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5
-                    Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5
+                If .Type = 148 Then
+                    If random_int(10) >= 8 Then
+                        NewEffect 77, .Location, 3
+                        Effect(numEffects).Location.SpeedX = random_double * 3 - 1.5
+                        Effect(numEffects).Location.SpeedY = random_double * 3 - 1.5
+                    End If
                 End If
             ElseIf .Type = 125 Then 'POW Block
                 .FrameCount = .FrameCount + 1

@@ -4383,7 +4383,7 @@ Public Sub PlayerFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 Then
-                        .SlideCounter = 2 + random_double_round(2) ' p(2) = 25%, p(3) = 50%, p(4) = 25%
+                        .SlideCounter = 2 + random_int_round(2) ' p(2) = 25%, p(3) = 50%, p(4) = 25%
                         tempLocation.Y = .Location.Y + .Location.Height - 5
                         tempLocation.X = .Location.X + .Location.Width / 2 - 4
                         NewEffect 74, tempLocation, , , ShadowMode
@@ -4397,7 +4397,7 @@ Public Sub PlayerFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 And .SlideKill = True Then
-                        .SlideCounter = 2 + random_double_round(2)
+                        .SlideCounter = 2 + random_int_round(2)
                         tempLocation.Y = .Location.Y + .Location.Height - 4
                         If .Location.SpeedX < 0 Then
                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 6
@@ -4532,7 +4532,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .WetFrame = False And .Duck = False Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double_round(2)
+                                            .SlideCounter = 2 + random_int_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 8 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4545,7 +4545,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .WetFrame = False And .Duck = False Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double_round(2)
+                                            .SlideCounter = 2 + random_int_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 8 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4582,7 +4582,7 @@ Public Sub PlayerFrame(A As Integer)
                         If .Mount <> 2 And ((.Controls.Left = True And .Location.SpeedX > 0) Or (.Controls.Right = True And .Location.SpeedX < 0)) And .Effect = 0 And .Duck = False Then
                             PlaySound 10
                             If .SlideCounter <= 0 Then
-                                .SlideCounter = 2 + random_double_round(2)
+                                .SlideCounter = 2 + random_int_round(2)
                                 tempLocation.Y = .Location.Y + .Location.Height - 5
                                 tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                 NewEffect 74, tempLocation, , , ShadowMode
@@ -4687,7 +4687,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .Wet = 0 Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double_round(2)
+                                            .SlideCounter = 2 + random_int_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 6 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4700,7 +4700,7 @@ Public Sub PlayerFrame(A As Integer)
                                     If Not .Mount = 2 And .Wet = 0 Then
                                         PlaySound 10
                                         If .SlideCounter <= 0 Then
-                                            .SlideCounter = 2 + random_double_round(2)
+                                            .SlideCounter = 2 + random_int_round(2)
                                             tempLocation.Y = .Location.Y + .Location.Height - 5
                                             tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                             NewEffect 74, tempLocation, , , ShadowMode
@@ -4798,7 +4798,7 @@ Public Sub PlayerFrame(A As Integer)
                         If .Mount <> 2 And ((.Controls.Left = True And .Location.SpeedX > 0) Or (.Controls.Right = True And .Location.SpeedX < 0)) And .Effect = 0 And .Duck = False Then
                             PlaySound 10
                             If .SlideCounter <= 0 Then
-                                .SlideCounter = 2 + random_double_round(2)
+                                .SlideCounter = 2 + random_int_round(2)
                                 tempLocation.Y = .Location.Y + .Location.Height - 5
                                 tempLocation.X = .Location.X + .Location.Width / 2 - 4 + 10 * -.Direction
                                 NewEffect 74, tempLocation, , , ShadowMode
@@ -7291,7 +7291,7 @@ Public Sub LinkFrame(A As Integer)
             If .Location.SpeedX <> 0 Then
                 If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
                     If .SlideCounter <= 0 Then
-                        .SlideCounter = 2 + random_double_round(2)
+                        .SlideCounter = 2 + random_int_round(2)
                         tempLocation.Y = .Location.Y + .Location.Height - 5
                         tempLocation.X = .Location.X + .Location.Width / 2 - 4
                         NewEffect 74, tempLocation, , , ShadowMode
@@ -7376,7 +7376,7 @@ Public Sub LinkFrame(A As Integer)
             If .Location.SpeedX >= Physics.PlayerRunSpeed * 0.9 Or .Location.SpeedX <= -Physics.PlayerRunSpeed * 0.9 Then
                 If .SlideCounter <= 0 Then
                     PlaySound 86
-                    .SlideCounter = 2 + random_double_round(2)
+                    .SlideCounter = 2 + random_int_round(2)
                     tempLocation.Y = .Location.Y + .Location.Height - 4
                     If .Location.SpeedX < 0 Then
                         tempLocation.X = .Location.X + .Location.Width / 2 - 6 - 4

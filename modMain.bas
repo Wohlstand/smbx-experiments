@@ -5518,9 +5518,11 @@ Public Sub MenuLoop()   'The loop for the menu
                 If .Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0 Then .CanJump = True
             End If
             If .HoldingNPC = 0 Then
-                If (.State = 3 Or .State = 6 Or .State = 7) Then If random_int(100) >= 90 Then
-                    If .FireBallCD = 0 And .RunRelease = False Then
-                        .Controls.Run = False
+                If (.State = 3 Or .State = 6 Or .State = 7) Then
+                    If random_int(100) >= 90 Then
+                        If .FireBallCD = 0 And .RunRelease = False Then
+                            .Controls.Run = False
+                        End If
                     End If
                 End If
                 If (.State = 4 Or .State = 5) And .TailCount = 0 And .RunRelease = False Then
@@ -5717,13 +5719,17 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
             If .FloatTime > 0 Then
                 .Controls.Jump = True
-            Else If .CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 Then If random_int(20) = 0 Then
-                .Controls.Jump = True
+            ElseIf .CanFloat = True And .FloatRelease = True And .Jump = 0 And .Location.SpeedY > 0 Then
+                If random_int(20) = 0 Then
+                    .Controls.Jump = True
+                End If
             End If
-            If NPC(.HoldingNPC).Type = 13 Then If random_int(20) = 0 Then
-                .Controls.Run = False
-                If random_int(2) = 0 Then .Controls.Up = True
-                If random_int(2) = 0 Then .Controls.Right = False
+            If NPC(.HoldingNPC).Type = 13 Then
+                If random_int(20) = 0 Then
+                    .Controls.Run = False
+                    If random_int(2) = 0 Then .Controls.Up = True
+                    If random_int(2) = 0 Then .Controls.Right = False
+                End If
             End If
             
             If .Slide = False And (.Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0) Then

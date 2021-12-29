@@ -50,6 +50,11 @@ extern "C" __stdcall __declspec(dllexport)
 #endif
 int cpprand_int32(int max)
 {
+    if(max == 0)
+    {
+        engine();
+        return 0;
+    }
     return engine() % max;
 }
 

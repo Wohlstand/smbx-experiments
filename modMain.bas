@@ -1444,7 +1444,7 @@ Sub Main()
             DoEvents
         Loop While StartMenu = False 'wait until the player clicks a button
 
-        FrameSkip = IIf(frmLoader.chkFrameskip.Value >= 1, True, False)
+        FrameSkip = IIf(frmLoader.chkFrameskip.Value >= 1, False, True)
         noSound = IIf(frmLoader.chkSound.Value >= 1, True, False)
         g_recordEnabled = IIf(frmLoader.chkRecord.Value >= 1, True, False)
         g_compatMode = IIf(frmLoader.chkCompat.Value >= 1, True, False)

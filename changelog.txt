@@ -1,13 +1,15 @@
-Super Mario Bros. X Changelog.
+Super Mario Bros. X Wohlstand's Edition Changelog.
 
 
-Changes for 1.3.2 (made by Wohlstand):
+Changes for 1.3.2:
 -Fixed the player jittering while moving camera
 -Added gameplay recording ability (made by ds-sloth)
 -Added compatibility mode to re-enable bugs of SMBX 1.3
+-Added some options into Test menu to toggle some of global settings
+-Automatically set the focus on the editor window after file got open or drag&dropped
 
 
-Changes for 1.3.1 (made by Wohlstand):
+Changes for 1.3.1:
 
 Misc.
 -MCI was replaced with MixerX library to make the sound system better
@@ -39,6 +41,9 @@ Bug Fixes
  *world map's path opener
  *background inactivity waiter
 
+
+---------------------------------------------------------------------
+Super Mario Bros. X Original Changelog.
 
 
 Changes for 1.3:

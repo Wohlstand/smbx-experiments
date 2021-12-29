@@ -1037,6 +1037,7 @@ Private Sub MDIForm_OLEDragDrop(Data As DataObject, Effect As Long, Button As In
             toggleLevelEdit
         End If
 
+        SetActiveWindow (hWnd)
         frmLevelEditor.optCursor(13).Value = True
         ClearLevel
         OpenLevel fileToOpen
@@ -1045,6 +1046,7 @@ Private Sub MDIForm_OLEDragDrop(Data As DataObject, Effect As Long, Button As In
             toggleWorldEdit
         End If
 
+        SetActiveWindow (hWnd)
         frmLevelEditor.optCursor(14).Value = True
         OpenWorld fileToOpen
     End If

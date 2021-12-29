@@ -15,6 +15,7 @@ Public Declare Function SetCursorPos Lib "user32" (ByVal X As Long, ByVal Y As L
 Public Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 Private Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
 Public Declare Function GetDesktopWindow Lib "user32.dll" () As Long
+Public Declare Function SetActiveWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 Public Declare Function GetWindowDC Lib "user32.dll" (ByVal hWnd As Long) As Long
 Declare Function GetActiveWindow Lib "user32" () As Integer
 Public Declare Function GetTickCount& Lib "kernel32" ()
@@ -1527,7 +1528,8 @@ Sub Main()
             End With
 
             If loadFileOnStart Then
-            
+                SetActiveWindow (frmLevelEditor.hWnd)
+
                 If WorldEditor Then
                     frmLevelEditor.toggleWorldEdit
                     frmLevelEditor.optCursor(14).Value = True
@@ -1537,6 +1539,7 @@ Sub Main()
                     frmLevelEditor.optCursor(13).Value = True
                     ClearLevel
                     OpenLevel loadFileOnStartPath
+
                     If loadFileOnStartDoTest Then
                         BattleMode = False
                         BattleIntro = 0
@@ -1545,6 +1548,7 @@ Sub Main()
                         zTestLevel
                     End If
                 End If
+
                 loadFileOnStart = False
                 loadFileOnStartDoTest = False
             End If

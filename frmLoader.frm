@@ -24,11 +24,12 @@ Begin VB.Form frmLoader
    End
    Begin VB.CheckBox chkFrameskip 
       Caption         =   "Disable Frameskip"
+      Enabled         =   0   'False
       Height          =   255
       Left            =   240
       TabIndex        =   4
       Top             =   1200
-      Value           =   2  'Grayed
+      Value           =   1  'Checked
       Width           =   1695
    End
    Begin VB.CheckBox chkSound 
@@ -80,12 +81,13 @@ Begin VB.Form frmLoader
       Width           =   4695
       Begin VB.CheckBox chkCompat 
          Caption         =   "Strict compatibility mode"
+         Enabled         =   0   'False
          Height          =   255
          Left            =   120
          TabIndex        =   11
          ToolTipText     =   "Ensure all in-game bugs of SMBX 1.3 will work"
          Top             =   960
-         Value           =   2  'Grayed
+         Value           =   1  'Checked
          Width           =   4335
       End
       Begin VB.CommandButton showLog 
@@ -122,11 +124,15 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub chkRecord_Click()
     If chkRecord.Value = 1 Then
-        chkFrameskip.Value = 2
-        chkCompat.Value = 2
+        chkFrameskip.Enabled = False
+        chkFrameskip.Value = 1
+        chkCompat.Enabled = False
+        chkCompat.Value = 1
     Else
         chkFrameskip.Value = 1
+        chkFrameskip.Enabled = True
         chkCompat.Value = 1
+        chkCompat.Enabled = True
     End If
 End Sub
 
@@ -146,16 +152,20 @@ Private Sub cmdGame_Click()
 End Sub
 
 Private Sub Form_Load()
-    ' No more needed. Wohlstand
+    ' No longer needed. Wohlstand
     ' Splash.Navigate "http://www.supermariobrothers.org/splash/"
     Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
+
     chkFrameskip.Value = IIf(FrameSkip, 0, 1)
     chkSound.Value = IIf(noSound, 1, 0)
     chkRecord.Value = IIf(g_recordEnabled, 1, 0)
     chkCompat.Value = IIf(g_compatMode, 1, 0)
+
     If chkRecord.Value = 1 Then
-        chkFrameskip.Value = 2
-        chkCompat.Value = 2
+        chkFrameskip.Value = 1
+        chkFrameskip.Enabled = False
+        chkCompat.Value = 1
+        chkCompat.Enabled = False
     End If
 End Sub
 

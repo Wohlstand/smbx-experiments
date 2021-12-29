@@ -308,6 +308,9 @@ Begin VB.MDIForm frmLevelEditor
          Caption         =   "Strict compatibility mode"
          Checked         =   -1  'True
       End
+      Begin VB.Menu menuNoFrameSkip 
+         Caption         =   "Disable frame skip"
+      End
       Begin VB.Menu MenuTestLeveld 
          Caption         =   "-"
          Visible         =   0   'False
@@ -510,9 +513,8 @@ Private Sub MDIForm_Load()
     frmEvents.Left = frmLevelWindow.Width
     frmEvents.RefreshEvents
 
-    frmLevelEditor.menuRecordGameplay.Checked = g_recordEnabled
-    frmLevelEditor.menuCompatMode.Checked = g_compatMode
-    
+    menuTestSync
+
     For A = 0 To maxSections
         bgColor(A) = GFX.BackgroundColor(1).BackColor
     Next A
@@ -558,11 +560,6 @@ Private Sub menHelp_Click()
     Exit Sub
 Bugs:
     MsgBox "The help file 'SMBx Editor Help.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
-End Sub
-
-Private Sub menuCompatMode_Click()
-    frmLevelEditor.menuCompatMode.Checked = Not frmLevelEditor.menuCompatMode.Checked
-    g_compatMode = frmLevelEditor.menuCompatMode.Checked
 End Sub
 
 Private Sub menuCurDirOpen_Click()
@@ -739,11 +736,6 @@ Private Sub menuNetplay_Click()
     End If
 End Sub
 
-Private Sub menuRecordGameplay_Click()
-    frmLevelEditor.menuRecordGameplay.Checked = Not frmLevelEditor.menuRecordGameplay.Checked
-    g_recordEnabled = frmLevelEditor.menuRecordGameplay.Checked
-End Sub
-
 Private Sub menureset_Click()
     PlaySound 22
     numStars = 0
@@ -753,6 +745,40 @@ Private Sub menureset_Click()
     BlockSwitch(2) = False
     BlockSwitch(3) = False
     BlockSwitch(4) = False
+End Sub
+
+Private Sub menuTestSync()
+    menuRecordGameplay.Checked = g_recordEnabled
+    menuCompatMode.Checked = g_compatMode
+    menuNoFrameSkip.Checked = Not FrameSkip
+
+    menuCompatMode.Enabled = Not g_recordEnabled
+    If g_recordEnabled Then
+        menuCompatMode.Checked = True
+        g_compatMode = True
+    End If
+
+    menuNoFrameSkip.Enabled = Not g_recordEnabled
+    If g_recordEnabled Then
+        menuNoFrameSkip.Checked = True
+        FrameSkip = False
+    End If
+End Sub
+
+Private Sub menuRecordGameplay_Click()
+    menuRecordGameplay.Checked = Not menuRecordGameplay.Checked
+    g_recordEnabled = menuRecordGameplay.Checked
+    menuTestSync
+End Sub
+
+Private Sub menuCompatMode_Click()
+    menuCompatMode.Checked = Not menuCompatMode.Checked
+    g_compatMode = menuCompatMode.Checked
+End Sub
+
+Private Sub menuNoFrameSkip_Click()
+    menuNoFrameSkip.Checked = Not menuNoFrameSkip.Checked
+    FrameSkip = Not menuNoFrameSkip.Checked
 End Sub
 
 Private Sub menuStatus_Click()

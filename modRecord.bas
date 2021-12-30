@@ -8,6 +8,9 @@ Public g_recordNumRenderedNPCs As Integer
 Public g_recordNumRenderedBlocks As Integer
 Public g_recordNumRenderedBGOs As Integer
 
+' Version of record file: Increase this once new fields got added!
+Private Const c_recordFileVersion As Integer = 2
+
 Private s_recordFD As Integer
 Private s_replayFD As Integer
 Private in_level As Boolean
@@ -59,9 +62,12 @@ End Sub
 Private Sub record_write_header()
     ' write all necessary state variables!
     Print #s_recordFD, "Header"
+    Print #s_recordFD, "RecordVersion " + CStr(c_recordFileVersion) ' Version of record file
     Print #s_recordFD, "Version SMBX-64" ' game version / commit
     Print #s_recordFD, "CompatLevel 3" ' compatibility mode
     Print #s_recordFD, Replace(Replace(FullFileName, App.Path + "\", ""), "\", "/") ' level that was played
+    Print #s_recordFD, "SumMD5 " + DigestFileToHexStr(FullFileName) ' Since version 2: md5 Hash sum of recorded level file
+
     Dim seed As Integer
     seed = random_int(32767)
     random_seed (seed)

@@ -58,6 +58,7 @@ Form=frmAbout.frm
 Module=modRecord; modRecord.bas
 Module=modRandom; modRandom.bas
 Module=modCompat; modCompat.bas
+Module=MD5; modMD5.bas
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

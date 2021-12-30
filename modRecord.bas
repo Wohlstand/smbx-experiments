@@ -62,7 +62,7 @@ End Sub
 Private Sub record_write_header()
     ' write all necessary state variables!
     Print #s_recordFD, "Header"
-    Print #s_recordFD, "RecordVersion " + CStr(c_recordFileVersion) ' Version of record file
+    Print #s_recordFD, "RecordVersion " + Str(c_recordFileVersion) ' Version of record file
     Print #s_recordFD, "Version SMBX-64" ' game version / commit
     Print #s_recordFD, "CompatLevel 3" ' compatibility mode
     Print #s_recordFD, Replace(Replace(FullFileName, App.Path + "\", ""), "\", "/") ' level that was played
@@ -71,30 +71,30 @@ Private Sub record_write_header()
     Dim seed As Integer
     seed = random_int(32767)
     random_seed (seed)
-    Print #s_recordFD, "Seed " + CStr(seed) ' random seed (THINK ABOUT THIS)
+    Print #s_recordFD, "Seed " + Str(seed) ' random seed (THINK ABOUT THIS)
     If Checkpoint = FullFileName Then
         Print #s_recordFD, "Checkpoint 1"
     Else
         Print #s_recordFD, "Checkpoint 0"
     End If
-    Print #s_recordFD, "StartWarp " + CStr(StartWarp)
-    Print #s_recordFD, "ReturnWarp " + CStr(ReturnWarp)
-    Print #s_recordFD, "Lives " + CStr(Lives)
-    Print #s_recordFD, "Coins " + CStr(Coins)
-    Print #s_recordFD, "Score " + CStr(Score)
-    Print #s_recordFD, "Stars " + CStr(numStars)
+    Print #s_recordFD, "StartWarp " + Str(StartWarp)
+    Print #s_recordFD, "ReturnWarp " + Str(ReturnWarp)
+    Print #s_recordFD, "Lives " + Str(Lives)
+    Print #s_recordFD, "Coins " + Str(Coins)
+    Print #s_recordFD, "Score " + Str(Score)
+    Print #s_recordFD, "Stars " + Str(numStars)
     For A = 1 To numStars
         Print #s_recordFD, "Star"
         Print #s_recordFD, Star(A).level
-        Print #s_recordFD, "Section " + CStr(Star(A).Section)
+        Print #s_recordFD, "Section " + Str(Star(A).Section)
     Next A
-    Print #s_recordFD, "Players " + CStr(numPlayers)
+    Print #s_recordFD, "Players " + Str(numPlayers)
     For A = 1 To numPlayers
         Print #s_recordFD, "Player"
-        Print #s_recordFD, "Char " + CStr(Player(A).Character)
-        Print #s_recordFD, "State " + CStr(Player(A).State)
-        Print #s_recordFD, "MountType " + CStr(Player(A).MountType)
-        Print #s_recordFD, "HeldBonus " + CStr(Player(A).HeldBonus)
+        Print #s_recordFD, "Char " + Str(Player(A).Character)
+        Print #s_recordFD, "State " + Str(Player(A).State)
+        Print #s_recordFD, "MountType " + Str(Player(A).MountType)
+        Print #s_recordFD, "HeldBonus " + Str(Player(A).HeldBonus)
     Next A
 End Sub
 
@@ -249,27 +249,30 @@ Private Sub record_read_control(command)
 
     i = CInt(Mid(command, 3, 1))
     key = Mid(command, 4, 1)
-    If key = "U" Then
-        last_controls(i).Up = is_on
-    ElseIf key = "D" Then
-        last_controls(i).Down = is_on
-    ElseIf key = "L" Then
-        last_controls(i).Left = is_on
-    ElseIf key = "R" Then
-        last_controls(i).Right = is_on
-    ElseIf key = "S" Then
-        last_controls(i).Start = is_on
-    ElseIf key = "I" Then
-        last_controls(i).Drop = is_on
-    ElseIf key = "A" Then
-        last_controls(i).Jump = is_on
-    ElseIf key = "B" Then
-        last_controls(i).Run = is_on
-    ElseIf key = "X" Then
-        last_controls(i).AltJump = is_on
-    ElseIf key = "Y" Then
-        last_controls(i).AltRun = is_on
-    End If
+    
+    With last_controls(i)
+        If key = "U" Then
+            .Up = is_on
+        ElseIf key = "D" Then
+            .Down = is_on
+        ElseIf key = "L" Then
+            .Left = is_on
+        ElseIf key = "R" Then
+            .Right = is_on
+        ElseIf key = "S" Then
+            .Start = is_on
+        ElseIf key = "I" Then
+            .Drop = is_on
+        ElseIf key = "A" Then
+            .Jump = is_on
+        ElseIf key = "B" Then
+            .Run = is_on
+        ElseIf key = "X" Then
+            .AltJump = is_on
+        ElseIf key = "Y" Then
+            .AltRun = is_on
+        End If
+    End With
 
     If Not s_recordFD = 0 Then
         Print #s_recordFD, frame_no
@@ -285,7 +288,7 @@ Public Sub record_finish()
         Print #s_recordFD, frame_no + 1
         ' how did the level end?
         Print #s_recordFD, "End"
-        Print #s_recordFD, "LevelBeatCode " + CStr(LevelBeatCode)
+        Print #s_recordFD, "LevelBeatCode " + Str(LevelBeatCode)
         Close #s_recordFD
         s_recordFD = 0
     End If
@@ -296,13 +299,14 @@ Public Sub record_write_status()
     Print #s_recordFD, "Status"
     Dim status_tick As Long
     status_tick = GetTickCount
-    Print #s_recordFD, "Ticks " + CStr(status_tick - last_status_tick)
+    Print #s_recordFD, "Ticks " + Str(status_tick - last_status_tick)
     last_status_tick = status_tick
-    Print #s_recordFD, "randCalls " + CStr(random_ncalls)
-    Print #s_recordFD, "Score " + CStr(Score)
-    Print #s_recordFD, "numNPCs " + CStr(numNPCs)
+    Print #s_recordFD, "randCalls " + Str(random_ncalls)
+    Print #s_recordFD, "Score " + Str(Score)
+    Print #s_recordFD, "numNPCs " + Str(numNPCs)
     Dim numActiveNPCs As Integer
     numActiveNPCs = 0
+
     If frame_no <> 0 Then
         For i = 1 To numNPCs
             If NPC(i).Active Then
@@ -310,31 +314,36 @@ Public Sub record_write_status()
             End If
         Next i
     End If
-    Print #s_recordFD, "numActiveNPCs " + CStr(numActiveNPCs)
-    Print #s_recordFD, "numRenderNPCs " + CStr(g_recordNumRenderedNPCs)
-    Print #s_recordFD, "numRenderBlocks " + CStr(g_recordNumRenderedBlocks)
-    Print #s_recordFD, "numRenderBGOs " + CStr(g_recordNumRenderedBGOs)
+
+    Print #s_recordFD, "numActiveNPCs " + Str(numActiveNPCs)
+    Print #s_recordFD, "numRenderNPCs " + Str(g_recordNumRenderedNPCs)
+    Print #s_recordFD, "numRenderBlocks " + Str(g_recordNumRenderedBlocks)
+    Print #s_recordFD, "numRenderBGOs " + Str(g_recordNumRenderedBGOs)
+
     For i = 1 To numPlayers
-        Print #s_recordFD, "p" + CStr(i) + "x " + CStr(Player(i).Location.X)
-        Print #s_recordFD, "p" + CStr(i) + "y " + CStr(Player(i).Location.Y)
+        Print #s_recordFD, "p" + Str(i) + "x " + Str(Player(i).Location.X)
+        Print #s_recordFD, "p" + Str(i) + "y " + Str(Player(i).Location.Y)
     Next i
 End Sub
 
 Public Sub record_write_NPCs()
     Print #s_recordFD, frame_no
     Print #s_recordFD, "NPCs"
-    Print #s_recordFD, "numNPCs " + CStr(numNPCs)
+    Print #s_recordFD, "numNPCs " + Str(numNPCs)
+
     For i = 1 To numNPCs
-        Print #s_recordFD, "NPC " + CStr(i)
-        Print #s_recordFD, "Type " + CStr(NPC(i).Type)
-        If NPC(i).Active Then
-            Print #s_recordFD, "Active 1"
-        Else
-            Print #s_recordFD, "Active 0"
-        End If
-        Print #s_recordFD, "Dir " + CStr(NPC(i).Direction)
-        Print #s_recordFD, "XYWH " + CStr(NPC(i).Location.X) + " " + CStr(NPC(i).Location.Y) + " " + CStr(NPC(i).Location.Width) + " " + CStr(NPC(i).Location.Height)
-        Print #s_recordFD, "S " + CStr(NPC(i).Special) + " " + CStr(NPC(i).Special2) + " " + CStr(NPC(i).Special3) + " " + CStr(NPC(i).Special4) + " " + CStr(NPC(i).Special5) + " " + CStr(NPC(i).Special6)
+        Print #s_recordFD, "NPC " + Str(i)
+        With NPC(i)
+            Print #s_recordFD, "Type " + Str(.Type)
+            If .Active Then
+                Print #s_recordFD, "Active 1"
+            Else
+                Print #s_recordFD, "Active 0"
+            End If
+            Print #s_recordFD, "Dir " + Str(.Direction)
+            Print #s_recordFD, "XYWH " + Str(.Location.X) + " " + Str(.Location.Y) + " " + Str(.Location.Width) + " " + Str(.Location.Height)
+            Print #s_recordFD, "S " + Str(.Special) + " " + Str(.Special2) + " " + Str(.Special3) + " " + Str(.Special4) + " " + Str(.Special5) + " " + Str(.Special6)
+        End With
     Next i
 End Sub
 

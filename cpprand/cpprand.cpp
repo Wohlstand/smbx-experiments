@@ -27,28 +27,28 @@
 #include <cmath>
 #include "pcg/pcg_random.hpp"
 
-static pcg32 engine;
-
 #ifdef WIN32
-extern "C" __stdcall __declspec(dllexport)
+#	define CPPRAND_EXPORT extern "C" __stdcall __declspec(dllexport)
+#else
+#	define CPPRAND_EXPORT
 #endif
-void cpprand_seed(int seed)
+
+//! Main engine
+static pcg32 engine;
+//! Second engine for isolated non-gameplay randoms
+static pcg32 engine_gfx;
+
+CPPRAND_EXPORT void cpprand_seed(int seed)
 {
     engine.seed(seed);
 }
 
-#ifdef WIN32
-extern "C" __stdcall __declspec(dllexport)
-#endif
-double cpprand_double()
+CPPRAND_EXPORT double cpprand_double()
 {
     return ldexp(engine(), -32);
 }
 
-#ifdef WIN32
-extern "C" __stdcall __declspec(dllexport)
-#endif
-int cpprand_int32(int max)
+CPPRAND_EXPORT int cpprand_int32(int max)
 {
     if(max == 0)
     {
@@ -58,20 +58,51 @@ int cpprand_int32(int max)
     return engine() % max;
 }
 
+
+
+
+CPPRAND_EXPORT void cpprand_seed_sec(int seed)
+{
+    engine_gfx.seed(seed);
+}
+
+CPPRAND_EXPORT double cpprand_double_sec()
+{
+    return ldexp(engine_gfx(), -32);
+}
+
+CPPRAND_EXPORT int cpprand_int32_sec(int max)
+{
+    if(max == 0)
+    {
+        engine_gfx();
+        return 0;
+    }
+    return engine_gfx() % max;
+}
+
+
+
+#ifndef BUILD_DLL
 int main(int argc, char** argv)
 {
     printf("This is a library and can't be run, but if you want to try, then...\n");
     int seed = -1;
+
     while(seed == -1)
     {
     	printf("Input a seed: ");
     	scanf("%d", &seed);
     }
     cpprand_seed(seed);
+
     printf("Your lucky numbers are:");
     for(int i = 0; i < 5; i++)
     {
     	printf(" %d", (int)(cpprand_double() * 50));
     }
     printf("\nGoodbye!\n");
+
+    return 0;
 }
+#endif

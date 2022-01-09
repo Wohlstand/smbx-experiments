@@ -2,7 +2,10 @@ Attribute VB_Name = "modRandom"
 Private use_cpp As Boolean
 Private n_calls As Long
 
-Private g_lastIntRandRes As Integer
+Private g_lastIntRandRes As Long
+Private g_lastIntRandResMax As Integer
+Private g_lastRoundIntRandRes As Long
+Private g_lastRoundIntRandResMax As Integer
 Private g_lastDubRandRes As Double
 
 Private g_trackRandom As Boolean
@@ -11,10 +14,12 @@ Private s_randTrackerFD As Integer
 Private Declare Sub cpprand_seed Lib "cpprand.dll" (ByVal seed As Long)
 Private Declare Function cpprand_double Lib "cpprand.dll" () As Double
 Private Declare Function cpprand_int32 Lib "cpprand.dll" (ByVal max As Long) As Long
+Private Declare Function cpprand_int32_round Lib "cpprand.dll" (ByVal max As Long) As Long
 
 Private Declare Sub cpprand_seed_sec Lib "cpprand.dll" (ByVal seed As Long)
 Private Declare Function cpprand_double_sec Lib "cpprand.dll" () As Double
 Private Declare Function cpprand_int32_sec Lib "cpprand.dll" (ByVal max As Long) As Long
+Private Declare Function cpprand_int32_round_sec Lib "cpprand.dll" (ByVal max As Long) As Long
 
 Public Sub random_init()
     Randomize Timer
@@ -48,7 +53,13 @@ End Sub
 
 Private Sub dump_rand_track_i()
     If g_trackRandom And s_randTrackerFD <> 0 Then
-        Print #s_randTrackerFD, Trim(Str(GetRecordFrameNo)) + ": (" + Trim(Str(n_calls)) + ") I=" + Trim(Str(g_lastIntRandRes))
+        Print #s_randTrackerFD, Trim(Str(GetRecordFrameNo)) + ": (" + Trim(Str(n_calls)) + ") I=" + Trim(Str(g_lastIntRandRes)) + " (max=" + Trim(Str(g_lastIntRandResMax)) + ")"
+    End If
+End Sub
+
+Private Sub dump_rand_track_r()
+    If g_trackRandom And s_randTrackerFD <> 0 Then
+        Print #s_randTrackerFD, Trim(Str(GetRecordFrameNo)) + ": (" + Trim(Str(n_calls)) + ") R=" + Trim(Str(g_lastRoundIntRandRes)) + " (max=" + Trim(Str(g_lastRoundIntRandResMax)) + ")"
     End If
 End Sub
 
@@ -81,6 +92,7 @@ Public Function random_int(max As Integer) As Integer
     If use_cpp = False Then
         random_int = Int(Rnd() * max)
     Else
+        g_lastIntRandResMax = max
         g_lastIntRandRes = cpprand_int32(max)
         n_calls = n_calls + 1
         random_int = g_lastIntRandRes
@@ -100,16 +112,11 @@ Public Function random_int_round(max As Integer) As Integer
     If use_cpp = False Then
         random_int_round = Rnd() * max
     Else
-        Dim i As Long
-        i = cpprand_int32(max * 2)
-        If i = 0 Then
-            g_lastIntRandRes = max
-        Else
-            g_lastIntRandRes = i \ 2
-        End If
+        g_lastRoundIntRandResMax = max
+        g_lastRoundIntRandRes = cpprand_int32_round(max)
         n_calls = n_calls + 1
-        random_int_round = g_lastIntRandRes
-        dump_rand_track_i
+        random_int_round = g_lastRoundIntRandRes
+        dump_rand_track_r
     End If
 End Function
 
@@ -117,13 +124,7 @@ Public Function random_int_round_sec(max As Integer) As Integer
     If use_cpp = False Then
         random_int_round_sec = Rnd() * max
     Else
-        Dim i As Long
-        i = cpprand_int32_sec(max * 2)
-        If i = 0 Then
-            random_int_round_sec = max
-        Else
-            random_int_round_sec = i \ 2
-        End If
+        random_int_round_sec = cpprand_int32_round_sec(max)
     End If
 End Function
 

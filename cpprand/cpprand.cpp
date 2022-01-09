@@ -55,10 +55,28 @@ CPPRAND_EXPORT int cpprand_int32(int max)
         engine();
         return 0;
     }
-    return engine() % max;
+    return engine() % (max + 1);
 }
 
+CPPRAND_EXPORT int cpprand_int32_round(int max)
+{
+    int i;
+	
+	if(max == 0)
+    {
+        engine();
+        i = 0;
+    }
+    else 
+	{
+		i = engine() % ((max + 1) * 2);
+	}
+	
+    if(i == 0)
+        return max;
 
+    return i / 2;
+}
 
 
 CPPRAND_EXPORT void cpprand_seed_sec(int seed)
@@ -78,9 +96,16 @@ CPPRAND_EXPORT int cpprand_int32_sec(int max)
         engine_gfx();
         return 0;
     }
-    return engine_gfx() % max;
+    return engine_gfx() % (max + 1);
 }
 
+CPPRAND_EXPORT int cpprand_int32_round_sec(int max)
+{
+    int i = cpprand_int32_sec(max * 2);
+    if(i == 0)
+        return max;
+    return i / 2;
+}
 
 
 #ifndef BUILD_DLL

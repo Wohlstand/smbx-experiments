@@ -18,7 +18,7 @@ End Sub
 
 Public Function random_seed(seed As Long)
     cpprand_seed (seed)
-    cpprand_seed_src (seed)
+    cpprand_seed_sec (seed)
     use_cpp = True
     n_calls = 0
 End Function

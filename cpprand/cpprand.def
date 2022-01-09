@@ -3,3 +3,6 @@ EXPORTS
 	cpprand_double
 	cpprand_int32
 	cpprand_seed
+	cpprand_double_sec
+	cpprand_int32_sec
+	cpprand_seed_sec

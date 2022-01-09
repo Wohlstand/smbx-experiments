@@ -135,7 +135,7 @@ Public Sub UpdateEffects() 'Updates the effects
                     .Frame = 0
                 End If
                 .Location.Y = .Location.Y - 2
-                .Location.X = .Location.X + random_double * 2 - 1
+                .Location.X = .Location.X + random_double_sec * 2 - 1
             ElseIf .Type = 57 Then 'egg shells
                 .Location.SpeedY = .Location.SpeedY + 0.6
                 .Location.SpeedX = .Location.SpeedX * 0.99

@@ -62,8 +62,8 @@ Public Sub BlockHit(A As Integer, Optional HitDown As Boolean = False, Optional 
                 End If
             End If
         End If
-    
-    
+
+
         oldSpecial = .Special
         If .ShakeY <> 0 Or .ShakeY2 <> 0 Or .ShakeY3 <> 0 Then 'if the block has just been hit, ignore
             If .RapidHit > 0 And Player(whatPlayer).Character = 4 And whatPlayer > 0 Then
@@ -83,7 +83,7 @@ Public Sub BlockHit(A As Integer, Optional HitDown As Boolean = False, Optional 
                 End If
             Next B
         End If
-        
+
 If nPlay.Online = True And nPlay.Mode = 1 Then 'online code
     If HitDown = False Then
         Netplay.sendData "3a" & B & LB
@@ -91,11 +91,11 @@ If nPlay.Online = True And nPlay.Mode = 1 Then 'online code
         Netplay.sendData "3b" & B & LB
     End If
 End If
-    
+
     If .Special = 1225 Or .Special = 1226 Or .Special = 1227 Then
         HitDown = False
     End If
-        
+
         'Shake the block
         If .Type = 4 Or .Type = 615 Or .Type = 55 Or .Type = 60 Or .Type = 90 Or .Type = 159 Or .Type = 169 Or .Type = 170 Or .Type = 173 Or .Type = 176 Or .Type = 179 Or .Type = 188 Or .Type = 226 Or .Type = 281 Or .Type = 282 Or .Type = 283 Or (.Type >= 622 And .Type <= 625) Then
             If HitDown = False Then
@@ -300,7 +300,7 @@ End If
                     NewEffect 11, .Location
                     .Special = .Special - 1
                 End If
-                
+
             Else
                 Coins = Coins + 1
                 If Coins >= 100 Then
@@ -338,10 +338,10 @@ End If
                 tempPlayer = CheckDead
                 If numPlayers > 2 And nPlay.Online = False Then tempPlayer = 0
             End If
-            
+
 'don't spawn players from blocks anymore
     tempPlayer = 0
-            
+
             If tempPlayer = 0 Then 'Spawn the npc
                 numNPCs = numNPCs + 1 'create a new NPC
                 NPC(numNPCs).Active = True
@@ -394,9 +394,9 @@ End If
                 NPC(numNPCs).Location.X = (.Location.X + .Location.Width / 2 - NPC(numNPCs).Location.Width / 2)
                 NPC(numNPCs).Location.SpeedX = 0
                 NPC(numNPCs).Location.SpeedY = 0
-                
-                
-                
+
+
+
                 If NPCIsYoshi(C) Then 'if the npc is yoshi then set the color of the egg
                     If C = 98 Then
                         NPC(numNPCs).Frame = 1
@@ -457,7 +457,7 @@ End If
                 Player(tempPlayer).Location.SpeedY = 0
                 Player(tempPlayer).Immune = 150
             End If
-            
+
         ElseIf .Special = 100 Then 'Block contains a mushroom
             If HitDown = False Then
                 BlockShakeUp A
@@ -678,10 +678,10 @@ End If
             NPC(numNPCs).Effect2 = 0
             CheckSectionNPC numNPCs
         ElseIf .Special = 105 Then 'Block contains a Green Yoshi
-        
+
             SoundPause(2) = 2
             PlaySound 7
-        
+
             If HitDown = False Then
                 BlockShakeUp A
             Else
@@ -864,11 +864,11 @@ End Sub
 
 Public Sub BlockHitHard(A As Integer)
     If Block(A).Hidden = False Then
-    
+
 If nPlay.Online = True And nPlay.Mode = 1 Then
     Netplay.sendData "3c" & A & LB
 End If
-    
+
         If Block(A).Type = 90 Then
             'Block(A).Hidden = True
             'NewEffect 82, Block(A).Location, , A
@@ -943,9 +943,9 @@ End Sub
 
 Public Sub BlockFrames() 'update the frames for animated blocks
     Dim A As Integer
-    
+
     Dim pChar(0 To 5) As Boolean
-    
+
     Dim tempBool As Boolean
     If FreezeNPCs = True Then Exit Sub
     'Update block frame counter
@@ -1025,7 +1025,7 @@ Public Sub BlockFrames() 'update the frames for animated blocks
         If Player(A).Character = 4 Then BlockFrame(625) = 4
         If Player(A).Character = 5 Then BlockFrame(631) = 4
     Next A
-    
+
     BlockFrame2(626) = BlockFrame2(626) + 1
     If BlockFrame2(626) < 8 Then
         BlockFrame(626) = 3
@@ -1046,13 +1046,13 @@ Public Sub BlockFrames() 'update the frames for animated blocks
             pChar(Player(A).Character) = True
         End If
     Next A
-    
+
     If pChar(1) = False Then BlockFrame(626) = 0
     If pChar(2) = False Then BlockFrame(627) = 0
     If pChar(3) = False Then BlockFrame(628) = 0
     If pChar(4) = False Then BlockFrame(629) = 0
     If pChar(5) = False Then BlockFrame(632) = 0
-    
+
     If BlockFrame2(30) = 0 Then
         BlockFrame(30) = BlockFrame(30) + 1
         If BlockFrame(30) = 4 Then BlockFrame(30) = 0
@@ -1081,7 +1081,7 @@ Public Sub BlockFrames() 'update the frames for animated blocks
     BlockFrame(380) = BlockFrame(379)
     BlockFrame(381) = BlockFrame(379)
     BlockFrame(382) = BlockFrame(379)
-    
+
     BlockFrame2(530) = BlockFrame2(530) + 1
     If BlockFrame2(530) <= 8 Then
         BlockFrame(530) = 0
@@ -1099,8 +1099,8 @@ Public Sub BlockFrames() 'update the frames for animated blocks
         BlockFrame(530) = 0
         BlockFrame2(530) = 0
     End If
-    
-    
+
+
     If LevelEditor = True And TestLevel = False Then
         BlockFrame(458) = 5
     Else
@@ -1127,7 +1127,7 @@ Public Sub BlockFrames() 'update the frames for animated blocks
             BlockFrame2(458) = 0
         End If
     End If
-    
+
 End Sub
 
 Public Sub UpdateBlocks()   'Update the blocks
@@ -1223,7 +1223,7 @@ Public Sub UpdateBlocks()   'Update the blocks
             ElseIf .ShakeY2 > 0 Then 'Come back down
                 .ShakeY2 = .ShakeY2 - 2
                 .ShakeY3 = .ShakeY3 + 2
-                
+
                 If .RapidHit > 0 And .Special > 0 And .ShakeY3 = 0 Then
                     BlockHit iBlock(A)
                     .RapidHit = .RapidHit - 1
@@ -1302,7 +1302,7 @@ Public Sub UpdateBlocks()   'Update the blocks
             End If
         End With
     Next A
-    
+
     If PSwitchTime > 0 Then
         If PSwitchTime = Physics.NPCPSwitch Then
             StopMusic
@@ -1407,7 +1407,7 @@ Public Sub PSwitch(bool As Boolean) 'turns all the blocks to coins and vice vers
         Next A
         ProcEvent "P Switch - Start", True
     Else
-        
+
         For A = 1 To numNPCs
             With NPC(A)
                 If .Block > 0 Then
@@ -1434,8 +1434,8 @@ Public Sub PSwitch(bool As Boolean) 'turns all the blocks to coins and vice vers
                 End If
             End With
         Next A
-        
-        
+
+
         'Stop
         For A = numBlock To 1 Step -1
             With Block(A)
@@ -1467,9 +1467,9 @@ Public Sub PSwitch(bool As Boolean) 'turns all the blocks to coins and vice vers
                 End If
             End With
         Next A
-        
-        
-        
+
+
+
         ProcEvent "P Switch - End", True
     End If
     qSortBlocksX 1, numBlock

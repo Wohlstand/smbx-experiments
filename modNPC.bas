@@ -11,7 +11,7 @@ Public Sub UpdateNPCs()
     Dim D As Single
     Dim E As Double
     Dim F As Single
-    
+
     Dim tempStr As String
     Dim oldSlope As Integer 'previous sloped block the npc was on
     Dim tempNPC As NPC
@@ -30,7 +30,7 @@ Public Sub UpdateNPCs()
     Dim winningBlock As Integer 'More code for hitting the block from below
     Dim numTempBlock As Integer
     Dim speedVar As Single 'percent of the NPC it should actually moved. this helps when underwater
-    
+
     Dim tempBool As Boolean
     Dim tempBool2 As Boolean
     Dim tempBool3 As Boolean
@@ -41,7 +41,7 @@ Public Sub UpdateNPCs()
     Dim oldBeltSpeed As Single
     Dim beltFixX As Single
     Dim oldDirection As Integer
-    
+
         'used for collision detection
     Dim fBlock As Long
     Dim lBlock As Long
@@ -58,18 +58,18 @@ Public Sub UpdateNPCs()
     Dim Slope As Double
     Dim SlopeTurn As Boolean
     Dim timeStr As String
-    
+
     Dim lyrX As Double 'for attaching to layers
     Dim lyrY As Double 'for attaching to layers
-    
+
     NPC(0).Location.SpeedX = 0
     NPC(0).Location.SpeedY = 0
-    
+
     If LevelMacro > 0 Then
         If PSwitchTime > 0 Then PSwitchTime = 100
         If PSwitchStop > 0 Then PSwitchStop = 100
     End If
-    
+
     'used for the p switches
     If PSwitchStop > 0 Then 'time stop
         If PSwitchStop = Physics.NPCPSwitch Then
@@ -85,7 +85,7 @@ Public Sub UpdateNPCs()
             StartMusic Player(PSwitchPlayer).Section
         End If
     End If
-    
+
     If FreezeNPCs = True Then 'When time is paused
         StopHit = 0
         For A = numNPCs To 1 Step -1 ' check to see if NPCs should be killed
@@ -117,8 +117,8 @@ Public Sub UpdateNPCs()
         CharStuff
         Exit Sub
     End If
-    
-    
+
+
     If CoinMode = True Then 'this is a cheat code
         If Lives >= 99 And Coins >= 99 Then
             CoinMode = False
@@ -136,9 +136,9 @@ Public Sub UpdateNPCs()
             End If
         End If
     End If
-    
-    
-    
+
+
+
     For A = 1 To numNPCs
         With NPC(A)
             If .RespawnDelay > 0 Then
@@ -222,7 +222,7 @@ Public Sub UpdateNPCs()
                                     PlaySound 22
                                     NPC(numNPCs).Projectile = True
                                     If NPC(numNPCs).Type = 17 Then NPC(numNPCs).Projectile = False 'Normal Bullet Bills
-                                    
+
                                     If NPC(numNPCs).Type = 45 Then NPC(numNPCs).Special = 1
                                     If .GeneratorDirection = 1 Then
                                         NPC(numNPCs).Location.SpeedY = -10
@@ -266,7 +266,7 @@ Public Sub UpdateNPCs()
                     End If
                 End If
             End If
-            
+
             If .Type = 57 And .Hidden = False Then
                 CheckSectionNPC A
                 C = 0
@@ -281,11 +281,11 @@ Public Sub UpdateNPCs()
             End If
             numAct = 0
             C = 0
-            
+
             If .TimeLeft = 1 Or .JustActivated <> 0 Then
                 If .Type = 169 Or .Type = 170 Then .Frame = EditorNPCFrame(.Type, .Direction, A)
             End If
-            
+
             If .JustActivated <> 0 Then
                 If .Active = True And .TimeLeft > 1 And .Type <> 57 And .Type <> 46 And .Type <> 212 And NPCIsACoin(.Type) = False Then  'And .Type <> 47
                     If .TriggerActivate <> "" Then ProcEvent .TriggerActivate
@@ -332,7 +332,7 @@ Public Sub UpdateNPCs()
                                             If B < A Then
                                                 If NPC(B).TriggerActivate <> "" Then ProcEvent NPC(B).TriggerActivate
                                             End If
-                                            
+
                                         End If
                                     End If
                                 Next B
@@ -364,7 +364,7 @@ Public Sub UpdateNPCs()
                 .Active = True
                 .TimeLeft = 100
             End If
-            
+
             If NPC(A).Location.Width = 32 Then
                 If Not .Type = 57 And Not .Type = 84 Then
 
@@ -373,8 +373,8 @@ Public Sub UpdateNPCs()
                     If Not (NPCIsAnExit(.Type) Or .Type = 8 Or .Type = 51 Or .Type = 52 Or .Type = 74 Or .Type = 256 Or .Type = 257 Or .Type = 93 Or .Type = 245) Then
                         NPC(A).Location.X = NPC(A).Location.X + 0.015
                     End If
-                    
-                    
+
+
                     NPC(A).Location.Width = NPC(A).Location.Width - 0.03
                 End If
             ElseIf NPC(A).Location.Width = 256 Then
@@ -382,9 +382,9 @@ Public Sub UpdateNPCs()
             ElseIf NPC(A).Location.Width = 128 Then
                 NPC(A).Location.Width = 127.9
             End If
-            
+
             If (.Active = True And .TimeLeft > 1) Then
-            
+
                 If .Type = 45 And .Special = 1 Then
                     If .Projectile = True Then
                         .Special2 = 0
@@ -396,7 +396,7 @@ Public Sub UpdateNPCs()
                         End If
                     End If
                 End If
-            
+
                 If NPCIsABlock(.Type) Or NPCIsAHit1Block(.Type) Or (NPCCanWalkOn(.Type) = True And Not (NPCIsCheep(.Type) And .Special = 2)) Then
                     If .Projectile = False And .HoldingPlayer = 0 And .Effect = 0 And Not (.Type = 45 And .Special = 1) And Not ((.Type = 46 Or .Type = 212) And .Special = 1) Or .Type = 58 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70 Then
                         numBlock = numBlock + 1
@@ -451,16 +451,16 @@ Public Sub UpdateNPCs()
     For A = 1 To numNPCs
         Physics.NPCGravity = Physics.NPCGravityReal
         With NPC(A)
-            
+
             lyrX = .Location.X
             lyrY = .Location.Y
-            
+
             If .RealSpeedX <> 0 Then
                 .Location.SpeedX = .RealSpeedX
                 .RealSpeedX = 0
             End If
-        
-        
+
+
             StopHit = 0
             If .Projectile = False Or .Type = 50 Or .Type = 78 Then .Multiplier = 0
             If .Immune > 0 Then .Immune = .Immune - 1
@@ -487,9 +487,9 @@ Public Sub UpdateNPCs()
                         End If
                     ElseIf .Type = 199 Then 'blaarg
                         .Location.Y = .DefaultLocation.Y + .Location.Height + 36
-                        
-                        
-                    
+
+
+
                     ElseIf .Type = 17 Or .Type = 18 Or (NPCIsCheep(.Type) And .Special = 2) Or .Type = 42 Then 'Special Start for Jumping Fish and Bullet Bills
                         If .TimeLeft <= 1 Then
                             .Active = False
@@ -522,11 +522,11 @@ Public Sub UpdateNPCs()
                     NPCHit A, 9
                 End If
             End If
-            
 
-            
+
+
 'Normal operations start here
-            
+
 
 
             If NPCIsAVine(.Type) Then
@@ -539,8 +539,8 @@ Public Sub UpdateNPCs()
                 End If
 
             ElseIf .Active = True And .Killed = 0 And .Generator = False Then
-            
-            
+
+
                 speedVar = 1
                 If .Slope > 0 And Not (NPCIsAShell(.Type) Or (.Type = 45 And .Special = 1)) Then
                     If (.Location.SpeedX > 0 And BlockSlope(Block(.Slope).Type) = -1) Or .Location.SpeedX < 0 And BlockSlope(Block(.Slope).Type) = 1 Then
@@ -548,9 +548,9 @@ Public Sub UpdateNPCs()
                     End If
                 End If
                 speedVar = 1
-                
+
                 If .Projectile = False Then speedVar = speedVar * NPCSpeedvar(.Type)
-            
+
 'water check
 
                 'Things immune to water's effects
@@ -596,8 +596,8 @@ Public Sub UpdateNPCs()
                     tempLocation.Y = .Location.Y + .Location.Height - tempLocation.Height
                     NewEffect 114, tempLocation
                 End If
-                
-                
+
+
                 If .Wet > 0 Then
                     If .Type = 263 Then
                         .Projectile = True
@@ -628,8 +628,8 @@ Public Sub UpdateNPCs()
                     speedVar = speedVar * 0.3
                 End If
 
-            
-            
+
+
 
                 If .Type = 147 Then
                     B = random_int(9)
@@ -661,12 +661,12 @@ Public Sub UpdateNPCs()
                     End If
                     If .TimeLeft > 3 And BattleMode = False Then .TimeLeft = 3
                 End If
-                
+
                 If .Type = 267 Or .Type = 268 Or .Type = 280 Or .Type = 281 Then 'koopalings
                     If .TimeLeft > 1 Then .TimeLeft = Physics.NPCTimeOffScreen
 
                 End If
-                
+
                 CheckSectionNPC A
                 If (.Type = 86 Or .Type = 259 Or .Type = 260) And .TimeLeft > 1 Then
                     .TimeLeft = 100
@@ -685,11 +685,11 @@ Public Sub UpdateNPCs()
                 End If
                 .TimeLeft = .TimeLeft - 1
                 If .Effect = 0 Then
-                
-                
-                
+
+
+
                 'this code is for NPCs that are being held by a player
-                
+
                     If .HoldingPlayer > 0 Then 'NPC is held
                         .standingOnPlayer = 0
                         If .Type = 56 Then
@@ -840,9 +840,9 @@ Public Sub UpdateNPCs()
                                     End If
                                     .Special2 = 1
                                 End If
-                                
+
                             End If
-                        
+
                             If .Type = 265 Then NPCHit A, 3, A
                             If NPCIsAShell(.Type) = True And .Location.SpeedX <> 0 And .Special4 = 0 Then
                                 .Special4 = 5
@@ -865,9 +865,9 @@ Public Sub UpdateNPCs()
 
                         If .Type = 179 Then PlaySound 74 'play saw sound
 'NPC Movement Code
-                        
 
-                        
+
+
                     'Default Movement Code
                         If (NPCDefaultMovement(.Type) = True Or (NPCIsCheep(.Type) = True And .Special <> 2)) And Not ((.Type = 55 Or .Type = 119) And .Special > 0) And .Type <> 91 Then
                             If .Direction = 0 Then
@@ -917,7 +917,7 @@ Public Sub UpdateNPCs()
                             If .Location.SpeedX > -2.5 And .Location.SpeedX < 2.5 Then
                                 .Location.SpeedX = 2.5 * .Direction
                             End If
-                            
+
             'Slow things down that shouldnt move
                         ElseIf .Type = 21 Or .Type = 22 Or .Type = 25 Or .Type = 26 Or .Type = 31 Or .Type = 32 Or .Type = 238 Or .Type = 239 Or .Type = 35 Or .Type = 191 Or .Type = 193 Or (.Type = 40 And .Projectile = True) Or .Type = 49 Or .Type = 58 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70 Or (NPCIsVeggie(.Type) And .Projectile = False) Or (.Type = 29 And .Projectile = True) Or (.Projectile = True And (.Type = 54 And .Type = 15)) Or .Type = 75 Or .Type = 84 Or .Type = 181 Or .Type = 94 Or .Type = 198 Or .Type = 96 Or .Type = 134 Or .Type = 137 Or .Type = 101 Or .Type = 102 Or (NPCIsYoshi(.Type) And .Special = 0) Or (.Type >= 154 And .Type <= 157) Or .Type = 166 Or (.Type = 39 And .Projectile = True) Or .Type = 170 Or .Type = 169 Or .Type = 183 Or .Type = 188 Or .Type = 97 Or .Type = 196 Or .Type = 182 Or .Type = 240 Or .Type = 241 Or .Type = 249 Or .Type = 250 Or .Type = 254 Or .Type = 255 Or .Type = 278 Or .Type = 279 Or .Type = 277 Or .Type = 264 Or .Type = 288 Or .Type = 275 Then
                             If .Location.SpeedX > 0 Then
@@ -1022,7 +1022,7 @@ Public Sub UpdateNPCs()
                             If .Special = 1 Then
                                 .Location.SpeedX = 2 * .Direction
                             End If
-                            
+
                         'Big Koopa Movement Code
                         ElseIf .Type = 15 Then
                             If .Location.SpeedX < 0 Then
@@ -1113,8 +1113,8 @@ Public Sub UpdateNPCs()
                                 Else
                                     .Location.SpeedX = Physics.NPCWalkingSpeed * .Direction
                                 End If
-                                
-                                
+
+
                                 If (NPCIsCheep(.Type) And .Special <> 1) And .Projectile = False Then
                                     If .Wet = 0 Then
                                         If .Special5 >= 0 Then
@@ -1130,12 +1130,12 @@ Public Sub UpdateNPCs()
                                         .Location.SpeedX = .Special3
                                     End If
                                 End If
-                                
+
                                 If NPCIsCheep(.Type) And .Special = 1 And .Projectile = False Then
                                     .Location.SpeedX = Physics.NPCWalkingOnSpeed * 2 * .Direction
                                 End If
-                                
-                                
+
+
                             End If
                         End If
                         If .Type = 135 And .Projectile = False And .Special2 = 1 Then .Location.SpeedX = 0
@@ -1158,7 +1158,7 @@ If NPCNoGravity(.Type) = False Then
                                     .Location.SpeedX = .Location.SpeedX + 0.04
                                 End If
                             ElseIf .Special = 4 Then
-                            
+
                             'toad fireball changes
                                 .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity * 1.3
                                 If .Location.SpeedX < 8 And .Location.SpeedX > 0 Then
@@ -1170,10 +1170,10 @@ If NPCNoGravity(.Type) = False Then
                             Else
                                 .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity * 1.3
                             End If
-                            
+
                         ElseIf .Type = 17 Or .Type = 18 Then
                             .Location.SpeedY = 0
-                        
+
                         ElseIf (NPCIsCheep(.Type) And .Special = 2) And .Projectile = False Then
                             If .Special5 = 1 Then
                                 If .Location.Y > .DefaultLocation.Y Then
@@ -1196,11 +1196,11 @@ If NPCNoGravity(.Type) = False Then
                                         If .Special = 3 Then .TurnAround = True
                                     End If
                                     If .Special = 4 Then
-    
-                                        
+
+
                                         If .Location.SpeedY = 0 Then .Special4 = 1
                                         If .Location.SpeedY = 0.01 Then .Special4 = 0
-                                        
+
                                         .Location.SpeedX = 0
                                         If .Location.SpeedY > 2 Then .Location.SpeedY = 2
                                         If .Location.SpeedY < -2 Then .Location.SpeedY = -2
@@ -1235,8 +1235,8 @@ If NPCNoGravity(.Type) = False Then
                                 End If
                             End If
                         End If
-                        
-                        
+
+
                         If .Type = 291 Then
                             .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity * 0.8
                             'If .Location.SpeedY >= 5 Then .Location.SpeedY = 5
@@ -1247,10 +1247,10 @@ If NPCNoGravity(.Type) = False Then
                             Else
                                 .Location.SpeedX = 0
                             End If
-                            
-                            
+
+
                         End If
-                        
+
 ElseIf .Projectile = True Then
     .Location.SpeedY = .Location.SpeedY * 0.95
     If .Location.SpeedY > -0.1 And .Location.SpeedY < 0.1 Then
@@ -1339,7 +1339,7 @@ End If
                                 .Special2 = .Special2 + 1
                             End If
                         End If
-                        
+
                         If (Not NPCIsAnExit(.Type) Or .Type = 97 Or .Type = 196) And Not .Type = 14 And Not .Type = 57 Then
                             If Not NPCIsAParaTroopa(.Type) And Not .Type = 91 Then
                                 .Location.X = .Location.X + .Location.SpeedX * speedVar
@@ -1354,13 +1354,13 @@ End If
                             End If
                         End If
                         'End If 'end of freezenpcs
-                        
+
                         If .Type = 263 And .Special = 3 Then .BeltSpeed = 0
-                        
-                        
+
+
 'projectile check
     If .Type = 13 Or .Type = 108 Or .Type = 265 Or .Type = 266 Or .Type = 171 Or .Type = 292 Then .Projectile = True
-                        
+
 'make things projectiles
                         If .Type = 58 Or .Type = 21 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70 Or (.Type >= 78 And .Type <= 83) Then
                             If .Location.SpeedY > Physics.NPCGravity * 20 Then
@@ -1397,9 +1397,9 @@ If .Type = 179 Then .Location.Height = 24
                         .Slope = 0
                         If .Location.X < -(FLBlocks - 1) * 32 Then .Location.X = -(FLBlocks - 1) * 32
                         If .Location.X + .Location.Width > (FLBlocks + 1) * 32 Then .Location.X = (FLBlocks + 1) * 32 - .Location.Width
-                        
+
                         If Not (NPCIsACoin(.Type) And .Special = 0) And Not (.Type = 45 And .Special = 0) And Not .Type = 57 And Not .Type = 85 And Not .Type = 91 And Not .Type = 97 And Not .Type = 196 And Not (.Type >= 104 And .Type <= 106) And Not (NPCIsAnExit(.Type) And ((.DefaultLocation.X = .Location.X And .DefaultLocation.Y = .Location.Y) Or .Inert = True)) And Not .Type = 159 And Not .Type = 192 And Not .Type = 202 And Not (.Type = 246 Or .Type = 255 Or .Type = 259 Or .Type = 260) Then
-                        
+
                             If (NPCNoClipping(.Type) = False Or (.Projectile = True)) And Not (.Type = 40 And .Projectile = True) And Not .Type = 50 And .standingOnPlayer = 0 And Not (NPCIsVeggie(.Type) And .Projectile = True) And Not .Type = 30 And Not .Type = 18 And Not .Type = 108 And Not (NPCIsCheep(.Type) = True And .Special = 2) And Not .Type = 272 Then
                                 For bCheck = 1 To 2
                                     If bCheck = 1 Then
@@ -1411,22 +1411,22 @@ If .Type = 179 Then .Location.Height = 24
                                     End If
                                     For B = fBlock To lBlock
 'If Not .Block = B And Not .tempBlock = B And Not (.Projectile = True And Block(B).noProjClipping = True) And BlockNoClipping(Block(B).Type) = False And Block(B).Hidden = False And Block(B).Hidden = False Then
-                                        
-                                        
+
+
 
 
 If .Location.X + .Location.Width >= Block(B).Location.X Then
 If .Location.X <= Block(B).Location.X + Block(B).Location.Width Then
 If .Location.Y + .Location.Height >= Block(B).Location.Y Then
 If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
-                                        
+
                                         'If CheckCollision(.Location, Block(B).Location) = True Then
-                                        
-                                        
-                                        
+
+
+
                                             If Not .Block = B And Not .tempBlock = B And Not (.Projectile = True And Block(B).noProjClipping = True) And BlockNoClipping(Block(B).Type) = False And Block(B).Hidden = False Then
                                                 If Block(B).IsNPC = 78 And NPCNoClipping(.Type) = False And .Type <> 17 Then NPCHit A, 8
-                                                
+
                                                 If Block(B).IsNPC <> 57 And (NPCIsABlock(Block(B).IsNPC) Or NPCIsAHit1Block(Block(B).IsNPC) Or NPCCanWalkOn(Block(B).IsNPC)) Then
                                                     HitSpot = NPCFindCollision(.Location, Block(B).Location)
                                                 Else
@@ -1482,14 +1482,14 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         End If
                                                     End If
                                                 End If
-                                                
+
                                                 If .Type = 13 Or .Type = 265 Then
                                                     If Block(B).Type = 626 And .Special = 1 Then HitSpot = 0
                                                     If Block(B).Type = 627 And .Special = 2 Then HitSpot = 0
                                                     If Block(B).Type = 628 And .Special = 3 Then HitSpot = 0
                                                     If Block(B).Type = 629 And .Special = 4 Then HitSpot = 0
                                                 End If
-                                                
+
                                                 If .Type = 13 Or .Type = 108 Then
                                                     If Block(B).Type = 621 Or Block(B).Type = 620 Then
                                                         NPCHit A, 3, A
@@ -1514,7 +1514,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         End If
                                                     End If
                                                 End If
-                                                
+
                                                 If (.Type = 37 Or .Type = 180) And HitSpot <> 1 Then HitSpot = 0
                                                 If Block(B).IsNPC = 57 And HitSpot = 5 Then
                                                     If .Location.X + .Location.Width / 2 < Block(B).Location.X + Block(B).Location.Width / 2 Then
@@ -1540,18 +1540,18 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                 If .Type = 133 And HitSpot > 0 Then .Killed = 4
                                                 If .Type = 134 And .Projectile = True And HitSpot <> 0 Then .Special = 1000
                                                 If .Shadow = True And HitSpot <> 1 And Not (Block(B).Special > 0 And .Projectile = True) Then HitSpot = 0
-                                                
-                                                
+
+
                                                 'vine makers
                                                 If .Type = 225 Or .Type = 226 Or .Type = 227 Then
                                                     If HitSpot = 3 Then
                                                         .Special = 1
                                                     End If
                                                 End If
-                                                
+
                                                 If .Type = 197 And Block(B).IsNPC > 0 Then HitSpot = 0
-                                                
-                                                
+
+
 
 
                                                 If (.Type = 205 Or .Type = 206 Or .Type = 207) Then
@@ -1588,11 +1588,11 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         End If
                                                     End If
                                                 End If
-                                                
-                                                
+
+
 
                                                 If BlockSlope2(Block(B).Type) <> 0 And HitSpot > 0 And ((.Location.Y > Block(B).Location.Y) Or ((.Type = 205 Or .Type = 206 Or .Type = 207) And .Special = 3)) Then
-                                                    
+
                                                     If HitSpot = 5 Then
                                                         If .Special = 2 And .Special2 = 1 Then
                                                             .Special2 = 1
@@ -1603,7 +1603,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                             .Special = 3
                                                         End If
                                                     End If
-                                                
+
                                                     HitSpot = 0
                                                     If BlockSlope2(Block(B).Type) = 1 Then
                                                         PlrMid = .Location.X + .Location.Width
@@ -1614,30 +1614,30 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     If BlockSlope2(Block(B).Type) > 0 Then Slope = 1 - Slope
                                                     If Slope < 0 Then Slope = 0
                                                     If Slope > 1 Then Slope = 1
-                                                    
+
                                                     If .Location.Y < Block(B).Location.Y + Block(B).Location.Height - (Block(B).Location.Height * Slope) - 0.1 Then
 
                                                         If .Type = 13 Or .Type = 17 Or .Type = 265 Then NPCHit A, 3, A
-                                                        
+
                                                         If .Type = 263 Then
                                                             If .Location.SpeedY < -2 Then NPCHit A, 3, A
                                                         End If
-                                                        
+
 
 
                                                         If .Location.SpeedY = Physics.NPCGravity Or .Slope > 0 Or oldSlope > 0 Then
 
-                                                            
 
-                                                            
+
+
                                                             If (.Special = 2 Or .Special = 4) And .Special2 = -1 Then
                                                                 If .Special = 4 Then .Special2 = 1
                                                                 If .Special = 2 Then .Special2 = -1
                                                                 .Special = 3
-                                                            
+
                                                             End If
 
-                                                        
+
                                                             PlrMid = .Location.Y
                                                             Slope = (PlrMid - Block(B).Location.Y) / Block(B).Location.Height
                                                             If Slope < 0 Then Slope = 0
@@ -1661,25 +1661,25 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                 tempBlockHit(2) = 0
                                                             End If
                                                             If .Location.SpeedY < -0.01 Then .Location.SpeedY = -0.01 + Block(B).Location.SpeedY
-                                                            
+
                                                             If NPCIsAParaTroopa(.Type) = True Then
                                                                 .Location.SpeedY = .Location.SpeedY + 2
                                                             End If
-                                                            
+
                                                         End If
                                                     End If
                                                  End If
-                                                
-                                                
-                                                
+
+
+
                                                 If BlockSlope(Block(B).Type) <> 0 And HitSpot > 0 Then
                                                     HitSpot = 0
                                                     If .Location.Y + .Location.Height <= Block(B).Location.Y + Block(B).Location.Height + .Location.SpeedY + 4 Then
                                                         If .Location.X < Block(B).Location.X + Block(B).Location.Width And .Location.X + .Location.Width > Block(B).Location.X Then
-                                                        
 
 
-                                                                
+
+
 
                                                             If BlockSlope(Block(B).Type) = 1 Then
                                                                 PlrMid = .Location.X
@@ -1704,7 +1704,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                     .Special = 1
                                                                     .Special2 = -.Special2
                                                                 End If
-                                                                
+
                                                                 If .Type = 17 Or .Type = 40 Then 'Bullet bills crash on slopes
                                                                     .Slope = 1
                                                                     If .Location.SpeedX < 0 Then
@@ -1713,8 +1713,8 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                         HitSpot = 4
                                                                     End If
                                                                 Else
-                                                                
-                                                                
+
+
                                                                     .Location.Y = Block(B).Location.Y + (Block(B).Location.Height * Slope) - .Location.Height - 0.1
                                                                     If NPCIsCheep(.Type) Then
                                                                         .TurnAround = True
@@ -1743,9 +1743,9 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         End If
                                                     End If
                                                 End If
-                                                
 
-                                                
+
+
                                                 If .Type = 206 Or .Type = 205 Or .Type = 207 Then
                                                     If .Special = 3 And (HitSpot = 2 Or HitSpot = 4) Then
                                                         If Block(B).Location.Y + Block(B).Location.Height <= .Location.Y + 1 Then
@@ -1754,11 +1754,11 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     End If
                                                     If Block(B).IsNPC > 0 Then HitSpot = 0
                                                 End If
-                                                
+
                                                 If BlockKills(Block(B).Type) And (HitSpot > 0 Or .Slope = B) Then NPCHit A, 6, B
-                                                
+
                                                 If .Type = 13 And Block(B).IsNPC = 263 Then HitSpot = 0
-                                                
+
                                                 If .Type = 96 And HitSpot = 1 Then
                                                     If (.Location.SpeedY > 2 And HitSpot = 1) Or (.Location.SpeedY < -2 And HitSpot = 3) Or (.Location.SpeedX > 2 And HitSpot = 4) Or (.Location.SpeedX < -2 And HitSpot = 2) Then
                                                         .Special2 = 1
@@ -1793,8 +1793,8 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         NPCHit A, 4, Block(B).IsReally
                                                     End If
                                                 End If
-                                                
-                                                
+
+
 
                                                 If (.Type = 237 Or .Type = 263) And (HitSpot = 2 Or HitSpot = 4 Or HitSpot = 5) Then
                                                     If Block(B).IsNPC = 263 Then
@@ -1804,20 +1804,20 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     End If
                                                     NPCHit A, 3, A
                                                 End If
-                                                
+
                                                 If .Type = 263 And (HitSpot = 1 Or HitSpot = 3 Or HitSpot = 5) Then
                                                     If .Location.SpeedX > -Physics.NPCShellSpeed * 0.8 And .Location.SpeedX < Physics.NPCShellSpeed * 0.8 Then
                                                         If .Location.SpeedY > 5 Or .Location.SpeedY < -2 Then NPCHit A, 3, A
                                                     End If
                                                 End If
-                                                
+
                                                 If NPCIsACoin(.Type) And .Special = 0 And HitSpot > 0 Then
                                                     NPCHit A, 3, A
                                                 End If
-                                                
+
                                                 If Block(B).Location.SpeedX <> 0 And (HitSpot = 2 Or HitSpot = 4) Then .MovingPinched = 2
                                                 If Block(B).Location.SpeedY <> 0 And (HitSpot = 1 Or HitSpot = 3) Then .MovingPinched = 2
-                                                
+
                                                 If .TimeLeft > 1 Then
                                                     If HitSpot = 1 Then
                                                         .Pinched1 = 2
@@ -1835,23 +1835,23 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                             C = (.Location.X + .Location.Width / 2) - (Block(B).Location.X + Block(B).Location.Width / 2)
                                                             D = 4
                                                         End If
-                                                        
+
                                                         If .Location.Y + .Location.Height / 2 < Block(B).Location.Y + Block(B).Location.Height / 2 Then
                                                             If C < (Block(B).Location.Y + Block(B).Location.Height / 2) - (.Location.Y + .Location.Height / 2) Then D = 1
                                                         Else
                                                             If C < (.Location.Y + .Location.Height / 2) - (Block(B).Location.Y + Block(B).Location.Height / 2) Then D = 3
                                                         End If
-                                                        
+
                                                         If D = 1 Then .Pinched1 = 2
                                                         If D = 2 Then .Pinched2 = 2
                                                         If D = 3 Then .Pinched3 = 2
                                                         If D = 4 Then .Pinched4 = 2
-                                                        
+
                                                         If Block(B).Location.SpeedX <> 0 And (D = 2 Or D = 4) Then .MovingPinched = 2
                                                         If Block(B).Location.SpeedY <> 0 And (D = 1 Or D = 3) Then .MovingPinched = 2
-                                                        
-                                                        
-                                                        
+
+
+
                                                         'If Not (.Location.Y + .Location.Height - .Location.SpeedY <= Block(B).Location.Y - Block(B).Location.SpeedY) Then .Pinched1 = 2
                                                         'If Not (.Location.Y - .Location.SpeedY >= Block(B).Location.Y + Block(B).Location.Height - Block(B).Location.SpeedY) Then .Pinched3 = 2
                                                         'If Not (.Location.X + .Location.Width - .Location.SpeedX <= Block(B).Location.X - Block(B).Location.SpeedX) Then .Pinched2 = 2
@@ -1867,7 +1867,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                         End If
                                                     End If
                                                 End If
-                                                
+
                                                 If HitSpot = 1 And .Type = 241 And .Location.SpeedY > 2 Then NPCHit A, 4, A
                                                 If HitSpot = 1 And .Type = 247 And Block(B).IsNPC = 247 Then
                                                     NPC(Block(B).IsReally).Special = -3
@@ -1885,8 +1885,8 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
 'hitspot 1
                                                 If HitSpot = 1 Then 'Hitspot 1
                                                     If (.Type = 13 Or .Type = 265) And .Location.SpeedX = 0 Then NPCHit A, 4, A
-                                                    
-                                                
+
+
                                                     If .Type = 197 Then .Special = 1
                                                     If .Type = 231 Or .Type = 235 Then
                                                         .Special4 = 1
@@ -1904,7 +1904,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     If .Type = 37 Or .Type = 180 Then
                                                         .Special = 2
                                                     End If
-                                                    
+
                                                     If (.Type = 58 Or .Type = 21 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70) And .Location.SpeedY > Physics.NPCGravity * 20 Then PlaySound 37
                                                     If .Type = 78 And .Location.SpeedY > Physics.NPCGravity * 10 Then PlaySound 37
                                                     If WalkingCollision3(.Location, Block(B).Location, oldBeltSpeed) = True Or .Location.Width > 32 Then
@@ -1960,7 +1960,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                 End If
                                                         End If
                                                         If .Projectile = True Then
-                                                            
+
                                                             If .Type = 13 Then
                                                                 If .Special = 4 Then
                                                                     .Location.SpeedY = -3 + Block(B).Location.SpeedY
@@ -1976,8 +1976,8 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                 If Block(B).Slippy = False Then .Special5 = .Special5 + 1
                                                                 If .Special5 >= 3 Then NPCHit A, 3, A
                                                             ElseIf .Type >= 117 And .Type <= 120 Then
-                                                                
-                                                            
+
+
                                                             ElseIf .Bouce = True Or .Location.SpeedY > 5.8 Or ((.Type = 22 Or .Type = 49) And (.Location.SpeedY > 2 Or (.Location.SpeedX > 1 Or .Location.SpeedX < -1))) Then
                                                                 .Bouce = False
                                                                 If NPCIsAShell(.Type) Or (.Type = 45 And .Special = 1) Or .Type = 263 Then
@@ -1990,7 +1990,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                                             End If
                                                                         End With
                                                                     Next C
-                                                                    
+
                                                                 ElseIf .Type = 58 Or .Type = 21 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70 Or (.Type >= 78 And .Type <= 83) Then
                                                                     .Location.SpeedY = 0
                                                                 ElseIf .Type = 86 Or .Type = 96 Then
@@ -2138,7 +2138,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                             End If
                                         'End If
 
-                                        
+
 
 End If
 End If
@@ -2150,7 +2150,7 @@ End If
                                     If numTempBlock = 0 Then Exit For
                                 Next bCheck
                             End If
-                            
+
                             If tempBlockHit(1) > 0 Then 'find out which block was hit from below
                                 If tempBlockHit(2) = 0 Then
                                     winningBlock = tempBlockHit(1)
@@ -2269,19 +2269,19 @@ End If
                             If .onWall = False Then .BeltSpeed = .BeltSpeed + addBelt
                             .oldAddBelt = addBelt
                             If beltClear = True Then .BeltSpeed = 0
-                            
+
                             If .Type = 37 Or .Type = 180 Then
                                 .BeltSpeed = 0
                             End If
 'End Block Collision
                             'If .Type = 12 Then .Projectile = True 'Stop the big fireballs from getting killed from tha lava
                             If .Type = 194 Then .Projectile = True
-                            
+
                             If .Type = 179 Then
                                 .Location.Height = NPCHeight(.Type)
                                 .Projectile = True
                             End If
-                            
+
 'NPC Collision
 
 If .Inert = False And .Type <> 159 And .Type <> 22 And .Type <> 26 And Not (.Type = 30 And .Projectile = False) And .Type <> 32 And .Type <> 35 And Not (.Type = 40 And .Projectile = False) And Not ((.Type = 58 Or .Type = 60 Or .Type = 62 Or .Type = 64 Or .Type = 66 Or .Type = 67 Or .Type = 68 Or .Type = 69 Or .Type = 70 Or .Type = 21) And .Projectile = False) And Not (.Type = 45 And .Special = 0) And Not (.Type = 48 And .Projectile = False) And .Type <> 49 And .Type <> 46 And .Type <> 56 And Not .Type = 57 And Not NPCIsYoshi(.Type) And Not (.Type >= 78 And .Type <= 83) And Not (.Type = 96 And .Projectile = False) And Not (.Type >= 117 And .Type <= 120 And .Projectile = True And .CantHurt > 0) And Not (NPCIsAShell(.Type) And .Projectile = False) And Not (.Projectile = True And .Type >= 117 And .Type <= 120) And .Type <> 133 And Not (NPCIsToad(.Type) = False And .Projectile = False And .Location.SpeedX = 0 And (.Location.SpeedY = 0 Or .Location.SpeedY = Physics.NPCGravity)) Then
@@ -2295,31 +2295,31 @@ If Not NPCIsACoin(.Type) And .Type <> 240 And .Type <> 212 And .Type <> 205 And 
                                                     If Not (NPC(B).Type = 15 And NPC(B).Special = 4) And Not (NPCIsToad(NPC(B).Type)) And Not (NPC(B).Type >= 104 And NPC(B).Type <= 106) And Not (NPC(B).Type >= 154 And NPC(B).Type <= 157) And Not NPC(B).Type = 159 And Not NPC(B).Type = 202 And NPCIsAVine(NPC(B).Type) = False And NPC(B).Type <> 265 And NPC(B).Type <> 260 And NPC(B).Type <> 291 Then
                                                         'If Not (NPC(B).Type = 133) And NPC(B).HoldingPlayer = 0 And .Killed = 0 And NPC(B).JustActivated = 0 And NPC(B).Inert = False And NPC(B).Killed = 0 Then
                                                         If Not (NPC(B).Type = 133) And Not (NPCIsVeggie(NPC(B).Type) And NPCIsVeggie(.Type)) And NPC(B).HoldingPlayer = 0 And .Killed = 0 And NPC(B).JustActivated = 0 And NPC(B).Inert = False And NPC(B).Killed = 0 Then
-                                                            
-                                                            
-                                                            
+
+
+
                                                             If NPC(B).Type <> 22 And NPC(B).Type <> 266 And NPC(B).Type <> 49 And NPC(B).Type <> 26 And NPC(B).Type <> 30 And NPC(B).Type <> 31 And NPC(B).Type <> 32 And NPC(B).Type <> 35 And NPC(B).Type <> 56 And Not NPC(B).Type = 50 And Not NPC(B).Type = 57 And Not NPC(B).Type = 58 And NPC(B).Type <> 191 And NPC(B).Type <> 193 And Not NPC(B).Generator = True And Not ((.Type = 13 Or .Type = 265) And NPC(B).Type = 195) And NPC(B).Type <> 240 And NPC(B).Type <> 278 And NPC(B).Type <> 279 And NPC(B).Type <> 288 And NPC(B).Type <> 289 And NPC(B).Type <> 291 And NPC(B).Type <> 171 And NPC(B).Type <> 292 Then
                                                             If Not (NPC(B).Type = 67 Or NPC(B).Type = 60 Or NPC(B).Type = 62 Or NPC(B).Type = 64 Or NPC(B).Type = 66 Or NPC(B).Type = 68 Or NPC(B).Type = 69 Or NPC(B).Type = 70) And Not (.Projectile = False And NPC(B).Type = 48) And NPCIsYoshi(NPC(B).Type) = False And NPC(B).Type <> 46 And NPC(B).Type <> 212 And Not (NPC(B).Type = 45 And NPC(B).Special = 0) And Not NPC(B).Type = 57 And Not (NPC(B).Type >= 78 And NPC(B).Type <= 83) And Not NPC(B).Type = 84 And Not NPC(B).Type = 85 And Not (NPC(B).Type = 17 And NPC(B).CantHurt > 0) And Not NPC(B).Type = 91 And Not (.CantHurtPlayer = NPC(B).CantHurtPlayer And .CantHurtPlayer > 0) And Not (NPC(B).Type = 96 And NPC(B).Projectile = False) And Not NPC(B).Type = 108 And Not NPC(B).Type = 246 And NPC(B).Type <> 276 And NPC(B).Type <> 282 And NPC(B).Type <> 225 And NPC(B).Type <> 226 And NPC(B).Type <> 227 Then
-                                                                
+
                                                                 If .Type = 269 Or NPC(B).Type = 269 Or .Type = 282 Or NPC(B).Type = 282 Then
                                                                     HitSpot = 0
                                                                 End If
-                                                                
+
                                                                 If .Type = 283 Then
                                                                     NPCHit A, 3, B
                                                                     HitSpot = 0
                                                                 ElseIf NPC(B).Type = 283 Then
                                                                     NPCHit B, 3, A
                                                                 End If
-                                                                
-                                                                
+
+
                                                                 If .Type = 266 Then
                                                                     If NPCIsABonus(NPC(B).Type) = False Then
                                                                         NPCHit B, 10, .CantHurtPlayer
                                                                     End If
                                                                     HitSpot = 0
                                                                 End If
-                                                                
+
                                                                 'toad code
                                                                 If NPCIsToad(NPC(A).Type) = True Then
                                                                     If Not (NPCWontHurt(NPC(B).Type) And NPC(B).Projectile = False) And Not NPCIsABonus(NPC(B).Type) And Not NPC(B).Type = 13 And Not NPC(B).Type = 265 And Not (NPC(B).Type = 17 And NPC(B).CantHurt > 0) And Not NPC(B).Type = 50 And Not NPC(B).Type = 171 And Not NPC(B).Type = 292 And Not NPC(B).Type = 195 Then
@@ -2573,12 +2573,12 @@ If Not NPCIsACoin(.Type) And .Type <> 240 And .Type <> 212 And .Type <> 205 And 
                                     If .Direction > 0 Then
                                         tempLocation.X = tempLocation.X + .Location.Width - 20
                                         If .Type = 247 And .Special2 = 0 Then tempLocation.X = tempLocation.X + 16
-                                        
+
                                         'If .Type = 189 Then tempLocation.X = tempLocation.X - 10
                                     Else
                                         tempLocation.X = tempLocation.X - tempLocation.Width + 20
                                         If .Type = 247 And .Special2 = 0 Then tempLocation.X = tempLocation.X - 16
-                                        
+
                                         'If .Type = 189 Then tempLocation.X = tempLocation.X + 10
                                     End If
                                     For bCheck2 = 1 To 2
@@ -2591,8 +2591,8 @@ If Not NPCIsACoin(.Type) And .Type <> 240 And .Type <> 212 And .Type <> 205 And 
                                         End If
                                         For B = fBlock2 To lBlock2
 '                                            If BlockNoClipping(Block(B).Type) = False And Block(B).Invis = False And Block(B).Hidden = False And Not (BlockIsSizable(Block(B).Type) And Block(B).Location.Y < .Location.Y + .Location.Height - 3) Then
-                                                
-                                                
+
+
 If tempLocation.X + tempLocation.Width >= Block(B).Location.X Then
 If tempLocation.X <= Block(B).Location.X + Block(B).Location.Width Then
 If tempLocation.Y + tempLocation.Height >= Block(B).Location.Y Then
@@ -2610,9 +2610,9 @@ Else
 'not working
 End If
 
-                                                
-                                                
-                                                
+
+
+
                                             'End If
                                         Next B
                                     Next bCheck2
@@ -2737,7 +2737,7 @@ End If
                                     If .Type = 179 Then
                                         .Special = .Location.SpeedY
                                     End If
-                                    
+
                                 End If
                                 If .Slope = 0 Then .Location.Y = tempHit
                                 tempHit = 0
@@ -2757,32 +2757,32 @@ End If
                                 Block(.tempBlock).Location.Height = Block(.tempBlock).Location.Height + 16
                             End If
                             Do While Block(.tempBlock).Location.X < Block(.tempBlock - 1).Location.X And .tempBlock > numBlock + 1 - numTempBlock
-                                
+
                                 tmpBlock = Block(.tempBlock - 1)
                                 Block(.tempBlock - 1) = Block(.tempBlock)
                                 Block(.tempBlock) = tmpBlock
-                                
+
                                 NPC(Block(.tempBlock).IsReally).tempBlock = .tempBlock
                                 .tempBlock = .tempBlock - 1
-                                
+
                             Loop
                             Do While Block(.tempBlock).Location.X > Block(.tempBlock + 1).Location.X And .tempBlock < numBlock
-                                
-                                
+
+
                                 tmpBlock = Block(.tempBlock + 1)
                                 Block(.tempBlock + 1) = Block(.tempBlock)
                                 Block(.tempBlock) = tmpBlock
-                                
+
                                 NPC(Block(.tempBlock).IsReally).tempBlock = .tempBlock
                                 .tempBlock = .tempBlock + 1
-                                
-                                
-                                
-                                
+
+
+
+
                                 'NPC(Block(.tempBlock).IsReally).tempBlock = .tempBlock
                                 'NPC(Block(.tempBlock + 1).IsReally).tempBlock = .tempBlock + 1
-                                
-                                
+
+
                             Loop
                         End If
                         Block(.tempBlock).Location.SpeedX = .Location.SpeedX + .BeltSpeed
@@ -3134,9 +3134,9 @@ End If
                                 .Special5 = 0
                             Else
                                 If .Location.SpeedY = 0 Or .Slope > 0 Then
-                                
-                                
-                                
+
+
+
                                     .Special3 = 0
                                     If Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 < .Location.X + .Location.Width / 2 Then
                                         .Special4 = -10
@@ -3198,7 +3198,7 @@ End If
                                 .Special4 = 0
                             End If
                         End If
-                        
+
                     ElseIf .Type = 29 And .HoldingPlayer > 0 Then
                             If Player(.HoldingPlayer).Effect = 0 Then .Special3 = .Special3 + 1
                             If .Special3 >= 20 Then
@@ -3293,25 +3293,25 @@ End If
                                             .Type = 17
                                             .Location.Width = NPCWidth(.Type)
                                             .Location.Height = NPCHeight(.Type)
-                                            
+
                                             If .Direction = 1 Then
                                                 .Location.X = NPC(A).Location.X + NPC(A).Location.Width / 2
                                             Else
                                                 .Location.X = NPC(A).Location.X + NPC(A).Location.Width / 2 - .Location.Width
                                             End If
-                                            
+
                                             If .Direction = 1 Then
                                                 .Frame = 1
                                             Else
                                                 .Frame = 0
                                             End If
                                             .Location.Y = NPC(A).Location.Y + NPC(A).Location.Height / 2 - .Location.Height / 2
-                                            
+
                                             tempLocation = .Location
                                             tempLocation.X = .Location.X + (.Location.Width / 2) * .Direction
                                             tempLocation.Y = .Location.Y + .Location.Height / 2 - EffectHeight(10) / 2
                                             NewEffect 10, tempLocation
-                                            
+
                                             PlaySound 22
                                         End If
                                     End With
@@ -3468,7 +3468,7 @@ End If
                             End If
                         End If
                     End If
-                    
+
                     'If FreezeNPCs = True Then
                         '.Direction = .DefaultDirection
                         '.Special = .DefaultSpecial
@@ -3480,13 +3480,13 @@ End If
 
 
                     NPCFrames A
-                    
-                    
-                    
-                    
+
+
+
+
 'Effects
                 ElseIf .Effect = 1 Then 'Bonus coming out of a block effect
-                    
+
                     If .Direction = 0 Then 'Move toward the closest player
                         C = 0
                         For B = 1 To numPlayers
@@ -3640,7 +3640,7 @@ End If
                     End If
                 End If
             End If
-            
+
             If speedVar <> 1 And speedVar <> 0 Then
                 .RealSpeedX = .Location.SpeedX
                 .Location.SpeedX = .Location.SpeedX * speedVar
@@ -3681,7 +3681,7 @@ End If
                     End If
                 Next B
             End If
-            
+
         End With
     Next A
     numBlock = numBlock - numTempBlock 'clean up the temp npc blocks
@@ -3778,18 +3778,18 @@ Public Sub TouchBonus(A As Integer, B As Integer) 'Code for dealing with bonus a
     With Player(A)
         If NPC(B).CantHurtPlayer <> A Or (NPCIsACoin(NPC(B).Type) And Player(A).HoldingNPC <> B And NPC(B).Killed = 0) Then
             If nPlay.Online = True And nPlay.MySlot + 1 = A Then Netplay.sendData "1k" & A & "|" & B & "|" & NPC(B).Type & LB
-            
+
             If .Character = 3 Or .Character = 4 Or .Character = 5 Then 'for link give hearts
                 If NPC(B).Type = 34 Or NPC(B).Type = 169 Or NPC(B).Type = 170 Then
                     .Hearts = .Hearts + 1
                     If .Hearts > 3 Then .Hearts = 3
                 End If
             End If
-            
+
             'If .Character = 3 Or .Character = 4 Then  'for peach and toad turn leaf and suits into a mushroom
                 'If NPC(B).Type = 34 Or NPC(B).Type = 169 Or NPC(B).Type = 170 Then NPC(B).Type = 9
             'End If
-            
+
             If NPC(B).Type = 273 And numPlayers > 1 Then '? mushroom
                 If Player(1).Dead = False And Player(1).TimeToLive = 0 And Player(2).Dead = False And Player(2).TimeToLive = 0 And Player(1).Immune = 0 And Player(2).Immune = 0 Then
                     tempLocation = Player(1).Location
@@ -3813,7 +3813,7 @@ Public Sub TouchBonus(A As Integer, B As Integer) 'Code for dealing with bonus a
                     Exit Sub
                 End If
             End If
-            
+
             If NPC(B).Type = 254 Then 'Player is a fairy
                 If .Mount = 2 Then
                     Exit Sub
@@ -4221,7 +4221,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 .BeltSpeed = 0
                 .Projectile = False
                 .RealSpeedX = 0
-                
+
                 NewEffect 10, .Location
                 For C = 1 To 20
                     tempLocation.Height = EffectHeight(80)
@@ -4235,14 +4235,14 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                     Effect(numEffects).Location.SpeedY = random_double * 2 - 1
                     Effect(numEffects).Frame = random_int(3)
                 Next C
-                
+
                 PlaySound 9
             End With
             'NPCHit C, 3, C
             Exit Sub
         End If
     End If
-    
+
 'Online code
     If nPlay.Online = True Then
         If B = 1 Or B = 7 Or B = 8 Then
@@ -4259,7 +4259,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
     If NPC(A).Active = False Then Exit Sub
 
     With NPC(A)
-    
+
 'Safety
         StopHit = StopHit + 1
         If .Killed > 0 Then Exit Sub
@@ -4278,10 +4278,10 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 End If
             End If
         End If
-        
-        
+
+
         If B = 1 And NPCJumpHurt(.Type) = True And .Type <> 283 Then Exit Sub 'Things that don't die from jumping
-        
+
         If B = 10 And .Type = 31 Then
             If Player(C).Character = 5 And Player(C).HasKey = False Then
                 .Killed = 9
@@ -4299,7 +4299,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
 'Frozen NPC
         ElseIf .Type = 263 Then
             If B = 3 And NPC(C).Type = 13 Then
-            
+
                 .Type = .Special
                 If .Location.SpeedX > 0 Then
                     .Direction = 1
@@ -4315,15 +4315,15 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 .Special4 = 0
                 .Special5 = 0
                 .Special6 = 0
-                
-            
+
+
             ElseIf B = 3 Or B = 5 Then
                 If A = C Or B = 6 Or B = 5 Then .Killed = B
                 If B = 3 And NPC(C).Type = .Type Then .Killed = B
             ElseIf B = 10 Or B = 2 Then .Killed = B
             End If
-        
-    
+
+
 'Things that link can move with his sword
         ElseIf B = 10 And .Type = 134 And .CantHurt = 0 And .Projectile = False Then  'link picks up bombs
             If Player(C).Bombs < 9 Then Player(C).Bombs = Player(C).Bombs + 1
@@ -4461,19 +4461,19 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 .Location.SpeedY = 0
                 oldNPC = NPC(A)
             End If
-            
+
 'Larry Koop Shell
         ElseIf .Type = 268 Or .Type = 281 Then
             If B <> 7 And B <> 1 And B <> 2 And B <> 8 Then .Immune = 10
             If B = 1 Or B = 2 Or B = 8 Then
                 If B = 1 Or B = 8 Then
-                    
+
                     If Player(C).Location.X + Player(C).Location.Width / 2 < .Location.X + .Location.Width / 2 Then
                         Player(C).Location.SpeedX = Player(C).Location.SpeedX - 3
                     Else
                         Player(C).Location.SpeedX = Player(C).Location.SpeedX + 3
                     End If
-                    
+
                 End If
                 PlaySound 2
             ElseIf B = 3 Or B = 4 Or B = 5 Then
@@ -4713,7 +4713,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             Else
                 .Killed = B
             End If
-            
+
 'Big Boo
         ElseIf .Type = 44 Then
             If (B = 3 And NPC(C).Type <> 13) Or B = 4 Then
@@ -4727,7 +4727,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 End If
             ElseIf B = 6 Then .Killed = B
             End If
-            
+
 'Projectile Only Death (Ghosts, Thwomps, Etc.)
         ElseIf .Type = 37 Or .Type = 38 Or .Type = 42 Or .Type = 43 Or .Type = 180 Or .Type = 179 Or .Type = 206 Or .Type = 259 Then
             If (B = 3 And NPC(C).Type <> 13) Or B = 4 Then
@@ -5321,7 +5321,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 End If
                 If .Damage >= 6 Then .Killed = B
             End If
-            
+
 'Piranha Plants
         ElseIf .Type = 8 Or .Type = 275 Or .Type = 93 Or .Type = 51 Or .Type = 52 Or .Type = 74 Or .Type = 245 Or .Type = 270 Then
             If Not (B = 1 Or B = 2 Or B = 6) Then
@@ -5645,7 +5645,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 If C > 0 And .Effect = 0 Then TouchBonus C, A
             End If
         End If
-      
+
         If .Killed = 10 Then .Direction = Player(C).Direction
         tempBool = False
         If .Killed = 3 Then
@@ -5733,7 +5733,7 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             If BlockKills2(Block(C).Type) = True Then .NoLavaSplash = True
         End If
         If .Killed = 0 And .Location.SpeedX = 0 And oldNPC.Location.SpeedX <> 0 Then .RealSpeedX = 0
-        
+
         If .Type <> oldNPC.Type Then
             .Location.Y = .Location.Y + .Location.Height
             .Location.Height = NPCHeight(.Type)
@@ -5742,11 +5742,11 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
             .Location.Width = NPCWidth(.Type)
             .Location.X = .Location.X - .Location.Width / 2
         End If
-    
-    End With
-    
 
-    
+    End With
+
+
+
     StopHit = 0
 End Sub
 
@@ -6038,10 +6038,10 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     PlaySound 9
                     NewEffect 89, .Location, .Direction
                 End If
-            
-            
-            
-            
+
+
+
+
             'turnips
             ElseIf NPCIsVeggie(.Type) Then
                 .Location.Y = .Location.Y - (32 - .Location.Height)
@@ -6172,7 +6172,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     PlaySound 9 'Shell hit sound
                     NewEffect .Type - 21, .Location
                 End If
-                
+
             ElseIf .Type = 267 Or .Type = 268 Or .Type = 280 Or .Type = 281 Then   'larry koopa
                 If B = 6 Then
                     PlaySound 16
@@ -6183,7 +6183,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                 Else
                     NewEffect 140, .Location
                 End If
-                
+
             ElseIf .Type = 201 Or .Type = 262 Then 'wart, smb2 bosses
                 If .Type = 262 And .Killed <> 3 And .Killed <> 6 And .Killed <> 10 Then PlaySound 41
                 'If B <> 6 Then MoreScore NPCScore(.Type), .Location
@@ -6533,7 +6533,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     PlaySound 9 'Shell hit sound
                     NewEffect 9, .Location
                 End If
-                
+
             ElseIf (.Type >= 109 And .Type <= 116) Or (.Type >= 121 And .Type <= 124) Then  'SMW Koopas
                 If B = 6 Then
                     PlaySound 16
@@ -6805,7 +6805,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
         If BattleMode = True Then
             .RespawnDelay = 65 * 30
         End If
-        
+
         If .AttLayer <> "" Then
             For C = 1 To 100
                 If .AttLayer = Layer(C).Name Then
@@ -6814,7 +6814,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                 End If
             Next C
         End If
-        
+
         If (GameMenu = False And BattleMode = False) Or .DefaultType = 0 Then
             For B = 1 To numPlayers 'Tell the player to stop standing on me because im dead kthnx
                 If Player(B).StandingOnNPC = A Then
@@ -6835,7 +6835,7 @@ Public Sub KillNPC(A As Integer, B As Integer) 'Handles NPC deaths and death eff
                     Netplay.sendData "K" & C & "|" & NPC(A).Type & "|" & NPC(A).Location.X & "|" & NPC(A).Location.Y & "|" & NPC(A).Location.Width & "|" & NPC(A).Location.Height & "|" & NPC(A).Location.SpeedX & "|" & NPC(A).Location.SpeedY & "|" & NPC(A).Section & "|" & NPC(A).TimeLeft & "|" & NPC(A).Direction & "|" & Int(NPC(A).Projectile) & "|" & NPC(A).Special & "|" & NPC(A).Special2 & "|" & NPC(A).Special3 & "|" & NPC(A).Special4 & "|" & NPC(A).Special5 & "|" & NPC(A).Effect & LB & "1n" & .HoldingPlayer & "|" & A & "|" & NPC(A).Type & LB
                 End If
             End If
-            
+
             If .Effect = 5 Or .Effect = 6 Then
                 Player(.Effect2).YoshiNPC = A
             End If
@@ -7140,8 +7140,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             If Not (.Type = 86 Or .Type = 284 Or .Type = 47) And A = 0 Then 'Reset Frame to 0 unless a specific NPC type
                 .Frame = 0
             End If
-            
-            
+
+
         ElseIf .Type = 169 Or .Type = 170 Then
             C = 0
             For B = 1 To numPlayers
@@ -7255,9 +7255,9 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             End If
             If .Direction = 1 Then
                 .Frame = .Frame + 3
-                
+
             End If
-            
+
         ElseIf .Type = 270 Then 'jumping plant
             .FrameCount = .FrameCount + 1
             If .FrameCount >= 4 Then
@@ -7265,7 +7265,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 .FrameCount = 0
             End If
             If .Frame >= 4 Then .Frame = 0
-        
+
         ElseIf .Type = 280 Then 'ludwig koopa
             If .Location.SpeedY <> 0 Then
                 .FrameCount = .FrameCount + 1
@@ -7298,9 +7298,9 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 End If
                 If .Direction = 1 Then .Frame = .Frame + 5
             End If
-            
-            
-            
+
+
+
         ElseIf .Type = 281 Then 'ludwig shell
             If .Location.SpeedX = 0 Then
                 If .Frame > 2 Then .Frame = 0
@@ -7313,7 +7313,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 If .Frame < 0 Then .Frame = 2
                 If .Frame > 2 Then .Frame = 0
             End If
-            
+
         ElseIf .Type = 282 Then 'ludwig fire
             .FrameCount = .FrameCount + 1
             .Frame = 0
@@ -7323,7 +7323,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 .Frame = 1
             End If
             If .Direction = 1 Then .Frame = .Frame + 2
-            
+
         ElseIf .Type = 269 Then 'larry magic
             If .Special = 0 Then
                 .Frame = 2
@@ -7341,7 +7341,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             If .Frame < 0 Then .Frame = 5
             If .Frame > 5 Then .Frame = 0
         ElseIf .Type = 267 Then 'larry koopa
-        
+
             .Frame = 0
             If .Special = 0 Then
                 If .Location.SpeedY = 0 Then
@@ -7391,8 +7391,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 End If
             End If
             If .Direction = 1 Then .Frame = .Frame + 10
-            
-            
+
+
         ElseIf .Type = 266 Then 'sword beam
             .Frame = 0
             If .Direction = 1 Then .Frame = 4
@@ -7407,8 +7407,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             Else
                 .FrameCount = 0
             End If
-            
-        
+
+
         ElseIf .Type = 262 Then 'mouser
             If .Immune > 0 Then
                 .FrameCount = .FrameCount + 1
@@ -7440,7 +7440,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 .Frame = 0
                 If .Direction = 1 Then .Frame = .Frame + 7
             End If
-            
+
         ElseIf .Type = 261 Then
             .FrameCount = .FrameCount + 1
             If .FrameCount < 8 Then
@@ -7453,7 +7453,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
             End If
             If .Direction = 1 Then .Frame = .Frame + 4
             If .Special > 0 And .Location.SpeedY <= 0 Then .Frame = .Frame + 2
-            
+
         ElseIf .Type = 260 Then
             If .Direction = 1 Then
                 .Frame = SpecialFrame(2)
@@ -7598,8 +7598,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                  .Frame = .Frame + 12
              End If
              If .Special2 = 1 Then .Frame = .Frame + 2
-             
-         
+
+
          ElseIf .Type = 205 Then
              .FrameCount = .FrameCount + 1
              .Frame = 0
@@ -7623,8 +7623,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
              ElseIf .Special = 2 Then
                  .Frame = .Frame + 15
              End If
-             
-             
+
+
          ElseIf .Type = 203 Or .Type = 204 Then
              .FrameCount = .FrameCount + 1
              .Frame = 0
@@ -7654,7 +7654,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
              ElseIf .Special = 1 Then
                  .FrameCount = 0
                  .Frame = 2
-                 
+
              ElseIf .Special = 2 Then
                  .FrameCount = .FrameCount + 1
                  If .FrameCount < 8 Then
@@ -7666,7 +7666,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                      .FrameCount = 0
                  End If
              End If
-             
+
              If .Special = 3 Or .Special = 2 Then
                  .Frame = 0
                  .FrameCount = .FrameCount + 1
@@ -7732,12 +7732,12 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                  End If
              End If
              If .Special = 1 Then .Frame = 2
-         
+
         ElseIf .Type = 292 Then 'toad boomerang
             .FrameCount = .FrameCount + 1
             If .FrameCount >= 6 Then
                 .FrameCount = 0
-                
+
                  If .Location.SpeedX > 0 Then
                      .Frame = .Frame + 1
                      If .Frame = 1 Then
@@ -7761,7 +7761,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                          .Location.Y = .Location.Y + 4
                      End If
                  End If
-                 
+
                  If .Frame > 3 Then
                     .Frame = 0
                 ElseIf .Frame < 0 Then
@@ -7774,8 +7774,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
             End If
 
-             
-             
+
+
          ElseIf .Type = 171 Then 'Mario Hammer
              .FrameCount = .FrameCount + 1
              If .FrameCount >= 4 Then
@@ -7811,10 +7811,10 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                  NewEffect 80, newLoc(.Location.X + .Location.Width / 2 - 8, .Location.Y + .Location.Height / 2 - 8), , , .Shadow
                  Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
                  Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
-                 
+
              End If
-             
-             
+
+
          ElseIf .Type = 167 Then 'smw paragoomba
              .FrameCount = .FrameCount + 1
              If .Direction = 1 Then
@@ -7827,7 +7827,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
              ElseIf .FrameCount >= 8 Then
                  .Frame = .Frame + 1
              End If
-             
+
              If .Effect = 0 Then
                  If .Special = 0 Then
                      .Special2 = .Special2 + 2
@@ -7917,7 +7917,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                 Effect(numEffects).Location.SpeedX = random_double * 1 - 0.5
                 Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
             End If
-            
+
          ElseIf .Type = 91 Then .Frame = SpecialFrame(5)
          ElseIf .Type = 96 Then
              .Frame = 0
@@ -8017,7 +8017,7 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
          ElseIf .Type = 168 Then ' Bully
              .Frame = 0
              If .Direction = 1 Then .Frame = .Frame + 3
-             
+
              If .Projectile = True Or .Special2 <> 0 Then
                  .Frame = .Frame + 2
                  .FrameCount = 0
@@ -8029,8 +8029,8 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                      .Frame = .Frame + 1
                  End If
              End If
-             
-             
+
+
          ElseIf .Type = 78 Then 'tank treads
              .FrameCount = .FrameCount + 1
              If .FrameCount >= 8 Then
@@ -8208,18 +8208,18 @@ Public Sub NPCFrames(A As Integer) 'updates the NPCs graphics
                      If .Frame >= 4 Then .Frame = 2
                  End If
              End If
-             
+
          ElseIf .Type = 234 Then
              .FrameCount = .FrameCount + 1
              .Frame = 0
              If .Direction = 1 Then .Frame = 3
-             
+
              If .FrameCount > 8 Then .Frame = .Frame + 1
-             
+
              If .FrameCount > 16 Then .Frame = .Frame + 1
              If .FrameCount > 24 Then .Frame = .Frame - 1
              If .FrameCount > 32 Then .FrameCount = 0
-             
+
          ElseIf .Type = 189 Then 'dry bones
              If .Special = 0 Then
                  .FrameCount = .FrameCount + 1
@@ -8812,7 +8812,7 @@ Public Sub NPCSpecial(A As Integer)
             If .TimeLeft > 1 Then .TimeLeft = 100
         End If
     ''''''''''''''
-    
+
         If .Type = 225 Or .Type = 226 Or .Type = 227 Then 'Vine Maker
             .Location.SpeedY = -2
             tempLocation.Height = 28
@@ -8897,7 +8897,7 @@ Public Sub NPCSpecial(A As Integer)
             If .Location.SpeedY < -4 Then .Location.SpeedY = -4
             If .Location.SpeedX > 6 Then .Location.SpeedX = 6
             If .Location.SpeedX < -6 Then .Location.SpeedX = -6
-            
+
         ElseIf .Type = 291 Then 'heart bomb
             If .Special4 <> 0 Then
                 .Killed = 9
@@ -8910,11 +8910,11 @@ Public Sub NPCSpecial(A As Integer)
                     Effect(numEffects).Location.SpeedY = random_double * 6 - 3
                     Effect(numEffects).Frame = random_int(3)
                 Next B
-                
-                
+
+
             End If
-        
-        
+
+
         ElseIf .Type = 272 Then
             If .Projectile = False Then
                 .Location.SpeedX = 0
@@ -8974,7 +8974,7 @@ Public Sub NPCSpecial(A As Integer)
                 .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity
                 .Location.SpeedX = .Location.SpeedX * 0.987
                 If .Location.SpeedX > -0.1 And .Location.SpeedX < 0.1 Then .Location.SpeedX = 0
-                
+
             End If
         ElseIf .Type = 287 Then
             .Type = RandomBonus
@@ -9046,7 +9046,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Projectile = True
                 End If
             End If
-            
+
         ElseIf .Type = 275 Then 'fire plant thing
             If .Special = 0 Then
                 .Special2 = .Special2 + 1
@@ -9108,7 +9108,7 @@ Public Sub NPCSpecial(A As Integer)
             Else
                 .Location.SpeedY = .Location.SpeedY + 0.02
                 If .Location.SpeedY > 2 Then .Location.SpeedY = 2
-                
+
                 If .Location.SpeedY > 0.25 Then
                     .Special2 = .Special2 + 1
                     If .Special2 < 7 Then
@@ -9120,7 +9120,7 @@ Public Sub NPCSpecial(A As Integer)
                         .Location.SpeedX = 0
                     End If
                 End If
-                
+
             End If
         ElseIf .Type = 271 Then 'bat thing
             If .Special = 0 Then
@@ -9139,7 +9139,7 @@ Public Sub NPCSpecial(A As Integer)
                                 .Direction = 1
                             End If
                             .Location.SpeedX = 0.01 * .Direction
-                            
+
                             If Player(B).Location.Y > .Location.Y Then
                                 .Location.SpeedY = 2.5
                                 .Special2 = Player(B).Location.Y - 130
@@ -9147,7 +9147,7 @@ Public Sub NPCSpecial(A As Integer)
                                 .Location.SpeedY = -2.5
                                 .Special2 = Player(B).Location.Y + 130
                             End If
-                            
+
                         End If
                     End If
                 Next B
@@ -9229,7 +9229,7 @@ Public Sub NPCSpecial(A As Integer)
                         .Location.SpeedX = -5
                     End If
                 End If
-                
+
                 If .Type = 281 And .Location.SpeedY = Physics.NPCGravity Then
                     .Special3 = .Special3 + 1
                     If (.Location.SpeedX < -2 And .Direction < 0) Or (.Location.SpeedX > 2 And .Direction > 0) Then
@@ -9239,9 +9239,9 @@ Public Sub NPCSpecial(A As Integer)
                         End If
                     End If
                 End If
-                
+
                 .Special2 = .Special2 + 1
-                
+
                 If .Special2 >= 300 And .Location.SpeedY = Physics.NPCGravity Then
                     .Special = 2
                     .Special2 = 0
@@ -9257,12 +9257,12 @@ Public Sub NPCSpecial(A As Integer)
                     .Location.SpeedX = .Location.SpeedX + 0.2
                 End If
                 .Special2 = .Special2 + 1
-                
+
                 If .Type = 281 Then
                     .Special2 = 20
                     PlaySound 24
                 End If
-                
+
                 If .Special2 = 20 Then
                     .Special = 0
                     .Special2 = .Direction
@@ -9281,13 +9281,13 @@ Public Sub NPCSpecial(A As Integer)
             Else
                 .Special = 0
             End If
-            
+
         ElseIf .Type = 267 Then 'larry koopa
             'special is phase
             'special5 is targetted player
             'special3 is jump counter
             'special2 is direction
-            
+
             'special4 is attack timer
             'special3 is attack count
             If .Inert = True Then
@@ -9305,14 +9305,14 @@ Public Sub NPCSpecial(A As Integer)
                     If C >= 20 Then .Special5 = 1
                 Loop Until .Special5 > 0
             End If
-            
+
                 If Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 < .Location.X + .Location.Width / 2 Then
                     .Direction = -1
                 Else
                     .Direction = 1
                 End If
                 If .Special2 = 0 Then .Special2 = .Direction
-            
+
             If .Special = 0 Then
                 If .Special2 = -1 Then
                     .Location.SpeedX = -2.5
@@ -9359,12 +9359,12 @@ Public Sub NPCSpecial(A As Integer)
             ElseIf .Special = 2 Then
                 .Location.SpeedX = 0
                 If .Special3 = 0 Or .Special3 = 6 Or .Special3 = 12 Then 'shoot
-                    
+
                     If .Special3 = 0 Then
                         .Special6 = Player(NPC(A).Special5).Location.X + Player(NPC(A).Special5).Location.Width / 2
                         .Special4 = Player(NPC(A).Special5).Location.Y + Player(NPC(A).Special5).Location.Height / 2 + 16
                     End If
-                    
+
                     If .Special3 = 0 Then PlaySound 34
                     numNPCs = numNPCs + 1
                     With NPC(numNPCs)
@@ -9402,17 +9402,17 @@ Public Sub NPCSpecial(A As Integer)
                     .Special6 = 0
                 End If
             End If
-            
+
 'ludwig koopa
         ElseIf .Type = 280 Then
             'special is phase
             'special5 is targetted player
             'special3 is jump counter
             'special2 is direction
-            
+
             'special4 is attack timer
             'special3 is attack count
-            
+
             If .Inert = True Then
                 .Special4 = 0
                 .Special3 = 0
@@ -9429,14 +9429,14 @@ Public Sub NPCSpecial(A As Integer)
                     If C >= 20 Then .Special5 = 1
                 Loop Until .Special5 > 0
             End If
-            
+
                 If Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 < .Location.X + .Location.Width / 2 Then
                     .Direction = -1
                 Else
                     .Direction = 1
                 End If
                 If .Special2 = 0 Then .Special2 = .Direction
-            
+
             If .Special = 0 Then
                 If (.Damage < 5 And .Special6 > 60) Or (.Damage < 10 And .Special6 > 80) Or .Inert = True Then
                     If .Special2 = -1 Then
@@ -9453,7 +9453,7 @@ Public Sub NPCSpecial(A As Integer)
                 Else
                     .Location.SpeedX = .Location.SpeedX * 0.98
                     If .Location.SpeedY = Physics.NPCGravity Then .Location.SpeedX = 0
-                
+
                 End If
                 'attack timer
                 If .Location.SpeedY = Physics.NPCGravity Then .Special6 = .Special6 + 1
@@ -9536,7 +9536,7 @@ Public Sub NPCSpecial(A As Integer)
                 Else
                     .Special = 2
                 End If
-                
+
                 If .Special3 >= 40 Then
                     .Special = 0
                     .Special5 = 0
@@ -9544,9 +9544,9 @@ Public Sub NPCSpecial(A As Integer)
                     .Special4 = 0
                 End If
             End If
-            
-            
-            
+
+
+
         ElseIf .Type = 266 Then 'link sword beam
             .Special = .Special + 1
             If .Special = 40 Then
@@ -9563,7 +9563,7 @@ Public Sub NPCSpecial(A As Integer)
                     Effect(numEffects).Location.SpeedY = random_double * 1 - 0.5
                     Effect(numEffects).Frame = random_int(3)
                 Next B
-                
+
             End If
             If random_int(2) = 0 Then
                 tempLocation.Height = EffectHeight(80)
@@ -9577,8 +9577,8 @@ Public Sub NPCSpecial(A As Integer)
                 Effect(numEffects).Location.SpeedY = .Location.SpeedY '+ random_double * 2 - 1
                 Effect(numEffects).Frame = random_int(2) + 1
             End If
-            
-            
+
+
         ElseIf .Type = 262 Then 'mouser
             If .Immune = 0 Then
                 C = 0
@@ -9649,7 +9649,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Special = .Special - 1
                 End If
             End If
-        
+
         ElseIf .Type = 261 Then 'muncher thing
             If .Special = 0 Then
                 For B = 1 To numPlayers
@@ -9667,7 +9667,7 @@ Public Sub NPCSpecial(A As Integer)
             ElseIf .Location.SpeedY = Physics.NPCGravity Then
                 .Special = 0
             End If
-            
+
             If .Stuck = False And .Special = 0 Then
                 If .Special2 = 0 Then
                     If .Location.X < .DefaultLocation.X - 128 And .Direction = -1 Then
@@ -9689,10 +9689,10 @@ Public Sub NPCSpecial(A As Integer)
                     End If
                 End If
             End If
-            
 
-            
-            
+
+
+
         ElseIf .Type = 260 Then 'Firebar
             C = 0.03 * .DefaultSpecial
             B = 0.98 * .DefaultSpecial
@@ -9747,7 +9747,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Special5 = 0
                 End If
             End If
-            
+
         ElseIf .Type = 259 Then 'Roto-Disk
             C = 0.2 '* .DefaultDirection
             B = 6.05 '* .DefaultDirection
@@ -9799,7 +9799,7 @@ Public Sub NPCSpecial(A As Integer)
             ElseIf .Special = 3 Then
                 .Location.SpeedX = .Location.SpeedX - C * .DefaultDirection
                 .Location.SpeedY = .Location.SpeedY + C
-                
+
                 If .Special5 = 0 Then
                     .Special5 = 1
                     .Location.SpeedY = -B
@@ -9811,8 +9811,8 @@ Public Sub NPCSpecial(A As Integer)
                     .Special5 = 0
                 End If
             End If
-            
-            
+
+
         ElseIf .Type = 255 Then
             For B = 1 To numNPCs
                 If NPC(B).Type = 31 Then
@@ -9864,7 +9864,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Location.SpeedY = D * 3
                 End If
             End If
-        
+
         ElseIf .Type = 211 Then 'Metroid O shooter thing
             .Special = .Special + 1 + random_double
             If .Special >= 200 + random_double * 200 Then
@@ -9897,7 +9897,7 @@ Public Sub NPCSpecial(A As Integer)
                         .Direction = -1
                     End If
                 End If
-                
+
                 .Special = 1
                 .Special2 = .Direction
             End If
@@ -9910,7 +9910,7 @@ Public Sub NPCSpecial(A As Integer)
                     .Special = 1
                 End If
             End If
-            
+
             .Special5 = .Special5 + 1
             If .Special5 >= 8 And .Special = 1 Then
                 .Special5 = 8
@@ -10126,9 +10126,9 @@ Public Sub NPCSpecial(A As Integer)
                     End If
                 End If
             End If
-                
-        
-        
+
+
+
                         ElseIf .Type = 201 Then ' Wart
                             .Direction = .DefaultDirection
                             If .Immune > 0 Then .Special = 2
@@ -10144,7 +10144,7 @@ Public Sub NPCSpecial(A As Integer)
                                     .Special = 1
                                     .Special3 = 0
                                 End If
-                                
+
                                 If .Special2 = 1 Then
                                     .Location.SpeedX = 1
                                     If .Location.X > .DefaultLocation.X + .Location.Width * 1 Then .Special2 = -1
@@ -10190,7 +10190,7 @@ Public Sub NPCSpecial(A As Integer)
                                 .Special4 = .Special4 + 1
                                 If .Special4 >= 120 Then .Killed = 3
                             End If
-                            
+
 'Platform movement
                         ElseIf .Type = 60 Or .Type = 62 Or .Type = 64 Or .Type = 66 Or .Type = 104 Or .Type = 179 Then
                             straightLine = False
@@ -10292,7 +10292,7 @@ Public Sub NPCSpecial(A As Integer)
                                 Next B
                                 .Special5 = F
                                 If tempBool = False Then
-                                
+
                                     If .Type = 104 And .Wet = 2 Then
                                         .Location.SpeedY = .Location.SpeedY - Physics.NPCGravity * 0.25
                                     Else
@@ -10331,12 +10331,12 @@ Public Sub NPCSpecial(A As Integer)
                                 .Location.Width = 48
                                 .Location.Y = .Location.Y - 8
                                 .Location.Height = 48
-                                
+
                                 If .Location.SpeedX = 0 And .Location.SpeedY = Physics.NPCGravity Then
                                     .Location.SpeedX = C * .Direction
                                     .Special2 = .Location.SpeedX
                                 End If
-                                
+
                             End If
                         ElseIf .Type = 200 Then 'King Koopa
                             C = 0
@@ -10360,7 +10360,7 @@ Public Sub NPCSpecial(A As Integer)
                             End If
                             .Special4 = .Special4 + 1
                             If .Inert = True Then .Special4 = 150
-                            
+
                             If .Special4 <= 80 + random_int(40) Then
                                 If random_int(100) >= 40 And .Special4 Mod 16 = 0 Then
                                     PlaySound 25
@@ -10436,8 +10436,8 @@ Public Sub NPCSpecial(A As Integer)
                                     End If
                                 End If
                             End If
-                            
-                        
+
+
                         ElseIf .Type = 197 Then 'SMW Exit
                             If .Special = 0 Then
                                 .Location.SpeedY = 2
@@ -10496,7 +10496,7 @@ Public Sub NPCSpecial(A As Integer)
                                     End If
                                 End If
                             Next B
-                            
+
                         ElseIf .Type = 105 Then
                             If .Special = 1 Then
                                 .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity / 4
@@ -10506,7 +10506,7 @@ Public Sub NPCSpecial(A As Integer)
                             End If
                         ElseIf .Type = 106 Then
                             .Location.SpeedY = .Direction * 2
-    
+
                         ElseIf .Type = 199 Then
                             If .Special = 0 Then
                                 tempLocation = .Location
@@ -10541,8 +10541,8 @@ Public Sub NPCSpecial(A As Integer)
                                     Deactivate A
                                 End If
                             End If
-                            
-                            
+
+
                         'End If
  'Sniffits
                         ElseIf .Type >= 130 And .Type <= 132 Then
@@ -10611,7 +10611,7 @@ Public Sub NPCSpecial(A As Integer)
                                 End With
                             End If
                         End If
-    
+
     End With
 End Sub
 
@@ -10693,7 +10693,7 @@ Public Sub SpecialNPC(A As Integer)
             If .Location.X + .Location.Width / 2 > Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 Then
                 .Location.SpeedX = .Location.SpeedX - 0.2
                 If .Location.SpeedX > -4 And .Location.SpeedX < 4 Then .Location.SpeedX = .Location.SpeedX - 0.5
-                
+
             ElseIf .Location.X + .Location.Width / 2 < Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 Then
                 .Location.SpeedX = .Location.SpeedX + 0.2
                 If .Location.SpeedX > -4 And .Location.SpeedX < 4 Then .Location.SpeedX = .Location.SpeedX + 0.5
@@ -10707,8 +10707,8 @@ Public Sub SpecialNPC(A As Integer)
                 If .Location.SpeedY < 0 And .Direction <> .Special6 Then .Location.SpeedY = .Location.SpeedY + Abs(.Location.SpeedY) * 0.04
             End If
             .Location.SpeedY = .Location.SpeedY + (Player(.Special5).Location.Y + Player(.Special5).Location.Height / 2 - .Location.Y + .Location.Height / 2) * 0.004
-                
-                
+
+
             For B = 1 To numNPCs
                 If NPC(B).Active = True Then
                     If NPCIsACoin(NPC(B).Type) Then
@@ -10721,7 +10721,7 @@ Public Sub SpecialNPC(A As Integer)
                     End If
                 End If
             Next B
-                
+
             If (.Location.X + .Location.Width / 2 > Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 And .Special6 = 1) Or (.Location.X + .Location.Width / 2 < Player(.Special5).Location.X + Player(.Special5).Location.Width / 2 And .Special6 = -1) Then
             Else
                 .Special2 = 1
@@ -10754,7 +10754,7 @@ Public Sub SpecialNPC(A As Integer)
                     If .Location.SpeedY < 0 Then .Location.SpeedY = .Location.SpeedY + 0.1
                 End If
             End If
-            
+
         ElseIf .Type = 96 Then 'yoshi egg
             If .Location.SpeedY > 2 Then .Projectile = True
             If .Special2 = 1 Then
@@ -10834,7 +10834,7 @@ Public Sub SpecialNPC(A As Integer)
                 If .Location.SpeedY < -1 Then .Location.SpeedY = -1
                 .Special2 = -60
             End If
-            
+
             If Player(.Special).Dead = True Or Player(.Special).Section <> .Section Then .Special = 0
         ElseIf NPCIsCheep(.Type) And .Special = 1 Then 'Red SMB3 Cheep
             If .Projectile = False Then
@@ -10904,7 +10904,7 @@ Public Sub SpecialNPC(A As Integer)
                     End If
                 End If
             Next B
-            
+
             If .Location.X <> .DefaultLocation.X Then
                 .Killed = 2
                 .Location.Y = .Location.Y - .Location.SpeedY
@@ -10993,7 +10993,7 @@ Public Sub SpecialNPC(A As Integer)
                     .Immune = 0
                 End If
             End If
-            
+
         'jumping plant
         ElseIf .Type = 270 Then
             If .Projectile = True Then
@@ -11043,13 +11043,13 @@ Public Sub SpecialNPC(A As Integer)
                         .Special = 2
                         .Special2 = 0
                     End If
-                    
+
                 ElseIf .Special = 2 Then 'falling
                     .Location.Height = NPCHeight(.Type)
-                    
+
                     .Location.SpeedY = .Location.SpeedY + 0.01
                     If .Location.SpeedY >= 0.75 Then .Location.SpeedY = 0.75
-                    
+
                     If .Location.Y + NPCHeight(.Type) >= .DefaultLocation.Y + NPCHeight(.Type) Then
                         .Location.Height = (.DefaultLocation.Y + NPCHeight(.Type)) - (.Location.Y)
                         If .Location.Y >= .DefaultLocation.Y + NPCHeight(.Type) Then
@@ -11067,7 +11067,7 @@ Public Sub SpecialNPC(A As Integer)
                     .Immune = 0
                 End If
             End If
-            
+
         'Piranha Plant code
         ElseIf .Type = 8 Or .Type = 74 Or .Type = 93 Or .Type = 256 Then
             If .Special3 > 0 Then .Special3 = .Special3 - 1
@@ -11236,7 +11236,7 @@ Public Sub SpecialNPC(A As Integer)
                 Else
                     .Immune = 0
                 End If
-                
+
             End If
         'smb3 belt code
         ElseIf .Type = 57 Then
@@ -11264,7 +11264,7 @@ Public Sub SpecialNPC(A As Integer)
                     .Frame = 2
                     .Special = 100
                 End If
-                
+
             End If
             If .Direction = 1 Then .Frame = .Frame + 3
         'Fireball code
@@ -11409,7 +11409,7 @@ Public Sub SpecialNPC(A As Integer)
                     End If
                     If .Location.X + .Location.Width + 150 > Player(C).Location.X And .Location.X - 150 < Player(C).Location.X + Player(C).Location.Width Then
                         If .Location.Y > Player(C).Location.Y + Player(C).Location.Height Then
-                            
+
                             'If Player(C).Location.SpeedX + NPC(Player(C).StandingOnNPC).Location.SpeedX > 0 And .Location.X + .Location.Width / 2 > Player(C).Location.X + Player(C).Location.Width / 2 Then
                                 'E = -D
                             'ElseIf Player(C).Location.SpeedX + NPC(Player(C).StandingOnNPC).Location.SpeedX <= 0 And .Location.X + .Location.Width / 2 < Player(C).Location.X + Player(C).Location.Width / 2 Then
@@ -11446,7 +11446,7 @@ Public Sub SpecialNPC(A As Integer)
                 .Location.SpeedY = .Location.SpeedY + Physics.NPCGravity
                 .Location.SpeedX = Physics.NPCWalkingSpeed * .Direction
             ElseIf .Special = 2 Then
-                
+
                 If .Special3 = 0 Then
                     .Location.SpeedY = .Location.SpeedY + 0.05
                     If .Location.SpeedY > 1 Then .Special3 = 1
@@ -11454,7 +11454,7 @@ Public Sub SpecialNPC(A As Integer)
                     .Location.SpeedY = .Location.SpeedY - 0.05
                     If .Location.SpeedY < -1 Then .Special3 = 0
                 End If
-                
+
                 If .Location.X = .DefaultLocation.X And .Location.SpeedX = 0 Then
                     .Location.SpeedX = 2 * .Direction
                 End If
@@ -11640,7 +11640,7 @@ Public Sub SpecialNPC(A As Integer)
                         .Special = 1
                         .Projectile = False
                     End If
-                    
+
                 ElseIf .Location.SpeedY >= 0 Then
                     .Special = 6
                 End If
@@ -11859,16 +11859,16 @@ Public Sub SpecialNPC(A As Integer)
                         tempLocation.Width = 32
                         tempLocation.Height = 32
                         tempLocation.Y = .Location.Y + .Location.Height - 16
-                        
-                        
+
+
                         tempLocation.X = .Location.X
                         NewEffect 10, tempLocation
                         Effect(numEffects).Location.SpeedX = -1.5
-                        
+
                         tempLocation.X = tempLocation.X + tempLocation.Width - EffectWidth(10)
                         NewEffect 10, tempLocation
                         Effect(numEffects).Location.SpeedX = 1.5
-                        
+
                     End If
                     .Location.SpeedY = 0
                     If .Slope > 0 Then .Location.Y = .Location.Y - 0.1
@@ -12037,13 +12037,13 @@ Public Sub SpecialNPC(A As Integer)
                             .Active = True
                             .Direction = NPC(A).Direction
                             .Type = 40
-                            
+
                             .Location.Height = NPCHeight(.Type)
                             .Location.Width = NPCWidth(.Type)
                             .Location.Y = NPC(A).Location.Y + 14 - .Location.Height / 2
-                            
 
-                            
+
+
                             If .Direction = 1 Then
                                 .Location.X = NPC(A).Location.X + NPC(A).Location.Width / 2
                             Else
@@ -12080,12 +12080,12 @@ Public Sub SpecialNPC(A As Integer)
                 .Location.SpeedX = 0
             End If
             If .Stuck = True Then .Location.SpeedX = 0
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
         ElseIf .Type = 284 Then 'smw lakitu
             If .Special = 0 Then .Special = .Type
             .Projectile = False
@@ -12155,10 +12155,10 @@ Public Sub SpecialNPC(A As Integer)
                 End If
             End If
             If .Special4 > 0 Then .Special4 = .Special4 - 1
-            
-            
-            
-            
+
+
+
+
             .Frame = 0
             If .FrameCount < 100 Then
                 .FrameCount = .FrameCount + 1
@@ -12246,7 +12246,7 @@ Public Sub SpecialNPC(A As Integer)
                     If MagicHand = True Then
                         If .Special = .Type Then frmNPCs.ShowLak
                     End If
-                    
+
                 End If
             End If
         'nekkid koopa

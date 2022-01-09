@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmWater 
+Begin VB.Form frmWater
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Water"
    ClientHeight    =   2055
@@ -13,14 +13,14 @@ Begin VB.Form frmWater
    MinButton       =   0   'False
    ScaleHeight     =   2055
    ScaleWidth      =   1350
-   Begin VB.Frame Frame2 
+   Begin VB.Frame Frame2
       Caption         =   "Quicksand"
       Height          =   615
       Left            =   120
       TabIndex        =   8
       Top             =   1320
       Width           =   1095
-      Begin VB.CommandButton Quicksand 
+      Begin VB.CommandButton Quicksand
          Caption         =   "No"
          Height          =   255
          Left            =   120
@@ -29,14 +29,14 @@ Begin VB.Form frmWater
          Width           =   855
       End
    End
-   Begin VB.Frame Frame1 
+   Begin VB.Frame Frame1
       Caption         =   "Buoyancy"
       Height          =   855
       Left            =   5520
       TabIndex        =   4
       Top             =   120
       Width           =   1215
-      Begin VB.HScrollBar scrBuoy 
+      Begin VB.HScrollBar scrBuoy
          Height          =   255
          Left            =   120
          Max             =   200
@@ -46,7 +46,7 @@ Begin VB.Form frmWater
          Value           =   100
          Width           =   975
       End
-      Begin VB.Label lblBuoy 
+      Begin VB.Label lblBuoy
          Caption         =   "100%"
          Height          =   255
          Left            =   120
@@ -55,7 +55,7 @@ Begin VB.Form frmWater
          Width           =   930
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Water Size"
       Height          =   1095
       Index           =   33
@@ -63,14 +63,14 @@ Begin VB.Form frmWater
       TabIndex        =   1
       Top             =   120
       Width           =   1095
-      Begin VB.CommandButton WaterR 
+      Begin VB.CommandButton WaterR
          Height          =   255
          Left            =   360
          TabIndex        =   5
          Top             =   480
          Width           =   255
       End
-      Begin VB.VScrollBar WaterH 
+      Begin VB.VScrollBar WaterH
          Height          =   735
          Left            =   360
          Max             =   99
@@ -80,7 +80,7 @@ Begin VB.Form frmWater
          Value           =   1
          Width           =   255
       End
-      Begin VB.HScrollBar WaterW 
+      Begin VB.HScrollBar WaterW
          Height          =   255
          Left            =   120
          Max             =   99
@@ -91,7 +91,7 @@ Begin VB.Form frmWater
          Width           =   735
       End
    End
-   Begin VB.PictureBox FocusNinja 
+   Begin VB.PictureBox FocusNinja
       Height          =   375
       Left            =   3480
       ScaleHeight     =   315

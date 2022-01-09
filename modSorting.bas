@@ -233,7 +233,7 @@ Public Function BackGroundPri(A As Integer) As Double 'finds where the backgroun
         If .Type = 11 Or .Type = 12 Or .Type = 60 Or .Type = 61 Then
             BackGroundPri = 20
         ElseIf .Type = 65 Or .Type = 26 Or .Type = 82 Or .Type = 83 Or .Type = 164 Or .Type = 165 Or .Type = 166 Or .Type = 167 Or .Type = 168 Or .Type = 169 Then               'WATER
-            
+
             BackGroundPri = 26
         ElseIf .Type = 168 Or .Type = 159 Or .Type = 172 Or .Type = 66 Or .Type = 158 Then              'WATER FALLS
             BackGroundPri = 25
@@ -285,7 +285,7 @@ Public Sub NPCSort()
 End Sub
 
 Public Sub FindSBlocks() 'sorts sizable blocks
-    
+
     Dim A As Integer
     sBlockNum = 0
     For A = 1 To numBlock
@@ -303,7 +303,7 @@ Public Sub qSortSBlocks(min As Integer, max As Integer)
     Dim lo As Integer
     Dim i As Integer
     If min >= max Then Exit Sub
-    
+
     i = Int((max + min) / 2)
     medBlock = sBlockArray(i)
     sBlockArray(i) = sBlockArray(min)

@@ -92,12 +92,12 @@ Public Sub UpdateEffects() 'Updates the effects
                     .FrameCount = 0
                 End If
                 If .Frame > 7 Then .Frame = 0
-                
+
                 If .Life = 100 Then
                     .Location.SpeedY = -8
                     PlaySound 63
                 End If
-                
+
             ElseIf .Type = 114 Then 'Splash
                 .FrameCount = .FrameCount + 1
                 If .FrameCount < 8 Then
@@ -576,7 +576,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
     Dim B As Integer
     Dim tempBool As Boolean
     Dim tempDoub As Double
-    
+
     If numEffects >= maxEffects - 4 Then Exit Sub
     If A = 1 Or A = 21 Or A = 30 Or A = 51 Or A = 100 Or A = 135 Then  'Block break effect
         For B = 1 To 4
@@ -638,7 +638,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             Else
                 .Location.X = Location.X + Location.Width / 2 + 16 '+ 48 * Direction
             End If
-            
+
             .Location.Y = Location.Y
             .Location.Width = 32
             .Location.Height = 32
@@ -690,7 +690,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Life = 10
             .Type = A
         End With
-        
+
     ElseIf A = 125 Then 'pow
         numEffects = numEffects + 1
         With Effect(numEffects)
@@ -749,7 +749,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                 Else
                     .Frame = 2
                 End If
-                
+
                 '.Location.SpeedX = .Location.SpeedX + random_double * 2 - 1
                 '.Location.SpeedY = .Location.SpeedY + random_double * 4 - 2
                 If B = 1 Then
@@ -925,10 +925,10 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     .Location.SpeedY = -0
                     .Location.SpeedX = 0
                     .Life = 15
-                    
+
                     .Location.SpeedX = 3 * 0.8
                     .Location.SpeedY = 1.5 * 0.8
-                     
+
                     If B = 1 Or B = 2 Then .Location.SpeedY = -.Location.SpeedY
                     If B = 1 Or B = 3 Then .Location.SpeedX = -.Location.SpeedX
 
@@ -972,7 +972,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Life = 46
             .Type = A
         End With
-        
+
     ElseIf A = 148 Then 'Heart Bomb
         For B = 1 To 6
             If numEffects < maxEffects Then
@@ -1003,17 +1003,17 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
                     End If
                     .Location.SpeedX = .Location.SpeedX * 0.5
                     .Location.SpeedY = .Location.SpeedY * 0.5
-                    
+
                     .Location.X = .Location.X + .Location.SpeedX * 3
                     .Location.Y = .Location.Y + .Location.SpeedY * 3
-                    
+
                     .Frame = random_int(4)
                     .Type = A
                 End With
             End If
         Next B
-        
-        
+
+
     ElseIf A = 71 Then 'SMB3 Bomb Part 2
         For B = 1 To 6
             If numEffects < maxEffects Then
@@ -1376,7 +1376,7 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
             .Type = A
             .Frame = 5
         End With
-        
+
     ElseIf A = 17 Or A = 18 Or A = 20 Or A = 24 Or (A >= 64 And A <= 67) Or A = 83 Or A = 85 Or A = 86 Or A = 87 Or A = 88 Or A = 97 Or A = 115 Or A = 122 Or A = 116 Or A = 118 Or A = 119 Or A = 120 Or A = 137 Then  'Shy guy / Star Thing /Red Jumping Fish
         numEffects = numEffects + 1
         With Effect(numEffects)
@@ -1446,15 +1446,15 @@ Public Sub NewEffect(A As Integer, Location As Location, Optional Direction As S
         numEffects = numEffects + 1
         With Effect(numEffects)
             .Shadow = Shadow
-            
+
             .Location.Width = EffectWidth(A)
             .Location.Height = EffectHeight(A)
             .Location.X = Location.X + Location.Width / 2 - .Location.Width / 2
             .Location.Y = Location.Y + Location.Height - .Location.Height
-            
+
             .Location.X = Location.X
             .Location.Y = Location.Y
-            
+
             .Location.SpeedY = Location.SpeedY
             .Location.SpeedX = -Location.SpeedX
             If .Location.SpeedX <> 0 And .Location.SpeedX > -2 And .Location.SpeedX < 2 Then

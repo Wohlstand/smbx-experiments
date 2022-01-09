@@ -41,7 +41,7 @@ Public Sub record_init()
     If Not s_recordFD = 0 Then
         Call record_write_header
     End If
-    
+
     For i = 1 To numPlayers
         last_controls(i).Up = False
         last_controls(i).Down = False
@@ -249,7 +249,7 @@ Private Sub record_read_control(command)
 
     i = CInt(Mid(command, 3, 1))
     key = Mid(command, 4, 1)
-    
+
     With last_controls(i)
         If key = "U" Then
             .Up = is_on
@@ -282,7 +282,7 @@ End Sub
 
 Public Sub record_finish()
     in_level = False
-    
+
     If Not s_recordFD = 0 Then
         ' when did the level end?
         Print #s_recordFD, frame_no + 1

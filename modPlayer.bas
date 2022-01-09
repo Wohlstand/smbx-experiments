@@ -29,7 +29,7 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
             Next A
         End If
     End If
-    
+
 'battle mode
     If BattleMode = True Then
         For A = 1 To numPlayers
@@ -41,8 +41,8 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
         BattleIntro = 0
         BattleOutro = 0
     End If
-    
-    
+
+
     For A = 1 To numPlayers 'set up players
         With Player(A)
             If .Character = 0 Then 'player has no character
@@ -68,13 +68,13 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
                 .State = 1
             End If
             'box to hearts
-            
+
             If .Character = 3 Or .Character = 4 Or .Character = 5 Then 'Peach and Toad
                 If .Hearts <= 0 Then .Hearts = 1
-                
+
                 'power up limiter
                 'If (.Character = 3 Or .Character = 4) And .State > 3 And .State <> 7 Then .State = 2
-                
+
                 If .Hearts <= 1 And .State > 1 And .Character <> 5 Then .Hearts = 2
                 If .HeldBonus > 0 Then
                     .Hearts = .Hearts + 1
@@ -90,7 +90,7 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
                 .Hearts = 0
             End If
             If .Character = 5 Then .Mount = 0
-            
+
             .Location.Width = Physics.PlayerWidth(.Character, .State) 'set height
             .Location.Height = Physics.PlayerHeight(.Character, .State) 'set width
             If .State = 1 And .Mount = 1 Then .Location.Height = Physics.PlayerHeight(1, 2) 'if small and in a shoe then set the height to super mario
@@ -198,7 +198,7 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
                 If .State = 1 Then .Hearts = 1
                 If .State > 1 And .Hearts < 2 Then .Hearts = 2
             End If
-            
+
             If numPlayers > 2 And GameMenu = False Then 'online stuff
                 If nPlay.Online = True Then
                     .Location = Player(1).Location
@@ -229,8 +229,8 @@ Public Sub SetupPlayers() 'this set's the players values to their defaults and p
         StartMusic Player(nPlay.MySlot + 1).Section
     End If
     SetupScreens 'setup the screen depending on how many players there are
-    
-    
+
+
     If Checkpoint = FullFileName And Checkpoint <> "" Then 'if this level has a checkpoint the put the player in the correct position
         For A = 1 To numNPCs
             If NPC(A).Type = 192 Then
@@ -322,11 +322,11 @@ Public Sub UpdatePlayer() 'This is the main sub for the players
     Dim Angle As Double
     Dim slideSpeed As Double
     Dim maxSlideSpeed
-    
-    
+
+
     StealBonus 'allows a dead player to come back to life by using a 1-up
     ClownCar 'updates players in the clown car
-    
+
 'online stuff
     If nPlay.Online = True Then
         A = nPlay.MySlot + 1
@@ -355,7 +355,7 @@ Public Sub UpdatePlayer() 'This is the main sub for the players
         End If
     End If
 
-    
+
 'A is the current player, numPlayers is the last player. this loop updates all the players
     For A = 1 To numPlayers
         If nPlay.Online = True And A > 1 Then
@@ -515,9 +515,9 @@ Public Sub UpdatePlayer() 'This is the main sub for the players
                     .GroundPound2 = False
                 End If
             End If
-                    
+
 SizeCheck A 'check that the player is the correct size for it's character/state/mount and set it if not
-            
+
         If .Stoned = True Then 'stop the player from climbing/spinning/jumping when in tanooki statue form
             .Jump = 0
             .Vine = 0
@@ -529,7 +529,7 @@ SizeCheck A 'check that the player is the correct size for it's character/state/
             .CanAltJump = False
             .CanJump = False
         End If
-                        
+
         'let the player slide if not on a mount and holding something
         If .GrabTime > 0 Then .Slide = False
         If .Slope > 0 And .Controls.Down = True And .Mount = 0 And .HoldingNPC = 0 And Not (.Character = 3 Or .Character = 4 Or .Character = 5) And .GrabTime = 0 Then
@@ -539,7 +539,7 @@ SizeCheck A 'check that the player is the correct size for it's character/state/
             .Slide = False
         End If
         If .Mount > 0 Or .HoldingNPC > 0 Then .Slide = False
-        
+
 'unduck a player that should be able to duck
     If .Duck = True And (.Character = 1 Or .Character = 2) And .State = 1 And (.Mount = 0 Or .Mount = 2) Then UnDuck A
 
@@ -548,15 +548,15 @@ If GameMenu = True And .SpinJump = False Then .Direction = 1 'force the player t
 WaterCheck A 'This sub handles all the water related stuff
 
 PowerUps A 'misc power-up code
-                    
+
 If .StandingOnNPC > 0 Then
     If NPC(.StandingOnNPC).Type = 263 And NPC(.StandingOnNPC).Location.SpeedX = 0 Then .Slippy = True
 End If
 SlippySpeedX = .Location.SpeedX
-                    
+
 
 'Player's X movement. ---------------------------
-        
+
         'Modify player's speed if he is running up/down hill
         speedVar = 1 'Speed var is a percentage of the player's speed
         If .Slope > 0 Then
@@ -569,7 +569,7 @@ SlippySpeedX = .Location.SpeedX
         If .Stoned = True Then speedVar = 1 'if statue form reset to normal
         If .Character = 3 Then speedVar = speedVar * 0.93
         If .Character = 4 Then speedVar = speedVar * 1.07
-                                
+
         'modify speedvar to slow the player down under water
         If .Wet > 0 Then
             If .Location.SpeedY = 0 Or .Slope > 0 Or .StandingOnNPC <> 0 Then
@@ -578,7 +578,7 @@ SlippySpeedX = .Location.SpeedX
                 speedVar = speedVar * 0.5 'if swimming go slower faster the walking
             End If
         End If
-                        
+
                         If .Slide = True Then 'Code used to move the player while sliding down a slope
                             If .Slope > 0 Then
                                 Angle = 1 / (Block(.Slope).Location.Width / Block(.Slope).Location.Height)
@@ -603,7 +603,7 @@ SlippySpeedX = .Location.SpeedX
                             If .Location.SpeedX > 11 Then .Location.SpeedX = 11
                             If .Location.SpeedX < -11 Then .Location.SpeedX = -11
                             If .Controls.Jump = True Or .Controls.AltJump = True Then .Slide = False
-                            
+
 'if not sliding and in the clown car
                         ElseIf .Mount = 2 Then
                             If .Controls.Jump = False Then .CanJump = True
@@ -715,7 +715,7 @@ SlippySpeedX = .Location.SpeedX
                                 End If
                             End If
                             .Location.SpeedX = 0
-                        
+
                         ElseIf .Fairy = True Then 'if a fairy
                             If .Controls.Right = True Then
                                 If .Location.SpeedX < 3 Then .Location.SpeedX = .Location.SpeedX + 0.15
@@ -761,10 +761,10 @@ SlippySpeedX = .Location.SpeedX
                                 .Location.SpeedY = .Location.SpeedY + NPC(.VineNPC).Location.SpeedY
                             End If
                         Else
-                        
+
 'if none of the above apply then the player controls like normal. remeber this is for the players X movement
-                        
-                        
+
+
                 'ducking for link
                         If .Duck = True And .WetFrame = True Then
                             If .Location.SpeedY <> 0 And .Slope = 0 And .StandingOnNPC = 0 Then UnDuck A
@@ -955,8 +955,8 @@ SlippySpeedX = .Location.SpeedX
                                 .FlyCount = 0
                             End If
                         End If
-                    
-                    
+
+
                 'stop link when stabbing
                     If .Character = 5 Then
                         If .FireBallCD > 0 And (.Location.SpeedY = 0 Or .Slope <> 0 Or .StandingOnNPC <> 0) Then
@@ -1009,7 +1009,7 @@ SlippySpeedX = .Location.SpeedX
                                     End If
                                 End If
                             Next B
-                            
+
                         End If
                     ElseIf .Fairy = True Then
                         PlaySound 87
@@ -1024,7 +1024,7 @@ SlippySpeedX = .Location.SpeedX
                         .FairyTime = 0
                     End If
                     If .FairyCD <> 0 And (.Location.SpeedY = 0 Or .Slope <> 0 Or .StandingOnNPC <> 0 Or .WetFrame = True) Then .FairyCD = .FairyCD - 1
-                        
+
 
                         If .StandingOnNPC <> 0 And NPC(.StandingOnNPC).Pinched = False And FreezeNPCs = False Then
                             If .StandingOnNPC < 0 Then
@@ -1032,14 +1032,14 @@ SlippySpeedX = .Location.SpeedX
                             End If
                             .Location.SpeedX = .Location.SpeedX + NPC(.StandingOnNPC).Location.SpeedX + NPC(.StandingOnNPC).BeltSpeed
                         End If
-                        
+
                         If GameOutro = True Then 'force the player to walk a specific speed during the credits
                             If .Location.SpeedX < -2 Then .Location.SpeedX = -2
                             If .Location.SpeedX > 2 Then .Location.SpeedX = 2
                         End If
-                        
-                        
-                        
+
+
+
 'slippy code
 If .Slippy = True And (.Slide = False Or .Slope = 0) Then
     If .Slope > 0 Then
@@ -1052,22 +1052,22 @@ If .Slippy = True And (.Slide = False Or .Slope = 0) Then
 End If
 wasSlippy = .Slippy
 .Slippy = False
-                        
+
                             If .Quicksand > 1 Then
                                 .Slide = False
                                 If .Location.SpeedY >= 0 Then
                                     .Location.SpeedX = .Location.SpeedX * 0.5
                                 End If
                             End If
-                        
-                        
+
+
                         .Location.X = .Location.X + .Location.SpeedX 'This is where the actual movement happens
-                        
+
 'Players Y movement.
                         If Block(.Slope).Location.SpeedY <> 0 And .Slope <> 0 Then
                             .Location.Y = .Location.Y + Block(.Slope).Location.SpeedY
                         End If
-                    
+
                     If .Fairy = True Then ' the player is a fairy
                         .WetFrame = False
                         .Wet = 0
@@ -1100,7 +1100,7 @@ wasSlippy = .Slippy
                                 End If
                             End If
                         End If
-                        
+
                         If .Location.SpeedY > 4 Then
                             .Location.SpeedY = 4
                         ElseIf .Location.SpeedY < -3 Then
@@ -1192,13 +1192,13 @@ wasSlippy = .Slippy
                                 .Location.Height = Physics.PlayerHeight(.Character, .State)
                             End If
                         End If
-                        
+
                         If .Duck = True Then
                             If .StandingOnNPC = 0 And .Slope = 0 And .Location.SpeedY <> 0 And .Mount <> 1 Then
                                 If .Character <= 2 Then UnDuck A 'unduck wet players that aren't peach o toad
                             End If
                         End If
-                        
+
                         .Location.SpeedY = .Location.SpeedY + Physics.PlayerGravity * 0.1
                         If .Location.SpeedY >= 3 Then .Location.SpeedY = 3 'Terminal Velocity in water
                         If .Mount = 1 Then
@@ -1214,7 +1214,7 @@ wasSlippy = .Slippy
                                     .MountSpecial = 1
                                 End If
                             End If
-                            
+
                             If .Location.SpeedY < -1.1 Then
                                 .MountSpecial = 0
                             ElseIf .Location.SpeedY > 1.1 Then
@@ -1222,15 +1222,15 @@ wasSlippy = .Slippy
                             ElseIf .FloatTime >= 0 Then
                                 .MountSpecial = 0
                             End If
-                            
-                            
+
+
                             If .Controls.Jump = True And .MountSpecial = 1 And .CanJump = True Then
                                 .Location.SpeedY = Physics.PlayerGravity * 0.1
                                 .MountSpecial = 0
                                 .StandUp = True
                             End If
                         End If
-                        
+
                         If .SwimCount > 0 Then .SwimCount = .SwimCount - 1
                         If .SwimCount = 0 Then
                             If .Mount <> 1 Or .Location.SpeedY = Physics.PlayerGravity * 0.1 Or .Slope <> 0 Or .StandingOnNPC <> 0 Then
@@ -1262,7 +1262,7 @@ wasSlippy = .Slippy
                                 End If
                             End If
                         End If
-                        
+
                         If .Controls.Jump = True Then
                             .CanJump = False
                         Else
@@ -1278,13 +1278,13 @@ wasSlippy = .Slippy
                         Else
                             If .Location.SpeedY < -3 Then .Location.SpeedY = -3
                         End If
-                        
+
                         .Location.Y = .Location.Y + .Location.SpeedY
-                    
+
                     Else 'the player is not swimming
-    
+
                         If .Mount <> 2 Then 'if not in the clown car
-                        
+
                             If .Mount = 1 Then 'this gives the player the bounce when in the kurbio's shoe
                                 If .Controls.Left = True Or .Controls.Right = True Then
                                     If .Location.SpeedY = 0 Or .Slope > 0 Or (.StandingOnNPC <> 0 And .Location.Y + .Location.Height >= NPC(.StandingOnNPC).Location.Y - NPC(.StandingOnNPC).Location.SpeedY) Then
@@ -1308,7 +1308,7 @@ wasSlippy = .Slippy
                                     .StandUp = True
                                 End If
                             End If
-                            
+
                             If .Mount = 1 Then
                                 If .Controls.AltJump = True And .CanAltJump = True Then  'check to see if the player should jump out of the shoe
                                     UnDuck A
@@ -1398,7 +1398,7 @@ wasSlippy = .Slippy
                                     .Location.Height = Physics.PlayerHeight(.Character, .State)
                                 End If
                             End If
-                            
+
                             If (.Location.SpeedY = 0 Or .Jump > 0 Or .Vine > 0) And .FloatTime = 0 Then .CanFloat = True 'princess float
                             If .Wet > 0 Or .WetFrame = True Then .CanFloat = False
 'handles the regular jump
@@ -1418,7 +1418,7 @@ wasSlippy = .Slippy
                                     ElseIf .Jump > 0 Then
                                         NPC(.StandingOnNPC).Location.SpeedY = Physics.PlayerJumpVelocity * 0.9
                                     End If
-                                
+
                 'if not surfing a shell then proceed like normal
                                 Else
                                     If (.Vine > 0 Or .Location.SpeedY = 0 Or .StandingOnNPC <> 0 Or MultiHop = True Or .Slope > 0 Or (.Location.SpeedY > 0 And .Quicksand > 0)) And .CanJump = True Then
@@ -1500,11 +1500,11 @@ wasSlippy = .Slippy
                                     Next B
                                 End If
                             End If
-                            
-                            
-                            
+
+
+
                             If .NoShellKick > 0 Then .NoShellKick = .NoShellKick - 1 'countdown for the next time the player kicks a turtle shell
-                            
+
                             If .ShellSurf = True Then
                                 If .Mount <> 0 Then .ShellSurf = False
                                 ' FIXME: Some dead code because of "1 == 2" comparison
@@ -1532,7 +1532,7 @@ wasSlippy = .Slippy
                                         NPC(.StandingOnNPC).Location.SpeedY = NPC(.StandingOnNPC).Location.SpeedY - Physics.NPCGravity * 1.5
                                     End If
                             End If
-                            
+
                         'START ALT JUMP - this code does the player's spin jump
                             If .Controls.AltJump = True And (.Character = 1 Or .Character = 2 Or .Character = 4) Then
                                     If .Location.SpeedX > 0 Then
@@ -1547,11 +1547,11 @@ wasSlippy = .Slippy
                                             .Location.SpeedY = Physics.PlayerJumpVelocity - tempSpeed
                                             .Jump = Physics.PlayerJumpHeight
                                             If .Character = 2 Then .Jump = .Jump + 3
-                                            
+
                                             If .StandingOnNPC > 0 And FreezeNPCs = False Then
                                                 If NPC(.StandingOnNPC).Type <> 91 Then .Location.SpeedX = .Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX
                                             End If
-                                        
+
                                             PlaySound 33 'Jump sound
                                             .Jump = .Jump - 6
                                             If .Direction = 1 Then
@@ -1568,9 +1568,9 @@ wasSlippy = .Slippy
                                                 .Location.SpeedX = NPC(.StandingOnNPC).Location.SpeedX + NPC(.StandingOnNPC).BeltSpeed * 0.8
                                                 .Jump = 0
                                             End If
-                                            
+
                                             .StandingOnNPC = 0
-                                            
+
                                             If .CanFly = True Then
                                                 .StandingOnNPC = 0
                                                 .Jump = 30
@@ -1598,13 +1598,13 @@ wasSlippy = .Slippy
                                     End If
                                 'End If
                                 .CanAltJump = False
-                                
+
                             Else
                                 .CanAltJump = True
                             End If
                             'END ALT JUMP
-                            
-                            
+
+
                             If (.Location.SpeedY = 0 Or .StandingOnNPC <> 0 Or .Slope > 0) And .SpinJump = True Then
                                 .SpinJump = False
                                 If nPlay.Online = True And nPlay.MySlot + 1 = A Then Netplay.sendData Netplay.PutPlayerLoc(nPlay.MySlot) & "1m" & A & LB
@@ -1617,10 +1617,10 @@ wasSlippy = .Slippy
                             If .Jump > 0 Then
                                 .Jump = .Jump - 1
                             End If
-                            
+
                             If .Jump > 0 Then .Vine = 0
-                    
-                    
+
+
                             If .Quicksand > 1 Then
                                 .Slide = False
                                 If .Location.SpeedY < -0.7 Then
@@ -1635,8 +1635,8 @@ wasSlippy = .Slippy
                                 End If
                                 .Location.Y = .Location.Y + .Location.SpeedY
                             End If
-                    
-                    
+
+
                     'gravity
                             If .Vine = 0 Then
                                 If .NoGravity = 0 Then
@@ -1664,9 +1664,9 @@ wasSlippy = .Slippy
                                     .NoGravity = .NoGravity - 1
                                 End If
                             End If
-                            
+
                     'princess float
-                        
+
 
                             If .Character = 3 And .Wet = 0 And .WetFrame = False Then
                                 If .Location.SpeedY = 0 Or .StandingOnNPC > 0 Or .Slope > 0 Or .CanFly2 = True Then
@@ -1707,8 +1707,8 @@ wasSlippy = .Slippy
                                     .FloatTime = 0
                                 End If
                             End If
-                            
-                            
+
+
                         'Racoon Mario
                             If (.State = 4 Or .State = 5) Or .YoshiBlue = True Or (.Mount = 1 And .MountType = 3) Then
                                 If (.Controls.Jump = True Or .Controls.AltJump = True) And ((.Location.SpeedY > Physics.PlayerGravity * 5 And .Character <> 3 And .Character <> 4) Or (.Location.SpeedY > Physics.PlayerGravity * 10 And .Character = 3) Or (.Location.SpeedY > Physics.PlayerGravity * 7.5 And .Character = 4)) And .GroundPound = False And .Slope = 0 And .Character <> 5 Then
@@ -1723,7 +1723,7 @@ wasSlippy = .Slippy
                                     Else
                                         If NPC(.StandingOnNPC).Location.SpeedY > Physics.PlayerGravity * 5 Then NPC(.StandingOnNPC).Location.SpeedY = Physics.PlayerGravity * 5
                                     End If
-                                    
+
                                     If Not ((.YoshiBlue = False And (.CanFly = True Or .CanFly2 = True)) Or .Mount = 3 And .CanFly2 = True) Then
                                         If random_int(10) = 0 Then
                                             NewEffect 80, newLoc(.Location.X - 8 + random_double * (.Location.Width + 16) - 4, .Location.Y - 8 + random_double * (.Location.Height + 16)), , , ShadowMode
@@ -1737,13 +1737,13 @@ wasSlippy = .Slippy
                         End If
                         .Location.Y = .Location.Y + .Location.SpeedY
                     End If
-                    
+
                 'princess peach and toad stuff
                     If .Character = 3 Or .Character = 4 Or .Character = 5 Then
                         .HeldBonus = 0
                         'power up limiter
                         'If (.Character = 3 Or .Character = 4) And .State > 3 And .State <> 7 Then .State = 2
-                        
+
                         If .Mount = 3 Then
                             PlayerHurt A
                             .Mount = 0
@@ -1757,11 +1757,11 @@ wasSlippy = .Slippy
                             If .State >= 2 Then .Hearts = 2
                         End If
                     End If
-                
+
                 'link stuff
                     If .Character = 5 Then
                         If .State = 4 Or .State = 5 Then
-                       
+
                             If .FlyCount > 0 Or ((.Controls.AltJump = True Or (.Controls.Jump = True And .FloatRelease = True)) And .Location.SpeedY <> Physics.PlayerGravity And .Slope = 0 And .StandingOnNPC = 0) Then
                                 If .FlyCount > 0 Then .FairyCD = 0
                                 If .Fairy = False And .FairyCD = 0 And .Jump = 0 And .Wet = 0 Then
@@ -1837,7 +1837,7 @@ wasSlippy = .Slippy
                                     Else
                                         PlaySound 82
                                     End If
-                                    
+
                                     numNPCs = numNPCs + 1
                                     If ShadowMode = True Then NPC(numNPCs).Shadow = True
                                     NPC(numNPCs).Type = 13
@@ -1854,8 +1854,8 @@ wasSlippy = .Slippy
                                         NPC(numNPCs).Location.Y = .Location.Y + 18
                                         If .State = 6 Then NPC(numNPCs).Location.Y = NPC(numNPCs).Location.Y + 4
                                     End If
-                                    
-                                    
+
+
                                     NPC(numNPCs).Active = True
                                     NPC(numNPCs).TimeLeft = 100
                                     NPC(numNPCs).Location.SpeedY = 20
@@ -1906,19 +1906,19 @@ wasSlippy = .Slippy
                         End If
                         .HoldingNPC = -1
                     End If
-                    
+
                     If .Controls.Jump = True Then
                         .FloatRelease = False
                     Else
                         .FloatRelease = True
                     End If
-                    
+
 'Player interactions
                     .Location.SpeedX = .Location.SpeedX + .Bumped2
                     .Location.X = .Location.X + .Bumped2
                     .Bumped2 = 0
                     If .Mount = 0 Then .YoshiYellow = False
-                    
+
                 'level wrap
                     If LevelWrap(.Section) = True Then
                         If .Location.X + .Location.Width < level(.Section).X Then
@@ -1964,7 +1964,7 @@ wasSlippy = .Slippy
                         .Location.Y = level(.Section).Y - .Location.Height - 32
                         If AutoY(.Section) <> 0 Then .NPCPinched = 3
                     End If
-                    
+
                 'gives the players the sparkles when he is flying
                     If ((.YoshiBlue = False And (.CanFly = True Or .CanFly2 = True)) Or .Mount = 3 And .CanFly2 = True) Or .FlySparks = True Then
                         If random_int(4) = 0 Then
@@ -1973,14 +1973,14 @@ wasSlippy = .Slippy
                             Effect(numEffects).Location.SpeedY = random_double * 0.5 - 0.25
                         End If
                     End If
-                    
+
 
 Tanooki A 'tanooki suit code
 
-                    
-                    
+
+
                     oldSpeedY = .Location.SpeedY
-                    
+
 
                     If .StandingOnNPC = -A Then
                         If .Slope <> 0 Then
@@ -1996,9 +1996,9 @@ Tanooki A 'tanooki suit code
                             If Slope > 1 Then Slope = 1
                         End If
                     End If
-  
-                  
-                    
+
+
+
 'Block collisions.
                     oldSlope = .Slope
                     .Slope = 0
@@ -2010,18 +2010,18 @@ Tanooki A 'tanooki suit code
                     If .Pinched3 > 0 Then .Pinched3 = .Pinched3 - 1
                     If .Pinched4 > 0 Then .Pinched4 = .Pinched4 - 1
                     If .NPCPinched > 0 Then .NPCPinched = .NPCPinched - 1
-                    
+
                     If .Character = 5 And .Duck = True And (.Location.SpeedY = Physics.PlayerGravity Or .StandingOnNPC <> 0 Or .Slope <> 0) Then
                         .Location.Y = .Location.Y + .Location.Height
                         .Location.Height = 30
                         .Location.Y = .Location.Y - .Location.Height
                     End If
 
-                    
+
                 'block collision optimization
                     fBlock = FirstBlock((Player(A).Location.X / 32) - 1)
                     lBlock = LastBlock(((Player(A).Location.X + Player(A).Location.Width) / 32) + 1)
-                    
+
                     For B = fBlock To lBlock
 
 'checks to see if a collision happened
@@ -2029,17 +2029,17 @@ If .Location.X + .Location.Width >= Block(B).Location.X Then
 If .Location.X <= Block(B).Location.X + Block(B).Location.Width Then
 If .Location.Y + .Location.Height >= Block(B).Location.Y Then
 If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
-                    
+
                         If Block(B).Hidden = False Then
                             HitSpot = FindRunningCollision(.Location, Block(B).Location) 'this finds what part of the block the player collided
-                            
+
                             If BlockNoClipping(Block(B).Type) = True Then HitSpot = 0 'blocks that the player can't touch are forced to hitspot 0 (which means no collision)
-                            
+
                             If BlockIsSizable(Block(B).Type) Or BlockOnlyHitspot1(Block(B).Type) = True Then 'for sizable blocks, if the player didn't land on them from the top then he can walk through them
                                 If HitSpot <> 1 Then HitSpot = 0
                                 If .Mount = 2 Or .StandingOnTempNPC = 56 Then HitSpot = 0
                             End If
-                            
+
                             'for blocks that hurt the player
                             If BlockHurts(Block(B).Type) Then
                                 If .Mount = 2 Or (HitSpot = 1 And .Mount <> 0) And Not Block(B).Type = 598 Then
@@ -2059,12 +2059,12 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                             PlayerHurt A
                                         End If
                                     End If
-                                    
-                                    
+
+
                                     If .TimeToLive > 0 Then Exit For
                                 End If
                             End If
-                            
+
                             'hitspot 5 means the game doesn't know where the collision happened
                             'if the player just stopped ducking and there is a hitspot 5 then force hitspot 3 (hit block from below)
                             If HitSpot = 5 And (.StandUp = True Or NPC(.StandingOnNPC).Location.SpeedY < 0) Then
@@ -2072,28 +2072,28 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                     HitSpot = 3
                                 End If
                             End If
-                            
+
                             'if the block is invisible and the player didn't hit it from below then the player won't collide with it
                             If Block(B).Invis = True Then
                                 If HitSpot <> 3 Then HitSpot = 0
                             End If
-                            
+
                             'fixes a bug with holding an npc that is really a block
                             If .HoldingNPC > 0 Then
                                 If NPC(.HoldingNPC).Block > 0 Then
                                     If NPC(.HoldingNPC).Block = B Then HitSpot = 0
                                 End If
                             End If
-                            
+
                             'destroy some blocks if the player is touching it as a statue
                             If Block(B).Type = 457 And .Stoned = True Then
                                 HitSpot = 0
                                 KillBlock B
                             End If
-                            
+
                             'shadowmode is a cheat that allows the player to walk through walls
                             If ShadowMode = True And HitSpot <> 1 And Not (Block(B).Special > 0 And HitSpot = 3) Then HitSpot = 0
-                            
+
                         'this handles the collision for blocks that are sloped on the bottom
                             If BlockSlope2(Block(B).Type) <> 0 And (.Location.Y > Block(B).Location.Y Or (HitSpot <> 2 And HitSpot <> 4)) And HitSpot <> 1 And ShadowMode = False Then
                                 HitSpot = 0
@@ -2124,7 +2124,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                 .Location.X = Block(B).Location.X + (Block(B).Location.Width * Slope) - .Location.Width
                                             End If
                                             .Location.SpeedX = 0
-                                            
+
                                         Else
                                             .Location.Y = Block(B).Location.Y + Block(B).Location.Height - (Block(B).Location.Height * Slope)
                                             If .Location.SpeedY < 0 Then
@@ -2183,16 +2183,16 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                         .Location.SpeedX = 0
                                     Else
                                         If .Location.Y >= Block(B).Location.Y + (Block(B).Location.Height * Slope) - .Location.Height - 0.1 Then
-                                        
+
                                             If .GroundPound = True Then
                                                 YoshiPound A, tempHit3, True
                                                 .GroundPound = False
                                             ElseIf .YoshiYellow = True Then
                                                 If oldSlope = 0 Then YoshiPound A, tempHit3
                                             End If
-                                            
+
                                             .Location.Y = Block(B).Location.Y + (Block(B).Location.Height * Slope) - .Location.Height - 0.1
-                                            
+
                                             If .Location.SpeedY > .Location.SpeedX * (Block(B).Location.Height / Block(B).Location.Width) * BlockSlope(Block(B).Type) Or .Slide = False Then
                                                 If .WetFrame = False Then
                                                     C = .Location.SpeedX * (Block(B).Location.Height / Block(B).Location.Width) * BlockSlope(Block(B).Type)
@@ -2202,7 +2202,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     End If
                                                 End If
                                             End If
-                                            
+
                                             .Slope = B
                                             If BlockSlope(Block(B).Type) = 1 And GameMenu = True And .Location.SpeedX >= 2 Then
                                                 If .Mount = 0 And .HoldingNPC = 0 And .Character <= 2 Then
@@ -2210,9 +2210,9 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                                     .Slide = True
                                                 End If
                                             End If
-                                            
 
-                                            
+
+
                                             If .Location.SpeedY < 0 And .Slide = False And SuperSpeed = False And .Stoned = False Then .Location.SpeedY = 0
                                             If (Block(B).Location.SpeedX <> 0 Or Block(B).Location.SpeedY <> 0) Then
                                                 NPC(-A) = blankNPC
@@ -2236,14 +2236,14 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                     End If
                                 End If
                             End If
-                            
-                            
+
+
                         'this is a fix to help the player deal with lava blocks a bit easier
                         'it moves the blocks hitbox down a few pixels
                             If BlockKills(Block(B).Type) And BlockSlope(Block(B).Type) = 0 And GodMode = False And Not (.Mount = 1 And .MountType = 2) Then
                                 If Player(A).Location.Y + Player(A).Location.Height < Block(B).Location.Y + 6 Then HitSpot = 0
                             End If
-                            
+
                         'kill the player if touching a lava block
                             If BlockKills(Block(B).Type) And (HitSpot > 0 Or .Slope = B) Then
                                 If GodMode = False Then
@@ -2260,12 +2260,12 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                     End If
                                 End If
                             End If
-                            
+
                         'if hitspot 5 with a sloped block then don't collide with it. the collision should have already been handled by the slope code above
                             If HitSpot = 5 And BlockSlope(Block(B).Type) <> 0 Then
                                 HitSpot = 0
                             End If
-                            
+
                             'shelsurfing code
                             If HitSpot > 1 And .ShellSurf = True Then
                                 .ShellSurf = False
@@ -2273,29 +2273,29 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                 .StandingOnNPC = 0
                                 PlaySound 3
                             End If
-                            
+
                             If Block(B).Type = 626 And .Character = 1 Then HitSpot = 0
                             If Block(B).Type = 627 And .Character = 2 Then HitSpot = 0
                             If Block(B).Type = 628 And .Character = 3 Then HitSpot = 0
                             If Block(B).Type = 629 And .Character = 4 Then HitSpot = 0
                             If Block(B).Type = 632 And .Character = 5 Then HitSpot = 0
-                            
+
 'the following code is where the collisions are handled
 
-                            
-                            
-                            
+
+
+
                             If (HitSpot = 1 Or .Slope = B) And Block(B).Slippy = True Then
                                 .Slippy = True
                             End If
-                            
-                            
+
+
                             If HitSpot = 5 And .Quicksand > 0 Then 'fixes quicksand hitspot 3 bug
                                 If .Location.Y - .Location.SpeedY < Block(B).Location.Y + Block(B).Location.Height Then
                                     HitSpot = 3
                                 End If
                             End If
-                            
+
                             If HitSpot = 1 Then 'landed on the block from the top   V
                                 If .Fairy = True And (.FairyCD > 0 Or .Location.SpeedY > 0) Then .FairyTime = 0
                                 .Pinched1 = 2 'for players getting squashed
@@ -2322,7 +2322,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                         With Block(tempHit3).Location
                                             D = .X + .Width * 0.5
                                         End With
-                                        
+
                                         C = C - (.Location.X + .Location.Width * 0.5)
                                         D = D - (.Location.X + .Location.Width * 0.5)
                                         If C < 0 Then C = -C
@@ -2331,19 +2331,19 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                             tempHit3 = B
                                         End If
                                     End If
-                                    
+
                                     'if this block is moving up give it priority
                                     If Block(B).Location.SpeedY < 0 And Block(B).Location.Y < Block(tempHit3).Location.Y Then
                                         tempHit3 = B
                                         tempLocation3 = Block(B).Location
                                     End If
-                                    
+
                                 End If
-                                
+
                                 ElseIf HitSpot = 2 Then 'hit the block from the right <----
-                                    
+
                                     If BlockSlope(Block(oldSlope).Type) = 1 And Block(oldSlope).Location.Y <= Block(B).Location.Y Then
-                                        
+
                                     Else
                                         If .Mount = 2 Then
                                             .mountBump = .Location.X
@@ -2408,7 +2408,7 @@ If .Location.Y <= Block(B).Location.Y + Block(B).Location.Height Then
                                         lBlock = LastBlock(((tempLocation.X + tempLocation.Width) / 32) + 1)
                                         For C = fBlock To lBlock
                                             If CheckCollision(tempLocation, Block(C).Location) = True And Block(C).Hidden = False Then
-                                            
+
                                                 If BlockSlope(Block(C).Type) = 0 Then
                                                     tempBool = True
                                                 Else
@@ -2444,13 +2444,13 @@ End If
 Else
 End If
                         Next B
-                        
+
                     If .Character = 5 And .Duck = True Then
                         .Location.Y = .Location.Y + .Location.Height
                         .Location.Height = Physics.PlayerDuckHeight(.Character, .State)
                         .Location.Y = .Location.Y - .Location.Height
                     End If
-                        
+
 
 'helps the player run down slopes at different angles
 If .Slope = 0 And oldSlope > 0 And .Mount <> 1 And .Mount <> 2 And .Slide = False Then
@@ -2459,9 +2459,9 @@ If .Slope = 0 And oldSlope > 0 And .Mount <> 1 And .Mount <> 2 And .Slide = Fals
         If C > 0 Then .Location.SpeedY = C
     End If
 End If
-                        
+
             If tempHit3 > 0 Then 'For walking
-            
+
             If .StandingOnNPC = -A Then 'fors standing on movable blocks
                 If NPC(.StandingOnNPC).Special2 <> 0 Then
                     .Location.SpeedX = .Location.SpeedX - NPC(.StandingOnNPC).Location.SpeedX
@@ -2469,7 +2469,7 @@ End If
                     .StandingOnNPC = 0
                 End If
             End If
-                    
+
 'diggable dirt
             If Block(tempHit3).Type = 370 And .StandingOnNPC <= 0 Then 'dig dirt
                 DontResetGrabTime = True
@@ -2497,7 +2497,7 @@ End If
             End If
                         If tempHit2 = True Then
                             If WalkingCollision(.Location, Block(tempHit3).Location) = True Then
-                            
+
 If nPlay.Online = True And A = nPlay.MySlot + 1 Then 'online stuffs
     curLoc = .Location
     .Location = oldLoc
@@ -2556,7 +2556,7 @@ End If
                                 End If
                             End If
                         Else
-                        
+
 
 If nPlay.Online = True And A = nPlay.MySlot + 1 Then 'online stuffs
     curLoc = .Location
@@ -2568,8 +2568,8 @@ If nPlay.Online = True And A = nPlay.MySlot + 1 Then 'online stuffs
     End If
     .Location = curLoc
 End If
-                        
-                        
+
+
                             .Location.Y = tempLocation3.Y - .Location.Height
                             If .StandingOnNPC <> 0 Then
                                 If NPC(.StandingOnNPC).Location.Y <= tempLocation3.Y And .StandingOnNPC <> .HoldingNPC Then
@@ -2607,7 +2607,7 @@ End If
                             Else
                                 If .Slope = 0 Or .Slide = True Then Player(A).Location.SpeedY = 0
                             End If
-                            
+
                             If Block(tempHit3).Type = 55 And FreezeNPCs = False Then  'Make the player jump if the block is bouncy
                                 BlockHit tempHit3, True
                                 If .Slide = False Then .Multiplier = 0
@@ -2633,9 +2633,9 @@ End If
                                     .Location.SpeedY = Physics.PlayerJumpVelocity * 0.5
                                 End If
                             End If
-                            
 
-                            
+
+
                         End If
                     End If
                     If tempSlope2 > 0 And tempSlope > 0 Then
@@ -2686,7 +2686,7 @@ End If
                         B = 0
                     End If
                     If B > 0 Then
-                    
+
 'Netplay code
                         If nPlay.Online = True And A = nPlay.MySlot + 1 Then 'online stuffs
                             curLoc = .Location
@@ -2708,7 +2708,7 @@ End If
                             If .Mount <> 2 And Block(B).Type <> 293 Then BlockHitHard B
                         End If
                     End If
-                    
+
                     If .Slide = True And oldSlope > 0 And .Slope = 0 And .Location.SpeedY < 0 Then
                         If .NoGravity = 0 Then
                             .NoGravity = Int(.Location.SpeedY / Physics.PlayerJumpVelocity * 8)
@@ -2725,7 +2725,7 @@ End If
                     Else
                         .SlideKill = False
                     End If
-                    
+
 
 
 
@@ -2736,8 +2736,8 @@ End If
                     tempBlockHit(2) = 0
                     tempHitSpeed = 0
                     spinKill = False
-                        
-                        
+
+
 'check vine backgrounds
     For B = 1 To numBackground
         If BackgroundFence(Background(B).Type) = True And (Not Background(B).Hidden Or g_compatMode) Then
@@ -2804,7 +2804,7 @@ End If
                                         Else
                                             HitSpot = EasyModeCollision(.Location, NPC(B).Location, NPCCanWalkOn(NPC(B).Type)) 'find the hitspot when in a shoe or on a yoshi
                                         End If
-                                    
+
 If NPC(B).Inert = False Then
                                         'battlemode stuff
                                         If NPC(B).Type = 13 Or NPC(B).Type = 171 Or NPC(B).Type = 265 Or NPC(B).Type = 266 Or NPC(B).Type = 108 Or NPC(B).Type = 291 Or NPC(B).Type = 292 Then
@@ -2895,7 +2895,7 @@ End If
                                                 NPCHit B, 3, B
                                             End If
                                         End If
-                                    
+
                                     'the following code is for spin jumping and landing on things as yoshi/shoe
                                         If .Mount = 1 Or .Mount = 3 Or .SpinJump = True Or (.Stoned = True And NPCCanWalkOn(NPC(B).Type) = False) Then
                                             If HitSpot = 1 Then
@@ -2965,16 +2965,16 @@ End If
                                                 If (NPC(B).Location.Y + NPC(B).Location.Height > .Location.Y + 18 And HitSpot <> 3) Or HitSpot = 1 Then
                                                     NPCHit B, 8, A
                                                     If NPC(B).Killed = 8 Then HitSpot = 0
-                                                    
+
                                                     If NPC(B).Type = 135 Or NPC(B).Type = 136 Or NPC(B).Type = 137 Then
                                                         NPCHit B, 3, B
                                                         If NPC(B).Killed = 3 Then HitSpot = 0
                                                     End If
-                                                    
+
                                                 End If
                                             End If
                                         End If
-                                        
+
                                         If (.State = 6 And .Duck = True And .Mount = 0 And .Character <> 5) Or (.Mount = 1 And .MountType = 2) Then 'Fireball immune for ducking in the hammer suit
                                             If NPC(B).Type = 85 Or NPC(B).Type = 87 Or NPC(B).Type = 246 Or NPC(B).Type = 276 Then
                                                 With NPC(B)
@@ -2997,8 +2997,8 @@ End If
                                                 End With
                                             End If
                                         End If
-                                        
-                                        
+
+
                                         If NPCIsAVine(NPC(B).Type) = True Then   'if the player collided with a vine then see if he should climb it
                                             If .Character = 5 Then
                                                 If .Immune = 0 And .Controls.Up = True Then
@@ -3034,7 +3034,7 @@ End If
                                                 End If
                                             End If
                                         End If
-                                    
+
                                     'subcon warps
                                             If NPC(B).Type = 289 And HitSpot > 0 And .Controls.Up = True Then
                                                 If NPC(B).Special2 >= 0 Then
@@ -3069,22 +3069,22 @@ End If
                                                     NewEffect 54, tempLocation
                                                 End If
                                             End If
-                                        
-                                        
+
+
                                         If HitSpot = 1 And (NPC(B).Type = 32 Or NPC(B).Type = 238 Or NPC(B).Type = 239) And NPC(B).Projectile = True Then
                                             HitSpot = 0
                                         End If
-                                        
+
                                         If NPC(B).Type = 255 And .HasKey = True Then
                                             .HasKey = False
                                             HitSpot = 0
                                             NPC(B).Killed = 3
                                         End If
-                                        
+
                                         If NPC(B).Type = 45 And NPC(B).Projectile = True And HitSpot > 1 Then
                                             HitSpot = 5
                                         End If
-                                        
+
                                         If HitSpot = 1 Then  'Player landed on a NPC
                                             If NPCCanWalkOn(NPC(B).Type) = True Or (.ShellSurf = True And NPCIsAShell(NPC(B).Type) = True) Then     'NPCs that can be walked on
                                                 'the player landed on an NPC he can stand on
@@ -3112,7 +3112,7 @@ End If
                                                 Else
                                                     tempBlockHit(2) = B
                                                 End If
-                                            
+
                                                 'if landing on a yoshi or boot, mount up!
                                             ElseIf (NPCIsYoshi(NPC(B).Type) Or NPCIsBoot(NPC(B).Type)) And .Character <> 5 And .Fairy = False Then
                                                 If .Mount = 0 And NPC(B).CantHurtPlayer <> A And .Dismount = 0 Then
@@ -3176,10 +3176,10 @@ End If
                                                             NPC(B).CantHurt = Physics.NPCCanHurtWait
                                                             NPC(B).CantHurtPlayer = A
                                                         End If
-                                                        
+
                                                     ElseIf NPCJumpHurt(NPC(B).Type) Or (NPCIsCheep(NPC(B).Type) = True And .WetFrame = True) Then     'NPCs that cause damage even when jumped on
                                                         If Not (NPC(B).Type = 8 And NPC(B).Special2 = 4) And NPCWontHurt(NPC(B).Type) = False And NPC(B).CantHurtPlayer <> A Then
-                                                            
+
                                                                 'the n00bcollision function reduces the size of the npc's hit box before it damages the player
                                                             If n00bCollision(.Location, NPC(B).Location) Then PlayerHurt A
                                                         End If
@@ -3217,7 +3217,7 @@ End If
                                                 End If
                                             End If
                                         ElseIf HitSpot = 0 Then 'if hitspot = 0 then do nothing
-                                        
+
                                             'player touched an npc anywhere except from the top
                                         ElseIf Not (NPC(B).Type = 15 And NPC(B).Special = 4) Then 'Player touched an NPC
                                                 'grab code
@@ -3308,7 +3308,7 @@ End If
                                                         End If
                                                     End If
                                                 End If
-                                                
+
                                                     'this is for NPC that physically push the player
                                                 If NPCMovesPlayer(NPC(B).Type) = True And NPC(B).Projectile = False And Not .HoldingNPC = B And Not (.Mount = 2 And (NPC(B).Type = 31 Or NPC(B).Type = 32)) And ShadowMode = False And NPC(B).Effect <> 2 Then
                                                     If .StandUp = True And .StandingOnNPC = 0 Then
@@ -3337,11 +3337,11 @@ End If
                                                         If .StandingOnNPC <> 0 Then
                                                             If NPC(.StandingOnNPC).Type = 57 Then tempBool = True
                                                         End If
-                                                        
+
                                                         D = .Location.X
                                                         If .Location.X + .Location.Width / 2 < NPC(B).Location.X + NPC(B).Location.Width / 2 Then
                                                             .Pinched4 = 2
-                                                            
+
                                                             If NPC(B).Type <> 31 And NPC(B).Type <> 32 And NPC(B).Type <> 57 And (NPC(B).Location.SpeedX <> 0 Or NPC(B).Location.SpeedY <> 0 Or NPC(B).BeltSpeed) Then .NPCPinched = 2
                                                             .Location.X = NPC(B).Location.X - .Location.Width - 0.1
                                                             tempHit2 = True
@@ -3412,7 +3412,7 @@ End If
                             End If
                         End If
                     Next B
-                    
+
                         'if the player collided on the left or right of some npcs then stop his movement
                     If tempHit2 = True Then
                         If .Location.SpeedX + NPC(.StandingOnNPC).Location.SpeedX + tempHitSpeed > 0 And .Controls.Right = True Then
@@ -3506,12 +3506,12 @@ End If
                     If NPC(B).Projectile = True And NPCIsVeggie(NPC(B).Type) = True Then
                         B = 0
                     End If
-                    
+
     'B is the number of the NPC that the player is standing on
     '.StandingOnNPC is the number of the NPC that the player was standing on last cycle
     'if B = 0 and .standingonnpc > 0 then the player was standing on something and is no longer standing on something
-                    
-                    
+
+
                     If B > 0 And .SpinJump = True Then
                         If NPC(B).Type = 263 Then
                             .Location.SpeedY = Physics.PlayerJumpVelocity
@@ -3526,14 +3526,14 @@ End If
                             B = 0
                         End If
                     End If
-                    
+
                     If .HoldingNPC = B Then B = 0 'cant hold an npc that you are standing on
                     If B = 0 And .StandingOnTempNPC > 0 And .Mount = 0 Then
                         .Location.SpeedX = .Location.SpeedX + (NPC(.StandingOnNPC).Location.SpeedX + NPC(.StandingOnNPC).BeltSpeed)
                     ElseIf B > 0 And .StandingOnNPC = 0 And NPC(B).playerTemp = True And .Location.SpeedY >= 0 Then
                         .Location.SpeedX = .Location.SpeedX - (NPC(B).Location.SpeedX + NPC(B).BeltSpeed)
                     End If
-                    
+
                     If movingBlock = True Then 'this is for when the player is standing on a moving block
                         If B > 0 Then
                             If NPC(B).Type = 91 Then
@@ -3545,7 +3545,7 @@ End If
                             B = -A
                         End If
                     End If
-                    
+
                     If B <> 0 Then
                         If .StandingOnNPC = 0 Then
                             If .GroundPound = True Then
@@ -3576,8 +3576,8 @@ End If
                         If NPC(B).Type = 57 Then
                             .Location.SpeedY = 0
                         End If
-                        
-                        
+
+
                         If NPC(B).Type = 56 And .Controls.Down = True And .Mount = 0 And NPC(B).playerTemp = False And .DuckRelease = True And (.HoldingNPC = 0 Or .Character = 5) Then
                             UnDuck A
                             .Location = NPC(B).Location
@@ -3596,7 +3596,7 @@ End If
                              If .Location.SpeedY > 4 + NPC(B).Location.SpeedY Then PlaySound 37
                             .Location.SpeedY = NPC(B).Location.SpeedY
                         End If
-                        
+
                     ElseIf .Mount = 1 And .Jump = 0 Then
                         If .StandingOnNPC <> 0 Then
                             If .Location.X > NPC(.StandingOnNPC).Location.X + NPC(.StandingOnNPC).Location.Width Or .Location.X + .Location.Width < NPC(.StandingOnNPC).Location.X Then
@@ -3620,7 +3620,7 @@ End If
                         .StandingOnTempNPC = 0
                     Else
                         If .StandingOnNPC <> 0 Then
-                        
+
                             If .StandingOnNPC < 0 Then
                                 .Location.SpeedX = .Location.SpeedX + NPC(.StandingOnNPC).Location.SpeedX
                             End If
@@ -3633,7 +3633,7 @@ End If
                         .StandingOnNPC = 0
                         .StandingOnTempNPC = 0
                     End If
-                    
+
                     If .StandingOnNPC > 0 And .Mount = 0 Then 'driving stuff
                         If NPC(.StandingOnNPC).Type = 290 Then
                             .Driving = True
@@ -3641,11 +3641,11 @@ End If
                             .Direction = NPC(.StandingOnNPC).DefaultDirection
                         End If
                     End If
-                    
+
                     If (.Location.SpeedY = 0 Or .StandingOnNPC <> 0 Or .Slope > 0) And .Slide = False And FreezeNPCs = False Then .Multiplier = 0
                     If .Mount = 2 Then .Multiplier = 0
                     PlayerCollide A
-                    
+
 'Talk to NPC
                     If MessageNPC > 0 Then
                         MessageText = NPC(MessageNPC).Text
@@ -3668,14 +3668,14 @@ End If
                     End If
 
 SuperWarp A 'this sub checks warps
-                    
+
 'shell surf
                         If .ShellSurf = True And .StandingOnNPC <> 0 Then
                             .Location.X = NPC(.StandingOnNPC).Location.X + NPC(.StandingOnNPC).Location.Width / 2 - .Location.Width / 2
                             .Location.SpeedX = 0 '1 * .Direction
                             If NPC(.StandingOnNPC).Location.SpeedX = 0 Then .ShellSurf = False
                         End If
-                    
+
 'Check edge of screen
                     If LevelWrap(.Section) = False And LevelMacro = 0 Then
                         If ScreenType = 3 Then
@@ -3692,21 +3692,21 @@ SuperWarp A 'this sub checks warps
                         PlayerDead A
                     End If
                     If NPCIsAShell(NPC(.StandingOnNPC).Type) = False Then .ShellSurf = False
-                    
+
                     PlayerGrabCode A, DontResetGrabTime 'Player holding NPC code **GRAB CODE**
-                    
+
                     If .Controls.Run = False And .Controls.AltRun = False Then
                         .RunRelease = True
                     Else
                         .RunRelease = False
                     End If
-                    
+
                     If .Controls.Jump = False And .Controls.AltJump = False Then
                         .JumpRelease = True
                     Else
                         .JumpRelease = False
                     End If
-                    
+
                     PlayerFrame A ' Update players frames
                     .StandUp = False 'Fixes a block collision bug
                     .StandUp2 = False
@@ -3805,9 +3805,9 @@ Public Sub PlayerHurt(A As Integer) 'Player got hurt
                 .Hearts = 1
             End If
         End If
-        
+
         If NPC(.HoldingNPC).Type = 13 Then .HoldingNPC = 0
-        
+
         If LevelMacro = 0 Then
             If .Immune = 0 Then
                 If .Mount = 1 Then
@@ -3989,12 +3989,12 @@ End Sub
 Public Sub PlayerDead(A As Integer) 'Set player up to die
     Dim tempBool As Boolean
     Dim B As Integer
-    
+
 If nPlay.Online = True Then 'netplay stuffs
     If nPlay.Allow = False And A <> nPlay.MySlot + 1 Then Exit Sub
     If A = nPlay.MySlot + 1 Then Netplay.sendData Netplay.PutPlayerLoc(nPlay.MySlot) & "1b" & A & LB
 End If
-    
+
     If Player(A).Character = 5 Then
         PlaySound 80
     Else
@@ -4277,7 +4277,7 @@ Public Sub CheckSection(A As Integer)
                                     End If
                                 End If
                                 If curMusic >= 0 And GameMenu = False Then   'Dont interupt boss / switch music
-                                    
+
                                     If Not curMusic = bgMusic(B) Then
                                         StartMusic B
                                     ElseIf bgMusic(B) = 24 Then
@@ -4454,9 +4454,9 @@ Public Sub PlayerFrame(A As Integer)
             .Frame = 27
             Exit Sub
         End If
-        
+
         .MountOffsetY = 0
-        
+
 'for the spinjump/shellsurf
         If (.SpinJump = True Or .ShellSurf = True) And .Mount = 0 Then
             If .SpinFrame < 4 Or .SpinFrame >= 9 Then
@@ -4641,7 +4641,7 @@ Public Sub PlayerFrame(A As Integer)
                             If .Character <= 2 Then
                                 If .Frame <> 40 And .Frame <> 43 And .Frame <> 44 Then .FrameCount = 6
                             End If
-                            
+
                             .FrameCount = .FrameCount + 1
                             If .FrameCount < 6 Then
                                 .Frame = 40
@@ -4668,7 +4668,7 @@ Public Sub PlayerFrame(A As Integer)
                                 .FrameCount = 0
                             End If
                         End If
-                        
+
                         If .Character >= 3 Then
                             If .Frame = 43 Then
                                 .Frame = 1
@@ -4677,9 +4677,9 @@ Public Sub PlayerFrame(A As Integer)
                             Else
                                 .Frame = 5
                             End If
-                            
+
                         End If
-                        
+
                     Else
                         If .Location.SpeedY = 0 Or .StandingOnNPC <> 0 Or .Slope > 0 Or (.Quicksand > 0 And .Location.SpeedY > 0) Then
                             If .Location.SpeedX > 0 And (.Controls.Left = True Or (.Direction = -1 And .Bumped = True)) And .Effect = 0 And .Duck = False And .Quicksand = 0 Then
@@ -5007,7 +5007,7 @@ Public Sub PlayerFrame(A As Integer)
         If .GroundPound = True Then .YoshiWingsFrame = 0
         If .Direction = 1 Then .YoshiWingsFrame = .YoshiWingsFrame + 2
     End If
-  
+
     End With
 End Sub
 
@@ -5167,7 +5167,7 @@ Public Sub TailSwipe(plr As Integer, Optional bool As Boolean = False, Optional 
                                     Effect(numEffects).Location.SpeedY = -2
                                 End If
                                 If .Type = 457 And Player(plr).State = 6 Then KillBlock A
-                                                    
+
                             End If
                         End If
                     End If
@@ -5229,7 +5229,7 @@ Public Sub TailSwipe(plr As Integer, Optional bool As Boolean = False, Optional 
             End If
         End With
     Next A
-    
+
     If BattleMode = True Then
         For A = 1 To numPlayers
             If A <> plr Then
@@ -5254,7 +5254,7 @@ Public Sub TailSwipe(plr As Integer, Optional bool As Boolean = False, Optional 
             End If
         Next A
     End If
-    
+
     If Stab = False Then
         With tailLoc
             If (Player(plr).TailCount Mod 10 = 0 And Player(plr).SpinJump = False) Or (Player(plr).TailCount Mod 5 = 0 And Player(plr).SpinJump = True) Then
@@ -5433,9 +5433,9 @@ Public Sub YoshiSpit(A As Integer)
                 NPC(.YoshiNPC).Location.Y = NPC(.YoshiNPC).Location.Y - 2
                 NPC(.YoshiNPC).Location.SpeedX = 0
                 NPC(.YoshiNPC).Location.SpeedY = 0
-                
-                
-                
+
+
+
                 If NPC(.YoshiNPC).Type = 45 Then NPC(.YoshiNPC).Special = 1
                 PlaySound 38
                 If .Controls.Down = False Or (.Location.SpeedY <> 0 And .StandingOnNPC = 0 And .Slope = 0) Then
@@ -5477,7 +5477,7 @@ Public Sub YoshiPound(A As Integer, C As Integer, Optional BreakBlocks As Boolea
     Dim tempLocation2 As Location
     With Player(A)
         If .Location.SpeedY > 3 Then
-            
+
             tempLocation.Width = 128
             tempLocation.X = .Location.X + .Location.Width / 2 - tempLocation.Width / 2
             tempLocation.Height = 32
@@ -5494,8 +5494,8 @@ Public Sub YoshiPound(A As Integer, C As Integer, Optional BreakBlocks As Boolea
                     End If
                 End If
             Next B
-            
-            
+
+
             If BreakBlocks = True Then
                 For B = 1 To numBlock
                     If Block(B).Hidden = False And Block(B).Invis = False And BlockNoClipping(Block(B).Type) = False And BlockIsSizable(Block(B).Type) = False Then
@@ -5715,7 +5715,7 @@ Public Sub YoshiEatCode(A As Integer)
                     End If
                 End If
             End If
-            
+
             If .YoshiBlue = True Then
                 .CanFly = True
                 .RunCount = 1000
@@ -5773,7 +5773,7 @@ Public Sub YoshiEatCode(A As Integer)
                             .YoshiTongueLength = .YoshiTongueLength + 3.75
                         End If
                     End If
-                    
+
                     If .YoshiTongueLength >= 64 And .MountType <= 4 Then
                         .YoshiTonugeBool = True
                     ElseIf .YoshiTongueLength >= 80 Then
@@ -5947,7 +5947,7 @@ Dim tempLocation As Location
                         B = 1
                         C = -40
                     End If
-                    
+
                     If Lives > 0 And LevelMacro = 0 Then
                         If .Controls.Jump = True Or .Controls.Run = True Then
                             Lives = Lives - 1
@@ -6234,7 +6234,7 @@ Private Sub Tanooki(A As Integer)
                         If .Location.SpeedX >= -0.5 And .Location.SpeedX <= 0.5 Then .Location.SpeedX = 0
                         If .Location.SpeedY < 8 Then .Location.SpeedY = .Location.SpeedY + 0.25
                     End If
-                    
+
                     If .StonedCD = 0 Then
                         'If .Mount = 0 And .State = 5 And .Controls.Run = True And .Controls.Down = True Then
                         If .Mount = 0 And .State = 5 And .Controls.AltRun = True And .Bombs = 0 Then
@@ -6263,7 +6263,7 @@ Private Sub Tanooki(A As Integer)
                             End If
                         End If
                     End If
-    
+
     End With
 End Sub
 
@@ -6278,8 +6278,8 @@ Private Sub PowerUps(A As Integer)
             .TailCount = 0
             Exit Sub
         End If
-        
-        
+
+
         If .State = 6 And .Character = 4 And .Controls.Run = True And .RunRelease = True Then
             For B = 1 To numNPCs
                 If NPC(B).Active = True Then
@@ -6291,7 +6291,7 @@ Private Sub PowerUps(A As Integer)
                 End If
             Next B
         End If
-        
+
 'Hammer Throw Code
             If .Slide = False And .Vine = 0 And .State = 6 And .Duck = False And .Mount <> 2 And .Mount <> 3 And .HoldingNPC <= 0 And .Character <> 5 Then
                 If .Controls.Run = True And .SpinJump = False And .FireBallCD <= 0 And BoomOut = False Then
@@ -6316,7 +6316,7 @@ Private Sub PowerUps(A As Integer)
                                     PlaySound 75
                                 End If
                             ElseIf .Character = 4 Then
-                                
+
                                 .FireBallCD = 0
                                 If FlameThrower = True Then .FireBallCD = 40
                                 NPC(numNPCs).Type = 292
@@ -6326,7 +6326,7 @@ Private Sub PowerUps(A As Integer)
                             Else
                                 PlaySound 18
                             End If
-                            
+
                             NPC(numNPCs).Projectile = True
                             NPC(numNPCs).Location.Height = NPCHeight(NPC(numNPCs).Type)
                             NPC(numNPCs).Location.Width = NPCWidth(NPC(numNPCs).Type)
@@ -6419,10 +6419,10 @@ Private Sub PowerUps(A As Integer)
                             If .Character = 3 Then .FireBallCD = 40
                             If .Character = 4 Then .FireBallCD = 25
                             NPC(numNPCs).Location.SpeedX = 5 * .Direction + (.Location.SpeedX / 3.5)
-                            
+
                             If .State = 7 Then
                                 NPC(numNPCs).Location.SpeedY = 5
-                                
+
                                 If .Controls.Up = True Then
                                     If .StandingOnNPC <> 0 Then
                                         NPC(numNPCs).Location.SpeedY = -8 + NPC(.StandingOnNPC).Location.SpeedY * 0.1
@@ -6513,8 +6513,8 @@ Private Sub PowerUps(A As Integer)
                         PlaySound 75
                     End If
                 End With
-                
-                
+
+
             ElseIf .FireBallCD = 0 And .Controls.Run = True And .RunRelease = True Then
                 .FireBallCD = 20
                 If .Location.SpeedY <> Physics.PlayerGravity And .StandingOnNPC = 0 And .Slope = 0 Then    'Link ducks when jumping
@@ -6545,7 +6545,7 @@ Private Sub PowerUps(A As Integer)
 'cooldown timer
         .FireBallCD2 = .FireBallCD2 - 1
         If .FireBallCD2 < 0 Then .FireBallCD2 = 0
-        
+
         If Not (.Character = 3 And NPC(.HoldingNPC).Type = 13) Then
             .FireBallCD = .FireBallCD - 1
             If FlameThrower = True Then .FireBallCD = .FireBallCD - 3
@@ -6586,7 +6586,7 @@ Private Sub SuperWarp(A As Integer)
                         MessageText = ""
                         canWarp = False
                     End If
-                    
+
                     If canWarp = True Then
                         .Slide = False
                         .Stoned = False
@@ -6631,7 +6631,7 @@ Private Sub SuperWarp(A As Integer)
                             End If
                         End If
                     End If
-                    
+
                     If canWarp = True Then
                         UnDuck A
                         .YoshiTongueLength = 0
@@ -6925,10 +6925,10 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                         ElseIf NPC(.HoldingNPC).Special2 >= 25 Then
                             NPC(.HoldingNPC).Special2 = 25
                         End If
-                        
+
                     End If
-                    
-                    
+
+
                     If NPC(.HoldingNPC).Special2 = 20 Or NPC(.HoldingNPC).Special2 = 40 Or NPC(.HoldingNPC).Special2 = 60 Or NPC(.HoldingNPC).Special2 = 80 Then
                         If NPC(.HoldingNPC).Special2 = 20 Or NPC(.HoldingNPC).Special2 = 60 Then
                             B = 1
@@ -6938,9 +6938,9 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                             B = 3
                             NPC(.HoldingNPC).Special2 = 0
                         End If
-                        
+
                             PlaySound 82
-                        
+
                         'For B = 1 To 3
                             numNPCs = numNPCs + 1
                             With NPC(numNPCs)
@@ -6960,7 +6960,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                                 Else
                                     .Location.X = NPC(Player(A).HoldingNPC).Location.X - .Location.Width - NPC(Player(A).HoldingNPC).Location.Width + 8
                                 End If
-                                
+
                                 If B = 1 Then
                                     .Location.SpeedX = 7 * .Direction + (Player(A).Location.SpeedX / 3.5)
                                 ElseIf B = 2 Then
@@ -6970,7 +6970,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                                     .Location.SpeedX = 6.5 * .Direction + (Player(A).Location.SpeedX / 3.5)
                                     .Location.SpeedY = 1.5
                                 End If
-                                
+
                                 .Projectile = True
                                 .Frame = EditorNPCFrame(.Type, .Direction)
                             End With
@@ -6978,7 +6978,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                     End If
                 End If
             End If
-        
+
             If NPC(.HoldingNPC).Type = 263 Then NPC(.HoldingNPC).Special3 = 0
             NPC(.HoldingNPC).TimeLeft = Physics.NPCTimeOffScreen
             NPC(.HoldingNPC).Effect = 0
@@ -6986,7 +6986,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
             NPC(.HoldingNPC).CantHurtPlayer = A
             If NPCIsVeggie(NPC(.HoldingNPC).Type) Then NPC(.HoldingNPC).CantHurt = 1000
             If .Controls.Run = True Or .ForceHold > 0 Then
-            
+
             'hold above head
                 If .Character = 3 Or .Character = 4 Or (.Duck = True) Then
                     NPC(.HoldingNPC).Bouce = True
@@ -7146,7 +7146,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                         NPC(.HoldingNPC).Location.SpeedY = 20
                     End If
                 ElseIf Not (NPCIsAShell(NPC(.HoldingNPC).Type)) And Not NPC(.HoldingNPC).Type = 45 And Not NPC(.HoldingNPC).Type = 263 And Not NPCIsACoin(NPC(.HoldingNPC).Type) Then      'if not a shell or a coin the kick it up and forward
-                    
+
                 'peach
                     If .Character = 3 Then
                         If NPC(.HoldingNPC).Type = 13 Or NPC(.HoldingNPC).Type = 265 Or (.Location.SpeedY <> 0 And .StandingOnNPC = 0 And .Slope = 0) Then
@@ -7214,7 +7214,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                         NPC(.HoldingNPC).Location.SpeedX = NPC(.HoldingNPC).Location.SpeedX + .Location.SpeedX * 0.5
                     End If
                 End If
-                
+
             If NPC(.HoldingNPC).Type = 292 Then
                 NPC(.HoldingNPC).Special5 = A
                 NPC(.HoldingNPC).Special6 = .Direction
@@ -7222,13 +7222,13 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                 NPC(.HoldingNPC).Location.SpeedX = 12 * .Direction + .Location.SpeedX
                 NPC(.HoldingNPC).Projectile = True
             End If
-                
-                
+
+
                 NPC(.HoldingNPC).HoldingPlayer = 0
                 .HoldingNPC = 0
             End If
         End If
-        
+
         If LayerNPC > 0 Then
             With NPC(LayerNPC)
                 For B = 1 To 100
@@ -7266,7 +7266,7 @@ Public Sub PlayerGrabCode(A As Integer, Optional DontResetGrabTime As Boolean = 
                 Next B
             End With
         End If
-        
+
     End With
 End Sub
 

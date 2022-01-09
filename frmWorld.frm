@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmWorld 
+Begin VB.Form frmWorld
    BorderStyle     =   1  'Fixed Single
    Caption         =   "World Options"
    ClientHeight    =   3225
@@ -12,14 +12,14 @@ Begin VB.Form frmWorld
    MDIChild        =   -1  'True
    ScaleHeight     =   3225
    ScaleWidth      =   6225
-   Begin VB.Frame Frame3 
+   Begin VB.Frame Frame3
       Caption         =   "Block Characters"
       Height          =   855
       Left            =   1800
       TabIndex        =   15
       Top             =   2280
       Width           =   2655
-      Begin VB.CheckBox chkChar 
+      Begin VB.CheckBox chkChar
          Caption         =   "Link"
          Height          =   255
          Index           =   5
@@ -28,7 +28,7 @@ Begin VB.Form frmWorld
          Top             =   240
          Width           =   615
       End
-      Begin VB.CheckBox chkChar 
+      Begin VB.CheckBox chkChar
          Caption         =   "Toad"
          Height          =   255
          Index           =   4
@@ -37,7 +37,7 @@ Begin VB.Form frmWorld
          Top             =   480
          Width           =   735
       End
-      Begin VB.CheckBox chkChar 
+      Begin VB.CheckBox chkChar
          Caption         =   "Peach"
          Height          =   255
          Index           =   3
@@ -46,7 +46,7 @@ Begin VB.Form frmWorld
          Top             =   240
          Width           =   855
       End
-      Begin VB.CheckBox chkChar 
+      Begin VB.CheckBox chkChar
          Caption         =   "Luigi"
          Height          =   255
          Index           =   2
@@ -55,7 +55,7 @@ Begin VB.Form frmWorld
          Top             =   480
          Width           =   735
       End
-      Begin VB.CheckBox chkChar 
+      Begin VB.CheckBox chkChar
          Caption         =   "Mario"
          Height          =   255
          Index           =   1
@@ -65,14 +65,14 @@ Begin VB.Form frmWorld
          Width           =   735
       End
    End
-   Begin VB.Frame Frame2 
+   Begin VB.Frame Frame2
       Caption         =   "Number of Stars"
       Height          =   615
       Left            =   120
       TabIndex        =   13
       Top             =   2280
       Width           =   1575
-      Begin VB.TextBox txtStars 
+      Begin VB.TextBox txtStars
          Height          =   285
          Left            =   120
          TabIndex        =   14
@@ -80,14 +80,14 @@ Begin VB.Form frmWorld
          Width           =   1335
       End
    End
-   Begin VB.Frame Frame1 
+   Begin VB.Frame Frame1
       Caption         =   "Credits"
       Height          =   2055
       Left            =   3480
       TabIndex        =   7
       Top             =   120
       Width           =   2655
-      Begin VB.TextBox txtCredits 
+      Begin VB.TextBox txtCredits
          Height          =   285
          Index           =   5
          Left            =   120
@@ -95,7 +95,7 @@ Begin VB.Form frmWorld
          Top             =   1680
          Width           =   2415
       End
-      Begin VB.TextBox txtCredits 
+      Begin VB.TextBox txtCredits
          Height          =   285
          Index           =   4
          Left            =   120
@@ -103,7 +103,7 @@ Begin VB.Form frmWorld
          Top             =   1320
          Width           =   2415
       End
-      Begin VB.TextBox txtCredits 
+      Begin VB.TextBox txtCredits
          Height          =   285
          Index           =   3
          Left            =   120
@@ -111,7 +111,7 @@ Begin VB.Form frmWorld
          Top             =   960
          Width           =   2415
       End
-      Begin VB.TextBox txtCredits 
+      Begin VB.TextBox txtCredits
          Height          =   285
          Index           =   2
          Left            =   120
@@ -119,7 +119,7 @@ Begin VB.Form frmWorld
          Top             =   600
          Width           =   2415
       End
-      Begin VB.TextBox txtCredits 
+      Begin VB.TextBox txtCredits
          Height          =   285
          Index           =   1
          Left            =   120
@@ -128,7 +128,7 @@ Begin VB.Form frmWorld
          Width           =   2415
       End
    End
-   Begin VB.PictureBox FocusNinja 
+   Begin VB.PictureBox FocusNinja
       Height          =   375
       Left            =   3240
       ScaleHeight     =   315
@@ -137,7 +137,7 @@ Begin VB.Form frmWorld
       Top             =   4080
       Width           =   375
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Auto Start Level"
       Height          =   1335
       Index           =   1
@@ -145,7 +145,7 @@ Begin VB.Form frmWorld
       TabIndex        =   2
       Top             =   840
       Width           =   3255
-      Begin VB.CheckBox chkRestartLevel 
+      Begin VB.CheckBox chkRestartLevel
          Caption         =   "Restart Last Level on Death"
          Height          =   255
          Left            =   120
@@ -153,7 +153,7 @@ Begin VB.Form frmWorld
          Top             =   960
          Width           =   2295
       End
-      Begin VB.CheckBox chkNoMap 
+      Begin VB.CheckBox chkNoMap
          Caption         =   "No World Map"
          Height          =   255
          Left            =   120
@@ -161,7 +161,7 @@ Begin VB.Form frmWorld
          Top             =   600
          Width           =   1455
       End
-      Begin VB.TextBox txtStartLevel 
+      Begin VB.TextBox txtStartLevel
          Height          =   285
          Left            =   120
          TabIndex        =   3
@@ -169,7 +169,7 @@ Begin VB.Form frmWorld
          Width           =   3015
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "World Name"
       Height          =   615
       Index           =   0
@@ -177,7 +177,7 @@ Begin VB.Form frmWorld
       TabIndex        =   0
       Top             =   120
       Width           =   3255
-      Begin VB.TextBox txtWorldName 
+      Begin VB.TextBox txtWorldName
          Height          =   285
          Left            =   120
          TabIndex        =   1

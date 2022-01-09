@@ -443,7 +443,7 @@ Public Sub InitSound() 'readys sound and music to be played
     AddMusic "stmusic", App.Path & "\music\smb3-switch.spc|0;g=2.7", App.Path & "\music\smb3-switch.mp3"
     'mciSendString "open " & Chr(34) & App.path & "\music\smg-title.mp3" & Chr(34) & " alias tmusic", 0, 0, 0 'credit music
     AddMusic "tmusic", App.Path & "\music\smg-title.ogg", App.Path & "\music\smg-title.mp3"
-    
+
 'LEVEL MUSIC
     ' mciSendString "open " & Chr(34) & App.path & "\music\smb3-overworld.mp3" & Chr(34) & " alias music1", 0, 0, 0
     AddMusic "music1", App.Path & "\music\smb3-overworld.spc|0;g=2.7", App.Path & "\music\smb3-overworld.mp3"

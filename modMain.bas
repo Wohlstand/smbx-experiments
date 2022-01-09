@@ -1136,7 +1136,7 @@ Public Sub SetupPhysics()
         .PlayerDuckHeight(1, 6) = 30    '---------
         .PlayerGrabSpotX(1, 6) = 18     '---------
         .PlayerGrabSpotY(1, 6) = 16     '---------
-        
+
         .PlayerHeight(2, 1) = 30        'Little Luigi
         .PlayerWidth(2, 1) = 24         '------------
         .PlayerGrabSpotX(2, 1) = 16     '---------
@@ -1171,7 +1171,7 @@ Public Sub SetupPhysics()
         .PlayerDuckHeight(2, 7) = 30    '---------
         .PlayerGrabSpotX(2, 7) = 18     '---------
         .PlayerGrabSpotY(2, 7) = 16     '---------
-        
+
         .PlayerHeight(3, 1) = 38        'Little Peach
         .PlayerDuckHeight(3, 1) = 26    '---------
         .PlayerWidth(3, 1) = 24         '------------
@@ -1187,26 +1187,26 @@ Public Sub SetupPhysics()
         .PlayerDuckHeight(3, 3) = 30    '---------
         .PlayerGrabSpotX(3, 3) = 18
         .PlayerGrabSpotY(3, 3) = 16
-        
+
         .PlayerHeight(3, 4) = 60        'Racoon Peach
         .PlayerWidth(3, 4) = 24         '---------
         .PlayerDuckHeight(3, 4) = 30    '---------
         .PlayerGrabSpotX(3, 4) = 18
         .PlayerGrabSpotY(3, 4) = 16
-        
+
         .PlayerHeight(3, 5) = 60        'Tanooki Peach
         .PlayerWidth(3, 5) = 24         '---------
         .PlayerDuckHeight(3, 5) = 30    '---------
         .PlayerGrabSpotX(3, 5) = 18
         .PlayerGrabSpotY(3, 5) = 16
-        
+
         .PlayerHeight(3, 6) = 60        'Hammer Peach
         .PlayerWidth(3, 6) = 24         '---------
         .PlayerDuckHeight(3, 6) = 30    '---------
         .PlayerGrabSpotX(3, 6) = 18
         .PlayerGrabSpotY(3, 6) = 16
-        
-        
+
+
         .PlayerHeight(3, 7) = 60        'Ice Peach
         .PlayerWidth(3, 7) = 24         '---------
         .PlayerDuckHeight(3, 7) = 30    '---------
@@ -1228,25 +1228,25 @@ Public Sub SetupPhysics()
         .PlayerDuckHeight(4, 3) = 30    '---------
         .PlayerGrabSpotX(4, 3) = 18     '---------
         .PlayerGrabSpotY(4, 3) = 16     '---------
-        
+
         .PlayerHeight(4, 4) = 50        'Racoon Toad
         .PlayerWidth(4, 4) = 24         '---------
         .PlayerDuckHeight(4, 4) = 30    '---------
         .PlayerGrabSpotX(4, 4) = 18     '---------
         .PlayerGrabSpotY(4, 4) = 16     '---------
-        
+
         .PlayerHeight(4, 5) = 50        'Tanooki Toad
         .PlayerWidth(4, 5) = 24         '---------
         .PlayerDuckHeight(4, 5) = 30    '---------
         .PlayerGrabSpotX(4, 5) = 18     '---------
         .PlayerGrabSpotY(4, 5) = 16     '---------
-        
+
         .PlayerHeight(4, 6) = 50        'Hammer Toad
         .PlayerWidth(4, 6) = 24         '---------
         .PlayerDuckHeight(4, 6) = 30    '---------
         .PlayerGrabSpotX(4, 6) = 18     '---------
         .PlayerGrabSpotY(4, 6) = 16     '---------
-        
+
         .PlayerHeight(4, 7) = 50        'Ice Toad
         .PlayerWidth(4, 7) = 24         '---------
         .PlayerDuckHeight(4, 7) = 30    '---------
@@ -1258,43 +1258,43 @@ Public Sub SetupPhysics()
         .PlayerDuckHeight(5, 1) = 44    '---------
         .PlayerGrabSpotX(5, 1) = 18     '---------
         .PlayerGrabSpotY(5, 1) = 16     '---------
-        
+
         .PlayerHeight(5, 2) = 54        'Green Link
         .PlayerWidth(5, 2) = 22         '---------
         .PlayerDuckHeight(5, 2) = 44    '---------
         .PlayerGrabSpotX(5, 2) = 18     '---------
         .PlayerGrabSpotY(5, 2) = 16     '---------
-        
+
         .PlayerHeight(5, 3) = 54        'Fire Link
         .PlayerWidth(5, 3) = 22         '---------
         .PlayerDuckHeight(5, 3) = 44    '---------
         .PlayerGrabSpotX(5, 3) = 18     '---------
         .PlayerGrabSpotY(5, 3) = 16     '---------
-        
+
         .PlayerHeight(5, 4) = 54        'Blue Link
         .PlayerWidth(5, 4) = 22         '---------
         .PlayerDuckHeight(5, 4) = 44    '---------
         .PlayerGrabSpotX(5, 4) = 18     '---------
         .PlayerGrabSpotY(5, 4) = 16     '---------
-        
+
         .PlayerHeight(5, 5) = 54        'IronKnuckle Link
         .PlayerWidth(5, 5) = 22         '---------
         .PlayerDuckHeight(5, 5) = 44    '---------
         .PlayerGrabSpotX(5, 5) = 18     '---------
         .PlayerGrabSpotY(5, 5) = 16     '---------
-        
+
         .PlayerHeight(5, 6) = 54        'Shadow Link
         .PlayerWidth(5, 6) = 22         '---------
         .PlayerDuckHeight(5, 6) = 44    '---------
         .PlayerGrabSpotX(5, 6) = 18     '---------
         .PlayerGrabSpotY(5, 6) = 16     '---------
-        
+
         .PlayerHeight(5, 7) = 54        'Ice Link
         .PlayerWidth(5, 7) = 22         '---------
         .PlayerDuckHeight(5, 7) = 44    '---------
         .PlayerGrabSpotX(5, 7) = 18     '---------
         .PlayerGrabSpotY(5, 7) = 16     '---------
-        
+
         .NPCTimeOffScreen = 180         'How long NPCs are active offscreen before being reset
         .NPCShellSpeed = 7.1            'Speed of kicked shells
         .NPCShellSpeedY = 11            'Vertical Speed of kicked shells
@@ -1483,13 +1483,13 @@ Sub Main()
     frmMain.Loader.Visible = False
 
     Do
-    
+
         If GameMenu = True Then
             frmMain.MousePointer = 99
         ElseIf resChanged = False And TestLevel = False And LevelEditor = False Then
             frmMain.MousePointer = 0
         End If
-    
+
         If LevelEditor = True Then 'Load the level editor
             If resChanged = True Then
                 ChangeScreen
@@ -1595,9 +1595,9 @@ Sub Main()
                 End If
                 Sleep sleepDelay
             Loop While LevelEditor = True
-            
-            
-            
+
+
+
         ElseIf GameOutro = True Then 'SMBX Credits
             ShadowMode = False
             GodMode = False
@@ -1835,10 +1835,10 @@ Sub Main()
                 PlaySound 28
                 SoundPause(26) = 200
                 LevelSelect = False
-                
+
                 GameThing
                 ClearLevel
-                
+
                 Sleep 1000
                 If GoToLevel = "" Then
                     OpenLevel SelectWorld(selWorld).WorldPath & StartLevel
@@ -1859,7 +1859,7 @@ Sub Main()
                     DoEvents
                     tempTime = GetTickCount
                     If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
-                        
+
                         If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
                         If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
                         overTime = overTime + (tempTime - (gameTime + frameRate))
@@ -1871,7 +1871,7 @@ Sub Main()
                         End If
                         gameTime = tempTime - overTime
                         overTime = (overTime - (tempTime - gameTime))
-                        
+
                         CheckActive
                         WorldLoop
                         DoEvents
@@ -2056,73 +2056,73 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     GFXLevelBig(23) = True
     GFXLevelBig(24) = True
     GFXLevelBig(28) = True
-    
+
     EffectWidth(145) = 32
     EffectHeight(145) = 60
-    
+
     EffectWidth(71) = 16
     EffectHeight(71) = 16
     EffectWidth(148) = 16
     EffectHeight(148) = 16
-    
-    
+
+
     EffectWidth(111) = 16
     EffectHeight(111) = 16
     EffectHeight(121) = 48
-    
+
     EffectWidth(144) = 54
     EffectHeight(144) = 42
-    
-    
+
+
     EffectWidth(143) = 64
     EffectHeight(143) = 64
-    
+
     EffectWidth(120) = 48
     EffectHeight(121) = 48
-    
-    
+
+
     EffectWidth(138) = 48
     EffectHeight(138) = 64
-    
-    
+
+
     EffectWidth(125) = 80
     EffectHeight(125) = 34
-    
+
     EffectWidth(134) = 32
     EffectHeight(134) = 58
-    
+
     EffectWidth(130) = 30
     EffectHeight(130) = 34
-    
+
     EffectWidth(132) = 32
     EffectHeight(132) = 32
     EffectWidth(133) = 10
     EffectHeight(133) = 8
-    
-   
+
+
     EffectWidth(1) = 16
     EffectHeight(1) = 16
-    
+
     EffectWidth(135) = 16
     EffectHeight(135) = 16
-    
+
     EffectWidth(104) = 32
     EffectHeight(104) = 32
     EffectWidth(105) = 64
     EffectHeight(105) = 72
-    
+
     EffectWidth(129) = 30
     EffectHeight(129) = 42
-    
+
     EffectWidth(106) = 80
     EffectHeight(106) = 94
-    
+
     EffectWidth(108) = 64
     EffectHeight(108) = 64
-    
+
     EffectWidth(112) = 96
     EffectHeight(112) = 106
-    
+
     EffectWidth(4) = 32
     EffectHeight(4) = 32
     EffectWidth(8) = 32
@@ -2287,38 +2287,38 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     EffectHeight(99) = 64
     EffectWidth(100) = 16
     EffectHeight(100) = 16
-    
+
     EffectWidth(113) = 8
     EffectHeight(113) = 8
-    
+
     EffectWidth(140) = 32
     EffectHeight(140) = 40
-    
-    
+
+
     EffectWidth(114) = 32
     EffectHeight(114) = 32
-    
+
     EffectWidth(103) = 120
     EffectHeight(103) = 96
-    
+
     EffectWidth(123) = 32
     EffectHeight(123) = 32
     EffectWidth(124) = 32
     EffectHeight(124) = 32
     EffectHeight(95) = 28
     EffectHeight(96) = 28
-    
+
     EffectHeight(46) = 46
     EffectWidth(46) = 48
     EffectHeight(47) = 44
     EffectWidth(47) = 44
-            
+
     For A = 1 To maxNPCType
         NPCScore(A) = 2
         NPCWidth(A) = 32
         NPCHeight(A) = 32
     Next A
-    
+
     NPCWidth(291) = 22
     NPCHeight(291) = 18
     NPCWidthGFX(291) = 42
@@ -2326,14 +2326,14 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWontHurt(291) = True
     NPCJumpHurt(291) = True
     NPCNoYoshi(291) = True
-    
-    
-    
+
+
+
     NPCNoYoshi(256) = True
     NPCNoYoshi(257) = True
     NPCNoYoshi(239) = True
-    
-    
+
+
     NPCScore(208) = 0
     NPCScore(15) = 7
     NPCScore(39) = 7
@@ -2356,15 +2356,15 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCFrameOffsetY(253) = 2
     NPCFrameOffsetY(195) = 2
     NPCFrameOffsetY(77) = 2
-    
+
     NPCWontHurt(288) = True
     NPCJumpHurt(288) = True
-    
+
     NPCWontHurt(287) = True
     NPCWontHurt(195) = True
     NPCForeground(210) = True
     NPCForeground(230) = True
-    
+
     NPCIsCheep(28) = True
     NPCIsCheep(229) = True
     NPCIsCheep(230) = True
@@ -2372,8 +2372,8 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCIsCheep(233) = True
     NPCIsCheep(234) = True
     NPCIsCheep(236) = True
-    
-    
+
+
     NPCNoClipping(289) = True
     NPCWontHurt(289) = True
     NPCJumpHurt(289) = True
@@ -2381,8 +2381,8 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCHeight(289) = 32
     NPCWidthGFX(289) = 32
     NPCHeightGFX(289) = 64
-    
-    
+
+
     NPCWidth(283) = 48
     NPCHeight(283) = 48
     NPCWidthGFX(283) = 64
@@ -2399,22 +2399,22 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWontHurt(290) = True
     NPCNoClipping(290) = True
 
-    
+
     NPCCanWalkOn(263) = True
     NPCWontHurt(263) = True
     NPCMovesPlayer(263) = True
     NPCIsGrabbable(263) = True
     NPCGrabFromTop(263) = True
     NPCIsABlock(263) = True
-    
+
     NPCCanWalkOn(262) = True
     NPCWidth(262) = 40
     NPCHeight(262) = 56
     NPCWidthGFX(262) = 48
     NPCHeightGFX(262) = 64
-    
-    
-    
+
+
+
     NPCIsABonus(254) = True
     NPCIsAShell(237) = True
     NPCWontHurt(237) = True
@@ -2422,41 +2422,41 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCJumpHurt(13) = True
     NPCJumpHurt(86) = True
     NPCJumpHurt(260) = True
-    
-    
-    
+
+
+
     NPCNoYoshi(263) = True
     NPCNoYoshi(265) = True
     NPCNoYoshi(260) = True
     NPCNoYoshi(255) = True
-    
+
     NPCNoClipping(270) = True
-    
+
     NPCJumpHurt(246) = True
     NPCNoClipping(246) = True
     NPCNoYoshi(246) = True
     NPCWidth(246) = 16
     NPCHeight(246) = 16
-    
+
     NPCWidth(251) = 18 'TLOZ Rupee
     NPCHeight(251) = 32
     NPCIsABonus(251) = True
     NPCIsACoin(251) = True
-    
+
     NPCWidth(252) = 18 'TLOZ Rupee
     NPCHeight(252) = 32
     NPCIsABonus(252) = True
     NPCIsACoin(252) = True
-    
+
     NPCWidth(253) = 18 'TLOZ Rupee
     NPCHeight(253) = 32
     NPCIsABonus(253) = True
     NPCIsACoin(253) = True
-    
+
     NPCWidth(250) = 32 'TLOZ Heart
     NPCHeight(250) = 32
     NPCIsABonus(250) = True
-    
+
     'vines
     For A = 213 To 224
         NPCIsAVine(A) = True
@@ -2480,20 +2480,20 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWontHurt(227) = True
     NPCJumpHurt(227) = True
     NPCNoYoshi(227) = True
-    
+
     NPCNoYoshi(211) = True
-    
+
     NPCIsGrabbable(195) = True
     NPCGrabFromTop(195) = True
-    
+
     NPCWidth(240) = 32
     NPCHeight(240) = 32
     NPCIsABonus(240) = 32
-    
+
     NPCWidth(248) = 32
     NPCHeight(248) = 32
     NPCIsABonus(248) = 32
-    
+
     NPCWidth(200) = 64
     NPCHeight(200) = 72
     NPCFrameOffsetY(200) = 2
@@ -2505,42 +2505,42 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWidth(260) = 16
     NPCHeight(260) = 16
     NPCNoClipping(260) = True
-    
+
     NPCWidth(153) = 32 'Poison Mushroom
     NPCHeight(153) = 32
     NPCFrameOffsetY(153) = 2
-    
+
     NPCWidth(242) = 32 'SML2 Goomba
     NPCHeight(242) = 32
     NPCFrameOffsetY(242) = 2
     NPCDefaultMovement(242) = True
-    
+
     NPCWidth(243) = 32 'SML2 Flying Goomba
     NPCHeight(243) = 32
     NPCFrameOffsetY(243) = 2
     NPCWidthGFX(243) = 56
     NPCHeightGFX(243) = 36
-    
+
     NPCWidth(244) = 32 'SMB3 Flying Goomba
     NPCHeight(244) = 32
     NPCFrameOffsetY(244) = 2
     NPCWidthGFX(244) = 40
     NPCHeightGFX(244) = 48
-    
+
     NPCWidth(255) = 20
     NPCHeight(255) = 96
     NPCWontHurt(255) = True
     NPCIsABlock(255) = True
     NPCCanWalkOn(255) = True
     NPCMovesPlayer(255) = True
-    
+
     NPCIsAParaTroopa(244) = True
     NPCIsAParaTroopa(243) = True
-    
+
     NPCWidth(1) = 32 'Goomba
     NPCHeight(1) = 32
     NPCFrameOffsetY(1) = 2
-    
+
     NPCWidth(1) = 32 'Goomba
     NPCHeight(1) = 32
     NPCFrameOffsetY(1) = 2
@@ -2580,21 +2580,21 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWidth(9) = 32 'Mushroom
     NPCHeight(9) = 32
     NPCFrameOffsetY(9) = 2
-    
+
     NPCWidth(273) = 32 '? Mushroom
     NPCHeight(273) = 32
     NPCFrameOffsetY(273) = 2
-    
+
     NPCWidth(249) = 32 'SMB2 Mushroom
     NPCHeight(249) = 32
     NPCIsABonus(249) = True
-    
+
     NPCWidth(274) = 32 'dragon coin
     NPCHeight(274) = 50
     NPCIsABonus(274) = True
     NPCIsACoin(274) = True
     NPCScore(274) = 6
-    
+
     NPCWidth(10) = 28 'SMB3 Coin
     NPCHeight(10) = 32
     NPCWidth(11) = 32 'SMB3 Level exit
@@ -2687,14 +2687,14 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCFrameOffsetY(35) = 2
     NPCFrameOffsetY(191) = 2
     NPCFrameOffsetY(193) = 2
-    
+
     NPCWidth(285) = 32 'Spiney
     NPCHeight(285) = 32
     NPCFrameOffsetY(285) = 2
     NPCWidth(286) = 32 'Falling Spiney
     NPCHeight(286) = 32
     NPCFrameOffsetY(286) = 2
-    
+
     NPCWidth(36) = 32 'Spiney
     NPCHeight(36) = 32
     NPCFrameOffsetY(36) = 2
@@ -2741,7 +2741,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCFrameOffsetY(284) = 6
     NPCWidthGFX(284) = 56
     NPCHeightGFX(284) = 72
-    
+
     NPCWidth(48) = 32 'unripe spiney
     NPCHeight(48) = 32
     NPCWidth(49) = 32 'killer pipe
@@ -2823,14 +2823,14 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWidth(74) = 48 'giant pirhana plant
     NPCHeight(74) = 64
     NPCFrameOffsetY(74) = 2
-    
+
     NPCWidth(256) = 48 'gianter pirhana plant
     NPCHeight(256) = 128
     NPCFrameOffsetY(256) = 2
-    
+
     NPCWidth(257) = 48 'gianter pirhana plant
     NPCHeight(257) = 128
-    
+
     NPCWidth(75) = 38 'toad
     NPCHeight(75) = 54
     NPCFrameOffsetY(75) = 2
@@ -2904,7 +2904,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCHeight(93) = 48
     NPCWidth(94) = 32 'Inert Toad
     NPCHeight(94) = 54
-    
+
     NPCWidth(198) = 32 'Peach
     NPCHeight(198) = 64
     NPCFrameOffsetY(198) = 2
@@ -3225,28 +3225,28 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCHeight(170) = 32
     NPCFrameOffsetY(170) = 2
     NPCIsABonus(170) = True
-    
+
     NPCWontHurt(292) = True 'Boomerang
     NPCJumpHurt(292) = True
     NPCNoClipping(292) = True
     NPCNoYoshi(292) = True
     NPCForeground(292) = True
     NPCNoIceBall(292) = True
-    
+
     NPCNoIceBall(247) = True
-    
+
     NPCWidth(171) = 16 'Hammer Suit Hammer
     NPCHeight(171) = 28
     NPCWontHurt(171) = True
     NPCNoClipping(171) = True
     NPCNoYoshi(171) = True
-    
+
     NPCHeight(172) = 28 ' Green SMB1 Shell
     NPCIsAShell(172) = True
     NPCHeight(174) = 28 ' Red SMB1 Shell
     NPCIsAShell(174) = True
     NPCIsAShell(195) = True
-    
+
     NPCJumpHurt(179) = True 'Razor Blade
     NPCWidthGFX(179) = 64
     NPCHeightGFX(179) = 64
@@ -3264,7 +3264,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCIsABlock(241) = True
     NPCGrabFromTop(241) = True
     NPCIsGrabbable(241) = True
-    
+
     NPCWontHurt(181) = True 'SMW Bowser Statue
     NPCIsABlock(181) = True
     NPCCanWalkOn(181) = True
@@ -3284,13 +3284,13 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCIsABonus(188) = True 'SMW 3 up
     NPCWidth(188) = 30
     NPCWidth(189) = 32
-    
+
     NPCNoYoshi(201) = True
     NPCNoYoshi(202) = True
     NPCJumpHurt(202) = True
     NPCWidth(201) = 80
     NPCHeight(201) = 94
-    
+
     NPCWidth(199) = 56
     NPCHeight(199) = 60
     NPCWidthGFX(199) = 130
@@ -3301,7 +3301,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCNoYoshi(204) = True
     NPCNoYoshi(205) = True
     NPCNoYoshi(206) = True
-    
+
     NPCWidth(203) = 46
     NPCHeight(203) = 26
     NPCNoYoshi(203) = True
@@ -3309,7 +3309,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCNoYoshi(204) = True
     NPCCanWalkOn(204) = True
     NPCJumpHurt(201) = True
-    
+
     NPCNoYoshi(208) = True
     NPCNoYoshi(209) = True
     NPCCanWalkOn(209) = True
@@ -3318,11 +3318,11 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCNoClipping(209) = True
     NPCWidth(209) = 96
     NPCHeight(209) = 106
-    
+
     NPCNoYoshi(202) = True
     NPCNoYoshi(201) = True
     NPCNoYoshi(200) = True
-    
+
     NPCWidthGFX(189) = 48
     NPCHeightGFX(189) = 64
     NPCHeight(189) = 64
@@ -3337,39 +3337,39 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCHeightGFX(176) = 48
     NPCHeightGFX(177) = 48
     NPCHeightGFX(173) = 48
-    
+
     NPCWidthGFX(190) = 32
     NPCHeightGFX(190) = 32
-    
+
     NPCWidth(234) = 48
-    
+
     NPCHeightGFX(235) = 48
     NPCWidthGFX(235) = 32
     NPCFrameOffsetY(235) = 16
-    
+
     NPCJumpHurt(235) = True
     NPCJumpHurt(234) = True
-    
+
     NPCHeight(190) = 20
     NPCFrameOffsetY(190) = 12
     NPCFrameOffsetY(194) = 2
-    
+
     NPCMovesPlayer(190) = True
-    
+
     NPCTurnsAtCliffs(175) = True
-    
+
     NPCNoYoshi(178) = True
     NPCNoYoshi(179) = True
     NPCNoYoshi(180) = True
     NPCNoYoshi(181) = True
     NPCNoYoshi(189) = True
-    
+
     NPCNoYoshi(190) = True
     NPCNoYoshi(192) = True
     NPCIsABonus(192) = True
-    
-    
-    
+
+
+
     NPCIsAParaTroopa(176) = True
     NPCIsAParaTroopa(177) = True
     NPCIsABonus(178) = True
@@ -3409,12 +3409,12 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCIsABlock(157) = True
     NPCMovesPlayer(157) = True
     NPCNoYoshi(159) = True
-    
+
 
     NPCWontHurt(197) = True
     NPCNoYoshi(197) = True
-    
-    
+
+
     NPCIsGrabbable(154) = True
     NPCIsGrabbable(166) = True
     NPCGrabFromTop(154) = True
@@ -3729,47 +3729,47 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCStandsOnPlayer(149) = True
     NPCStandsOnPlayer(150) = True
     NPCStandsOnPlayer(228) = True
-    
-    
+
+
     NPCCanWalkOn(272) = True
     NPCGrabFromTop(272) = True
     NPCNoFireBall(272) = True
     NPCNoClipping(272) = True
     NPCWidth(272) = 32
     NPCHeight(272) = 32
-    
+
     NPCCanWalkOn(208) = True
     NPCWontHurt(208) = True
     NPCMovesPlayer(208) = True
     NPCWidth(208) = 128
     NPCHeight(208) = 128
     NPCIsABlock(208) = True
-    
+
     NPCForeground(208) = True
     NPCJumpHurt(207) = True
     NPCJumpHurt(206) = True
     NPCJumpHurt(205) = True
-    
+
     NPCWidth(204) = 48
     NPCHeight(204) = 28
     NPCWidthGFX(204) = 112
     NPCHeightGFX(204) = 28
-    
+
     NPCWidthGFX(205) = 44
     NPCHeightGFX(205) = 44
     NPCFrameOffsetY(205) = 6
-    
-    
+
+
     NPCWidth(270) = 32
     NPCHeight(270) = 42
     NPCJumpHurt(270) = True
     NPCNoClipping(270) = True
-    
+
     NPCWidth(271) = 32
     NPCHeight(271) = 32
     NPCNoClipping(271) = True
-    
-    
+
+
     NPCWidth(210) = 28
     NPCNoClipping(210) = True
     NPCIsABlock(211) = True
@@ -3777,11 +3777,11 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCMovesPlayer(211) = True
     NPCCanWalkOn(211) = True
     NPCWontHurt(211) = True
-    
-    
-    
-    
-    
+
+
+
+
+
     NPCForeground(12) = True
     NPCForeground(17) = True
     NPCForeground(18) = True
@@ -3824,7 +3824,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCDefaultMovement(89) = True
     NPCDefaultMovement(91) = True
     NPCDefaultMovement(107) = True
-    
+
     NPCNoFireBall(19) = True
     NPCNoFireBall(20) = True
     NPCNoFireBall(23) = True
@@ -3852,27 +3852,27 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCNoYoshi(280) = True
     NPCNoYoshi(281) = True
     NPCNoYoshi(282) = True
-    
+
 
     NPCNoClipping(276) = True
     NPCWidth(276) = 16
     NPCHeight(276) = 16
     NPCNoYoshi(276) = True
     NPCJumpHurt(276) = True
-    
+
     NPCWidth(275) = 60
     NPCHeight(275) = 24
     NPCWidthGFX(275) = 64
     NPCHeightGFX(275) = 32
     NPCNoFireBall(275) = True
     NPCJumpHurt(275) = True
-    
+
     NPCWidth(278) = 32
     NPCHeight(278) = 44
     NPCWontHurt(278) = True
     NPCJumpHurt(278) = True
     NPCIsGrabbable(278) = True
-    
+
     NPCWidth(279) = 32
     NPCHeight(279) = 44
     NPCWidthGFX(279) = 96
@@ -3880,7 +3880,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCWontHurt(279) = True
     NPCJumpHurt(279) = True
     NPCIsGrabbable(279) = True
-    
+
 
 'set ice
     NPCNoIceBall(197) = True
@@ -3976,37 +3976,37 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCHeightGFX(247) = 32
     NPCWidthGFX(247) = 32
 
-    
+
     NPCDefaultMovement(158) = True
-    
-    
+
+
     NPCWidthGFX(267) = 84
     NPCHeightGFX(267) = 62
     NPCWidth(267) = 44
     NPCHeight(267) = 50
-    
+
     NPCWidthGFX(268) = 44
     NPCHeightGFX(268) = 32
     NPCWidth(268) = 32
     NPCHeight(268) = 28
-    
+
     NPCWidthGFX(269) = 16
     NPCHeightGFX(269) = 32
     NPCWidth(269) = 16
     NPCHeight(269) = 32
     NPCNoClipping(269) = True
     NPCJumpHurt(269) = True
-    
+
     NPCWidthGFX(280) = 64
     NPCHeightGFX(280) = 64
     NPCWidth(280) = 48
     NPCHeight(280) = 48
-    
+
     NPCWidthGFX(281) = 40
     NPCHeightGFX(281) = 36
     NPCWidth(281) = 36
     NPCHeight(281) = 32
-    
+
     NPCWidthGFX(282) = 64
     NPCHeightGFX(282) = 32
     NPCWidth(282) = 64
@@ -4014,24 +4014,24 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     NPCFrameOffsetY(282) = 4
     NPCNoClipping(282) = True
     NPCJumpHurt(282) = True
-    
-    
+
+
     For A = 1 To maxBlockType
         BlockWidth(A) = 32
         BlockHeight(A) = 32
     Next A
-    
+
     BlockWidth(571) = 64
     BlockWidth(572) = 64
     BlockWidth(615) = 64
-    
+
     BlockWidth(634) = 64
     BlockHeight(634) = 64
-    
+
     BlockHeight(595) = 64
     BlockHeight(596) = 64
     BlockHeight(597) = 64
-    
+
     BlockHeight(569) = 64
     BlockHeight(570) = 64
     BlockHeight(571) = 64
@@ -4085,20 +4085,20 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockHeight(226) = 64
     BlockWidth(262) = 128
     BlockHeight(262) = 128
-    
+
     BlockWidth(616) = 64
     BlockWidth(617) = 64
     BlockSlope(616) = -1
     BlockSlope(617) = 1
-    
+
     BlockSlope(635) = -1
     BlockSlope(636) = -1
     BlockWidth(636) = 64
     BlockSlope(637) = 1
     BlockSlope(638) = 1
     BlockWidth(638) = 64
-    
-    
+
+
     For A = 137 To 146
         BlockWidth(A) = 64
     Next A
@@ -4149,28 +4149,28 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockHeight(505) = 32
     BlockWidth(506) = 64
     BlockHeight(506) = 64
-    
+
     BlockWidth(613) = 64
-    
+
     BlockWidth(507) = 64
     BlockHeight(507) = 32
-    
+
     BlockWidth(599) = 64
     BlockHeight(599) = 64
-    
-    
+
+
     BlockWidth(508) = 64
     BlockHeight(508) = 32
-    
+
     BlockWidth(529) = 32
     BlockHeight(529) = 64
-    
+
     BlockWidth(527) = 64
     BlockHeight(527) = 96
-    
-    
-    
-    
+
+
+
+
     BlockWidth(534) = 48
     BlockHeight(534) = 128
     BlockWidth(535) = 48
@@ -4180,28 +4180,28 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockWidth(537) = 128
     BlockHeight(537) = 48
     BlockWidth(540) = 64
-    
-    
-    
-    
+
+
+
+
     BlockSlope(472) = -1
     BlockSlope(474) = 1
     BlockSlope2(476) = 1
     BlockSlope2(479) = -1
-    
-    
+
+
     BlockSlope2(77) = 1
     BlockSlope2(78) = 1
     BlockSlope2(613) = -1
     BlockSlope2(614) = -1
-    
-    
+
+
     BlockSlope(480) = -1
     BlockSlope(482) = 1
     BlockSlope2(486) = 1
     BlockSlope2(485) = -1
-    
-    
+
+
     BlockOnlyHitspot1(372) = True
     BlockOnlyHitspot1(373) = True
     BlockOnlyHitspot1(374) = True
@@ -4213,11 +4213,11 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockOnlyHitspot1(389) = True
     BlockOnlyHitspot1(391) = True
     BlockOnlyHitspot1(392) = True
-    
+
     BlockOnlyHitspot1(506) = True
     BlockOnlyHitspot1(507) = True
     BlockOnlyHitspot1(508) = True
-    
+
     BlockKills(371) = True
     BlockKills(404) = True
     BlockKills(406) = True
@@ -4403,10 +4403,10 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockSlope(308) = 1
     BlockSlope(324) = -1
     BlockSlope(325) = 1
-    
+
     BlockSlope2(528) = 1
     BlockSlope2(523) = -1
-    
+
     BlockSlope2(309) = 1
     BlockSlope2(310) = -1
     BlockSlope2(311) = 1
@@ -4443,9 +4443,9 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockSlope(366) = 1
     BlockSlope2(367) = -1
     BlockSlope2(368) = 1
-    
+
     BlockKills(459) = True
-    
+
     BlockKills(460) = True
     BlockKills(461) = True
     BlockKills(462) = True
@@ -4458,7 +4458,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockKills(469) = True
     BlockKills(470) = True
     BlockKills(471) = True
-    
+
     BlockKills2(460) = True
     BlockKills2(461) = True
     BlockKills2(462) = True
@@ -4478,7 +4478,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockKills2(474) = True
     BlockKills2(476) = True
     BlockKills2(479) = True
-    
+
     BlockKills(480) = True
     BlockKills(481) = True
     BlockKills(482) = True
@@ -4491,9 +4491,9 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockKills2(482) = True
     BlockKills2(485) = True
     BlockKills2(486) = True
-    
-    
-    
+
+
+
     BlockHurts(407) = True
     BlockHurts(408) = True
     BlockHurts(428) = True
@@ -4504,18 +4504,18 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BlockOnlyHitspot1(447) = True
     BlockOnlyHitspot1(446) = True
     BlockOnlyHitspot1(448) = True
-    
 
-    
-    
+
+
+
     BlockWidth(604) = 64
     BlockWidth(605) = 64
-    
+
     BlockSlope(600) = -1
     BlockSlope(604) = -1
     BlockSlope(601) = 1
     BlockSlope(605) = 1
-    
+
 
     BlockSlope(451) = 1
     BlockSlope(452) = -1
@@ -4526,7 +4526,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BackgroundHasNoMask(188) = True
     BackgroundHasNoMask(189) = True
     BackgroundHasNoMask(190) = True
-    
+
     BackgroundHasNoMask(172) = True
     BackgroundHasNoMask(167) = True
     BackgroundHasNoMask(164) = True
@@ -4579,8 +4579,8 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BackgroundHasNoMask(144) = True
     BackgroundHasNoMask(145) = True
     BlockOnlyHitspot1(69) = True
-    
-    
+
+
     Foreground(187) = True
     Foreground(188) = True
     Foreground(143) = True
@@ -4600,34 +4600,34 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     Foreground(106) = True
     Foreground(137) = True
     Foreground(138) = True
-    
+
     Foreground(154) = True
     Foreground(155) = True
     Foreground(156) = True
     Foreground(157) = True
-    
+
     BackgroundHeight(158) = 32
     BackgroundHeight(159) = 32
-    
+
     BackgroundHeight(187) = 32
     BackgroundHeight(188) = 32
     BackgroundHeight(189) = 32
     BackgroundHeight(190) = 32
-    
-    
-    
+
+
+
     BackgroundHeight(170) = 32
     BackgroundHeight(171) = 32
-    
+
     BackgroundHeight(26) = 64
     BackgroundHeight(18) = 32
     BackgroundHeight(19) = 32
     BackgroundHeight(20) = 32
     BackgroundHeight(36) = 96
     BackgroundHeight(65) = 96
-    
+
     BackgroundHeight(66) = 32
-    
+
     BackgroundHeight(68) = 64
     BackgroundHeight(70) = 32
     BackgroundHeight(172) = 32
@@ -4640,26 +4640,26 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     BackgroundHeight(137) = 32
     BackgroundHeight(138) = 32
     BackgroundWidth(163) = 64
-    
+
     BackgroundWidth(173) = 112
     BackgroundHeight(173) = 120
-    
-    
+
+
     BackgroundWidth(160) = 24
     BackgroundHeight(160) = 24
-    
+
     BackgroundWidth(161) = 64
     BackgroundHeight(161) = 48
-    
+
     BackgroundHeight(168) = 32
     BackgroundWidth(168) = 64
-    
+
     BackgroundHeight(169) = 64
     BackgroundWidth(169) = 64
     BackgroundHasNoMask(169) = True
-    
-    
-    
+
+
+
     For A = 1 To maxSceneType
         SceneWidth(A) = 32
         SceneHeight(A) = 32
@@ -4695,7 +4695,7 @@ Public Sub SetupVars() 'Set up object sizes and frame offsets for blocks/npcs/ef
     SceneHeight(60) = 48
     SceneWidth(61) = 64
     SceneHeight(61) = 76
-    
+
     For A = 1 To maxTileType
         TileWidth(A) = 32
         TileHeight(A) = 32
@@ -4746,8 +4746,8 @@ Public Sub GameLoop()   'The loop for the game
             If BattleOutro = 260 Then EndLevel = True
         End If
     End If
-    
-    
+
+
     If EndLevel = True Then
         If LevelBeatCode > 0 Then
             If Checkpoint = FullFileName Then
@@ -4876,7 +4876,7 @@ Public Sub MenuLoop()   'The loop for the menu
                 MenuCursorCanMove = False
             End If
         End If
-        
+
         If MenuMode = 0 Then ' Main Menu
             If MenuMouseMove = True Then
                 For A = 0 To 4
@@ -5209,10 +5209,10 @@ Public Sub MenuLoop()   'The loop for the menu
                         PlaySound 28
                         SoundPause(26) = 200
                         LevelSelect = False
-                        
+
                         GameThing
                         ClearLevel
-                        
+
                         Sleep 1000
                         OpenLevel SelectWorld(selWorld).WorldPath & StartLevel
                     End If
@@ -5461,7 +5461,7 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
         End If
     End With
-    
+
 
 'check for all characters blocked
         If MenuMode = 100 Or MenuMode = 200 Or MenuMode = 300 Then
@@ -5491,9 +5491,9 @@ Public Sub MenuLoop()   'The loop for the menu
                 End If
             End If
         End If
-    
-    
-    
+
+
+
     If CheckLiving = 0 Then
         ShowLayer "Destroyed Blocks"
         For A = 1 To numNPCs
@@ -5596,8 +5596,8 @@ Public Sub MenuLoop()   'The loop for the menu
                     End If
                 End If
             End If
-                
-            
+
+
             If .Location.X < -vScreenX(1) - .Location.Width And Not -vScreenX(1) <= level(0).X Then .Dead = True
             If .Location.X > -vScreenX(1) + 1000 Then .Dead = True
             If .Location.X > -vScreenX(1) + 600 And -vScreenX(1) + 850 < level(0).Width Then .Controls.Run = False
@@ -5735,7 +5735,7 @@ Public Sub MenuLoop()   'The loop for the menu
                     If random_int(2) = 0 Then .Controls.Right = False
                 End If
             End If
-            
+
             If .Slide = False And (.Slope > 0 Or .StandingOnNPC > 0 Or .Location.SpeedY = 0) Then
                 tempLocation = .Location
                 tempLocation.Width = 95
@@ -5776,7 +5776,7 @@ Public Sub MenuLoop()   'The loop for the menu
                 .Controls.AltJump = True
                 '.Controls.Jump = False
             End If
-            
+
         End With
     Next A
     If LevelMacro > 0 Then UpdateMacro
@@ -5788,8 +5788,8 @@ Public Sub MenuLoop()   'The loop for the menu
     UpdateGraphics
     UpdateSound
     UpdateEvents
-    
-    
+
+
     If MenuMouseDown = True Then
         If random_int(5) >= 2 Then
             NewEffect 80, newLoc(MenuMouseX - vScreenX(1), MenuMouseY - vScreenY(1))
@@ -5820,7 +5820,7 @@ Public Sub MenuLoop()   'The loop for the menu
             End If
         Next A
     End If
-    
+
     MenuMouseMove = False
     MenuMouseClick = False
     If MenuMouseDown = True Then
@@ -6067,7 +6067,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
             Write #1, Events(A).TriggerEvent
             Write #1, Events(A).TriggerDelay
             Write #1, Events(A).LayerSmoke
-            
+
             Write #1, Events(A).Controls.AltJump
             Write #1, Events(A).Controls.AltRun
             Write #1, Events(A).Controls.Down
@@ -6078,7 +6078,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
             Write #1, Events(A).Controls.Run
             Write #1, Events(A).Controls.Start
             Write #1, Events(A).Controls.Up
-            
+
             Write #1, Events(A).AutoStart
             Write #1, Events(A).MoveLayer
             Write #1, Events(A).SpeedX
@@ -6086,7 +6086,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
             Write #1, Events(A).AutoX
             Write #1, Events(A).AutoY
             Write #1, Events(A).AutoSection
-            
+
         Next A
     Close #1
     LoadNPCDefaults
@@ -6095,12 +6095,12 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
     Else
         FindCustomNPCs
     End If
-    
+
     UnloadCustomGFX
     LoadCustomGFX
-    
+
     LoadCustomGFX2 FileNamePath & Left(FileName, Len(FileName) - 4)
-    
+
     PlaySound 12
     If nPlay.Online = True Then
         If nPlay.Mode = 1 Then
@@ -6144,7 +6144,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     numLocked = 0
     numNPCs = 0
     numWarps = 0
-    
+
 'Load Custom Stuff
     If Dir(FileNamePath & Left(FileName, Len(FileName) - 4) & "\*.txt") <> "" Then
         FindCustomNPCs FileNamePath & Left(FileName, Len(FileName) - 4)
@@ -6154,8 +6154,8 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     LoadCustomGFX
     If Dir(FileNamePath & Left(FileName, Len(FileName) - 4) & "\*.gif") <> "" Then LoadCustomGFX2 FileNamePath & Left(FileName, Len(FileName) - 4)
 'Blah
-    
-    
+
+
     If FilePath = ".lvl" Then Exit Sub
         Open FilePath For Input As #1
         Input #1, FileRelease
@@ -6348,7 +6348,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                         If .Type = 196 Then .Killed = 9
                     End If
                 End If
-                
+
             End With
         Loop
         Do Until EOF(1)
@@ -6484,9 +6484,9 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     FindBlocks
     UpdateBackgrounds
     FindSBlocks
-    
 
-    
+
+
     If LevelEditor = True Or MagicHand = True Then
         frmEvents.lstEvent.ListIndex = 0
         frmLayers.lstLayer.ListIndex = 0
@@ -6581,7 +6581,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     cycleCount = 0
     gameTime = 0
  End Sub
- 
+
  Public Sub ClearLevel() 'Reset everything to zero
     Dim A As Integer
     Dim B As Integer
@@ -6728,7 +6728,7 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
     End If
     noUpdate = False
 End Sub
- 
+
  Public Sub NextLevel()
     Dim A As Integer
     For A = 1 To numPlayers
@@ -6756,7 +6756,7 @@ End Sub
         EndLevel = False
     End If
  End Sub
- 
+
  Public Sub UpdateMacro() 'macros mainly used for end of level stuffs. takes over the players controls
     Dim A As Integer
     Dim OnScreen As Boolean
@@ -6974,8 +6974,8 @@ End Sub
         End If
     End If
  End Sub
- 
- 
+
+
 Public Sub SaveWorld(FilePath As String)   'Saves the world!
     Dim A As Integer
     Dim B As Integer
@@ -7252,7 +7252,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
     cycleCount = 0
     gameTime = 0
  End Sub
- 
+
  Public Sub WorldLoop() 'Loop for world select
     Dim tempLocation As Location
     Dim A As Integer
@@ -7322,7 +7322,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
         End With
     Next A
     With WorldPlayer(1)
-    
+
         If .Move > 0 Then
             .Frame2 = .Frame2 + 1
             If .Frame2 >= 8 Then
@@ -7346,8 +7346,8 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                 If .Frame > 5 Then .Frame = 4
             End If
         End If
-    
-    
+
+
         If .Move = 0 Then
             tempLocation = WorldPlayer(1).Location
             tempLocation.Width = tempLocation.Width - 8
@@ -7492,16 +7492,16 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                                 BitBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, 0, 0, 0, vbWhiteness
                                 DoEvents
                                 Sleep 1000
-                                
-                                
-                                
+
+
+
                                 overTime = 0
                                 GoalTime = GetTickCount + 1000
                                 fpsCount = 0
                                 fpsTime = 0
                                 cycleCount = 0
                                 gameTime = 0
-                                
+
                             End If
                         End If
                     Next A
@@ -7716,7 +7716,7 @@ Public Sub PathWait()
     cycleCount = 0
     gameTime = 0
     fpsTime = 0
-    
+
     Do
         DoEvents
         tempTime = GetTickCount
@@ -8175,11 +8175,11 @@ Public Sub PauseGame(plr As Integer)
                 End If
                 fpsCount = 0
             End If
-            
-            
+
+
             DoEvents
             CheckActive
-            
+
             If LevelSelect = True Then
                 UpdateGraphics2
             Else
@@ -8225,16 +8225,16 @@ Public Sub PauseGame(plr As Integer)
                             MenuCursor = MenuCursor + 1
                             noButtons = False
                         End If
-                        
+
                         If LevelSelect = True Then
                             If Player(A).Character = 1 Or Player(A).Character = 2 Then Player(A).Hearts = 0
                             For A = 1 To numPlayers
                                 If Player(A).RunRelease = False Then
                                     If Player(A).Controls.Left = False And Player(A).Controls.Right = False Then Player(A).RunRelease = True
-                                
-                                
+
+
                                 ElseIf Player(A).Controls.Left = True Or Player(A).Controls.Right = True Then
-                                
+
                                     AllCharBlock = 0
                                     For B = 1 To numCharacters
                                         If blockCharacter(B) = False Then
@@ -8271,8 +8271,8 @@ Public Sub PauseGame(plr As Integer)
                                         SetupPlayers
                                     End If
                                 End If
-                                
-                                
+
+
                             Next A
                         End If
                         If .Jump = True Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Then
@@ -8336,14 +8336,14 @@ Public Sub PauseGame(plr As Integer)
         If noSound = False Then SoundResumeAll
     End If
     MessageText = ""
-    
+
     overTime = 0
     GoalTime = GetTickCount + 1000
     fpsCount = 0
     cycleCount = 0
     gameTime = 0
     fpsTime = 0
-    
+
 End Sub
 
 Public Sub InitControls()
@@ -8654,8 +8654,8 @@ Public Sub CheatCode(NewKey As String)
                 End If
                 CheatString = ""
                 Exit For
-                
-                
+
+
             ElseIf Mid(CheatString, A, Len("iceage")) = "iceage" Then
                 For C = 1 To numNPCs
                     If NPC(C).Active = True Then
@@ -8668,8 +8668,8 @@ Public Sub CheatCode(NewKey As String)
                 PlaySound 34
                 CheatString = ""
                 Exit For
-                
-                
+
+
             ElseIf Mid(CheatString, A, Len("istillplaywithlegos")) = "istillplaywithlegos" Then
                 ShowLayer "Destroyed Blocks"
                 PlaySound 34
@@ -9457,7 +9457,7 @@ Public Sub CheatCode(NewKey As String)
                 Next B
                 CheatString = ""
                 Exit For
-                
+
             ElseIf Mid(CheatString, A, Len("powhammer")) = "powhammer" Then
                 For B = 1 To numPlayers
                     If Player(B).Mount = 0 And Player(B).Dead = False And Player(B).TimeToLive = 0 And Player(B).Effect = 0 Then
@@ -10080,7 +10080,7 @@ Public Sub SetupPlayerFrames() 'sets up player frame offsets so they are display
         ToadFrameX(A) = 0
         ToadFrameY(A) = 0
     Next A
-    
+
     LinkFrameY(101) = -8
     LinkFrameY(102) = -8
     LinkFrameY(103) = -8
@@ -10109,7 +10109,7 @@ Public Sub SetupPlayerFrames() 'sets up player frame offsets so they are display
     LinkFrameX(106) = -18
     LinkFrameX(93) = -36
     LinkFrameX(92) = -36
-    
+
     For A = 51 To 649
         LinkFrameX(A + 100) = LinkFrameX(A)
         LinkFrameY(A + 100) = LinkFrameY(A)
@@ -10126,29 +10126,29 @@ For A = 51 To 149
 Next A
     ToadFrameY(107) = -2
     ToadFrameY(127) = -2
-    
+
     ToadFrameX(127) = -4
     ToadFrameX(73) = -4
-    
+
     ToadFrameX(115) = -4
     ToadFrameX(85) = -4
     ToadFrameY(93) = -2
     ToadFrameY(73) = -2
     ToadFrameY(122) = -20
     ToadFrameY(123) = -12
-    
+
     ToadFrameY(78) = -20
     ToadFrameY(77) = -12
-    
+
     For A = 151 To 349
         ToadFrameY(A) = 2
         ToadFrameX(A) = -4
     Next A
-    
+
     For A = 151 To 349
         ToadFrameY(A) = ToadFrameY(A) - 4
     Next A
-    
+
     ToadFrameY(227) = 0
     ToadFrameY(207) = 0
     ToadFrameY(173) = 0
@@ -10165,13 +10165,13 @@ Next A
     ToadFrameY(277) = -16
     ToadFrameY(223) = -16
     ToadFrameY(177) = -16
-    
+
     ToadFrameX(294) = -4
     ToadFrameX(194) = -4
     ToadFrameX(306) = -6
     ToadFrameX(206) = -6
     ToadFrameX(106) = -4
-    
+
     PeachFrameY(101) = -4
     PeachFrameY(102) = -4
     PeachFrameY(103) = -4
@@ -10208,7 +10208,7 @@ Next A
     PeachFrameX(91) = 0
     PeachFrameX(90) = 0
     PeachFrameX(73) = -4
-    
+
     PeachFrameY(201) = -2
     PeachFrameY(202) = -2
     PeachFrameY(203) = -2
@@ -10300,9 +10300,9 @@ Next A
     PeachFrameY(288) = PeachFrameY(290)
     PeachFrameY(289) = PeachFrameY(290)
 
-    
-    
-    
+
+
+
     MarioFrameY(96) = 0
     MarioFrameX(97) = -4
     MarioFrameX(98) = -2
@@ -10839,7 +10839,7 @@ Next A
     LuigiFrameX(476) = -4
     LuigiFrameX(624) = -4
     LuigiFrameX(576) = -4
-    
+
     LuigiFrameY(224) = 2
     LuigiFrameY(176) = 2
     LuigiFrameY(324) = 2
@@ -10850,8 +10850,8 @@ Next A
     LuigiFrameY(476) = 0
     LuigiFrameY(624) = 2
     LuigiFrameY(576) = 2
-    
-    
+
+
     MarioFrameX(124) = -4
     MarioFrameX(76) = -2
     MarioFrameX(224) = -4
@@ -10874,9 +10874,9 @@ Next A
     MarioFrameY(476) = 2
     MarioFrameY(624) = 2
     MarioFrameY(576) = 2
-    
-    
-    
+
+
+
     MarioFrameX(140) = -4
     MarioFrameY(140) = 2
     MarioFrameX(141) = -4
@@ -10994,16 +10994,16 @@ Next A
     MarioFrameX(556) = -6
     MarioFrameY(556) = 0
 
- 
- 
+
+
             MarioFrameX(515) = -4
         MarioFrameX(485) = -4
-   
-    
-    
-    
-    
-    
+
+
+
+
+
+
     LuigiFrameX(640) = -10
     LuigiFrameY(640) = 0
     LuigiFrameX(641) = -10
@@ -11014,7 +11014,7 @@ Next A
     LuigiFrameY(643) = 0
     LuigiFrameX(644) = -10
     LuigiFrameY(644) = 0
-    
+
     LuigiFrameX(560) = -4
     LuigiFrameY(560) = 0
     LuigiFrameX(559) = -4
@@ -11025,8 +11025,8 @@ Next A
     LuigiFrameY(557) = 0
     LuigiFrameX(556) = -2
     LuigiFrameY(556) = 0
- 
- 
+
+
     LuigiFrameX(540) = -20
     LuigiFrameY(540) = -2
     LuigiFrameX(541) = -20
@@ -11047,9 +11047,9 @@ Next A
     LuigiFrameY(457) = -2
     LuigiFrameX(456) = -2
     LuigiFrameY(456) = -2
- 
- 
- 
+
+
+
     LuigiFrameX(140) = -4
     LuigiFrameY(140) = 0
     LuigiFrameX(141) = -4
@@ -11066,7 +11066,7 @@ Next A
     LuigiFrameY(58) = 0
     LuigiFrameX(57) = 0
     LuigiFrameY(57) = 0
-    
+
     LuigiFrameX(240) = -10
     LuigiFrameY(240) = 0
     LuigiFrameX(241) = -10
@@ -11087,7 +11087,7 @@ Next A
     LuigiFrameY(157) = 0
     LuigiFrameX(156) = -2
     LuigiFrameY(156) = 0
-    
+
     LuigiFrameX(340) = -10
     LuigiFrameY(340) = 0
     LuigiFrameX(341) = -10
@@ -11108,8 +11108,8 @@ Next A
     LuigiFrameY(257) = 0
     LuigiFrameX(256) = -2
     LuigiFrameY(256) = 0
- 
- 
+
+
     LuigiFrameX(440) = -20
     LuigiFrameY(440) = -2
     LuigiFrameX(441) = -20
@@ -11130,13 +11130,13 @@ Next A
     LuigiFrameY(357) = -2
     LuigiFrameX(356) = -2
     LuigiFrameY(356) = -2
-    
+
         MarioFrameY(122) = -8
         MarioFrameY(123) = -6
         MarioFrameY(78) = -8
         MarioFrameX(78) = -4
         MarioFrameY(77) = -6
-        
+
         MarioFrameY(222) = -24
         MarioFrameX(222) = -4
         MarioFrameY(223) = -6 - 24
@@ -11161,7 +11161,7 @@ Next A
         MarioFrameX(378) = -4
         MarioFrameY(377) = -6 - 24
         MarioFrameX(377) = -4
-        
+
         MarioFrameY(522) = -24 - 2
         MarioFrameX(522) = -4
         MarioFrameY(523) = -6 - 24
@@ -11170,7 +11170,7 @@ Next A
         MarioFrameX(478) = -4
         MarioFrameY(477) = -6 - 24
         MarioFrameX(477) = -4
-        
+
         MarioFrameY(622) = -24 - 2
         MarioFrameX(622) = -4
         MarioFrameY(623) = -6 - 24
@@ -11193,7 +11193,7 @@ Next A
         LuigiFrameX(178) = -4
         LuigiFrameY(177) = -8 - 24
         LuigiFrameX(177) = -4
-        
+
         LuigiFrameY(322) = -24 - 4
         LuigiFrameX(322) = -4
         LuigiFrameY(323) = -8 - 24
@@ -11202,7 +11202,7 @@ Next A
         LuigiFrameX(278) = -4
         LuigiFrameY(277) = -8 - 24
         LuigiFrameX(277) = -4
-        
+
         LuigiFrameY(422) = -24 - 4
         LuigiFrameX(422) = -4
         LuigiFrameY(423) = -8 - 24
@@ -11211,7 +11211,7 @@ Next A
         LuigiFrameX(378) = -4
         LuigiFrameY(377) = -8 - 24
         LuigiFrameX(377) = -4
-        
+
         LuigiFrameY(522) = -24 - 4
         LuigiFrameX(522) = -4
         LuigiFrameY(523) = -8 - 24
@@ -11220,7 +11220,7 @@ Next A
         LuigiFrameX(478) = -4
         LuigiFrameY(477) = -8 - 24
         LuigiFrameX(477) = -4
-        
+
         LuigiFrameY(622) = -24 - 4
         LuigiFrameX(622) = -4
         LuigiFrameY(623) = -8 - 24
@@ -11233,7 +11233,7 @@ Next A
     LuigiFrameY(193) = -6
     LuigiFrameY(307) = -6
     LuigiFrameY(293) = -6
-    
+
     For A = 650 To 750
         MarioFrameX(A) = MarioFrameX(A - 400)
         MarioFrameY(A) = MarioFrameY(A - 400)
@@ -11246,7 +11246,7 @@ Next A
         LinkFrameX(A) = LinkFrameX(A - 400)
         LinkFrameY(A) = LinkFrameY(A - 400)
     Next A
-    
+
     PeachFrameX(401) = -16
     PeachFrameY(401) = -2
     PeachFrameX(399) = -4
@@ -11425,7 +11425,7 @@ Next A
     PeachFrameY(473) = -6
     PeachFrameX(500) = -5
     PeachFrameY(500) = -6
-    
+
     PeachFrameX(601) = -10
     PeachFrameY(601) = -2
     PeachFrameX(599) = -4
@@ -11502,7 +11502,7 @@ Next A
     PeachFrameY(627) = -4
     PeachFrameX(573) = -4
     PeachFrameY(573) = -4
-    
+
     ToadFrameX(401) = -14
     ToadFrameY(401) = -2
     ToadFrameX(399) = -4
@@ -11611,10 +11611,10 @@ Next A
     ToadFrameY(427) = 0
     ToadFrameX(373) = -4
     ToadFrameY(373) = 0
-    
-    
-    
-    
+
+
+
+
     ToadFrameX(501) = -12
     ToadFrameY(501) = -2
     ToadFrameX(499) = -4
@@ -11723,108 +11723,108 @@ Next A
     ToadFrameY(527) = -2
     ToadFrameX(473) = -4
     ToadFrameY(473) = -2
-    
-    
+
+
     ToadFrameX(601) = -6
     ToadFrameY(601) = -2
     ToadFrameX(599) = -4
     ToadFrameY(599) = -2
-    
+
     ToadFrameX(602) = -6
     ToadFrameY(602) = -2
     ToadFrameX(598) = -4
     ToadFrameY(598) = -2
-    
+
     ToadFrameX(603) = -6
     ToadFrameY(603) = -2
     ToadFrameX(597) = -4
     ToadFrameY(597) = -2
-    
+
     ToadFrameX(604) = -6
     ToadFrameY(604) = -2
     ToadFrameX(596) = -4
     ToadFrameY(596) = -2
-    
+
     ToadFrameX(605) = -6
     ToadFrameY(605) = -2
     ToadFrameX(595) = -4
     ToadFrameY(595) = -2
-    
+
     ToadFrameX(606) = -6
     ToadFrameY(606) = -2
     ToadFrameX(594) = -4
     ToadFrameY(594) = -2
-    
+
     ToadFrameX(607) = -6
     ToadFrameY(607) = 0
     ToadFrameX(593) = -6
     ToadFrameY(593) = 0
-    
+
     ToadFrameX(608) = -6
     ToadFrameY(608) = -2
     ToadFrameX(592) = -4
     ToadFrameY(592) = -2
-    
+
     ToadFrameX(609) = -6
     ToadFrameY(609) = -2
     ToadFrameX(591) = -4
     ToadFrameY(591) = -2
-    
+
     ToadFrameX(610) = -6
     ToadFrameY(610) = -2
     ToadFrameX(590) = -4
     ToadFrameY(590) = -2
-    
+
     ToadFrameX(611) = -6
     ToadFrameY(611) = -2
     ToadFrameX(589) = -4
     ToadFrameY(589) = -2
-    
+
     ToadFrameX(612) = -6
     ToadFrameY(612) = -2
     ToadFrameX(588) = -4
     ToadFrameY(588) = -2
-    
+
     ToadFrameX(613) = -4
     ToadFrameY(613) = -2
     ToadFrameX(587) = -4
     ToadFrameY(587) = -2
-    
+
     ToadFrameX(615) = -6
     ToadFrameY(615) = -2
     ToadFrameX(585) = -6
     ToadFrameY(585) = -2
-    
+
     ToadFrameX(622) = -4
     ToadFrameY(622) = -22
     ToadFrameX(578) = -4
     ToadFrameY(578) = -22
-    
+
     ToadFrameX(623) = -4
     ToadFrameY(623) = -16
     ToadFrameX(577) = -4
     ToadFrameY(577) = -16
-    
+
     ToadFrameX(625) = -4
     ToadFrameY(625) = -2
     ToadFrameX(575) = -4
     ToadFrameY(575) = -2
-    
+
     ToadFrameX(626) = -4
     ToadFrameY(626) = -2
     ToadFrameX(574) = -4
     ToadFrameY(574) = -2
-    
+
     ToadFrameX(627) = -4
     ToadFrameY(627) = 0
     ToadFrameX(573) = -4
     ToadFrameY(573) = 0
-    
-    
+
+
     ToadFrameX(500) = -6
     ToadFrameY(500) = -6
-    
-    
+
+
 End Sub
 
 
@@ -11914,7 +11914,7 @@ Public Sub StartBattleMode()
     If selWorld = 1 Then
         selWorld = random_int((NumSelectWorld - 1)) + 2
     End If
-    
+
     OpenLevel SelectWorld(selWorld).WorldFile
     SetupPlayers
     BattleIntro = 150

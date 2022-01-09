@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmSplash 
+Begin VB.Form frmSplash
    BackColor       =   &H80000007&
    BorderStyle     =   0  'None
    Caption         =   "Super Mario Bros. X"
@@ -17,7 +17,7 @@ Begin VB.Form frmSplash
    ScaleWidth      =   456
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
-   Begin VB.PictureBox LoadCoin 
+   Begin VB.PictureBox LoadCoin
       AutoRedraw      =   -1  'True
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
@@ -33,7 +33,7 @@ Begin VB.Form frmSplash
       Visible         =   0   'False
       Width           =   420
    End
-   Begin VB.Image Image1 
+   Begin VB.Image Image1
       Height          =   240
       Left            =   4320
       Picture         =   "frmSplash.frx":9118

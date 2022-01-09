@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmWarp 
+Begin VB.Form frmWarp
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Warps and Doors"
    ClientHeight    =   3825
@@ -13,14 +13,14 @@ Begin VB.Form frmWarp
    MinButton       =   0   'False
    ScaleHeight     =   3825
    ScaleWidth      =   7320
-   Begin VB.Frame Frame3 
+   Begin VB.Frame Frame3
       Caption         =   "Locked"
       Height          =   615
       Left            =   6240
       TabIndex        =   36
       Top             =   3120
       Width           =   975
-      Begin VB.CommandButton cmdLocked 
+      Begin VB.CommandButton cmdLocked
          Caption         =   "No"
          Height          =   255
          Left            =   120
@@ -29,14 +29,14 @@ Begin VB.Form frmWarp
          Width           =   735
       End
    End
-   Begin VB.Frame Frame2 
+   Begin VB.Frame Frame2
       Caption         =   "Allow NPC"
       Height          =   615
       Left            =   6240
       TabIndex        =   34
       Top             =   2400
       Width           =   975
-      Begin VB.CommandButton cmdNPC 
+      Begin VB.CommandButton cmdNPC
          Caption         =   "No"
          Height          =   255
          Left            =   120
@@ -45,14 +45,14 @@ Begin VB.Form frmWarp
          Width           =   735
       End
    End
-   Begin VB.Frame Frame1 
+   Begin VB.Frame Frame1
       Caption         =   "No Yoshi"
       Height          =   615
       Left            =   6240
       TabIndex        =   32
       Top             =   1680
       Width           =   975
-      Begin VB.CommandButton cmdYoshi 
+      Begin VB.CommandButton cmdYoshi
          Caption         =   "No"
          Height          =   255
          Left            =   120
@@ -61,7 +61,7 @@ Begin VB.Form frmWarp
          Width           =   735
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Stars Needed"
       Height          =   615
       Index           =   7
@@ -69,7 +69,7 @@ Begin VB.Form frmWarp
       TabIndex        =   25
       Top             =   1320
       Width           =   1695
-      Begin VB.TextBox txtStars 
+      Begin VB.TextBox txtStars
          Height          =   285
          Left            =   120
          TabIndex        =   26
@@ -77,7 +77,7 @@ Begin VB.Form frmWarp
          Width           =   1455
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Level Exit"
       Height          =   1695
       Index           =   4
@@ -85,7 +85,7 @@ Begin VB.Form frmWarp
       TabIndex        =   23
       Top             =   2040
       Width           =   2415
-      Begin VB.Frame Frame 
+      Begin VB.Frame Frame
          Caption         =   "Warp To Map Location"
          Height          =   975
          Index           =   6
@@ -93,21 +93,21 @@ Begin VB.Form frmWarp
          TabIndex        =   27
          Top             =   600
          Width           =   2175
-         Begin VB.TextBox txtX 
+         Begin VB.TextBox txtX
             Height          =   285
             Left            =   360
             TabIndex        =   29
             Top             =   240
             Width           =   1695
          End
-         Begin VB.TextBox txtY 
+         Begin VB.TextBox txtY
             Height          =   285
             Left            =   360
             TabIndex        =   28
             Top             =   600
             Width           =   1695
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             AutoSize        =   -1  'True
             Caption         =   "X:"
             Height          =   195
@@ -116,7 +116,7 @@ Begin VB.Form frmWarp
             Top             =   240
             Width           =   150
          End
-         Begin VB.Label Label2 
+         Begin VB.Label Label2
             AutoSize        =   -1  'True
             Caption         =   "Y:"
             Height          =   195
@@ -126,7 +126,7 @@ Begin VB.Form frmWarp
             Width           =   150
          End
       End
-      Begin VB.CheckBox chkMapWarp 
+      Begin VB.CheckBox chkMapWarp
          Caption         =   "Level Exit (Ends the level)"
          Height          =   255
          Left            =   120
@@ -135,7 +135,7 @@ Begin VB.Form frmWarp
          Width           =   2175
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Warp to Level"
       Height          =   1335
       Index           =   5
@@ -143,7 +143,7 @@ Begin VB.Form frmWarp
       TabIndex        =   18
       Top             =   2040
       Width           =   3495
-      Begin VB.CheckBox chkEntrance 
+      Begin VB.CheckBox chkEntrance
          Caption         =   "Level Entrance (Can not enter)"
          Height          =   255
          Left            =   120
@@ -151,7 +151,7 @@ Begin VB.Form frmWarp
          Top             =   960
          Width           =   2655
       End
-      Begin VB.HScrollBar scrWarp 
+      Begin VB.HScrollBar scrWarp
          Height          =   255
          Left            =   120
          Max             =   100
@@ -159,14 +159,14 @@ Begin VB.Form frmWarp
          Top             =   600
          Width           =   1335
       End
-      Begin VB.TextBox txtLevel 
+      Begin VB.TextBox txtLevel
          Height          =   285
          Left            =   120
          TabIndex        =   19
          Top             =   240
          Width           =   3255
       End
-      Begin VB.Label lblWarp 
+      Begin VB.Label lblWarp
          Caption         =   "Normal Entrance"
          Height          =   255
          Left            =   1560
@@ -175,7 +175,7 @@ Begin VB.Form frmWarp
          Width           =   1815
       End
    End
-   Begin VB.PictureBox FocusNinja 
+   Begin VB.PictureBox FocusNinja
       Height          =   375
       Left            =   8880
       ScaleHeight     =   315
@@ -184,7 +184,7 @@ Begin VB.Form frmWarp
       Top             =   240
       Width           =   375
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Exit Direction"
       Height          =   1815
       Index           =   2
@@ -192,7 +192,7 @@ Begin VB.Form frmWarp
       TabIndex        =   12
       Top             =   120
       Width           =   1695
-      Begin VB.OptionButton optDirection2 
+      Begin VB.OptionButton optDirection2
          Caption         =   "Moving Right"
          Height          =   255
          Index           =   2
@@ -202,7 +202,7 @@ Begin VB.Form frmWarp
          Top             =   1080
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection2 
+      Begin VB.OptionButton optDirection2
          Caption         =   "Moving Left"
          Height          =   255
          Index           =   4
@@ -212,7 +212,7 @@ Begin VB.Form frmWarp
          Top             =   1440
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection2 
+      Begin VB.OptionButton optDirection2
          Caption         =   "Moving Down"
          Height          =   255
          Index           =   1
@@ -222,7 +222,7 @@ Begin VB.Form frmWarp
          Top             =   720
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection2 
+      Begin VB.OptionButton optDirection2
          Caption         =   "Moving Up"
          Height          =   255
          Index           =   3
@@ -234,7 +234,7 @@ Begin VB.Form frmWarp
          Width           =   1215
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Entrance Direction"
       Height          =   1815
       Index           =   3
@@ -242,7 +242,7 @@ Begin VB.Form frmWarp
       TabIndex        =   6
       Top             =   120
       Width           =   1695
-      Begin VB.OptionButton optDirection 
+      Begin VB.OptionButton optDirection
          Caption         =   "Moving Down"
          Height          =   255
          Index           =   3
@@ -253,7 +253,7 @@ Begin VB.Form frmWarp
          Value           =   -1  'True
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection 
+      Begin VB.OptionButton optDirection
          Caption         =   "Moving Up"
          Height          =   255
          Index           =   1
@@ -263,7 +263,7 @@ Begin VB.Form frmWarp
          Top             =   720
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection 
+      Begin VB.OptionButton optDirection
          Caption         =   "Moving Right"
          Height          =   255
          Index           =   4
@@ -273,7 +273,7 @@ Begin VB.Form frmWarp
          Top             =   1440
          Width           =   1215
       End
-      Begin VB.OptionButton optDirection 
+      Begin VB.OptionButton optDirection
          Caption         =   "Moving Left"
          Height          =   255
          Index           =   2
@@ -284,7 +284,7 @@ Begin VB.Form frmWarp
          Width           =   1215
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Warp Effect"
       Height          =   1455
       Index           =   0
@@ -292,7 +292,7 @@ Begin VB.Form frmWarp
       TabIndex        =   2
       Top             =   120
       Width           =   1695
-      Begin VB.OptionButton optEffect 
+      Begin VB.OptionButton optEffect
          Caption         =   "Door"
          Height          =   255
          Index           =   2
@@ -302,7 +302,7 @@ Begin VB.Form frmWarp
          Top             =   720
          Width           =   1215
       End
-      Begin VB.OptionButton optEffect 
+      Begin VB.OptionButton optEffect
          Caption         =   "Pipe"
          Height          =   255
          Index           =   1
@@ -313,7 +313,7 @@ Begin VB.Form frmWarp
          Value           =   -1  'True
          Width           =   1215
       End
-      Begin VB.OptionButton optEffect 
+      Begin VB.OptionButton optEffect
          Caption         =   "Instant"
          Height          =   255
          Index           =   0
@@ -324,7 +324,7 @@ Begin VB.Form frmWarp
          Width           =   1215
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "Warp Placement"
       Height          =   1095
       Index           =   1
@@ -332,7 +332,7 @@ Begin VB.Form frmWarp
       TabIndex        =   1
       Top             =   120
       Width           =   1695
-      Begin VB.OptionButton optE 
+      Begin VB.OptionButton optE
          Caption         =   "Exit"
          Height          =   255
          Index           =   2
@@ -342,7 +342,7 @@ Begin VB.Form frmWarp
          Top             =   720
          Width           =   1215
       End
-      Begin VB.OptionButton optE 
+      Begin VB.OptionButton optE
          Caption         =   "Entrance"
          Height          =   255
          Index           =   1

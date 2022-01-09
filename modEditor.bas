@@ -61,8 +61,8 @@ Public Sub UpdateEditor()
         Else
             ScrollRelease = True
         End If
-    
-    
+
+
         If (vScreenY(1) + 8) Mod 32 <> 0 Then
             vScreenY(1) = Int(vScreenY(1) / 32) * 32 - 8
         End If
@@ -89,7 +89,7 @@ Public Sub UpdateEditor()
         frmLevelEditor.picLevel.Visible = True
     End If
     GetCursorPos CursorPos
-    
+
     With CursorPos
         If .X * 15 > frmLevelEditor.Left + frmLevelWindow.Left + 200 And .X * 15 < frmLevelEditor.Left + frmLevelWindow.Left + frmLevelWindow.Width + 100 And .Y * 15 > frmLevelEditor.Top + frmLevelWindow.Top + 1150 And .Y * 15 < frmLevelEditor.Top + frmLevelWindow.Top + frmLevelWindow.Height + 700 Then
         Else
@@ -97,7 +97,7 @@ Public Sub UpdateEditor()
         End If
     End With
 
-   
+
     If frmLevelEditor.Enabled = True Then
         GetEditorControls
         If GetKeyState(vbKeyShift) And KEY_PRESSED Then
@@ -135,9 +135,9 @@ Public Sub UpdateEditor()
             ScrollDelay = ScrollDelay - 1
         End If
         SetCursor
-        
+
         'this is where objects are placed/grabbed/deleted
-        
+
         With EditorCursor
             If EditorControls.Mouse1 = True Then
                 CanPlace = True
@@ -199,7 +199,7 @@ Public Sub UpdateEditor()
                                 Else
                                     frmNPCAdvanced.Legacy.Caption = "No"
                                 End If
-                                
+
                                 If NPC(A).Type = 288 Or NPC(A).Type = 289 Or (NPC(A).Type = 91 And NPC(A).Special = 288) Then
                                     frmNPCAdvanced.Show
                                     frmNPCAdvanced.WarpSection.ListIndex = NPC(A).Special2
@@ -230,21 +230,21 @@ Public Sub UpdateEditor()
                                 Else
                                     frmNPCs.Buried.Caption = "No"
                                 End If
-                                
+
                                 If NPC(A).Type = 283 Then
                                     frmNPCs.Bubble.Caption = "Yes"
                                     If NPC(A).Special > 0 Then frmNPCs.NPC(NPC(A).Special).Value = True
                                 Else
                                     frmNPCs.Bubble.Caption = "No"
                                 End If
-                                
+
                                 If NPC(A).Type = 284 Then
                                     frmNPCs.Lakitu.Caption = "Yes"
                                     If NPC(A).Special > 0 Then frmNPCs.NPC(NPC(A).Special).Value = True
                                 Else
                                     frmNPCs.Lakitu.Caption = "No"
                                 End If
-                                
+
                                 If NPC(A).Type = 96 Then
                                     If NPC(A).Special <> 0 And NPC(A).Special <> 96 Then
                                         frmNPCs.Egg.Caption = "Yes"
@@ -962,7 +962,7 @@ Public Sub UpdateEditor()
                                 Netplay.sendData Netplay.AddBlock(numBlock)
                             End If
                         End If
-                        
+
                     End If
                 ElseIf .Mode = 2 And MagicHand = False Then 'Level
                     If frmLevelSettings.optLevel(0).Value = True Then 'Top
@@ -1052,7 +1052,7 @@ Public Sub UpdateEditor()
                             If MagicHand = False Then NPCSort
                             If MagicHand = True Then
 
-                                
+
                                 With NPC(numNPCs)
                                     .FrameCount = 0
                                     .Active = True
@@ -1273,7 +1273,7 @@ Public Sub SetCursor()
             End If
             .Location.Width = .Block.Location.Width
             .Location.Height = .Block.Location.Height
-            
+
 'old code
 '            If frmBlocks.optBlockSpecial(0).Value = True Then
 '                .Block.Special = 0 'Nothing in the block
@@ -1360,11 +1360,11 @@ Public Sub SetCursor()
                 .NPC.Special = .NPC.Type
                 .NPC.Type = 284
             End If
-            
+
             If .NPC.Type = 288 Or .NPC.Type = 289 Or (.NPC.Type = 91 And .NPC.Special = 288) Then  'Door potion
                 .NPC.Special2 = frmNPCAdvanced.WarpSection.ListIndex
             End If
-            
+
             If NPCIsAParaTroopa(.NPC.Type) Then
                 .NPC.Special = frmNPCAdvanced.cmbPara.ListIndex
             End If
@@ -1534,8 +1534,8 @@ Public Sub SetCursor()
                 .WorldLevel.WarpY = Val(frmLevels.txtY.Text)
             End If
 
-            
-            
+
+
             For A = 1 To 4
                 If frmLevels.cmbExit(A).ListIndex < 0 Then frmLevels.cmbExit(A).ListIndex = 0
                 .WorldLevel.LevelExit(A) = frmLevels.cmbExit(A).ListIndex - 1
@@ -1685,7 +1685,7 @@ Public Sub zTestLevel()
                 SavedChar(A).State = 1
                 SavedChar(A).Character = A
             Next A
-            
+
             For A = 1 To numNPCs
                 With NPC(A)
                     'If .Generator = True Then
@@ -1694,7 +1694,7 @@ Public Sub zTestLevel()
                     'End If
                 End With
             Next A
-            
+
             GamePaused = False
             MessageText = ""
             frmNPCs.chkMessage.Value = 0
@@ -1855,8 +1855,8 @@ Public Function EditorNPCFrame(A As Integer, C As Single, Optional N As Integer)
             End If
         End With
     End If
-    
-    
+
+
     If A = 135 Or A = 4 Or A = 6 Or A = 19 Or A = 20 Or A = 23 Or A = 25 Or A = 28 Or A = 36 Or A = 38 Or A = 42 Or A = 43 Or A = 44 Or A = 193 Or A = 35 Or A = 191 Or A = 52 Or A = 72 Or A = 77 Or A = 108 Or (A >= 109 And A <= 112) Or (A >= 121 And A <= 124) Or A = 125 Or (A >= 129 And A <= 132) Or A = 136 Or A = 158 Or A = 164 Or A = 163 Or A = 162 Or A = 165 Or A = 166 Or A = 189 Or A = 199 Or A = 209 Or A = 207 Or A = 229 Or A = 230 Or A = 232 Or A = 236 Or A = 233 Or A = 173 Or A = 175 Or A = 177 Or A = 178 Or A = 176 Then     'Koopa troopas / Shy guy
         If B = -1 Then
             EditorNPCFrame = 0

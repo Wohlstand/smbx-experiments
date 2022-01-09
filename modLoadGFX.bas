@@ -293,7 +293,7 @@ Public Sub LoadGFX()
     UpdateLoad
     Exit Sub
 End Sub
-    
+
 Public Sub UnloadGFX()
     On Error Resume Next
     Dim A As Integer
@@ -528,7 +528,7 @@ Public Sub LoadCustomGFX()
                 End If
             Next A
         End If
-        
+
         If Dir(FileNamePath & "\yoshib*.gif") <> "" Then
             For A = 1 To 10
                 If Dir(FileNamePath & "\yoshib-" & A & ".gif") <> "" Then
@@ -954,7 +954,7 @@ Public Sub LoadCustomGFX2(GFXFilePath As String)
                 End If
             Next A
         End If
-        
+
         If Dir(GFXFilePath & "\mario*.gif") <> "" Then
             For A = 1 To maxPlayerFrames
                 If Dir(GFXFilePath & "\mario-" & A & ".gif") <> "" Then

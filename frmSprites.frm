@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmSprites 
+Begin VB.Form frmSprites
    Caption         =   "Sprites"
    ClientHeight    =   13110
    ClientLeft      =   165
@@ -9,7 +9,7 @@ Begin VB.Form frmSprites
    ScaleHeight     =   13110
    ScaleWidth      =   18525
    StartUpPosition =   3  'Windows Default
-   Begin VB.PictureBox pic 
+   Begin VB.PictureBox pic
       AutoRedraw      =   -1  'True
       BackColor       =   &H00000000&
       BorderStyle     =   0  'None

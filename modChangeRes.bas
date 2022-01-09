@@ -72,7 +72,7 @@ Public Sub GetCurrentRes()
     '=======================================================
     'Call this sub in Form_Load
     '=======================================================
-    
+
     'Save original (current) resolution
     EnumDisplaySettings 0&, ENUM_CURRENT_SETTINGS, DevM     'Get current setting
     OldX = DevM.dmPelsWidth     'or OldX = Screen.Width / Screen.TwipsPerPixelX
@@ -87,7 +87,7 @@ Public Sub SetOrigRes()
     '=======================================================
     'Call this sub in Form_Unload
     '=======================================================
-    
+
     'Change the display settings back to the old settings
     ChangeRes OldX, OldY, OldColor, OldFreq
     Do
@@ -108,7 +108,7 @@ Public Sub ChangeRes(ScreenX As Integer, ScreenY As Integer, ScreenColor As Inte
     'ChangeRes 800, 600, 0, 0       '800x600 pixels
     'ChangeRes 0, 0, 0, 60          '60Hz
     '=======================================================
-    
+
     '=======================================================
     'The "EndIf" statement is used because if a "0" is used
     'in the API call, the API considers it as an aspect that
@@ -118,7 +118,7 @@ Public Sub ChangeRes(ScreenX As Integer, ScreenY As Integer, ScreenColor As Inte
     'ChangeRes 0, 0, 0, 0   =   The current system setting
     'ChangeRes 0, 0, 16, 0  =   The current resolution and display frequency setting, with new color quality
     '=======================================================
-    
+
     'Get selected resolution
     If ScreenX <> 0 And ScreenY <> 0 And ScreenColor = 0 And ScreenFreq = 0 Then
         DevM.dmPelsWidth = ScreenX          'Screen width

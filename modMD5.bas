@@ -202,40 +202,40 @@ Private Function LongToString(Num As Long) As String
         Dim B As Byte
         Dim C As Byte
         Dim D As Byte
-        
+
         A = Num And &HFF&
         If A < 16 Then
             LongToString = "0" & Hex(A)
         Else
             LongToString = Hex(A)
         End If
-               
+
         B = (Num And &HFF00&) \ 256
         If B < 16 Then
             LongToString = LongToString & "0" & Hex(B)
         Else
             LongToString = LongToString & Hex(B)
         End If
-        
+
         C = (Num And &HFF0000) \ 65536
         If C < 16 Then
             LongToString = LongToString & "0" & Hex(C)
         Else
             LongToString = LongToString & Hex(C)
         End If
-       
+
         If Num < 0 Then
             D = ((Num And &H7F000000) \ 16777216) Or &H80&
         Else
             D = (Num And &HFF000000) \ 16777216
         End If
-        
+
         If D < 16 Then
             LongToString = LongToString & "0" & Hex(D)
         Else
             LongToString = LongToString & Hex(D)
         End If
-    
+
 End Function
 
 '
@@ -255,14 +255,14 @@ End Sub
 '
 Public Sub MD5Final()
     Dim dblBits As Double
-    
+
     Dim Padding(72) As Byte
     Dim lngBytesBuffered As Long
-    
+
     Padding(0) = &H80
-    
+
     dblBits = ByteCounter * 8
-    
+
     ' Pad out
     lngBytesBuffered = ByteCounter Mod 64
     If lngBytesBuffered <= 56 Then
@@ -270,8 +270,8 @@ Public Sub MD5Final()
     Else
         MD5Update 120 - ByteCounter, Padding
     End If
-    
-    
+
+
     Padding(0) = UnsignedToLong(dblBits) And &HFF&
     Padding(1) = UnsignedToLong(dblBits) \ 256 And &HFF&
     Padding(2) = UnsignedToLong(dblBits) \ 65536 And &HFF&
@@ -280,7 +280,7 @@ Public Sub MD5Final()
     Padding(5) = 0
     Padding(6) = 0
     Padding(7) = 0
-    
+
     MD5Update 8, Padding
 End Sub
 
@@ -295,7 +295,7 @@ Public Sub MD5Update(InputLen As Long, InputBuffer() As Byte)
     Dim lngBufferedBytes As Long
     Dim lngBufferRemaining As Long
     Dim lngRem As Long
-    
+
     lngBufferedBytes = ByteCounter Mod 64
     lngBufferRemaining = 64 - lngBufferedBytes
     ByteCounter = ByteCounter + InputLen
@@ -305,7 +305,7 @@ Public Sub MD5Update(InputLen As Long, InputBuffer() As Byte)
             ByteBuffer(lngBufferedBytes + II) = InputBuffer(II)
         Next II
         MD5Transform ByteBuffer
-        
+
         lngRem = (InputLen) Mod 64
         ' The transfer is a multiple of 64 lets do some transformations
         For i = lngBufferRemaining To InputLen - II - lngRem Step 64
@@ -318,12 +318,12 @@ Public Sub MD5Update(InputLen As Long, InputBuffer() As Byte)
     Else
       i = 0
     End If
-    
+
     ' Buffer any remaining input
     For K = 0 To InputLen - i - 1
         ByteBuffer(lngBufferedBytes + K) = InputBuffer(i + K)
     Next K
-    
+
 End Sub
 
 '
@@ -335,12 +335,12 @@ Private Sub MD5Transform(Buffer() As Byte)
     Dim B As Long
     Dim C As Long
     Dim D As Long
-    
+
     A = State(1)
     B = State(2)
     C = State(3)
     D = State(4)
-    
+
     Decode 64, X, Buffer
 
     ' Round 1
@@ -360,7 +360,7 @@ Private Sub MD5Transform(Buffer() As Byte)
     FF D, A, B, C, X(13), S12, -40341101
     FF C, D, A, B, X(14), S13, -1502002290
     FF B, C, D, A, X(15), S14, 1236535329
-    
+
     ' Round 2
     GG A, B, C, D, X(1), S21, -165796510
     GG D, A, B, C, X(6), S22, -1069501632
@@ -378,7 +378,7 @@ Private Sub MD5Transform(Buffer() As Byte)
     GG D, A, B, C, X(2), S22, -51403784
     GG C, D, A, B, X(7), S23, 1735328473
     GG B, C, D, A, X(12), S24, -1926607734
-    
+
     ' Round 3
     HH A, B, C, D, X(5), S31, -378558
     HH D, A, B, C, X(8), S32, -2022574463
@@ -396,7 +396,7 @@ Private Sub MD5Transform(Buffer() As Byte)
     HH D, A, B, C, X(12), S32, -421815835
     HH C, D, A, B, X(15), S33, 530742520
     HH B, C, D, A, X(2), S34, -995338651
-    
+
     ' Round 4
     II A, B, C, D, X(0), S41, -198630844
     II D, A, B, C, X(7), S42, 1126891415
@@ -414,8 +414,8 @@ Private Sub MD5Transform(Buffer() As Byte)
     II D, A, B, C, X(11), S42, -1120210379
     II C, D, A, B, X(2), S43, 718787259
     II B, C, D, A, X(9), S44, -343485551
-    
-    
+
+
     State(1) = LongOverflowAdd(State(1), A)
     State(2) = LongOverflowAdd(State(2), B)
     State(3) = LongOverflowAdd(State(3), C)
@@ -424,14 +424,14 @@ Private Sub MD5Transform(Buffer() As Byte)
 '  /* Zeroize sensitive information.
 '*/
 '  MD5_memset ((POINTER)x, 0, sizeof (x));
-    
+
 End Sub
 
 Private Sub Decode(Length As Integer, OutputBuffer() As Long, InputBuffer() As Byte)
     Dim intDblIndex As Integer
     Dim intByteIndex As Integer
     Dim dblSum As Double
-    
+
     intDblIndex = 0
     For intByteIndex = 0 To Length - 1 Step 4
         dblSum = InputBuffer(intByteIndex) + _

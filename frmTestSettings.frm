@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmTestSettings 
+Begin VB.Form frmTestSettings
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Level Test Settings"
    ClientHeight    =   4455
@@ -13,7 +13,7 @@ Begin VB.Form frmTestSettings
    MinButton       =   0   'False
    ScaleHeight     =   4455
    ScaleWidth      =   10110
-   Begin VB.CommandButton cmdClose 
+   Begin VB.CommandButton cmdClose
       Caption         =   "Close"
       Height          =   375
       Left            =   120
@@ -21,7 +21,7 @@ Begin VB.Form frmTestSettings
       Top             =   1800
       Width           =   1455
    End
-   Begin VB.Frame framePlayer 
+   Begin VB.Frame framePlayer
       Caption         =   "Player 2"
       Height          =   4215
       Index           =   2
@@ -29,14 +29,14 @@ Begin VB.Form frmTestSettings
       TabIndex        =   29
       Top             =   120
       Width           =   4095
-      Begin VB.Frame Frame2 
+      Begin VB.Frame Frame2
          Caption         =   "Character"
          Height          =   615
          Left            =   120
          TabIndex        =   35
          Top             =   240
          Width           =   3855
-         Begin VB.OptionButton optChrLink 
+         Begin VB.OptionButton optChrLink
             Caption         =   "Link"
             Height          =   255
             Index           =   2
@@ -45,7 +45,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   615
          End
-         Begin VB.OptionButton optChrToad 
+         Begin VB.OptionButton optChrToad
             Caption         =   "Toad"
             Height          =   255
             Index           =   2
@@ -54,7 +54,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   735
          End
-         Begin VB.OptionButton optChrPeach 
+         Begin VB.OptionButton optChrPeach
             Caption         =   "Peach"
             Height          =   255
             Index           =   2
@@ -63,7 +63,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   855
          End
-         Begin VB.OptionButton optChrLuigi 
+         Begin VB.OptionButton optChrLuigi
             Caption         =   "Luigi"
             Height          =   255
             Index           =   2
@@ -73,7 +73,7 @@ Begin VB.Form frmTestSettings
             Value           =   -1  'True
             Width           =   735
          End
-         Begin VB.OptionButton optChrMario 
+         Begin VB.OptionButton optChrMario
             Caption         =   "Mario"
             Height          =   255
             Index           =   2
@@ -83,7 +83,7 @@ Begin VB.Form frmTestSettings
             Width           =   735
          End
       End
-      Begin VB.Frame frameState 
+      Begin VB.Frame frameState
          Caption         =   "State"
          Height          =   2055
          Index           =   2
@@ -91,7 +91,7 @@ Begin VB.Form frmTestSettings
          TabIndex        =   31
          Top             =   840
          Width           =   1935
-         Begin VB.OptionButton optIceMario 
+         Begin VB.OptionButton optIceMario
             Caption         =   "Ice Luigi"
             Height          =   255
             Index           =   2
@@ -100,7 +100,7 @@ Begin VB.Form frmTestSettings
             Top             =   960
             Width           =   1455
          End
-         Begin VB.OptionButton optHammerMario 
+         Begin VB.OptionButton optHammerMario
             Caption         =   "Hammer Luigi"
             Height          =   255
             Index           =   2
@@ -109,7 +109,7 @@ Begin VB.Form frmTestSettings
             Top             =   1680
             Width           =   1695
          End
-         Begin VB.OptionButton optTanookiMario 
+         Begin VB.OptionButton optTanookiMario
             Caption         =   "Tanooki Luigi"
             Height          =   255
             Index           =   2
@@ -118,7 +118,7 @@ Begin VB.Form frmTestSettings
             Top             =   1440
             Width           =   1455
          End
-         Begin VB.OptionButton optMario 
+         Begin VB.OptionButton optMario
             Caption         =   "Luigi"
             Height          =   255
             Index           =   2
@@ -128,7 +128,7 @@ Begin VB.Form frmTestSettings
             Value           =   -1  'True
             Width           =   1455
          End
-         Begin VB.OptionButton optSuperMario 
+         Begin VB.OptionButton optSuperMario
             Caption         =   "Super Luigi"
             Height          =   255
             Index           =   2
@@ -137,7 +137,7 @@ Begin VB.Form frmTestSettings
             Top             =   480
             Width           =   1455
          End
-         Begin VB.OptionButton optFireMario 
+         Begin VB.OptionButton optFireMario
             Caption         =   "Fire Luigi"
             Height          =   255
             Index           =   2
@@ -146,7 +146,7 @@ Begin VB.Form frmTestSettings
             Top             =   720
             Width           =   1455
          End
-         Begin VB.OptionButton optRacoonMario 
+         Begin VB.OptionButton optRacoonMario
             Caption         =   "Racoon Luigi"
             Height          =   255
             Index           =   2
@@ -156,7 +156,7 @@ Begin VB.Form frmTestSettings
             Width           =   1455
          End
       End
-      Begin VB.Frame frameMount 
+      Begin VB.Frame frameMount
          Caption         =   "Mount"
          Height          =   3255
          Index           =   2
@@ -164,7 +164,7 @@ Begin VB.Form frmTestSettings
          TabIndex        =   30
          Top             =   840
          Width           =   1815
-         Begin VB.OptionButton optBlueBoot 
+         Begin VB.OptionButton optBlueBoot
             Caption         =   "Lakitu's Shoe"
             Height          =   255
             Index           =   2
@@ -173,7 +173,7 @@ Begin VB.Form frmTestSettings
             Top             =   2880
             Width           =   1335
          End
-         Begin VB.OptionButton optIceYoshi 
+         Begin VB.OptionButton optIceYoshi
             Caption         =   "Ice Yoshi"
             Height          =   255
             Index           =   2
@@ -182,7 +182,7 @@ Begin VB.Form frmTestSettings
             Top             =   2160
             Width           =   1215
          End
-         Begin VB.OptionButton optPinkYoshi 
+         Begin VB.OptionButton optPinkYoshi
             Caption         =   "Pink Yoshi"
             Height          =   255
             Index           =   2
@@ -191,7 +191,7 @@ Begin VB.Form frmTestSettings
             Top             =   1920
             Width           =   1215
          End
-         Begin VB.OptionButton optPurpleYoshi 
+         Begin VB.OptionButton optPurpleYoshi
             Caption         =   "Purple Yoshi"
             Height          =   255
             Index           =   2
@@ -200,7 +200,7 @@ Begin VB.Form frmTestSettings
             Top             =   1680
             Width           =   1215
          End
-         Begin VB.OptionButton optBlackYoshi 
+         Begin VB.OptionButton optBlackYoshi
             Caption         =   "Black Yoshi"
             Height          =   255
             Index           =   2
@@ -209,7 +209,7 @@ Begin VB.Form frmTestSettings
             Top             =   1440
             Width           =   1215
          End
-         Begin VB.OptionButton optRedBoot 
+         Begin VB.OptionButton optRedBoot
             Caption         =   "Podoboo's Shoe"
             Height          =   255
             Index           =   2
@@ -218,7 +218,7 @@ Begin VB.Form frmTestSettings
             Top             =   2640
             Width           =   1575
          End
-         Begin VB.OptionButton optBoot 
+         Begin VB.OptionButton optBoot
             Caption         =   "Kuribo's Shoe"
             Height          =   255
             Index           =   2
@@ -227,7 +227,7 @@ Begin VB.Form frmTestSettings
             Top             =   2400
             Width           =   1335
          End
-         Begin VB.OptionButton optGreenYoshi 
+         Begin VB.OptionButton optGreenYoshi
             Caption         =   "Green Yoshi"
             Height          =   255
             Index           =   2
@@ -236,7 +236,7 @@ Begin VB.Form frmTestSettings
             Top             =   480
             Width           =   1215
          End
-         Begin VB.OptionButton optBlueYoshi 
+         Begin VB.OptionButton optBlueYoshi
             Caption         =   "Blue Yoshi"
             Height          =   255
             Index           =   2
@@ -245,7 +245,7 @@ Begin VB.Form frmTestSettings
             Top             =   720
             Width           =   1215
          End
-         Begin VB.OptionButton optYellowYoshi 
+         Begin VB.OptionButton optYellowYoshi
             Caption         =   "Yellow Yoshi"
             Height          =   255
             Index           =   2
@@ -254,7 +254,7 @@ Begin VB.Form frmTestSettings
             Top             =   960
             Width           =   1215
          End
-         Begin VB.OptionButton optRedYoshi 
+         Begin VB.OptionButton optRedYoshi
             Caption         =   "Red Yoshi"
             Height          =   255
             Index           =   2
@@ -263,7 +263,7 @@ Begin VB.Form frmTestSettings
             Top             =   1200
             Width           =   1215
          End
-         Begin VB.OptionButton optNoMount 
+         Begin VB.OptionButton optNoMount
             Caption         =   "None"
             Height          =   255
             Index           =   2
@@ -275,7 +275,7 @@ Begin VB.Form frmTestSettings
          End
       End
    End
-   Begin VB.Frame framePlayer 
+   Begin VB.Frame framePlayer
       Caption         =   "Player 1"
       Height          =   4215
       Index           =   1
@@ -283,14 +283,14 @@ Begin VB.Form frmTestSettings
       TabIndex        =   26
       Top             =   120
       Width           =   4095
-      Begin VB.Frame Frame1 
+      Begin VB.Frame Frame1
          Caption         =   "Character"
          Height          =   615
          Left            =   120
          TabIndex        =   32
          Top             =   240
          Width           =   3855
-         Begin VB.OptionButton optChrLink 
+         Begin VB.OptionButton optChrLink
             Caption         =   "Link"
             Height          =   255
             Index           =   1
@@ -299,7 +299,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   615
          End
-         Begin VB.OptionButton optChrToad 
+         Begin VB.OptionButton optChrToad
             Caption         =   "Toad"
             Height          =   255
             Index           =   1
@@ -308,7 +308,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   735
          End
-         Begin VB.OptionButton optChrPeach 
+         Begin VB.OptionButton optChrPeach
             Caption         =   "Peach"
             Height          =   255
             Index           =   1
@@ -317,7 +317,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   855
          End
-         Begin VB.OptionButton optChrLuigi 
+         Begin VB.OptionButton optChrLuigi
             Caption         =   "Luigi"
             Height          =   255
             Index           =   1
@@ -326,7 +326,7 @@ Begin VB.Form frmTestSettings
             Top             =   240
             Width           =   735
          End
-         Begin VB.OptionButton optChrMario 
+         Begin VB.OptionButton optChrMario
             Caption         =   "Mario"
             Height          =   255
             Index           =   1
@@ -337,7 +337,7 @@ Begin VB.Form frmTestSettings
             Width           =   735
          End
       End
-      Begin VB.Frame frameState 
+      Begin VB.Frame frameState
          Caption         =   "State"
          Height          =   2055
          Index           =   1
@@ -345,7 +345,7 @@ Begin VB.Form frmTestSettings
          TabIndex        =   28
          Top             =   840
          Width           =   1935
-         Begin VB.OptionButton optIceMario 
+         Begin VB.OptionButton optIceMario
             Caption         =   "Ice Mario"
             Height          =   255
             Index           =   1
@@ -354,7 +354,7 @@ Begin VB.Form frmTestSettings
             Top             =   960
             Width           =   1455
          End
-         Begin VB.OptionButton optHammerMario 
+         Begin VB.OptionButton optHammerMario
             Caption         =   "Hammer Mario"
             Height          =   255
             Index           =   1
@@ -363,7 +363,7 @@ Begin VB.Form frmTestSettings
             Top             =   1680
             Width           =   1695
          End
-         Begin VB.OptionButton optTanookiMario 
+         Begin VB.OptionButton optTanookiMario
             Caption         =   "Tanooki Mario"
             Height          =   255
             Index           =   1
@@ -372,7 +372,7 @@ Begin VB.Form frmTestSettings
             Top             =   1440
             Width           =   1455
          End
-         Begin VB.OptionButton optMario 
+         Begin VB.OptionButton optMario
             Caption         =   "Mario"
             Height          =   255
             Index           =   1
@@ -382,7 +382,7 @@ Begin VB.Form frmTestSettings
             Value           =   -1  'True
             Width           =   1455
          End
-         Begin VB.OptionButton optSuperMario 
+         Begin VB.OptionButton optSuperMario
             Caption         =   "Super Mario"
             Height          =   255
             Index           =   1
@@ -391,7 +391,7 @@ Begin VB.Form frmTestSettings
             Top             =   480
             Width           =   1455
          End
-         Begin VB.OptionButton optFireMario 
+         Begin VB.OptionButton optFireMario
             Caption         =   "Fire Mario"
             Height          =   255
             Index           =   1
@@ -400,7 +400,7 @@ Begin VB.Form frmTestSettings
             Top             =   720
             Width           =   1455
          End
-         Begin VB.OptionButton optRacoonMario 
+         Begin VB.OptionButton optRacoonMario
             Caption         =   "Racoon Mario"
             Height          =   255
             Index           =   1
@@ -410,7 +410,7 @@ Begin VB.Form frmTestSettings
             Width           =   1455
          End
       End
-      Begin VB.Frame frameMount 
+      Begin VB.Frame frameMount
          Caption         =   "Mount"
          Height          =   3255
          Index           =   1
@@ -418,7 +418,7 @@ Begin VB.Form frmTestSettings
          TabIndex        =   27
          Top             =   840
          Width           =   1815
-         Begin VB.OptionButton optIceYoshi 
+         Begin VB.OptionButton optIceYoshi
             Caption         =   "Ice Yoshi"
             Height          =   255
             Index           =   1
@@ -427,7 +427,7 @@ Begin VB.Form frmTestSettings
             Top             =   2160
             Width           =   1215
          End
-         Begin VB.OptionButton optPinkYoshi 
+         Begin VB.OptionButton optPinkYoshi
             Caption         =   "Pink Yoshi"
             Height          =   255
             Index           =   1
@@ -436,7 +436,7 @@ Begin VB.Form frmTestSettings
             Top             =   1920
             Width           =   1215
          End
-         Begin VB.OptionButton optPurpleYoshi 
+         Begin VB.OptionButton optPurpleYoshi
             Caption         =   "Purple Yoshi"
             Height          =   255
             Index           =   1
@@ -445,7 +445,7 @@ Begin VB.Form frmTestSettings
             Top             =   1680
             Width           =   1215
          End
-         Begin VB.OptionButton optBlackYoshi 
+         Begin VB.OptionButton optBlackYoshi
             Caption         =   "Black Yoshi"
             Height          =   255
             Index           =   1
@@ -454,7 +454,7 @@ Begin VB.Form frmTestSettings
             Top             =   1440
             Width           =   1215
          End
-         Begin VB.OptionButton optBlueBoot 
+         Begin VB.OptionButton optBlueBoot
             Caption         =   "Lakitu's Shoe"
             Height          =   255
             Index           =   1
@@ -463,7 +463,7 @@ Begin VB.Form frmTestSettings
             Top             =   2880
             Width           =   1335
          End
-         Begin VB.OptionButton optRedBoot 
+         Begin VB.OptionButton optRedBoot
             Caption         =   "Podoboo's Shoe"
             Height          =   255
             Index           =   1
@@ -472,7 +472,7 @@ Begin VB.Form frmTestSettings
             Top             =   2640
             Width           =   1575
          End
-         Begin VB.OptionButton optGreenYoshi 
+         Begin VB.OptionButton optGreenYoshi
             Caption         =   "Green Yoshi"
             Height          =   255
             Index           =   1
@@ -481,7 +481,7 @@ Begin VB.Form frmTestSettings
             Top             =   480
             Width           =   1215
          End
-         Begin VB.OptionButton optBlueYoshi 
+         Begin VB.OptionButton optBlueYoshi
             Caption         =   "Blue Yoshi"
             Height          =   255
             Index           =   1
@@ -490,7 +490,7 @@ Begin VB.Form frmTestSettings
             Top             =   720
             Width           =   1215
          End
-         Begin VB.OptionButton optYellowYoshi 
+         Begin VB.OptionButton optYellowYoshi
             Caption         =   "Yellow Yoshi"
             Height          =   255
             Index           =   1
@@ -499,7 +499,7 @@ Begin VB.Form frmTestSettings
             Top             =   960
             Width           =   1215
          End
-         Begin VB.OptionButton optRedYoshi 
+         Begin VB.OptionButton optRedYoshi
             Caption         =   "Red Yoshi"
             Height          =   255
             Index           =   1
@@ -508,7 +508,7 @@ Begin VB.Form frmTestSettings
             Top             =   1200
             Width           =   1215
          End
-         Begin VB.OptionButton optBoot 
+         Begin VB.OptionButton optBoot
             Caption         =   "Kuribo's Shoe"
             Height          =   255
             Index           =   1
@@ -517,7 +517,7 @@ Begin VB.Form frmTestSettings
             Top             =   2400
             Width           =   1335
          End
-         Begin VB.OptionButton optNoMount 
+         Begin VB.OptionButton optNoMount
             Caption         =   "None"
             Height          =   255
             Index           =   1
@@ -529,14 +529,14 @@ Begin VB.Form frmTestSettings
          End
       End
    End
-   Begin VB.Frame Frame 
+   Begin VB.Frame Frame
       Caption         =   "General Settings"
       Height          =   1575
       Left            =   120
       TabIndex        =   25
       Top             =   120
       Width           =   1455
-      Begin VB.CheckBox chkFullscreen 
+      Begin VB.CheckBox chkFullscreen
          Caption         =   "Fullscreen"
          Height          =   255
          Left            =   120
@@ -544,7 +544,7 @@ Begin VB.Form frmTestSettings
          Top             =   1200
          Width           =   1215
       End
-      Begin VB.CheckBox chkMaxFPS 
+      Begin VB.CheckBox chkMaxFPS
          Caption         =   "Max FPS"
          Height          =   255
          Left            =   120
@@ -552,7 +552,7 @@ Begin VB.Form frmTestSettings
          Top             =   960
          Width           =   1215
       End
-      Begin VB.CheckBox chkShowFPS 
+      Begin VB.CheckBox chkShowFPS
          Caption         =   "Show FPS"
          Height          =   255
          Left            =   120
@@ -560,7 +560,7 @@ Begin VB.Form frmTestSettings
          Top             =   720
          Width           =   1215
       End
-      Begin VB.CheckBox chkGodMode 
+      Begin VB.CheckBox chkGodMode
          Caption         =   "God Mode"
          Height          =   255
          Left            =   120
@@ -568,7 +568,7 @@ Begin VB.Form frmTestSettings
          Top             =   480
          Width           =   1215
       End
-      Begin VB.CheckBox chkGrabAll 
+      Begin VB.CheckBox chkGrabAll
          Caption         =   "Grab All"
          Height          =   255
          Left            =   120
@@ -641,14 +641,14 @@ Private Sub optChrLink_Click(Index As Integer)
     optTanookiMario(Index).Caption = "Gold Link"
     optHammerMario(Index).Caption = "Shadow Link"
     optIceMario(Index).Caption = "Ice Link"
-    
+
     ShowAll Index
     'optMario(Index).Value = True
     'optSuperMario(Index).Visible = False
     'optRacoonMario(Index).Visible = False
     'optTanookiMario(Index).Visible = False
     'optHammerMario(Index).Visible = False
-    
+
     optNoMount(Index).Value = True
     optGreenYoshi(Index).Visible = False
     optRedYoshi(Index).Visible = False
@@ -672,7 +672,7 @@ Private Sub optChrLuigi_Click(Index As Integer)
     optTanookiMario(Index).Caption = "Tanooki Luigi"
     optHammerMario(Index).Caption = "Hammer Luigi"
     optIceMario(Index).Caption = "Ice Luigi"
-    
+
     ShowAll Index
     optMario(Index).Value = True
     optNoMount(Index).Value = True
@@ -687,7 +687,7 @@ Private Sub optChrMario_Click(Index As Integer)
     optTanookiMario(Index).Caption = "Tanooki Mario"
     optHammerMario(Index).Caption = "Hammer Mario"
     optIceMario(Index).Caption = "Ice Mario"
-    
+
     ShowAll Index
     optMario(Index).Value = True
     optNoMount(Index).Value = True
@@ -702,7 +702,7 @@ Private Sub optChrPeach_Click(Index As Integer)
     optTanookiMario(Index).Caption = "Tanooki Peach"
     optHammerMario(Index).Caption = "Bomb Peach"
     optIceMario(Index).Caption = "Ice Peach"
-    
+
     ShowAll Index
     'optMario(Index).Value = True
     'optRacoonMario(Index).Visible = False
@@ -728,7 +728,7 @@ Private Sub optChrToad_Click(Index As Integer)
     optTanookiMario(Index).Caption = "Tanooki Toad"
     optHammerMario(Index).Caption = "Boomerang Toad"
     optIceMario(Index).Caption = "Ice Toad"
-    
+
     ShowAll Index
     'optMario(Index).Value = True
     'optRacoonMario(Index).Visible = False

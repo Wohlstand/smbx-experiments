@@ -514,7 +514,7 @@ Public Declare Function SDL_RWFromFile Lib "SDL2MixerVB.dll" Alias "SDL_RWFromFi
 'SDL_RWops * SDL_RWFromMemVB6(void *mem, int size)
 Public Declare Function SDL_RWFromMem Lib "SDL2MixerVB.dll" Alias "SDL_RWFromMemVB6" _
                     (ByRef Mem As Any, ByVal Size As Long) As Long
-                    
+
 'SDL_RWops * SDL_AllocRWVB6(void)
 Public Declare Function SDL_AllocRW Lib "SDL2MixerVB.dll" Alias "SDL_AllocRWVB6" () As Long
 
@@ -525,11 +525,11 @@ Public Declare Sub SDL_FreeRW Lib "SDL2MixerVB.dll" Alias "SDL_FreeRWVB6" _
 'int SDL_RWsizeVB6(SDL_RWops * ctx)
 Public Declare Function SDL_RWsize Lib "SDL2MixerVB.dll" Alias "SDL_RWseekVB6" _
                     (ByVal RWops As Long) As Long
-                    
+
 'int SDL_RWseekVB6(SDL_RWops * ctx, int offset, int whence)
 Public Declare Function SDL_RWseek Lib "SDL2MixerVB.dll" Alias "SDL_RWseekVB6" _
                     (ByVal RWops As Long, ByVal Offset As Long, ByVal Whence As Long) As Long
-                    
+
 'int SDL_RWtellVB6(SDL_RWops * ctx)
 Public Declare Function SDL_RWtell Lib "SDL2MixerVB.dll" Alias "SDL_RWtellVB6" _
                     (ByVal RWops As Long) As Long

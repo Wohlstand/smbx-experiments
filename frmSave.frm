@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmSave 
+Begin VB.Form frmSave
    Caption         =   "Super Mario Bros. X - Save Level"
    ClientHeight    =   4275
    ClientLeft      =   60
@@ -10,14 +10,14 @@ Begin VB.Form frmSave
    ScaleHeight     =   4275
    ScaleWidth      =   6975
    StartUpPosition =   2  'CenterScreen
-   Begin VB.TextBox txtFileName 
+   Begin VB.TextBox txtFileName
       Height          =   375
       Left            =   3120
       TabIndex        =   0
       Top             =   3240
       Width           =   3735
    End
-   Begin VB.FileListBox File1 
+   Begin VB.FileListBox File1
       Height          =   3015
       Left            =   3120
       Pattern         =   "*.lvl"
@@ -25,21 +25,21 @@ Begin VB.Form frmSave
       Top             =   120
       Width           =   3735
    End
-   Begin VB.DirListBox Dir1 
+   Begin VB.DirListBox Dir1
       Height          =   3690
       Left            =   120
       TabIndex        =   5
       Top             =   480
       Width           =   2895
    End
-   Begin VB.DriveListBox Drive1 
+   Begin VB.DriveListBox Drive1
       Height          =   315
       Left            =   120
       TabIndex        =   4
       Top             =   120
       Width           =   2895
    End
-   Begin VB.CommandButton cmdSave 
+   Begin VB.CommandButton cmdSave
       Caption         =   "Save"
       Height          =   495
       Left            =   3120
@@ -47,7 +47,7 @@ Begin VB.Form frmSave
       Top             =   3720
       Width           =   1815
    End
-   Begin VB.CommandButton cmdCancel 
+   Begin VB.CommandButton cmdCancel
       Caption         =   "Cancel"
       Height          =   495
       Left            =   5040

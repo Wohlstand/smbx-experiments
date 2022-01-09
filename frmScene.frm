@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmScene 
+Begin VB.Form frmScene
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Scenery"
    ClientHeight    =   2505
@@ -12,7 +12,7 @@ Begin VB.Form frmScene
    MDIChild        =   -1  'True
    ScaleHeight     =   2505
    ScaleWidth      =   10335
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   65
@@ -23,7 +23,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   64
@@ -34,7 +34,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   63
@@ -45,7 +45,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   62
@@ -56,7 +56,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   61
@@ -67,7 +67,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   60
@@ -78,7 +78,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   59
@@ -89,7 +89,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   58
@@ -100,7 +100,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   57
@@ -111,7 +111,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   56
@@ -122,7 +122,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   55
@@ -133,7 +133,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   54
@@ -144,7 +144,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   53
@@ -155,7 +155,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   52
@@ -166,7 +166,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   51
@@ -177,7 +177,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   50
@@ -188,7 +188,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   49
@@ -199,7 +199,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   48
@@ -210,7 +210,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   47
@@ -221,7 +221,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   46
@@ -232,7 +232,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   45
@@ -243,7 +243,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   44
@@ -254,7 +254,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   43
@@ -265,7 +265,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   42
@@ -276,7 +276,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   41
@@ -287,7 +287,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   40
@@ -298,7 +298,7 @@ Begin VB.Form frmScene
       Top             =   1920
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   39
@@ -309,7 +309,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   38
@@ -320,7 +320,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   37
@@ -331,7 +331,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   36
@@ -342,7 +342,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   35
@@ -353,7 +353,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   34
@@ -364,7 +364,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   33
@@ -375,7 +375,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   32
@@ -386,7 +386,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   31
@@ -397,7 +397,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   30
@@ -408,7 +408,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   29
@@ -419,7 +419,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   28
@@ -430,7 +430,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   27
@@ -441,7 +441,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   26
@@ -452,7 +452,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   25
@@ -463,7 +463,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   24
@@ -474,7 +474,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   23
@@ -485,7 +485,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   22
@@ -496,7 +496,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   21
@@ -507,7 +507,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   20
@@ -518,7 +518,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   19
@@ -529,7 +529,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   18
@@ -540,7 +540,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   17
@@ -551,7 +551,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   16
@@ -562,7 +562,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   15
@@ -573,7 +573,7 @@ Begin VB.Form frmScene
       Top             =   720
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   14
@@ -584,7 +584,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   13
@@ -595,7 +595,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   12
@@ -606,7 +606,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.PictureBox FocusNinja 
+   Begin VB.PictureBox FocusNinja
       Height          =   375
       Left            =   120
       ScaleHeight     =   315
@@ -615,7 +615,7 @@ Begin VB.Form frmScene
       Top             =   3960
       Width           =   375
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   11
@@ -626,7 +626,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   10
@@ -637,7 +637,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   9
@@ -648,7 +648,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   8
@@ -659,7 +659,7 @@ Begin VB.Form frmScene
       Top             =   1320
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   7
@@ -670,7 +670,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   6
@@ -681,7 +681,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   5
@@ -692,7 +692,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   4
@@ -703,7 +703,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   3
@@ -714,7 +714,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   2
@@ -725,7 +725,7 @@ Begin VB.Form frmScene
       Top             =   120
       Width           =   540
    End
-   Begin VB.OptionButton Scene 
+   Begin VB.OptionButton Scene
       BackColor       =   &H00000000&
       Height          =   540
       Index           =   1

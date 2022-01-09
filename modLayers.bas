@@ -46,10 +46,10 @@ Public Sub ShowLayer(LayerName As String, Optional NoEffect As Boolean = False) 
     Next A
     For A = 1 To numBlock
         If LCase(Block(A).Layer) = LCase(LayerName) Then
-        
-            
+
+
             'If Not (Block(A).DefaultType = 0 And Block(A).Layer = "Destroyed Blocks") Then
-            
+
                 If Block(A).Hidden = True Then
                     If NoEffect = False And Block(A).Invis = False Then
                         tempLocation = Block(A).Location
@@ -432,9 +432,9 @@ Public Sub UpdateLayers()
     Dim A As Integer
     Dim B As Integer
     Dim C As Integer
-    
+
     Dim FreezeLayers As Boolean
-    
+
     If GameMenu = False Then
         For B = 1 To numPlayers
             If Not (Player(B).Effect = 0 Or Player(B).Effect = 3 Or Player(B).Effect = 9 Or Player(B).Effect = 10) Then
@@ -452,7 +452,7 @@ Public Sub UpdateLayers()
             End If
         Next B
     End If
-    
+
     For A = 0 To 100
         If FreezeNPCs = True Then
             If Layer(A).Name <> "" And (Layer(A).SpeedX <> 0 Or Layer(A).SpeedY <> 0) Then

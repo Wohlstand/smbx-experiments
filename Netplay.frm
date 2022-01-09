@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.ocx"
-Begin VB.Form Netplay 
+Begin VB.Form Netplay
    BorderStyle     =   0  'None
    Caption         =   "NetPlay"
    ClientHeight    =   7665
@@ -13,155 +13,155 @@ Begin VB.Form Netplay
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
-   Begin VB.Timer tmrTimeoutC 
+   Begin VB.Timer tmrTimeoutC
       Enabled         =   0   'False
       Interval        =   60000
       Left            =   3840
       Top             =   1560
    End
-   Begin VB.Timer tmrPingC 
+   Begin VB.Timer tmrPingC
       Enabled         =   0   'False
       Interval        =   10000
       Left            =   1440
       Top             =   4080
    End
-   Begin VB.Timer tmrConnect 
+   Begin VB.Timer tmrConnect
       Enabled         =   0   'False
       Interval        =   10000
       Left            =   6240
       Top             =   840
    End
-   Begin VB.Timer tmrCheckPorts 
+   Begin VB.Timer tmrCheckPorts
       Enabled         =   0   'False
       Interval        =   5000
       Left            =   120
       Top             =   1320
    End
-   Begin VB.Timer tmrPing 
+   Begin VB.Timer tmrPing
       Enabled         =   0   'False
       Interval        =   30000
       Left            =   1440
       Top             =   3480
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   16
       Interval        =   60000
       Left            =   5040
       Top             =   5040
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   15
       Interval        =   60000
       Left            =   4560
       Top             =   5040
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   14
       Interval        =   60000
       Left            =   4080
       Top             =   5040
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   13
       Interval        =   60000
       Left            =   3600
       Top             =   5040
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   12
       Interval        =   60000
       Left            =   4560
       Top             =   4560
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   11
       Interval        =   60000
       Left            =   5040
       Top             =   4560
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   10
       Interval        =   60000
       Left            =   4080
       Top             =   4560
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   9
       Interval        =   60000
       Left            =   3600
       Top             =   4560
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   8
       Interval        =   60000
       Left            =   5040
       Top             =   4080
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   7
       Interval        =   60000
       Left            =   4560
       Top             =   4080
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   6
       Interval        =   60000
       Left            =   4080
       Top             =   4080
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   5
       Interval        =   60000
       Left            =   3600
       Top             =   4080
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   4
       Interval        =   60000
       Left            =   4560
       Top             =   3600
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   3
       Interval        =   60000
       Left            =   5040
       Top             =   3600
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   2
       Interval        =   60000
       Left            =   4080
       Top             =   3600
    End
-   Begin VB.Timer tmrTimeout 
+   Begin VB.Timer tmrTimeout
       Enabled         =   0   'False
       Index           =   1
       Interval        =   60000
       Left            =   3600
       Top             =   3600
    End
-   Begin VB.Timer tmrPort 
+   Begin VB.Timer tmrPort
       Enabled         =   0   'False
       Interval        =   1000
       Left            =   120
       Top             =   720
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   0
       Left            =   1560
       Top             =   120
@@ -169,14 +169,14 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nClient 
+   Begin MSWinsockLib.Winsock nClient
       Left            =   120
       Top             =   120
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   1
       Left            =   1560
       Top             =   600
@@ -184,7 +184,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   2
       Left            =   1560
       Top             =   1080
@@ -192,7 +192,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   3
       Left            =   2040
       Top             =   120
@@ -200,7 +200,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   4
       Left            =   2040
       Top             =   600
@@ -208,7 +208,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   5
       Left            =   2040
       Top             =   1080
@@ -216,7 +216,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   6
       Left            =   3000
       Top             =   120
@@ -224,7 +224,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   7
       Left            =   3000
       Top             =   600
@@ -232,7 +232,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   8
       Left            =   3000
       Top             =   1080
@@ -240,7 +240,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   9
       Left            =   2520
       Top             =   120
@@ -248,7 +248,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   10
       Left            =   2520
       Top             =   600
@@ -256,7 +256,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   11
       Left            =   2520
       Top             =   1080
@@ -264,7 +264,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   12
       Left            =   1560
       Top             =   1560
@@ -272,7 +272,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   13
       Left            =   2040
       Top             =   1560
@@ -280,7 +280,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   14
       Left            =   3000
       Top             =   1560
@@ -288,7 +288,7 @@ Begin VB.Form Netplay
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin MSWinsockLib.Winsock nServer 
+   Begin MSWinsockLib.Winsock nServer
       Index           =   15
       Left            =   2520
       Top             =   1560

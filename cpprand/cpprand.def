@@ -2,9 +2,11 @@ LIBRARY		cpprand
 EXPORTS
 	cpprand_double
 	cpprand_int32
+	cpprand_int32N
 	cpprand_int32_round
 	cpprand_seed
 	cpprand_double_sec
 	cpprand_int32_sec
+	cpprand_int32N_sec
 	cpprand_int32_round_sec
 	cpprand_seed_sec

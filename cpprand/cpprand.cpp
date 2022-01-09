@@ -55,6 +55,16 @@ CPPRAND_EXPORT int cpprand_int32(int max)
         engine();
         return 0;
     }
+    return engine() % max;
+}
+
+CPPRAND_EXPORT int cpprand_int32N(int max)
+{
+    if(max == 0)
+    {
+        engine();
+        return 0;
+    }
     return engine() % (max + 1);
 }
 
@@ -96,8 +106,19 @@ CPPRAND_EXPORT int cpprand_int32_sec(int max)
         engine_gfx();
         return 0;
     }
+    return engine_gfx() % max;
+}
+
+CPPRAND_EXPORT int cpprand_int32N_sec(int max)
+{
+    if(max == 0)
+    {
+        engine_gfx();
+        return 0;
+    }
     return engine_gfx() % (max + 1);
 }
+
 
 CPPRAND_EXPORT int cpprand_int32_round_sec(int max)
 {

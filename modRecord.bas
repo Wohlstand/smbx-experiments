@@ -18,6 +18,10 @@ Private frame_no As Long
 Private last_controls(1 To maxPlayers) As Controls
 Private last_status_tick As Long
 
+Public Function GetRecordFrameNo()
+    GetRecordFrameNo = frame_no
+End Function
+
 Public Sub record_init()
     If Not g_recordEnabled Then
         Exit Sub
@@ -36,6 +40,7 @@ Public Sub record_init()
             MkDir (App.Path + "\gameplay-records\")
         End If
         Open App.Path + "\gameplay-records\" + Replace(FileName, ".lvl", "") + "_SMBX-64_" + Format(Now, "yyyy-mm-dd_hh-mm-ss") + ".rec" For Output As #s_recordFD
+        start_rand_track App.Path + "\gameplay-records\" + Replace(FileName, ".lvl", "") + "_SMBX-64_" + Format(Now, "yyyy-mm-dd_hh-mm-ss") + "-rand-log.txt"
     End If
 
     If Not s_recordFD = 0 Then
@@ -290,6 +295,7 @@ Public Sub record_finish()
         Print #s_recordFD, "End"
         Print #s_recordFD, "LevelBeatCode " + Str(LevelBeatCode)
         Close #s_recordFD
+        stop_rand_track
         s_recordFD = 0
     End If
 End Sub

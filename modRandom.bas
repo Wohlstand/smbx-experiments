@@ -49,7 +49,7 @@ Public Function random_int(max As Integer) As Integer
     End If
 End Function
 
-Public Function random_int_src(max As Integer) As Integer
+Public Function random_int_sec(max As Integer) As Integer
     If use_cpp = False Then
         random_int_sec = Int(Rnd() * max)
     Else
@@ -72,7 +72,7 @@ Public Function random_int_round(max As Integer) As Integer
     End If
 End Function
 
-Public Function random_int_round_src(max As Integer) As Integer
+Public Function random_int_round_sec(max As Integer) As Integer
     If use_cpp = False Then
         random_int_round_sec = Rnd() * max
     Else

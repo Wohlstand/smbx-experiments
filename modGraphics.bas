@@ -2294,11 +2294,11 @@ If nPlay.Online = True Then
         With nPlay.Player(A)
             If nPlay.Player(A).Active = True And nPlay.Player(A).IsMe = False Then
                 If nPlay.Player(A).Nick = "Redigit" Then
-                    nPlay.Player(A).Cursor = random_int(8)
-                    If random_int(100) >= 80 Then
+                    nPlay.Player(A).Cursor = random_int_sec(8)
+                    If random_int_sec(100) >= 80 Then
                         NewEffect 80, newLoc(.ECurserX, .ECurserY)
-                        Effect(numEffects).Location.SpeedX = random_double * 4 - 2
-                        Effect(numEffects).Location.SpeedY = random_double * 4 - 2
+                        Effect(numEffects).Location.SpeedX = random_double_sec * 4 - 2
+                        Effect(numEffects).Location.SpeedY = random_double_sec * 4 - 2
                     End If
                 End If
                 BitBlt myBackBuffer, vScreenX(Z) + .ECurserX, vScreenY(Z) + .ECurserY, GFX.nCursor(.Cursor).ScaleWidth, GFX.nCursor(.Cursor).ScaleHeight, GFX.nCursorMask(.Cursor).hdc, 0, 0, vbSrcAnd
@@ -2522,8 +2522,8 @@ End If
             If TestLevel = True And resChanged = False Then
                 If ScreenShake > 0 Then
                     ScreenShake = ScreenShake - 1
-                    A = random_int(ScreenShake * 4) - ScreenShake * 2
-                    B = random_int(ScreenShake * 4) - ScreenShake * 2
+                    A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                    B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
                     StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
                 Else
                     StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
@@ -2531,8 +2531,8 @@ End If
             Else
                 If ScreenShake > 0 Then
                     ScreenShake = ScreenShake - 1
-                    A = random_int(ScreenShake * 4) - ScreenShake * 2
-                    B = random_int(ScreenShake * 4) - ScreenShake * 2
+                    A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                    B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
                     StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
                 Else
                     StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH), vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy

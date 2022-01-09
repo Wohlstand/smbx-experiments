@@ -263,11 +263,11 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X - 2, vScreenY(Z) + .Location.Y, 22, 30, GFX.ECursor(3).hdc, 0, 0, vbSrcPaint
                 Else
                     If .Mode = 11 Then
-                    
+
                 BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, .Location.Width, .Location.Height, GFX.WarpMask(1).hdc, 0, 0, vbSrcAnd
                 BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, .Location.Width, .Location.Height, GFX.Warp(1).hdc, 0, 0, vbSrcPaint
                 SuperPrint Str(.WorldMusic.Type), 1, Int(.Location.X + 2 + vScreenX(Z)), Int(.Location.Y + 2 + vScreenY(Z))
-                    
+
                         'BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, .Location.Width, 2, GFX.Split(1).hdc, 0, 0, vbSrcCopy
                         'BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y + .Location.Height - 2, .Location.Width, 2, GFX.Split(1).hdc, 0, 0, vbSrcCopy
                         'BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, 2, .Location.Height, GFX.Split(1).hdc, 0, 0, vbSrcCopy
@@ -367,10 +367,10 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
                         BitBlt myBackBuffer, 32 + (48 * A) + PeachFrameX((.State * 100) + (.Frame * .Direction)), 124 - .Location.Height + PeachFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXPeachMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, 32 + (48 * A) + PeachFrameX((.State * 100) + (.Frame * .Direction)), 124 - .Location.Height + PeachFrameY((.State * 100) + (.Frame * .Direction)) + .MountOffsetY, 99, 99, GFXPeach(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
                     ElseIf .Mount = 1 Then
-                        
+
                         BitBlt myBackBuffer, 32 + (48 * A) + PeachFrameX((.State * 100) + (.Frame * .Direction)), 124 - .Location.Height + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 24, GFXPeachMask(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, 32 + (48 * A) + PeachFrameX((.State * 100) + (.Frame * .Direction)), 124 - .Location.Height + PeachFrameY((.State * 100) + (.Frame * .Direction)), 99, .Location.Height - 24, GFXPeach(.State), pfrX(100 + .Frame * .Direction), pfrY(100 + .Frame * .Direction), vbSrcPaint
-                        
+
                         BitBlt myBackBuffer, 32 + (48 * A) + .Location.Width / 2 - 16, 124 - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, 32 + (48 * A) + .Location.Width / 2 - 16, 124 - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
                         If .MountType = 3 Then
@@ -399,7 +399,7 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
                         End If
                         BitBlt myBackBuffer, 32 + (48 * A) + .Location.Width / 2 - 16, 124 - 30, 32, 32, GFX.BootMask(.MountType).hdc, 0, 32 * .MountFrame, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, 32 + (48 * A) + .Location.Width / 2 - 16, 124 - 30, 32, 32, GFX.Boot(.MountType).hdc, 0, 32 * .MountFrame, vbSrcPaint
-                        
+
                         If .MountType = 3 Then
                             .YoshiWingsFrameCount = .YoshiWingsFrameCount + 1
                             .YoshiWingsFrame = 0
@@ -475,12 +475,12 @@ End Sub
 
 Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a level/game menu/outro/level editor
     On Error Resume Next
-    
+
     Dim A As Integer
     Dim timeStr As String
     Dim Z As Integer
     Dim numScreens As Integer
-    
+
 'frame skip code
     cycleCount = cycleCount + 1
     If FrameSkip = True And TakeScreen = False And g_recordEnabled = False Then
@@ -576,7 +576,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             frmMain.AutoRedraw = True
         End If
     End If
-    
+
     'Background frames
     If FreezeNPCs = False Then
         BackgroundFrameCount(26) = BackgroundFrameCount(26) + 1
@@ -607,26 +607,26 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             If BackgroundFrame(65) >= 4 Then BackgroundFrame(65) = 0
             BackgroundFrameCount(65) = 0
         End If
-        
+
         BackgroundFrame(66) = BackgroundFrame(65)
-        
+
         BackgroundFrame(70) = BackgroundFrame(65)
         BackgroundFrame(100) = BackgroundFrame(65)
-        
+
         BackgroundFrame(134) = BackgroundFrame(65)
         BackgroundFrame(135) = BackgroundFrame(65)
         BackgroundFrame(136) = BackgroundFrame(65)
         BackgroundFrame(137) = BackgroundFrame(65)
         BackgroundFrame(138) = BackgroundFrame(65)
-        
-        
+
+
         BackgroundFrameCount(82) = BackgroundFrameCount(82) + 1
         If BackgroundFrameCount(82) >= 10 Then
             BackgroundFrame(82) = BackgroundFrame(82) + 1
             If BackgroundFrame(82) >= 4 Then BackgroundFrame(82) = 0
             BackgroundFrameCount(82) = 0
         End If
-        
+
         BackgroundFrameCount(170) = BackgroundFrameCount(170) + 1
         If BackgroundFrameCount(170) >= 8 Then
             BackgroundFrame(170) = BackgroundFrame(170) + 1
@@ -634,7 +634,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             BackgroundFrame(171) = BackgroundFrame(170)
             BackgroundFrameCount(170) = 0
         End If
-        
+
         BackgroundFrameCount(125) = BackgroundFrameCount(125) + 1
         If BackgroundFrameCount(125) >= 4 Then
             If BackgroundFrame(125) = 0 Then
@@ -655,15 +655,15 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         If BackgroundFrame(158) >= 4 Then BackgroundFrame(158) = 0
         If BackgroundFrame(159) >= 8 Then BackgroundFrame(159) = 0
     End If
-    
-    
+
+
     BackgroundFrameCount(168) = BackgroundFrameCount(168) + 1
     If BackgroundFrameCount(168) >= 8 Then
         BackgroundFrame(168) = BackgroundFrame(168) + 1
         If BackgroundFrame(168) >= 8 Then BackgroundFrame(168) = 0
         BackgroundFrameCount(168) = 0
     End If
-        
+
     BackgroundFrameCount(173) = BackgroundFrameCount(173) + 1
     If BackgroundFrameCount(173) >= 8 Then
         BackgroundFrameCount(173) = 0
@@ -673,7 +673,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             BackgroundFrame(173) = 0
         End If
     End If
-    
+
     BackgroundFrameCount(187) = BackgroundFrameCount(187) + 1
     If BackgroundFrameCount(187) >= 6 Then
         BackgroundFrame(187) = BackgroundFrame(187) + 1
@@ -683,8 +683,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         BackgroundFrame(190) = BackgroundFrame(187)
         BackgroundFrameCount(187) = 0
     End If
-    
-        
+
+
     If LevelEditor = False Then  'Sets up the screens if not in level editor
         If ScreenType = 1 Then numScreens = 2
         If ScreenType = 4 Then numScreens = 2
@@ -728,7 +728,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
         Else
             If Background2(S) = 0 Then BitBlt myBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
         End If
-        
+
         If qScreen = True Then
             If vScreenX(1) < qScreenX(1) - 2 Then
                 qScreenX(1) = qScreenX(1) - 2
@@ -746,7 +746,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             vScreenX(1) = qScreenX(1)
             vScreenY(1) = qScreenY(1)
         End If
-        
+
         'noturningback
         If LevelEditor = False Then
             If NoTurnBack(Player(Z).Section) = True Then
@@ -768,8 +768,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             End If
         End If
         DrawBackground S, Z
-        
-        
+
+
             If LevelEditor = True Then
                 If BlockFlash <= 30 Then
                     With tempLocation 'Black out the level edges
@@ -792,8 +792,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                     End With
                 End If
             End If
-        
-        
+
+
         If GameMenu = True Then
             'BitBlt myBackBuffer, 0, 0, GFX.MenuGFX(1).ScaleWidth, GFX.MenuGFX(1).ScaleWidth, GFX.MenuGFXMask(1).hdc, 0, 0, vbSrcAnd
             'BitBlt myBackBuffer, 0, 0, GFX.MenuGFX(1).ScaleWidth, GFX.MenuGFX(1).ScaleWidth, GFX.MenuGFX(1).hdc, 0, 0, vbSrcPaint
@@ -1047,12 +1047,12 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                                         BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X, vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPCMask(.Type), X2, Y2 + .Frame * NPCHeight(.Type), vbSrcAnd
                                         BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X, vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPC(.Type), X2, Y2 + .Frame * NPCHeight(.Type), vbSrcPaint
                                     End If
-                                    
+
                                 End If
                             End With
                         End If
-                        
-                        
+
+
                         If .Mount = 3 Then
                             B = .MountType
                             'Yoshi's Body
@@ -1357,7 +1357,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 End If
             End With
         Next A
-        
+
         For A = 1 To numNPCs 'ice
             With NPC(A)
                 If .Type = 263 And .Effect = 0 And .HoldingPlayer = 0 Then
@@ -1390,8 +1390,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 End If
             End With
         Next A
-        
-        
+
+
         For A = 1 To numNPCs 'Display NPCs that should be in front of blocks
             With NPC(A)
                 If .Effect = 0 Then
@@ -1422,7 +1422,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                                                 BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X + NPCFrameOffsetX(.Type), vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPCMask(.Special), 0, B * tempLocation.Height, vbSrcAnd
                                                 BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X + NPCFrameOffsetX(.Type), vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPC(.Special), 0, B * tempLocation.Height, vbSrcPaint
                                             End If
-                                        
+
                                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + (NPCFrameOffsetX(.Type) * -.Direction) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPCMask(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcAnd
                                             If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + (NPCFrameOffsetX(.Type) * -.Direction) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPC(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcPaint
                                         End If
@@ -1493,7 +1493,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                                             ElseIf .Special2 > 10 Then
                                                 YoshiTFrame = 2
                                             End If
-                                            
+
                                         End If
                                         If YoshiBFrame = 6 Then
                                             YoshiBY = YoshiBY + 10
@@ -1630,19 +1630,19 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 End If
             End With
         Next A
-        
-        
-        
+
+
+
 
 'normal player draw code
         For A = numPlayers To 1 Step -1 'Players in front of blocks
             DrawPlayer A, Z
         Next A
 'normal player end
-        
-        
-        
-        
+
+
+
+
         If LevelEditor = True Or MagicHand = True Then
             For A = 1 To numBackground 'Foreground objects
                 With Background(A)
@@ -1746,7 +1746,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 End If
             End With
         Next A
-        
+
         'water
         If LevelEditor = True Then
             For B = 1 To numWater
@@ -1764,8 +1764,8 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                 End With
             Next B
         End If
-        
-        
+
+
         If LevelEditor = False Then 'Graphics for the main game.
         'NPC Generators
             For A = 1 To numNPCs
@@ -1890,7 +1890,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
                         ElseIf (DScreenType = 6 And Z = 2) Or (DScreenType = 4 And Z = 2) Or (DScreenType = 3 And Z = 1) Then
                             Y = -300
                         End If
-                       
+
                         SuperText = MessageText
                         BoxY = 150
                         BitBlt myBackBuffer, 400 - GFX.TextBox.ScaleWidth / 2 + X, BoxY + Y + Y, GFX.TextBox.ScaleWidth, 20, GFX.TextBox.hdc, 0, 0, vbSrcCopy
@@ -1945,7 +1945,7 @@ menuFix = -44
                     BitBlt myBackBuffer, 300 - 20, 350 + (MenuCursor * 30), 16, 16, GFX.MCursorMask(0).hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, 300 - 20, 350 + (MenuCursor * 30), 16, 16, GFX.MCursor(0).hdc, 0, 0, vbSrcPaint
                 ElseIf MenuMode = 100 Or MenuMode = 200 Or MenuMode = 300 Or MenuMode = 400 Or MenuMode = 500 Then   'Character select
-                    
+
                     A = 0
                     B = 0
                     C = 0
@@ -2000,30 +2000,30 @@ menuFix = -44
                     If NumSelectWorld > 5 Then
                         minShow = worldCurs
                         maxShow = minShow + 4
-                        
+
                         If MenuCursor <= minShow - 1 Then worldCurs = worldCurs - 1
                         If MenuCursor >= maxShow - 1 Then worldCurs = worldCurs + 1
-                        
+
                         If worldCurs < 1 Then worldCurs = 1
                         If worldCurs > NumSelectWorld - 4 Then worldCurs = NumSelectWorld - 4
-                       
+
                         If maxShow >= NumSelectWorld Then
                             maxShow = NumSelectWorld
                             minShow = NumSelectWorld - 4
                         End If
-                        
+
                         minShow = worldCurs
                         maxShow = minShow + 4
-                        
+
                     End If
-                    
-                    
+
+
                     For A = minShow To maxShow
                         B = A - minShow + 1
                         tempStr = UCase(SelectWorld(A).WorldName)
                         SuperPrint tempStr, 3, 300, 320 + (B * 30)
                     Next A
-                    
+
                         If minShow > 1 Then
                             BitBlt myBackBuffer, 400 - 8, 350 - 20, 16, 16, GFX.MCursorMask(1).hdc, 0, 0, vbSrcAnd
                             BitBlt myBackBuffer, 400 - 8, 350 - 20, 16, 16, GFX.MCursor(1).hdc, 0, 0, vbSrcPaint
@@ -2032,8 +2032,8 @@ menuFix = -44
                             BitBlt myBackBuffer, 400 - 8, 490, 16, 16, GFX.MCursorMask(2).hdc, 0, 0, vbSrcAnd
                             BitBlt myBackBuffer, 400 - 8, 490, 16, 16, GFX.MCursor(2).hdc, 0, 0, vbSrcPaint
                         End If
-                    
-                    
+
+
                     B = MenuCursor - minShow + 1
                     If B >= 0 And B < 5 Then
                     BitBlt myBackBuffer, 300 - 20, 350 + (B * 30), 16, 16, GFX.MCursorMask(0).hdc, 0, 0, vbSrcAnd
@@ -2116,12 +2116,12 @@ menuFix = -44
                     BitBlt myBackBuffer, 300 - 20, 260 + (MenuCursor * 30) + menuFix, 16, 16, GFX.MCursorMask(0).hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, 300 - 20, 260 + (MenuCursor * 30) + menuFix, 16, 16, GFX.MCursor(0).hdc, 0, 0, vbSrcPaint
                 End If
-                
-                
+
+
                 BitBlt myBackBuffer, MenuMouseX, MenuMouseY, GFX.ECursor(2).ScaleWidth, GFX.ECursor(2).ScaleHeight, GFX.ECursorMask(2).hdc, 0, 0, vbSrcAnd
                 BitBlt myBackBuffer, MenuMouseX, MenuMouseY, GFX.ECursor(2).ScaleWidth, GFX.ECursor(2).ScaleHeight, GFX.ECursor(2).hdc, 0, 0, vbSrcPaint
-                
-                
+
+
             End If
             If PrintFPS > 0 Then
                 SuperPrint Str(PrintFPS), 1, 8, 8
@@ -2129,8 +2129,8 @@ menuFix = -44
         End If
         If LevelEditor = True Or MagicHand = True Then
             If LevelEditor = True Then
-            
-            
+
+
             BlockFlash = BlockFlash + 1
             If BlockFlash > 45 Then BlockFlash = 0
             If BlockFlash <= 30 Then
@@ -2196,14 +2196,14 @@ menuFix = -44
                     End If
                 Next A
             End If
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
             For A = 1 To 2 'Player start locations
                 If PlayerStart(A).Width > 0 Then
                     C = Physics.PlayerHeight(testPlayer(A).Character, 2) - Physics.PlayerHeight(A, 2)
@@ -2237,7 +2237,7 @@ menuFix = -44
                         If .X < -vScreenX(Z) Then
                             .Width = .Width - (-vScreenX(Z) - .X)
                             .X = -vScreenX(Z)
-                            
+
                         End If
                         If .Y < -vScreenY(Z) Then
                             .Height = .Height - (-vScreenY(Z) - .Y)
@@ -2264,7 +2264,7 @@ menuFix = -44
                 End With
             Next A
             End If
-            
+
             If LevelEditor = True Then
                 If BlockFlash > 30 Or BlockFlash = 0 Then
                     With tempLocation 'Black out the level edges
@@ -2287,8 +2287,8 @@ menuFix = -44
                     End With
                 End If
             End If
-            
-            
+
+
 If nPlay.Online = True Then
     For A = 0 To 15
         With nPlay.Player(A)
@@ -2308,7 +2308,7 @@ If nPlay.Online = True Then
         End With
     Next A
 End If
-            
+
             If MessageText <> "" Then
                 X = 0
                 Y = 0
@@ -2317,7 +2317,7 @@ End If
                 ElseIf (DScreenType = 6 And Z = 2) Or (DScreenType = 4 And Z = 2) Or (DScreenType = 3 And Z = 1) Then
                     Y = -300
                 End If
-               
+
                 SuperText = MessageText
                 BoxY = 150
                 BitBlt myBackBuffer, 400 - GFX.TextBox.ScaleWidth / 2 + X, BoxY + Y + Y, GFX.TextBox.ScaleWidth, 20, GFX.TextBox.hdc, 0, 0, vbSrcCopy
@@ -2348,10 +2348,10 @@ End If
                 Loop Until Len(SuperText) = 0
                 BitBlt myBackBuffer, 400 - GFX.TextBox.ScaleWidth / 2 + X, BoxY + Y + Y, GFX.TextBox.ScaleWidth, 10, GFX.TextBox.hdc, 0, GFX.TextBox.ScaleHeight - 10, vbSrcCopy
             End If
-                        
-            
-            
-            
+
+
+
+
             With EditorCursor 'Display the cursor
                 If .Mode = 1 Then
                     With .Block
@@ -2428,7 +2428,7 @@ End If
                             End If
                         End With
                     End If
-                    
+
                 ElseIf .Mode = 3 Then
                     With .Background
                         If vScreenCollision(Z, .Location) Then
@@ -2446,7 +2446,7 @@ End If
                     NPC(0) = .NPC
                     NPCFrames 0
                     .NPC = NPC(0)
-                                        
+
                     With .NPC
                         If NPCWidthGFX(.Type) = 0 Then
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width, .Location.Height, GFXNPCMask(.Type), 0, .Frame * .Location.Height, vbSrcAnd
@@ -2466,7 +2466,7 @@ End If
                                 BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X + NPCFrameOffsetX(.Type), vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPCMask(.Special), 0, B * tempLocation.Height, vbSrcAnd
                                 BitBlt myBackBuffer, vScreenX(Z) + tempLocation.X + NPCFrameOffsetX(.Type), vScreenY(Z) + tempLocation.Y, tempLocation.Width, tempLocation.Height, GFXNPC(.Special), 0, B * tempLocation.Height, vbSrcPaint
                             End If
-                        
+
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPCMask(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcAnd
                             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type) - NPCWidthGFX(.Type) / 2 + .Location.Width / 2, vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type) - NPCHeightGFX(.Type) + .Location.Height, NPCWidthGFX(.Type), NPCHeightGFX(.Type), GFXNPC(.Type), 0, .Frame * NPCHeightGFX(.Type), vbSrcPaint
                         End If
@@ -2481,7 +2481,7 @@ End If
                 ElseIf .Mode = 2 And (frmLevelSettings.optLevel(0).Value = True Or frmLevelSettings.optLevel(1).Value = True Or frmLevelSettings.optLevel(2).Value = True Or frmLevelSettings.optLevel(3).Value = True) Then
                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, 32, 32, GFX.ECursorMask(1).hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, vScreenX(Z) + .Location.X, vScreenY(Z) + .Location.Y, 32, 32, GFX.ECursor(1).hdc, 0, 0, vbSrcPaint
-                
+
                 ElseIf .Mode = 15 Then 'Water
                     For A = 1 To .Location.Height / 32
                         BitBlt myBackBuffer, .Location.X + vScreenX(Z), .Location.Y + vScreenY(Z) + 32 * A - 32, 2, 32, GFX.Water.hdc, 0, 0, vbSrcCopy
@@ -2540,9 +2540,9 @@ End If
             End If
         End If
     Next Z
-    
+
     If TakeScreen = True Then ScreenShot
-    
+
     'Update Coin Frames
     CoinFrame2(1) = CoinFrame2(1) + 1
     If CoinFrame2(1) >= 6 Then
@@ -2687,7 +2687,7 @@ Public Sub SetupGraphics()
     'Creates the back buffer for the main game
     'myBackBuffer = CreateCompatibleDC(GetDC(0))
     'myBufferBMP = CreateCompatibleBitmap(GetDC(0), screenw, screenh)
-    
+
     myBackBuffer = CreateCompatibleDC(frmMain.hdc)
     myBufferBMP = CreateCompatibleBitmap(frmMain.hdc, ScreenW, ScreenH)
     SelectObject myBackBuffer, myBufferBMP
@@ -3121,7 +3121,7 @@ Private Sub SpecialFrames() 'update frames for special things such as coins and 
         If SpecialFrame(8) >= 3 Then SpecialFrame(8) = 0
         SpecialFrameCount(8) = 0
     End If
-    
+
     SpecialFrameCount(9) = SpecialFrameCount(9) + 1 'Fairy frame
     If SpecialFrameCount(9) >= 8 Then
         SpecialFrame(9) = SpecialFrame(9) + 1
@@ -3640,10 +3640,10 @@ Public Sub DrawBackground(S As Integer, Z As Integer) 'draws the background to t
                 End If
                 .Height = GFXBackground2Height(A) / 4
                 .Width = GFXBackground2Width(A)
-                
+
                 If vScreenCollision(Z, tempLocation) Then BitBlt myBackBuffer, vScreenX(Z) + .X, vScreenY(Z) + .Y, GFXBackground2Width(A), GFXBackground2Height(A) / 4, GFXBackground2(A), 0, (GFXBackground2Height(A) / 4) * SpecialFrame(3), vbSrcCopy
-                
-                
+
+
             End With
         Next B
     End If
@@ -3806,14 +3806,14 @@ Public Sub DrawBackground(S As Integer, Z As Integer) 'draws the background to t
     If Background2(S) = 40 Then
         With tempLocation
             If level(S).Height - level(S).Y > GFXBackground2Height(A) Then
-                
-                
-                
+
+
+
                 '.Y = (-vScreenY(Z) - level(S).Y) / (level(S).Height - level(S).Y - (ScreenH - vScreen(Z).Top)) * (GFXBackground2Height(A) - (ScreenH - vScreen(Z).Top))
                 '.Y = (-vScreenY(Z) - level(S).Y) / (level(S).Height - level(S).Y - 600) * (GFXBackground2Height(A) - 600)
-                
-                
-                
+
+
+
                 .Y = (-vScreenY(Z) - vScreen(Z).Top - level(S).Y) / (level(S).Height - level(S).Y - ScreenH) * (GFXBackground2Height(A) - ScreenH) + vScreen(Z).Top
                 .Y = -vScreenY(Z) - .Y
             Else
@@ -3943,10 +3943,10 @@ Public Sub DrawBackground(S As Integer, Z As Integer) 'draws the background to t
             With tempLocation
                 .X = level(S).X + ((B * GFXBackground2Width(A)) - (vScreenX(Z) + vScreen(Z).Left + level(S).X) * 0.5)
                 If level(S).Height - level(S).Y > GFXBackground2Height(A) / 4 Then
-                    
+
                     '.Y = (-vScreenY(Z) - level(S).Y) / (level(S).Height - level(S).Y - (600 - vScreen(Z).Top)) * (GFXBackground2Height(A) / 4 - (600 - vScreen(Z).Top))
                     '.Y = -vScreenY(Z) - .Y
-                    
+
                     .Y = (-vScreenY(Z) - vScreen(Z).Top - level(S).Y) / (level(S).Height - level(S).Y - ScreenH) * (GFXBackground2Height(A) / 4 - ScreenH) + vScreen(Z).Top
                     .Y = -vScreenY(Z) - .Y
                 Else
@@ -4165,7 +4165,7 @@ Public Sub DrawBackground(S As Integer, Z As Integer) 'draws the background to t
             Next B
         End With
     End If
-    
+
     A = 51 'SMB1 Desert
     If Background2(S) = 51 Then
         With tempLocation
@@ -4326,29 +4326,29 @@ Public Sub DrawBackground(S As Integer, Z As Integer) 'draws the background to t
             End If
             .Height = GFXBackground2Height(A)
             .Width = GFXBackground2Width(A)
-            
-            
+
+
             For B = 0 To Int((level(S).Width - level(S).X) / GFXBackground2Width(A) * 0.65) + 1
                 .X = level(S).X + ((B * GFXBackground2Width(A)) - (vScreenX(Z) + vScreen(Z).Left + level(S).X) * 0.65)
                 If vScreenCollision(Z, tempLocation) Then
                     BitBlt myBackBuffer, vScreenX(Z) + .X, vScreenY(Z) + .Y, GFXBackground2Width(A), 100, GFXBackground2(A), 0, 0, vbSrcCopy
                 End If
             Next B
-            
+
             For B = 0 To Int((level(S).Width - level(S).X) / GFXBackground2Width(A) * 0.6) + 1
                 .X = level(S).X + ((B * GFXBackground2Width(A)) - (vScreenX(Z) + vScreen(Z).Left + level(S).X) * 0.6)
                 If vScreenCollision(Z, tempLocation) Then
                     BitBlt myBackBuffer, vScreenX(Z) + .X, vScreenY(Z) + .Y + 100, GFXBackground2Width(A), 245, GFXBackground2(A), 0, 100, vbSrcCopy
                 End If
             Next B
-            
+
             For B = 0 To Int((level(S).Width - level(S).X) / GFXBackground2Width(A) * 0.55) + 1
                 .X = level(S).X + ((B * GFXBackground2Width(A)) - (vScreenX(Z) + vScreen(Z).Left + level(S).X) * 0.55)
                 If vScreenCollision(Z, tempLocation) Then
                     BitBlt myBackBuffer, vScreenX(Z) + .X, vScreenY(Z) + .Y + 345, GFXBackground2Width(A), 110, GFXBackground2(A), 0, 345, vbSrcCopy
                 End If
             Next B
-            
+
             For B = 0 To Int((level(S).Width - level(S).X) / GFXBackground2Width(A) * 0.5) + 1
                 .X = level(S).X + ((B * GFXBackground2Width(A)) - (vScreenX(Z) + vScreen(Z).Left + level(S).X) * 0.5)
                 If vScreenCollision(Z, tempLocation) Then
@@ -4562,7 +4562,7 @@ Public Sub ChangeScreen() 'change from fullscreen to windowed mode
         frmMain.Caption = ""
         frmMain.Left = 0
         frmMain.Top = 0
-        
+
     End If
     SaveConfig
     frmMain.LockSize = False
@@ -4689,14 +4689,14 @@ Public Sub DrawInterface(Z As Integer, numScreens) 'draws the games interface
                     End If
                 End With
             Next B
-            
+
             For B = 1 To 2
                 If B = 1 Then
                     C = -58
                 Else
                     C = 56
                 End If
-            
+
                 If Player(B).Character = 5 And Player(B).Bombs > 0 Then
                     BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 - 34 + C, 52, GFX.Interface(2).ScaleWidth, GFX.Interface(2).ScaleHeight, GFX.InterfaceMask(8).hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 - 34 + C, 52, GFX.Interface(2).ScaleWidth, GFX.Interface(2).ScaleHeight, GFX.Interface(8).hdc, 0, 0, vbSrcPaint
@@ -4706,7 +4706,7 @@ Public Sub DrawInterface(Z As Integer, numScreens) 'draws the games interface
                 End If
             Next B
             C = 40
-            
+
             If BattleMode = False Then
                 'Print coins on the screen
                 If Player(1).HasKey Or Player(2).HasKey Then
@@ -4754,8 +4754,8 @@ Public Sub DrawInterface(Z As Integer, numScreens) 'draws the games interface
                     SuperPrint Str(BattleLives(2)), 1, 24 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 80 + 4 + 12 + 18 + 32 + GFX.Interface(3).ScaleWidth, 16 + 11
             End If
         Else 'Split screen
-        
-        
+
+
 '2 players 2 screen heldbonus
 
             With Player(Z)
@@ -4807,7 +4807,7 @@ Public Sub DrawInterface(Z As Integer, numScreens) 'draws the games interface
                     BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 96, 16 + 10, GFX.Interface(2).ScaleWidth, GFX.Interface(2).ScaleHeight, GFX.InterfaceMask(2).hdc, 0, 0, vbSrcAnd
                     BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 96, 16 + 10, GFX.Interface(2).ScaleWidth, GFX.Interface(2).ScaleHeight, GFX.Interface(2).hdc, 0, 0, vbSrcPaint
                 End If
-                
+
                 BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 96 + 8 + GFX.Interface(2).ScaleWidth, 16 + 11, GFX.Interface(1).ScaleWidth, GFX.Interface(1).ScaleHeight, GFX.InterfaceMask(1).hdc, 0, 0, vbSrcAnd
                 BitBlt myBackBuffer, 20 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 96 + 8 + GFX.Interface(2).ScaleWidth, 16 + 11, GFX.Interface(1).ScaleWidth, GFX.Interface(1).ScaleHeight, GFX.Interface(1).hdc, 0, 0, vbSrcPaint
                 SuperPrint Str(Coins), 1, 20 - (Len(Str(Coins)) - 1) * 18 + vScreen(Z).Width / 2 - GFX.Container(1).ScaleWidth / 2 + 80 + 4 + 12 + 18 + 32 + GFX.Interface(3).ScaleWidth, 16 + 11
@@ -4841,8 +4841,8 @@ Public Sub DrawInterface(Z As Integer, numScreens) 'draws the games interface
             End If
         End If
     Else '1 Player or Multi Mario
-    
-    
+
+
         If nPlay.Online = False Then
             With Player(1)
                 If .Character = 3 Or .Character = 4 Or .Character = 5 Then
@@ -5017,11 +5017,11 @@ Public Sub GameThing()
     Dim tempPlayer(1 To 2) As Player
     tempPlayer(1) = Player(1)
     tempPlayer(2) = Player(2)
-    
+
     SetupPlayers
     Player(1).Location.SpeedY = 0
     Player(2).Location.SpeedY = 0
-        
+
     If numPlayers = 1 Then
         Player(1).Location.X = ScreenW / 2 - Player(1).Location.Width / 2
         Player(1).Location.Y = ScreenH / 2 - Player(1).Location.Height + 24
@@ -5034,22 +5034,22 @@ Public Sub GameThing()
         Player(2).Location.Y = ScreenH / 2 - Player(2).Location.Height + 24
         Player(2).Direction = 1
     End If
-        
+
     PlayerFrame 1
     PlayerFrame 2
-    
+
     BitBlt myBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
-        
+
     For A = 1 To numPlayers
         DrawPlayer A, 0
     Next A
-        
+
     BitBlt myBackBuffer, ScreenW / 2 - 46, ScreenH / 2 + 31, GFX.Interface(3).ScaleWidth, GFX.Interface(3).ScaleHeight, GFX.InterfaceMask(3).hdc, 0, 0, vbSrcAnd
     BitBlt myBackBuffer, ScreenW / 2 - 46, ScreenH / 2 + 31, GFX.Interface(3).ScaleWidth, GFX.Interface(3).ScaleHeight, GFX.Interface(3).hdc, 0, 0, vbSrcPaint
     BitBlt myBackBuffer, ScreenW / 2 - GFX.Interface(1).ScaleWidth / 2, ScreenH / 2 + 32, GFX.Interface(1).ScaleWidth, GFX.Interface(1).ScaleHeight, GFX.InterfaceMask(1).hdc, 0, 0, vbSrcAnd
     BitBlt myBackBuffer, ScreenW / 2 - GFX.Interface(1).ScaleWidth / 2, ScreenH / 2 + 32, GFX.Interface(1).ScaleWidth, GFX.Interface(1).ScaleHeight, GFX.Interface(1).hdc, 0, 0, vbSrcPaint
     SuperPrint Str(Lives), 1, ScreenW / 2 + 12, ScreenH / 2 + 32
-        
+
     StretchBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, myBackBuffer, 0, 0, 800, 600, vbSrcCopy
 
     Player(1) = tempPlayer(1)
@@ -5069,19 +5069,19 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                     B = .MountType
                     'Yoshi's Tongue
                     If .MountSpecial > 0 Then
-                        
+
                         C = 0
                         If .Direction = -1 Then C = .YoshiTongueLength
-                        
+
                         BitBlt myBackBuffer, vScreenX(Z) + .YoshiTongueX - C - 1, vScreenY(Z) + .YoshiTongue.Y, .YoshiTongueLength + 2, 16, GFX.TongueMask(2).hdc, 0, 0, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + .YoshiTongueX - C - 1, vScreenY(Z) + .YoshiTongue.Y, .YoshiTongueLength + 2, 16, GFX.Tongue(2).hdc, 0, 0, vbSrcPaint
-                        
+
                         C = 1
                         If .Direction = 1 Then C = 0
-                        
+
                         BitBlt myBackBuffer, vScreenX(Z) + Int(.YoshiTongue.X), vScreenY(Z) + .YoshiTongue.Y, 16, 16, GFX.TongueMask(1).hdc, 0, 16 * C, vbSrcAnd
                         If ShadowMode = False Then BitBlt myBackBuffer, vScreenX(Z) + Int(.YoshiTongue.X), vScreenY(Z) + .YoshiTongue.Y, 16, 16, GFX.Tongue(1).hdc, 0, 16 * C, vbSrcPaint
-                        
+
                     End If
                     'Yoshi's Body
                     BitBlt myBackBuffer, vScreenX(Z) + (.Location.X) + .YoshiBX, vScreenY(Z) + .Location.Y + .YoshiBY, 32, 32, GFXYoshiBMask(B), 0, 32 * .YoshiBFrame, vbSrcAnd
@@ -5111,7 +5111,7 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
                             pfrX(100 + .Frame * .Direction), _
                             pfrY(100 + .Frame * .Direction), _
                             vbSrcAnd
-                        
+
                         If ShadowMode = False Then _
                             BitBlt myBackBuffer, _
                                 vScreenX(Z) + .Location.X + MarioFrameX((.State * 100) + (.Frame * .Direction)), _
@@ -5264,10 +5264,10 @@ Public Sub DrawFrozenNPC(Z As Integer, A As Integer)
     With NPC(A)
         If (vScreenCollision(Z, .Location) Or vScreenCollision(Z, newLoc(.Location.X - (NPCWidthGFX(.Type) - .Location.Width) / 2, .Location.Y, CDbl(NPCWidthGFX(.Type)), CDbl(NPCHeight(.Type))))) And .Hidden = False Then
         'draw npc
-        
+
             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + 2, vScreenY(Z) + .Location.Y + 2, .Location.Width - 4, .Location.Height - 4, GFXNPCMask(.Special), 2, 2 + .Special2 * NPCHeight(.Special), vbSrcAnd
             If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + 2, vScreenY(Z) + .Location.Y + 2, .Location.Width - 4, .Location.Height - 4, GFXNPC(.Special), 2, 2 + .Special2 * NPCHeight(.Special), vbSrcPaint
-            
+
         'draw ice
             BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width - 6, .Location.Height - 6, GFXNPCMask(.Type), 0, 0, vbSrcAnd
             If .Shadow = False Then BitBlt myBackBuffer, vScreenX(Z) + .Location.X + NPCFrameOffsetX(.Type), vScreenY(Z) + .Location.Y + NPCFrameOffsetY(.Type), .Location.Width - 6, .Location.Height - 6, GFXNPC(.Type), 0, 0, vbSrcPaint

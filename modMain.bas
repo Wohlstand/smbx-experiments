@@ -1380,7 +1380,7 @@ Sub Main()
     EoT = "" 'EoT is disabled
     random_init
     g_compatMode = False
-    g_recordEnabled = True
+    g_recordEnabled = False
     FrameSkip = True
 
     Argv = GetCommandLine(42)

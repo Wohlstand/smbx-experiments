@@ -122,7 +122,66 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim Loading As Boolean
+
+Public Sub openLoadSetup()
+    Dim Opened As Boolean
+    Opened = False
+
+    On Error GoTo Fail
+
+    If Dir(App.Path & "\config-load.dat") = "" Then
+        Exit Sub
+    End If
+
+    Open App.Path & "\config-load.dat" For Input As #1
+        Opened = True
+        Input #1, FrameSkip
+        Input #1, noSound
+        Input #1, g_recordEnabled
+        Input #1, g_compatMode
+    Close #1
+    Exit Sub
+
+Fail:
+    MsgBox "Can't read the config-load.dat file", vbOKOnly + vbCritical, "Config load error"
+    If Opened Then Close #1
+End Sub
+
+Private Sub saveLoadSetup()
+    Dim Opened As Boolean
+    Opened = False
+
+    On Error GoTo Fail
+
+    Open App.Path & "\config-load.dat" For Output As #1
+        Opened = True
+        Write #1, FrameSkip
+        Write #1, noSound
+        Write #1, g_recordEnabled
+        Write #1, g_compatMode
+    Close #1
+    Exit Sub
+
+Fail:
+    MsgBox "Can't write the config-load.dat file", vbOKOnly + vbCritical, "Config save error"
+    If Opened Then Close #1
+End Sub
+
+Private Sub chkCompat_Click()
+    If Loading Then Exit Sub
+    g_recordEnabled = IIf(chkRecord.Value >= 1, True, False)
+    g_compatMode = IIf(chkCompat.Value >= 1, True, False)
+End Sub
+
+Private Sub chkFrameskip_Click()
+    If Loading Then Exit Sub
+    FrameSkip = IIf(chkFrameskip.Value >= 1, False, True)
+End Sub
+
 Private Sub chkRecord_Click()
+    If Loading Then Exit Sub
+
     If chkRecord.Value = 1 Then
         chkFrameskip.Enabled = False
         chkFrameskip.Value = 1
@@ -134,6 +193,14 @@ Private Sub chkRecord_Click()
         chkCompat.Value = 1
         chkCompat.Enabled = True
     End If
+
+    g_recordEnabled = IIf(chkRecord.Value >= 1, True, False)
+    g_compatMode = IIf(chkCompat.Value >= 1, True, False)
+End Sub
+
+Private Sub chkSound_Click()
+    If Loading Then Exit Sub
+    noSound = IIf(chkSound.Value >= 1, True, False)
 End Sub
 
 Private Sub cmdEditor_Click()
@@ -143,6 +210,7 @@ Private Sub cmdEditor_Click()
 End Sub
 
 Private Sub cmdExit_Click()
+    saveLoadSetup
     KillIt
 End Sub
 
@@ -152,9 +220,12 @@ Private Sub cmdGame_Click()
 End Sub
 
 Private Sub Form_Load()
+    openLoadSetup
     ' No longer needed. Wohlstand
     ' Splash.Navigate "http://www.supermariobrothers.org/splash/"
     Me.Caption = "Super Mario Bros. X - Version " & App.Major & "." & App.Minor & "." & App.Revision & " [Wohlstand's Edition]"
+
+    Loading = True
 
     chkFrameskip.Value = IIf(FrameSkip, 0, 1)
     chkSound.Value = IIf(noSound, 1, 0)
@@ -166,10 +237,16 @@ Private Sub Form_Load()
         chkFrameskip.Enabled = False
         chkCompat.Value = 1
         chkCompat.Enabled = False
+    Else
+        chkFrameskip.Enabled = True
+        chkCompat.Enabled = True
     End If
+
+    Loading = False
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
+    saveLoadSetup
     If StartMenu = False Then KillIt
 End Sub
 

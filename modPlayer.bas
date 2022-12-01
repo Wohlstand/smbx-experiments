@@ -4191,13 +4191,16 @@ Public Sub EveryonesDead() 'Handles the game when all players have died
     If MagicHand = True Then
         BitBlt frmLevelWindow.vScreen(1).hdc, 0, 0, frmLevelWindow.vScreen(1).ScaleWidth, frmLevelWindow.vScreen(1).ScaleHeight, 0, 0, 0, vbWhiteness
     End If
-    Sleep 500
+    If LevelTestMode = False Then Sleep 500
     Lives = Lives - 1
     If Lives >= 0 Then
         LevelMacro = 0
         LevelMacroCounter = 0
         ClearLevel
-        If RestartLevel = True Then
+        If RestartLevel = True Or LevelTestMode = True Then
+            If LevelTestMode = True Then
+                SetupTestMode
+            End If
             OpenLevel FullFileName
             LevelSelect = False
             SetupPlayers

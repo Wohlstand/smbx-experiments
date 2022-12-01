@@ -517,6 +517,16 @@ End Type
 Public ScreenShake As Integer
 Public Checkpoint As String 'the filename of the level the player has a checkpoint in
 Public MagicHand As Boolean 'true if playing a level in the editor while not in fullscreen mode
+Public LevelTestMode As Boolean ' EXTRA
+Public TestNumPlayers As Integer
+Public TestCharacter(1 To 2) As Integer
+Public TestState(1 To 2) As Integer
+Public TestMountType(1 To 2) As Integer
+Public TestMount(1 To 2) As Integer
+Public TestStarsNum As Integer
+Public TestBattleMode As Boolean
+Public TestGodMode As Boolean
+Public TestGrabAll As Boolean
 Public testPlayer(1 To 2) As Player 'test level player settings
 Public ClearBuffer As Boolean 'true to black the backbuffer
 Public numLocked As Integer
@@ -1308,6 +1318,46 @@ Public Sub SetupPhysics()
     End With
 End Sub
 
+Public Sub SetupTestMode()
+    Dim blankPlayer As Player
+    Dim i As Integer
+    LevelSelect = False
+
+    Score = 0
+    Coins = 0
+    If Lives < 3 Then
+        Lives = 3
+    End If
+
+    If numStars < TestStarsNum Then
+        numStars = TestStarsNum
+    End If
+
+    numPlayers = TestNumPlayers
+    If numPlayers < 1 Then numPlayers = 1
+    If numPlayers > 2 Then numPlayers = 2
+
+    BattleMode = TestBattleMode
+
+    If BattleMode = False Then
+        GodMode = TestGodMode
+        GrabAll = TestGrabAll
+    Else
+        numPlayers = 2 ' Battle mode requires two players!
+        GodMode = False
+        GrabAll = False
+    End If
+
+    For i = 1 To 2
+        Player(i) = blankPlayer
+        Player(i).Character = TestCharacter(i)
+        Player(i).State = TestState(i)
+        Player(i).MountType = TestMountType(i)
+        Player(i).Mount = TestMount(i)
+        Player(i).UnStart = False
+    Next i
+End Sub
+
 Function GetCommandLine(Optional MaxArgs)
     Dim C, CmdLine, CmdLnLen, InArg, i, NumArgs
     Dim quoteOpen As Boolean
@@ -1363,6 +1413,17 @@ Sub Main()
     Dim DoShowLauncher As Boolean
     ReDim Argv(42) As String
 
+    Const cmdSetNumPlayers As String = "--num-players="
+    Const cmdSetCharacter1 As String = "--char1="
+    Const cmdSetCharacter2 As String = "--char2="
+    Const cmdSetState1 As String = "--state1="
+    Const cmdSetState2 As String = "--state2="
+    Const cmdSetMount1 As String = "--mount1="
+    Const cmdSetMount2 As String = "--mount2="
+    Const cmdSetMountType1 As String = "--mount-type1="
+    Const cmdSetMountType2 As String = "--mount-type2="
+    Const cmdSetStarsNum As String = "--stars="
+
     DoShowLauncher = True
     runWhenUnfocused = False
     noSound = False
@@ -1382,6 +1443,18 @@ Sub Main()
     g_compatMode = False
     g_recordEnabled = False
     FrameSkip = True
+
+    TestNumPlayers = 1
+    TestCharacter(1) = 1
+    TestCharacter(2) = 3
+    TestState(1) = 1
+    TestState(2) = 1
+    TestMountType(1) = 0
+    TestMountType(2) = 0
+    TestMount(1) = 0
+    TestState(2) = 0
+    TestStarsNum = 0
+    TestBattleMode = False
 
     Argv = GetCommandLine(42)
 
@@ -1403,6 +1476,12 @@ Sub Main()
         ElseIf Astr = "--leveleditor" Then
             LevelEditor = True
             DoShowLauncher = False
+        ElseIf Astr = "--compat-mode" Then
+            g_compatMode = True
+        ElseIf Astr = "--record-enable" Then
+            g_recordEnabled = True
+            g_compatMode = True
+            FrameSkip = False
         ElseIf LCase(Left(Astr, 12)) = "--testlevel=" And LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Right(Astr, Len(Astr) - 12)
@@ -1420,10 +1499,41 @@ Sub Main()
         '     g_recordControlReplay = True
         '     MaxFPS = True
         '     ShowFPS = True
+        ElseIf LCase(Left(Astr, Len(cmdSetNumPlayers))) = cmdSetNumPlayers Then
+            TestNumPlayers = CInt(Right(Astr, Len(Astr) - Len(cmdSetNumPlayers)))
+        ElseIf LCase(Left(Astr, Len(cmdSetCharacter1))) = cmdSetCharacter1 Then
+            TestCharacter(1) = CInt(Right(Astr, Len(Astr) - Len(cmdSetCharacter1)))
+        ElseIf LCase(Left(Astr, Len(cmdSetCharacter1))) = cmdSetCharacter1 Then
+            TestCharacter(2) = CInt(Right(Astr, Len(Astr) - Len(cmdSetCharacter1)))
+        ElseIf LCase(Left(Astr, Len(cmdSetState1))) = cmdSetState1 Then
+            TestState(1) = CInt(Right(Astr, Len(Astr) - Len(cmdSetState1)))
+        ElseIf LCase(Left(Astr, Len(cmdSetState2))) = cmdSetState2 Then
+            TestState(2) = CInt(Right(Astr, Len(Astr) - Len(cmdSetState2)))
+        ElseIf LCase(Left(Astr, Len(cmdSetMountType1))) = cmdSetMountType1 Then
+            TestMountType(1) = CInt(Right(Astr, Len(Astr) - Len(cmdSetMountType1)))
+        ElseIf LCase(Left(Astr, Len(cmdSetMountType2))) = cmdSetMountType2 Then
+            TestMountType(2) = CInt(Right(Astr, Len(Astr) - Len(cmdSetMountType2)))
+        ElseIf LCase(Left(Astr, Len(cmdSetMount1))) = cmdSetMount1 Then
+            TestMount(1) = CInt(Right(Astr, Len(Astr) - Len(cmdSetMount1)))
+        ElseIf LCase(Left(Astr, Len(cmdSetMount2))) = cmdSetMount2 Then
+            TestMount(2) = CInt(Right(Astr, Len(Astr) - Len(cmdSetMount2)))
+        ElseIf LCase(Left(Astr, Len(cmdSetStarsNum))) = cmdSetStarsNum Then
+            TestStarsNum = CInt(Right(Astr, Len(Astr) - Len(cmdSetStarsNum)))
+        ElseIf Astr = "--battle-mode" Then
+            TestBattleMode = True
+        ElseIf Astr = "--god-mode" Then
+            TestGodMode = True
+        ElseIf Astr = "--grab-all" Then
+            TestGrabAll = True
+        ElseIf Astr = "--show-fps" Then
+            ShowFPS = True
+        ElseIf Astr = "--max-fps" Then
+            MaxFPS = True
+
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
             loadFileOnStartPath = Astr
-            LevelEditor = True
+            LevelTestMode = True
             DoShowLauncher = False
         ElseIf LCase(Right(Astr, 4)) = ".wld" Then
             loadFileOnStart = True
@@ -1455,7 +1565,11 @@ Sub Main()
 
     If LevelEditor = False Then
         frmMain.Show
-        GameMenu = True
+        If LevelTestMode = False Then
+            GameMenu = True
+        Else
+            GameMenu = False
+        End If
     Else
         frmSplash.Show
         BlocksSorted = True
@@ -1468,6 +1582,18 @@ Sub Main()
         ' mciSendString "play sound29 from 10", 0, 0, 0
         PlayInitSound
     End If
+
+    If LevelTestMode = True Then
+        frmMain.Picture = GFX.Picture
+        frmMain.Loader.Visible = False
+        frmMain.LoadCoin.Move 400 - 16, 300 - 16
+        frmMain.Caption = frmMain.Caption _
+                    & " - " & _
+                    Right(loadFileOnStartPath, Len(loadFileOnStartPath) - InStrRev(loadFileOnStartPath, "\")) _
+                    & " - " & _
+                    "Compat=" & CStr(g_compatMode)
+    End If
+
     InitSound 'Setup sound effects
     LevelSelect = True 'world map is to be shown
     DoEvents
@@ -1477,14 +1603,19 @@ Sub Main()
     SizableBlocks
     LoadGFX 'load the graphics from file
     SetupVars 'Setup Variables
+
     frmMain.AutoRedraw = False
     frmMain.Picture = GFX.Picture
     frmMain.LoadCoin.Visible = False
     frmMain.Loader.Visible = False
 
     Do
-
-        If GameMenu = True Then
+        If LevelTestMode = True Then
+            frmMain.MousePointer = 0
+            SetupTestMode
+            ClearLevel
+            OpenLevel loadFileOnStartPath
+        ElseIf GameMenu = True Then
             frmMain.MousePointer = 99
         ElseIf resChanged = False And TestLevel = False And LevelEditor = False Then
             frmMain.MousePointer = 0
@@ -2007,6 +2138,12 @@ Sub Main()
                 Sleep sleepDelay
             Loop While LevelSelect = False And GameMenu = False
             record_finish
+
+            If LevelTestMode = True Then
+                KillIt
+                Exit Do ' Exit the game
+            End If
+
             If TestLevel = True Then
                 TestLevel = False
                 LevelEditor = True
@@ -6900,7 +7037,7 @@ End Sub
             EndLevel = True
             LevelMacro = 0
             LevelMacroCounter = 0
-            If TestLevel = False Then
+            If TestLevel = False And LevelTestMode = False Then
                 GameOutro = True
                 BeatTheGame = True
                 SaveGame
@@ -7980,6 +8117,7 @@ End Sub
 Public Sub SaveGame()
     Dim A As Integer
     If Cheater = True Then Exit Sub
+    If LevelTestMode = True Then Exit Sub
     For A = numPlayers To 1 Step -1
         SavedChar(Player(A).Character) = Player(A)
     Next A
@@ -8035,6 +8173,9 @@ Public Sub LoadGame()
     Dim B As Integer
     Dim FileRelease As Integer
     Dim newInput As String
+
+    If LevelTestMode = True Then Exit Sub
+
     Open SelectWorld(selWorld).WorldPath & "save" & selSave & ".sav" For Input As #1
         Input #1, FileRelease
         Input #1, Lives

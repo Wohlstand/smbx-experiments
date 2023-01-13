@@ -84,7 +84,7 @@ Public Function random_double_sec() As Double
     If use_cpp = False Then
         random_double_sec = Rnd()
     Else
-        random_double_sec = cpprand_double_sec()
+        random_double_sec = random_double() ' cpprand_double_sec()
     End If
 End Function
 
@@ -104,7 +104,7 @@ Public Function random_int_sec(max As Integer) As Integer
     If use_cpp = False Then
         random_int_sec = Int(Rnd() * max)
     Else
-        random_int_sec = cpprand_int32_sec(max)
+        random_int_sec = random_int(max) ' cpprand_int32_sec(max)
     End If
 End Function
 
@@ -124,7 +124,7 @@ Public Function random_int_round_sec(max As Integer) As Integer
     If use_cpp = False Then
         random_int_round_sec = Rnd() * max
     Else
-        random_int_round_sec = cpprand_int32_round_sec(max)
+        random_int_round_sec = random_int_round(max) ' cpprand_int32_round_sec(max)
     End If
 End Function
 

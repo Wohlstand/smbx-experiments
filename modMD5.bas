@@ -268,7 +268,7 @@ Public Sub MD5Final()
     If lngBytesBuffered <= 56 Then
         MD5Update 56 - lngBytesBuffered, Padding
     Else
-        MD5Update 120 - ByteCounter, Padding
+        MD5Update 120 - lngBytesBuffered, Padding
     End If
 
 

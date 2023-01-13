@@ -69,7 +69,7 @@ Private Sub record_write_header()
     Print #s_recordFD, "Header"
     Print #s_recordFD, "RecordVersion " + Str(c_recordFileVersion) ' Version of record file
     Print #s_recordFD, "Version SMBX-64" ' game version / commit
-    Print #s_recordFD, "CompatLevel 3" ' compatibility mode
+    Print #s_recordFD, "CompatLevel 2" ' compatibility mode
     Print #s_recordFD, Replace(Replace(FullFileName, App.Path + "\", ""), "\", "/") ' level that was played
     Print #s_recordFD, "SumMD5 " + DigestFileToHexStr(FullFileName) ' Since version 2: md5 Hash sum of recorded level file
 

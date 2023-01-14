@@ -79,7 +79,7 @@ CPPRAND_EXPORT int cpprand_int32_round(int max)
     }
     else 
 	{
-		i = engine() % ((max + 1) * 2);
+		i = engine() % (max * 2);
 	}
 	
     if(i == 0)

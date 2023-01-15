@@ -5627,9 +5627,10 @@ Public Sub NPCHit(A As Integer, B As Integer, Optional C As Integer = 0) 'For NP
                 PlaySound 2
                 .Location.SpeedY = -5
                 .Location.Y = Block(C).Location.Y - .Location.Height - 0.01
-            ElseIf B = 6 Then
+            ' only do this crash fix if necessary
+            ElseIf B = 6 And (Not g_compatMode Or C > maxNPCs) Then
                 .Killed = B
-            ElseIf B = 5 Or B = 4 Then
+            ElseIf B = 6 Or B = 5 Or B = 4 Then
                 If Not (NPC(C).Type = 13 Or NPC(C).Type = 108 Or NPC(C).Type = 171 Or NPCIsVeggie(NPC(C).Type)) Then
                     .Killed = B
                 End If

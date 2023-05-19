@@ -60,6 +60,7 @@ End Sub
 Public Sub GifFrame()
     Dim ret As Long
     If GifRecordEnabled Then
+        SuperPrint "SMBX64-W", 3, ScreenW - ((19 * 8) + 10), 10, OutBackBuffer
         ret = gifRecord_frame(OutBackBuffer, OutBackBufferBMP)
         If ret < 0 Then
             frmDebugLog.AddMsg "Failed to write frame: " & CStr(ret)
@@ -3044,18 +3045,21 @@ Public Sub DynamicScreen() 'for the split screen stuff
     Next A
 End Sub
 
-Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As Single) 'prints text to the screen
+Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As Single, Optional ByVal DestBuffer As Long = 0) 'prints text to the screen
     On Error Resume Next
     Dim A As Integer
     Dim B As Integer
     Dim C As Integer
     Dim Words As String
+
+    If DestBuffer = 0 Then DestBuffer = myBackBuffer
+
     Words = SuperWords
     If Font = 1 Then
         Do While Len(Words) > 0
             If Left(Words, 1) <> " " Then
-                BitBlt myBackBuffer, X + B, Y, 16, 14, GFX.Font1M(Left(Words, 1)).hdc, 0, 0, vbSrcAnd
-                BitBlt myBackBuffer, X + B, Y, 16, 14, GFX.Font1(Left(Words, 1)).hdc, 0, 0, vbSrcPaint
+                BitBlt DestBuffer, X + B, Y, 16, 14, GFX.Font1M(Left(Words, 1)).hdc, 0, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 16, 14, GFX.Font1(Left(Words, 1)).hdc, 0, 0, vbSrcPaint
                 B = B + 18
             End If
             Words = Right(Words, Len(Words) - 1)
@@ -3064,31 +3068,31 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
         Do While Len(Words) > 0
             If Asc(Left(Words, 1)) >= 48 And Asc(Left(Words, 1)) <= 57 Then
                 C = (Asc(Left(Words, 1)) - 48) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 65 And Asc(Left(Words, 1)) <= 90 Then
                 C = (Asc(Left(Words, 1)) - 55) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 97 And Asc(Left(Words, 1)) <= 122 Then
                 C = (Asc(Left(Words, 1)) - 61) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 33 And Asc(Left(Words, 1)) <= 47 Then
                 C = (Asc(Left(Words, 1)) - 33) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 58 And Asc(Left(Words, 1)) <= 64 Then
                 C = (Asc(Left(Words, 1)) - 58 + 15) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 91 And Asc(Left(Words, 1)) <= 96 Then
                 C = (Asc(Left(Words, 1)) - 91 + 22) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             ElseIf Asc(Left(Words, 1)) >= 123 And Asc(Left(Words, 1)) <= 125 Then
                 C = (Asc(Left(Words, 1)) - 123 + 28) * 16
-                BitBlt myBackBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 15, 17, GFX.Font2S(1).hdc, C, 0, vbSrcAnd
                 B = B + 16
             Else
                 B = B + 16
@@ -3099,8 +3103,8 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
         Do While Len(Words) > 0
             If Asc(Left(Words, 1)) >= 33 And Asc(Left(Words, 1)) <= 126 Then
                 C = (Asc(Left(Words, 1)) - 33) * 32
-                BitBlt myBackBuffer, X + B, Y, 18, 16, GFX.Font2Mask(2).hdc, 2, C, vbSrcAnd
-                BitBlt myBackBuffer, X + B, Y, 18, 16, GFX.Font2(2).hdc, 2, C, vbSrcPaint
+                BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2Mask(2).hdc, 2, C, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2(2).hdc, 2, C, vbSrcPaint
                 B = B + 18
                 If Left(Words, 1) = "M" Then B = B + 2
             Else
@@ -3112,7 +3116,7 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
         Do While Len(Words) > 0
             If Asc(Left(Words, 1)) >= 33 And Asc(Left(Words, 1)) <= 126 Then
                 C = (Asc(Left(Words, 1)) - 33) * 16
-                BitBlt myBackBuffer, X + B, Y, 18, 16, GFX.Font2(3).hdc, 2, C, vbSrcPaint
+                BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2(3).hdc, 2, C, vbSrcPaint
                 B = B + 18
             Else
                 B = B + 18

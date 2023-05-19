@@ -77,6 +77,7 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         ChangeScreen
     End If
     If KeyCode = vbKeyF12 Then TakeScreen = True
+    If KeyCode = vbKeyF11 Then GifRecordToggle
 End Sub
 
 Private Sub Form_KeyPress(KeyAscii As Integer)
@@ -158,6 +159,7 @@ End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
     Cancel = 1
+    GifEnd
     ShowCursor True
     ShowCursor True
     ShowCursor True

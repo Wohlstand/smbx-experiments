@@ -1,0 +1,6 @@
+LIBRARY		gifrec
+EXPORTS
+	gifRecord_init
+	gifRecord_frame
+	gifRecord_finish
+    gifRecord_savePng

@@ -2,7 +2,74 @@ Attribute VB_Name = "modGraphics"
 Option Explicit
 Public Declare Function ShowCursor Lib "user32" (ByVal bShow As Long) As Long
 
+Private Declare Function gifRecord_init Lib "gifrec.dll" (ByVal outputGif As String) As Long
+Private Declare Function gifRecord_frame Lib "gifrec.dll" (ByVal hdcFrame As Long, ByVal hdcBitmap As Long) As Long
+Private Declare Function gifRecord_savePng Lib "gifrec.dll" (ByVal FilePath As String, ByVal hd_frame As Long, ByVal hd_bitmap As Long) As Long
+Private Declare Sub gifRecord_finish Lib "gifrec.dll" ()
 
+Public GifRecordEnabled As Boolean
+
+Public Sub GifRecordToggle()
+    If Not GifRecordEnabled Then
+        GifRecordStart
+    Else
+        GifEnd
+    End If
+End Sub
+
+Public Sub GifRecordStart()
+    Dim GifFileName As String
+    Dim ScreenFile As String
+    Dim GifRecordsRoot As String
+    Dim strdt As String
+
+    If Not GifRecordEnabled Then
+        strdt = Format(Now, "yyyy-MM-dd_hh-mm-ss")
+        frmDebugLog.AddMsg strdt
+
+        GifFileName = strdt + ".gif"
+        GifRecordsRoot = App.Path & "\gif-recordings"
+
+        If Dir(GifRecordsRoot, vbDirectory) = "" Then
+            MkDir GifRecordsRoot
+        End If
+
+        ScreenFile = GifRecordsRoot & "\Scr_" & GifFileName
+        frmDebugLog.AddMsg "Starting GIF record at " & ScreenFile
+
+        If gifRecord_init(ScreenFile) = 0 Then
+            GifRecordEnabled = True
+            frmDebugLog.AddMsg "Success! DC=0x" & Hex(myBackBuffer)
+            PlaySound 6
+        Else
+            frmDebugLog.AddMsg "Failure!"
+        End If
+    End If
+End Sub
+
+Public Sub GifEnd()
+    If GifRecordEnabled Then
+        frmDebugLog.AddMsg "Finishing GIF record..."
+        gifRecord_finish
+        GifRecordEnabled = False
+        frmDebugLog.AddMsg "Finished!"
+        PlaySound 5
+    End If
+End Sub
+
+Public Sub GifFrame()
+    Dim ret As Long
+    If GifRecordEnabled Then
+        ret = gifRecord_frame(OutBackBuffer, OutBackBufferBMP)
+        If ret < 0 Then
+            frmDebugLog.AddMsg "Failed to write frame: " & CStr(ret)
+        End If
+    End If
+End Sub
+
+Public Sub GifRecPrint()
+    SuperPrint "RECORDING...", 3, 10, 10
+End Sub
 
 Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world map editor
     cycleCount = cycleCount + 1
@@ -107,13 +174,13 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
     Else
         BitBlt myBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
     End If
-    If TakeScreen = True Then
-        If LevelEditor = True Or MagicHand = True Then
-            frmLevelWindow.vScreen(1).AutoRedraw = True
-        Else
-            frmMain.AutoRedraw = True
-        End If
-    End If
+    'If TakeScreen = True Then
+    '    If LevelEditor = True Or MagicHand = True Then
+    '        frmLevelWindow.vScreen(1).AutoRedraw = True
+    '    Else
+    '        frmMain.AutoRedraw = True
+    '    End If
+    'End If
     If LevelEditor = True Then
         For A = 1 To numTiles
             With Tile(A)
@@ -277,6 +344,7 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
                     BitBlt myBackBuffer, .X, .Y + 8, 32, 32, GFX.ECursor(2).hdc, 0, 0, vbSrcPaint
                 End If
         End With
+        If GifRecordEnabled Then GifFrame
         'BitBlt frmLevelWindow.vScreen(Z).hdc, 0, 0, frmLevelWindow.vScreen(Z).ScaleWidth, frmLevelWindow.vScreen(Z).ScaleHeight, myBackBuffer, 0, 0, vbSrcCopy
         StretchBlt frmLevelWindow.vScreen(Z).hdc, 0, 0, frmLevelWindow.vScreen(Z).ScaleWidth, frmLevelWindow.vScreen(Z).ScaleHeight, myBackBuffer, 0, 0, 800, 600, vbSrcCopy
     Else
@@ -466,10 +534,17 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
         If PrintFPS > 0 Then
             SuperPrint Str(PrintFPS), 1, 8, 8
         End If
+
+        If TakeScreen Or GifRecordEnabled Then
+            BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
+            BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, myBackBuffer, 0, 0, vbSrcCopy
+            If GifRecordEnabled Then GifRecPrint
+        End If
         'BitBlt frmMain.hdc, 0, 0, ScreenW, ScreenH, myBackBuffer, 0, 0, vbSrcCopy
-        StretchBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, myBackBuffer, 0, 0, 800, 600, vbSrcCopy
+        StretchBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, myBackBuffer, 0, 0, ScreenW, ScreenH, vbSrcCopy
     End If
     If TakeScreen = True Then ScreenShot
+    If GifRecordEnabled Then GifFrame
 End Sub
 
 
@@ -483,7 +558,7 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
 
 'frame skip code
     cycleCount = cycleCount + 1
-    If FrameSkip = True And TakeScreen = False And g_recordEnabled = False Then
+    If FrameSkip = True And TakeScreen = False And GifRecordEnabled = False And g_recordEnabled = False Then
         If GetTickCount + Int(1000 * (1 - (cycleCount / 63))) > GoalTime Then   'Don't draw this frame
             numScreens = 1
             If LevelEditor = False Then
@@ -569,13 +644,13 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
     If Score > 9999990 Then Score = 9999990
     If Lives > 99 Then Lives = 99
     numScreens = 1
-    If TakeScreen = True Then
-        If LevelEditor = True Or MagicHand = True Then
-            frmLevelWindow.vScreen(1).AutoRedraw = True
-        Else
-            frmMain.AutoRedraw = True
-        End If
-    End If
+    'If TakeScreen = True Then
+    '    If LevelEditor = True Or MagicHand = True Then
+    '        frmLevelWindow.vScreen(1).AutoRedraw = True
+    '    Else
+    '        frmMain.AutoRedraw = True
+    '    End If
+    'End If
 
     'Background frames
     If FreezeNPCs = False Then
@@ -2516,32 +2591,12 @@ End If
             BitBlt myBackBuffer, 0, 600 - CreditChop, 800, 600, myBackBuffer, 0, 0, vbWhiteness
             DoCredits
         End If
-        If LevelEditor = True Then
-            StretchBlt frmLevelWindow.vScreen(Z).hdc, 0, 0, frmLevelWindow.vScreen(Z).ScaleWidth, frmLevelWindow.vScreen(Z).ScaleHeight, myBackBuffer, 0, 0, 800, 600, vbSrcCopy
-        Else
-            If TestLevel = True And resChanged = False Then
-                If ScreenShake > 0 Then
-                    ScreenShake = ScreenShake - 1
-                    A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
-                    B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
-                    StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
-                Else
-                    StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
-                End If
-            Else
-                If ScreenShake > 0 Then
-                    ScreenShake = ScreenShake - 1
-                    A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
-                    B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
-                    StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
-                Else
-                    StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH), vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
-                End If
-            End If
-        End If
+
+        UpdateGraphics_draw Z
     Next Z
 
     If TakeScreen = True Then ScreenShot
+    If GifRecordEnabled Then GifFrame
 
     'Update Coin Frames
     CoinFrame2(1) = CoinFrame2(1) + 1
@@ -2567,6 +2622,61 @@ End If
         nPlay.NPCWaitCount = nPlay.NPCWaitCount + 2
         If timeStr <> "" Then
             Netplay.sendData timeStr & LB
+        End If
+    End If
+End Sub
+
+' Made because of "Procedure too large" error
+Public Sub UpdateGraphics_draw(Z As Integer)
+    Dim A As Integer
+    Dim B As Integer
+
+    If LevelEditor = True Then
+        If TakeScreen Or GifRecordEnabled Then
+            BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
+            BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, myBackBuffer, 0, 0, vbSrcCopy
+            If GifRecordEnabled Then GifRecPrint
+        End If
+        StretchBlt frmLevelWindow.vScreen(Z).hdc, 0, 0, frmLevelWindow.vScreen(Z).ScaleWidth, frmLevelWindow.vScreen(Z).ScaleHeight, myBackBuffer, 0, 0, ScreenW, ScreenH, vbSrcCopy
+    Else
+        If TestLevel = True And resChanged = False Then
+            If ScreenShake > 0 Then
+                ScreenShake = ScreenShake - 1
+                A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                If TakeScreen Or GifRecordEnabled Then
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, 0, 0, 0, vbWhiteness
+                    BitBlt OutBackBuffer, vScreen(Z).Left + A, vScreen(Z).Top + B, vScreen(Z).Width, vScreen(Z).Height, myBackBuffer, 0, 0, vbSrcCopy
+                    If GifRecordEnabled Then GifRecPrint
+                End If
+                StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
+            Else
+                If TakeScreen Or GifRecordEnabled Then
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, 0, 0, 0, vbWhiteness
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, myBackBuffer, 0, 0, vbSrcCopy
+                    If GifRecordEnabled Then GifRecPrint
+                End If
+                StretchBlt frmLevelWindow.vScreen(1).hdc, vScreen(Z).Left * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Top * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), vScreen(Z).Width * (frmLevelWindow.vScreen(1).ScaleWidth / ScreenW), vScreen(Z).Height * (frmLevelWindow.vScreen(1).ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
+            End If
+        Else
+            If ScreenShake > 0 Then
+                ScreenShake = ScreenShake - 1
+                A = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                B = random_int_sec(ScreenShake * 4) - ScreenShake * 2
+                If TakeScreen Or GifRecordEnabled Then
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, 0, 0, 0, vbWhiteness
+                    BitBlt OutBackBuffer, vScreen(Z).Left + A, vScreen(Z).Top + B, vScreen(Z).Width, vScreen(Z).Height, myBackBuffer, 0, 0, vbSrcCopy
+                    If GifRecordEnabled Then GifRecPrint
+                End If
+                StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW) + A, vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH) + B, vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
+            Else
+                If TakeScreen Or GifRecordEnabled Then
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, 0, 0, 0, vbWhiteness
+                    BitBlt OutBackBuffer, vScreen(Z).Left, vScreen(Z).Top, vScreen(Z).Width, vScreen(Z).Height, myBackBuffer, 0, 0, vbSrcCopy
+                    If GifRecordEnabled Then GifRecPrint
+                End If
+                StretchBlt frmMain.hdc, vScreen(Z).Left * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Top * (frmMain.ScaleHeight / ScreenH), vScreen(Z).Width * (frmMain.ScaleWidth / ScreenW), vScreen(Z).Height * (frmMain.ScaleHeight / ScreenH), myBackBuffer, 0, 0, vScreen(Z).Width, vScreen(Z).Height, vbSrcCopy
+            End If
         End If
     End If
 End Sub
@@ -2691,6 +2801,11 @@ Public Sub SetupGraphics()
     myBackBuffer = CreateCompatibleDC(frmMain.hdc)
     myBufferBMP = CreateCompatibleBitmap(frmMain.hdc, ScreenW, ScreenH)
     SelectObject myBackBuffer, myBufferBMP
+
+    OutBackBuffer = CreateCompatibleDC(frmMain.hdc)
+    OutBackBufferBMP = CreateCompatibleBitmap(frmMain.hdc, ScreenW, ScreenH)
+    SelectObject OutBackBuffer, OutBackBufferBMP
+
     GFX.Split(2).Width = ScreenW
     GFX.Split(2).Height = ScreenH
     'GFX.BackgroundColor(1).Width = Screen.Width
@@ -4522,12 +4637,21 @@ Public Sub ChangeScreen() 'change from fullscreen to windowed mode
     If resChanged = True Then
         SetOrigRes
         DoEvents
+
         DeleteDC myBackBuffer
         DeleteObject myBufferBMP
+        DeleteDC OutBackBuffer
+        DeleteObject OutBackBufferBMP
         DoEvents
+
         myBackBuffer = CreateCompatibleDC(frmMain.hdc)
         myBufferBMP = CreateCompatibleBitmap(frmMain.hdc, 800, 600)
         SelectObject myBackBuffer, myBufferBMP
+
+        OutBackBuffer = CreateCompatibleDC(frmMain.hdc)
+        OutBackBufferBMP = CreateCompatibleBitmap(frmMain.hdc, 800, 600)
+        SelectObject OutBackBuffer, OutBackBufferBMP
+
         frmMain.BorderStyle = 2
         frmMain.Caption = "Super Mario Bros. X - Version 1.3 - www.SuperMarioBrothers.org"
         frmMain.Left = 0
@@ -4552,12 +4676,21 @@ Public Sub ChangeScreen() 'change from fullscreen to windowed mode
         Loop
         SetRes
         DoEvents
+
         DeleteDC myBackBuffer
         DeleteObject myBufferBMP
+        DeleteDC OutBackBuffer
+        DeleteObject OutBackBufferBMP
         DoEvents
+
         myBackBuffer = CreateCompatibleDC(frmMain.hdc)
         myBufferBMP = CreateCompatibleBitmap(frmMain.hdc, 800, 600)
         SelectObject myBackBuffer, myBufferBMP
+
+        OutBackBuffer = CreateCompatibleDC(frmMain.hdc)
+        OutBackBufferBMP = CreateCompatibleBitmap(frmMain.hdc, 800, 600)
+        SelectObject OutBackBuffer, OutBackBufferBMP
+
         frmMain.BorderStyle = 0
         frmMain.Caption = ""
         frmMain.Left = 0
@@ -5050,6 +5183,7 @@ Public Sub GameThing()
     BitBlt myBackBuffer, ScreenW / 2 - GFX.Interface(1).ScaleWidth / 2, ScreenH / 2 + 32, GFX.Interface(1).ScaleWidth, GFX.Interface(1).ScaleHeight, GFX.Interface(1).hdc, 0, 0, vbSrcPaint
     SuperPrint Str(Lives), 1, ScreenW / 2 + 12, ScreenH / 2 + 32
 
+    If GifRecordEnabled Then GifFrame
     StretchBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, myBackBuffer, 0, 0, 800, 600, vbSrcCopy
 
     Player(1) = tempPlayer(1)
@@ -5238,25 +5372,44 @@ Public Sub DrawPlayer(A As Integer, Z As Integer)
 End Sub
 
 Public Sub ScreenShot()
+    Dim strdt As String
+    Dim ScreenShotsRoot As String
     Dim ScreenFile As String
     Dim A As Integer
+
+    strdt = Format(Now, "yyyy-MM-dd_hh-mm-ss")
+    ScreenShotsRoot = App.Path & "\screenshots"
+
+    If Dir(ScreenShotsRoot, vbDirectory) = "" Then
+        MkDir ScreenShotsRoot
+    End If
+
     Do
         A = A + 1
-    Loop Until Dir(App.Path & "\screenshots\" & "screen" & A & ".bmp") = ""
-    ScreenFile = App.Path & "\screenshots\" & "screen" & A & ".bmp"
-    If LevelEditor = True Or MagicHand = True Then
-        SavePicture frmLevelWindow.vScreen(1).Image, ScreenFile
-        frmLevelWindow.vScreen(1).AutoRedraw = False
+    Loop Until Dir(ScreenShotsRoot & "\" & "Scr_" & strdt & "-" & A & ".png") = ""
+
+    ScreenFile = ScreenShotsRoot & "\" & "Scr_" & strdt & "-" & A & ".png"
+
+    If gifRecord_savePng(ScreenFile, OutBackBuffer, OutBackBufferBMP) = 0 Then
+        frmDebugLog.AddMsg "Error: Failed to save screenshot " & ScreenFile
     Else
-        frmMain.ScaleMode = 1
-        GFX.ScreenShooter.Width = frmMain.ScaleWidth
-        GFX.ScreenShooter.Height = frmMain.ScaleHeight
-        GFX.ScreenShooter.Picture = frmMain.Image
-        SavePicture GFX.ScreenShooter.Image, ScreenFile
-        frmMain.AutoRedraw = False
-        frmMain.ScaleMode = 3
+        PlaySound 12
+        frmDebugLog.AddMsg "Screenshot saved as " & ScreenFile
     End If
-    PlaySound 12
+
+    'If LevelEditor = True Or MagicHand = True Then
+    '    SavePicture frmLevelWindow.vScreen(1).Image, ScreenFile
+    '    frmLevelWindow.vScreen(1).AutoRedraw = False
+    'Else
+    '    frmMain.ScaleMode = 1
+    '    GFX.ScreenShooter.Width = frmMain.ScaleWidth
+    '    GFX.ScreenShooter.Height = frmMain.ScaleHeight
+    '    GFX.ScreenShooter.Picture = frmMain.Image
+    '    SavePicture GFX.ScreenShooter.Image, ScreenFile
+    '    frmMain.AutoRedraw = False
+    '    frmMain.ScaleMode = 3
+    'End If
+
     TakeScreen = False
 End Sub
 

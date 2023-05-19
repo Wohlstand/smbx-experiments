@@ -46,8 +46,13 @@ Public Const SWP_NOSIZE As Long = 1
 Public Const FLAGS = SWP_NOMOVE Or SWP_NOSIZE
 Public Const HWND_TOPMOST As Long = -1
 Public Const HWND_NOTOPMOST As Long = -2
+' Render buffer
 Public myBackBuffer As Long 'Backbuffer
 Public myBufferBMP As Long 'Backbuffer
+' Output buffer (for screenshots and GIF recordings)
+Public OutBackBuffer As Long
+Public OutBackBufferBMP As Long
+
 Public AllCharBlock As Integer
 Public Const KEY_TOGGLED As Integer = &H1   'For control information
 Public Const KEY_PRESSED As Integer = &H1000    'For control information
@@ -5983,10 +5988,13 @@ End Sub
 Public Sub KillIt() 'Cleans up the buffer before ending the program
     frmMain.Hide
     If resChanged = True Then SetOrigRes
+    GifEnd
     ' mciSendString "close all", 0, 0, 0
     QuitMixerX
     DeleteDC myBackBuffer
     DeleteObject myBufferBMP
+    DeleteDC OutBackBuffer
+    DeleteObject OutBackBufferBMP
     UnloadGFX
     Do
     Loop Until ShowCursor(1) >= 1

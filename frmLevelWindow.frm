@@ -82,6 +82,10 @@ Private Sub vScreen_KeyDown(Index As Integer, KeyCode As Integer, Shift As Integ
     If KeyCode = vbKeyF12 Then
         TakeScreen = True
     End If
+
+    If KeyCode = vbKeyF11 Then
+        GifRecordToggle
+    End If
 End Sub
 
 Private Sub vScreen_KeyPress(Index As Integer, KeyAscii As Integer)

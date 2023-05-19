@@ -10,3 +10,7 @@ config.dat
 *.OBJ
 *.obj
 smbx*.exe
+screenshots/*.bmp
+screenshots/*.png
+gif-recordings/*.gif
+config-load.dat

@@ -572,8 +572,15 @@ Public Sub InitSound() 'readys sound and music to be played
     SetMusicVolume "tmusic", 64
 End Sub
 
+Public Sub PlaySoundMenu(A As Integer) 'play a sound
+    If noSound = True Then Exit Sub
+    StopSfx "sound" & A
+    PlaySfx "sound" & A
+    DebugMsg "Play sound 'sound" & A & "'"
+End Sub
+
 Public Sub PlaySound(A As Integer) 'play a sound
-    Dim soundString As String
+    ' Dim soundString As String
     If noSound = True Then Exit Sub
     If (GameMenu = False Or A = 26 Or A = 29) And GameOutro = False Then
         If numPlayers > 2 And nPlay.Online = False Then SoundPause(10) = 1

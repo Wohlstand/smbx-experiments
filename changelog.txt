@@ -7,6 +7,7 @@ Changes for 1.3.4:
 -Added GIF recording support via F11 key
 -Screenshots now saved in PNG format
 -Screenshots and GIF records now will be always 800x600 with no matter to the scaling of the window
+-The screenshot or gif record start/stop sound will always being played even in the main menu
 
 
 Changes for 1.3.3:

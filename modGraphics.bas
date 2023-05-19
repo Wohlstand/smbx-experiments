@@ -40,7 +40,7 @@ Public Sub GifRecordStart()
         If gifRecord_init(ScreenFile) = 0 Then
             GifRecordEnabled = True
             frmDebugLog.AddMsg "Success! DC=0x" & Hex(myBackBuffer)
-            PlaySound 6
+            PlaySoundMenu 6
         Else
             frmDebugLog.AddMsg "Failure!"
         End If
@@ -53,7 +53,7 @@ Public Sub GifEnd()
         gifRecord_finish
         GifRecordEnabled = False
         frmDebugLog.AddMsg "Finished!"
-        PlaySound 5
+        PlaySoundMenu 5
     End If
 End Sub
 
@@ -5393,7 +5393,7 @@ Public Sub ScreenShot()
     If gifRecord_savePng(ScreenFile, OutBackBuffer, OutBackBufferBMP) = 0 Then
         frmDebugLog.AddMsg "Error: Failed to save screenshot " & ScreenFile
     Else
-        PlaySound 12
+        PlaySoundMenu 12
         frmDebugLog.AddMsg "Screenshot saved as " & ScreenFile
     End If
 

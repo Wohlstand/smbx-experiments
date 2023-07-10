@@ -1,0 +1,5 @@
+LIBRARY		cppticks
+EXPORTS
+	cppticks_init
+	cppticks_quit
+	cppticks_get

@@ -579,7 +579,7 @@ Public Const maxLevelType As Integer = 100
 Public Const maxPathType As Integer = 100
 Public Const maxTiles As Integer = 20000
 Public Const maxScenes As Integer = 5000
-Public Const frameRate As Double = 15 'for controlling game speed
+' Public Const frameRate As Double = 15 'for controlling game speed
 Public blockCharacter(0 To 20) As Boolean
 Public Type SelectWorld
     WorldName As String
@@ -830,12 +830,12 @@ Public SaveStars(1 To 3) As Integer
 Public BeltDirection As Integer 'direction of the converyer belt blocks
 Public BeatTheGame As Boolean 'true if the game has been beaten
  'for frameskip
-Public cycleCount As Integer
-Public fpsTime As Double
-Public fpsCount As Double
+'Public cycleCount As Integer ' FIXME: move this
+'Public fpsTime As Double
+'Public fpsCount As Double
 Public FrameSkip As Boolean
-Public GoalTime As Double
-Public overTime As Double
+'Public GoalTime As Double
+'Public overTime As Double
 '------------------
 Public worldCurs As Integer
 Public minShow As Integer
@@ -1083,7 +1083,7 @@ Public runWhenUnfocused As Boolean
 Public loadFileOnStart As Boolean
 Public loadFileOnStartPath As String
 Public loadFileOnStartDoTest As Boolean
-Public tempTime As Double
+' Public tempTime As Double
 Dim ScrollDelay As Integer
 'battlemode stuff
 Public BattleMode As Boolean
@@ -1093,7 +1093,7 @@ Public BattleIntro As Integer
 Public BattleOutro As Integer
 Public LevelName As String
 Public Const curRelease As Integer = 64
-Public Const sleepDelay As Long = 1
+' Public Const sleepDelay As Long = 1
 
 Public Function FileExists(FileName As String) As Boolean
     FileExists = Len(Dir(FileName, vbNormal)) > 0
@@ -1599,6 +1599,7 @@ Sub Main()
                     "Compat=" & CStr(g_compatMode)
     End If
 
+    InitFrameTimer ' Setup the frame timer
     InitSound 'Setup sound effects
     LevelSelect = True 'world map is to be shown
     DoEvents
@@ -1689,50 +1690,50 @@ Sub Main()
                 loadFileOnStartDoTest = False
             End If
 
-            overTime = 0
-            GoalTime = GetTickCount + 1000
-            fpsCount = 0
-            fpsTime = 0
-            cycleCount = 0
-            gameTime = 0
-            Do 'LEVEL EDITOR LOOP
-                tempTime = GetTickCount
-                If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
-                    CheckActive
-                    EditorLoop 'Do the editor loop
-                    If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-                    If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-                    overTime = overTime + (tempTime - (gameTime + frameRate))
-                    If gameTime = 0 Then overTime = 0
-                    If overTime <= 1 Then
-                        overTime = 0
-                    ElseIf overTime > 1000 Then
-                        overTime = 1000
-                    End If
-                    gameTime = tempTime - overTime
-                    overTime = (overTime - (tempTime - gameTime))
-                    DoEvents
+            runSceneLoop (SceneEditor)
+
+            ' overTime = 0
+            ' GoalTime = GetTickCount + 1000
+            ' fpsCount = 0
+            ' fpsTime = 0
+            ' cycleCount = 0
+            ' gameTime = 0
+            ' Do 'LEVEL EDITOR LOOP
+                ' tempTime = GetTickCount
+                ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
+                    ' CheckActive
+                    ' EditorLoop 'Do the editor loop
+                    ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+                    ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+                    ' overTime = overTime + (tempTime - (gameTime + frameRate))
+                    ' If gameTime = 0 Then overTime = 0
+                    ' If overTime <= 1 Then
+                        ' overTime = 0
+                    ' ElseIf overTime > 1000 Then
+                        ' overTime = 1000
+                    ' End If
+                    ' gameTime = tempTime - overTime
+                    ' overTime = (overTime - (tempTime - gameTime))
+                    ' DoEvents
 
 
-                    If GetTickCount > fpsTime Then
-                        If cycleCount >= 65 Then
-                            overTime = 0
-                            gameTime = tempTime
-                        End If
-                        cycleCount = 0
-                        fpsTime = GetTickCount + 1000
-                        GoalTime = fpsTime
-                        If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                        If ShowFPS = True Then
-                            PrintFPS = fpsCount
-                        End If
-                        fpsCount = 0
-                    End If
-                End If
-                Sleep sleepDelay
-            Loop While LevelEditor = True
-
-
+                    ' If GetTickCount > fpsTime Then
+                        ' If cycleCount >= 65 Then
+                            ' overTime = 0
+                            ' gameTime = tempTime
+                        ' End If
+                        ' cycleCount = 0
+                        ' fpsTime = GetTickCount + 1000
+                        ' GoalTime = fpsTime
+                        ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                        ' If ShowFPS = True Then
+                            ' PrintFPS = fpsCount
+                        ' End If
+                        ' fpsCount = 0
+                    ' End If
+                ' End If
+                ' Sleep sleepDelay
+            ' Loop While LevelEditor = True
 
         ElseIf GameOutro = True Then 'SMBX Credits
             ShadowMode = False
@@ -1787,49 +1788,54 @@ Sub Main()
             CreditChop = 300 '100
             EndCredits = 0
             SetupCredits
-            overTime = 0
-            GoalTime = GetTickCount + 1000
-            fpsCount = 0
-            fpsTime = 0
-            cycleCount = 0
-            gameTime = 0
-            Do
-                DoEvents
-                tempTime = GetTickCount
-                ScreenType = 0
-                SetupScreens
-                If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
-                    CheckActive
-                    OutroLoop
-                    If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-                    If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-                    overTime = overTime + (tempTime - (gameTime + frameRate))
-                    If gameTime = 0 Then overTime = 0
-                    If overTime <= 1 Then
-                        overTime = 0
-                    ElseIf overTime > 1000 Then
-                        overTime = 1000
-                    End If
-                    gameTime = tempTime - overTime
-                    overTime = (overTime - (tempTime - gameTime))
-                    DoEvents
-                    If GetTickCount > fpsTime Then
-                        If cycleCount >= 65 Then
-                            overTime = 0
-                            gameTime = tempTime
-                        End If
-                        cycleCount = 0
-                        fpsTime = GetTickCount + 1000
-                        GoalTime = fpsTime
-                        If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                        If ShowFPS = True Then
-                            PrintFPS = fpsCount
-                        End If
-                        fpsCount = 0
-                    End If
-                End If
-                Sleep sleepDelay
-            Loop While GameOutro = True
+
+            runSceneLoop (SceneOutro)
+
+            ' overTime = 0
+            ' GoalTime = GetTickCount + 1000
+            ' fpsCount = 0
+            ' fpsTime = 0
+            ' cycleCount = 0
+            ' gameTime = 0
+            ' Do
+                ' DoEvents
+                ' tempTime = GetTickCount
+                ' ScreenType = 0
+                ' SetupScreens
+                ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
+                    ' CheckActive
+                    ' OutroLoop
+                    ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+                    ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+                    ' overTime = overTime + (tempTime - (gameTime + frameRate))
+                    ' If gameTime = 0 Then overTime = 0
+                    ' If overTime <= 1 Then
+                        ' overTime = 0
+                    ' ElseIf overTime > 1000 Then
+                        ' overTime = 1000
+                    ' End If
+                    ' gameTime = tempTime - overTime
+                    ' overTime = (overTime - (tempTime - gameTime))
+                    ' DoEvents
+                    ' If GetTickCount > fpsTime Then
+                        ' If cycleCount >= 65 Then
+                            ' overTime = 0
+                            ' gameTime = tempTime
+                        ' End If
+                        ' cycleCount = 0
+                        ' fpsTime = GetTickCount + 1000
+                        ' GoalTime = fpsTime
+                        ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                        ' If ShowFPS = True Then
+                            ' PrintFPS = fpsCount
+                        ' End If
+                        ' fpsCount = 0
+                    ' End If
+                ' End If
+                ' Sleep sleepDelay
+            ' Loop While GameOutro = True
+            
+
         ElseIf GameMenu = True Then 'The Game Menu
             BattleIntro = 0
             BattleOutro = 0
@@ -1905,47 +1911,51 @@ Sub Main()
             For A = 2 To 100
                 If Events(A).AutoStart = True Then ProcEvent Events(A).Name, True
             Next A
-            overTime = 0
-            GoalTime = GetTickCount + 1000
-            fpsCount = 0
-            fpsTime = 0
-            cycleCount = 0
-            gameTime = 0
-            Do
-                DoEvents
-                tempTime = GetTickCount
-                If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
-                    CheckActive
-                    MenuLoop    'Run the menu loop
-                    If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-                    If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-                    overTime = overTime + (tempTime - (gameTime + frameRate))
-                    If gameTime = 0 Then overTime = 0
-                    If overTime <= 1 Then
-                        overTime = 0
-                    ElseIf overTime > 1000 Then
-                        overTime = 1000
-                    End If
-                    gameTime = tempTime - overTime
-                    overTime = (overTime - (tempTime - gameTime))
-                    DoEvents
-                    If GetTickCount > fpsTime Then
-                         If cycleCount >= 65 Then
-                            overTime = 0
-                            gameTime = tempTime
-                        End If
-                        cycleCount = 0
-                        fpsTime = GetTickCount + 1000
-                        GoalTime = fpsTime
-                        If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                        If ShowFPS = True Then
-                            PrintFPS = fpsCount
-                        End If
-                        fpsCount = 0
-                    End If
-                End If
-                Sleep sleepDelay
-            Loop While GameMenu = True
+
+            runSceneLoop (SceneMainMenu)
+
+            ' overTime = 0
+            ' GoalTime = GetTickCount + 1000
+            ' fpsCount = 0
+            ' fpsTime = 0
+            ' cycleCount = 0
+            ' gameTime = 0
+            ' Do
+                ' DoEvents
+                ' tempTime = GetTickCount
+                ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Then
+                    ' CheckActive
+                    ' MenuLoop    'Run the menu loop
+                    ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+                    ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+                    ' overTime = overTime + (tempTime - (gameTime + frameRate))
+                    ' If gameTime = 0 Then overTime = 0
+                    ' If overTime <= 1 Then
+                        ' overTime = 0
+                    ' ElseIf overTime > 1000 Then
+                        ' overTime = 1000
+                    ' End If
+                    ' gameTime = tempTime - overTime
+                    ' overTime = (overTime - (tempTime - gameTime))
+                    ' DoEvents
+                    ' If GetTickCount > fpsTime Then
+                         ' If cycleCount >= 65 Then
+                            ' overTime = 0
+                            ' gameTime = tempTime
+                        ' End If
+                        ' cycleCount = 0
+                        ' fpsTime = GetTickCount + 1000
+                        ' GoalTime = fpsTime
+                        ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                        ' If ShowFPS = True Then
+                            ' PrintFPS = fpsCount
+                        ' End If
+                        ' fpsCount = 0
+                    ' End If
+                ' End If
+                ' Sleep sleepDelay
+            ' Loop While GameMenu = True
+
         ElseIf LevelSelect = True Then 'World Map
             CheatString = ""
             For A = 1 To numPlayers
@@ -1984,50 +1994,54 @@ Sub Main()
                 End If
             Else
                 If curWorldMusic > 0 Then StartMusic curWorldMusic
-                overTime = 0
-                GoalTime = GetTickCount + 1000
-                fpsCount = 0
-                fpsTime = 0
-                cycleCount = 0
-                gameTime = 0
-                Do 'level select loop
-                    FreezeNPCs = False
-                    DoEvents
-                    tempTime = GetTickCount
-                    If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
 
-                        If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-                        If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-                        overTime = overTime + (tempTime - (gameTime + frameRate))
-                        If gameTime = 0 Then overTime = 0
-                        If overTime <= 1 Then
-                            overTime = 0
-                        ElseIf overTime > 1000 Then
-                            overTime = 1000
-                        End If
-                        gameTime = tempTime - overTime
-                        overTime = (overTime - (tempTime - gameTime))
+                runSceneLoop (SceneWorldMap)
 
-                        CheckActive
-                        WorldLoop
-                        DoEvents
-                        If GetTickCount > fpsTime Then
-                            If cycleCount >= 65 Then
-                                overTime = 0
-                                gameTime = tempTime
-                            End If
-                            cycleCount = 0
-                            fpsTime = GetTickCount + 1000
-                            GoalTime = fpsTime
-                            If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                            If ShowFPS = True Then
-                                PrintFPS = fpsCount
-                            End If
-                            fpsCount = 0
-                        End If
-                    End If
-                    Sleep sleepDelay
-                Loop While LevelSelect = True
+                ' overTime = 0
+                ' GoalTime = GetTickCount + 1000
+                ' fpsCount = 0
+                ' fpsTime = 0
+                ' cycleCount = 0
+                ' gameTime = 0
+                ' Do 'level select loop
+                    ' FreezeNPCs = False
+                    ' DoEvents
+                    ' tempTime = GetTickCount
+                    ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
+
+                        ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+                        ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+                        ' overTime = overTime + (tempTime - (gameTime + frameRate))
+                        ' If gameTime = 0 Then overTime = 0
+                        ' If overTime <= 1 Then
+                            ' overTime = 0
+                        ' ElseIf overTime > 1000 Then
+                            ' overTime = 1000
+                        ' End If
+                        ' gameTime = tempTime - overTime
+                        ' overTime = (overTime - (tempTime - gameTime))
+
+                        ' CheckActive
+                        ' WorldLoop
+                        ' DoEvents
+                        ' If GetTickCount > fpsTime Then
+                            ' If cycleCount >= 65 Then
+                                ' overTime = 0
+                                ' gameTime = tempTime
+                            ' End If
+                            ' cycleCount = 0
+                            ' fpsTime = GetTickCount + 1000
+                            ' GoalTime = fpsTime
+                            ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                            ' If ShowFPS = True Then
+                                ' PrintFPS = fpsCount
+                            ' End If
+                            ' fpsCount = 0
+                        ' End If
+                    ' End If
+                    ' Sleep sleepDelay
+                ' Loop While LevelSelect = True
+
             End If
         Else 'MAIN GAME
             CheatString = "" 'clear the cheat codes
@@ -2098,50 +2112,54 @@ Sub Main()
             For A = 2 To 100
                 If Events(A).AutoStart = True Then ProcEvent Events(A).Name, True
             Next A
-            overTime = 0
-            GoalTime = GetTickCount + 1000
-            fpsCount = 0
-            fpsTime = 0
-            cycleCount = 0
-            gameTime = 0
-            Do 'MAIN GAME LOOP
-                DoEvents
-                tempTime = GetTickCount
-                If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
-                    CheckActive
-                    If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-                    If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-                    overTime = overTime + (tempTime - (gameTime + frameRate))
-                    If gameTime = 0 Then overTime = 0
-                    If overTime <= 1 Then
-                        overTime = 0
-                    ElseIf overTime > 1000 Then
-                        overTime = 1000
-                    End If
-                    gameTime = tempTime - overTime
-                    overTime = (overTime - (tempTime - gameTime))
-                    GameLoop    'Run the game loop
-                    DoEvents
-                    If GetTickCount > fpsTime Then
-                        If cycleCount >= 65 Then
-                            overTime = 0
-                            gameTime = tempTime
-                        End If
-                        cycleCount = 0
-                        fpsTime = GetTickCount + 1000
-                        GoalTime = fpsTime
-                        If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                        If ShowFPS = True Then
-                            PrintFPS = fpsCount
-                        End If
-                        fpsCount = 0
-                    End If
-                    If LivingPlayers = False Then
-                        EveryonesDead
-                    End If
-                End If
-                Sleep sleepDelay
-            Loop While LevelSelect = False And GameMenu = False
+
+            runSceneLoop (SceneLevel)
+
+            ' overTime = 0
+            ' GoalTime = GetTickCount + 1000
+            ' fpsCount = 0
+            ' fpsTime = 0
+            ' cycleCount = 0
+            ' gameTime = 0
+            ' Do 'MAIN GAME LOOP
+                ' DoEvents
+                ' tempTime = GetTickCount
+                ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
+                    ' CheckActive
+                    ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+                    ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+                    ' overTime = overTime + (tempTime - (gameTime + frameRate))
+                    ' If gameTime = 0 Then overTime = 0
+                    ' If overTime <= 1 Then
+                        ' overTime = 0
+                    ' ElseIf overTime > 1000 Then
+                        ' overTime = 1000
+                    ' End If
+                    ' gameTime = tempTime - overTime
+                    ' overTime = (overTime - (tempTime - gameTime))
+                    ' GameLoop    'Run the game loop
+                    ' DoEvents
+                    ' If GetTickCount > fpsTime Then
+                        ' If cycleCount >= 65 Then
+                            ' overTime = 0
+                            ' gameTime = tempTime
+                        ' End If
+                        ' cycleCount = 0
+                        ' fpsTime = GetTickCount + 1000
+                        ' GoalTime = fpsTime
+                        ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                        ' If ShowFPS = True Then
+                            ' PrintFPS = fpsCount
+                        ' End If
+                        ' fpsCount = 0
+                    ' End If
+                    ' If LivingPlayers = False Then
+                        ' EveryonesDead
+                    ' End If
+                ' End If
+                ' Sleep sleepDelay
+            ' Loop While LevelSelect = False And GameMenu = False
+
             record_finish
 
             If LevelTestMode = True Then
@@ -5996,6 +6014,7 @@ Public Sub KillIt() 'Cleans up the buffer before ending the program
     DeleteDC OutBackBuffer
     DeleteObject OutBackBufferBMP
     UnloadGFX
+    QuitFrameTimer
     Do
     Loop Until ShowCursor(1) >= 1
     End
@@ -6261,6 +6280,7 @@ Public Sub SaveLevel(FilePath As String)   'saves the level
 End Sub
 
 Public Sub OpenLevel(FilePath As String)   'loads the level
+    On Error GoTo LevelReadError
     Dim newInput As String
     Dim FileRelease As Integer
     Dim A As Integer
@@ -6719,15 +6739,22 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
         Next A
     End If
     SoundPause(13) = 100
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    fpsTime = 0
-    cycleCount = 0
-    gameTime = 0
- End Sub
 
- Public Sub ClearLevel() 'Reset everything to zero
+    resetFrameTimer
+    ' overTime = 0
+    ' GoalTime = GetTickCount + 1000
+    ' fpsCount = 0
+    ' fpsTime = 0
+    ' cycleCount = 0
+    ' gameTime = 0
+
+    Exit Sub
+LevelReadError:
+    Call MsgBox("Failed to open the level " & FilePath & " because of the next error: " & Err.Number & vbCrLf & Err.Description, vbExclamation, App.Title)
+    KillIt
+End Sub
+
+Public Sub ClearLevel() 'Reset everything to zero
     Dim A As Integer
     Dim B As Integer
     Dim blankNPC As NPC
@@ -6978,19 +7005,32 @@ End Sub
     ElseIf LevelMacro = 3 Then
         Dim tempTime As Single
         Dim gameTime As Single
-    Do
-        tempTime = Timer - Int(Timer)
-        If tempTime > gameTime + 0.01 Or tempTime < gameTime Then
-            gameTime = tempTime
+        Const keyholeMax As Integer = 192
+
+        Do
+            tempTime = Timer - Int(Timer)
+
             DoEvents
-            UpdateGraphics
-            UpdateSound
-            BlockFrames
-            LevelMacroCounter = LevelMacroCounter + 1
-            If LevelMacroCounter >= 300 Then Exit Do
-        End If
-        Sleep sleepDelay
-    Loop
+
+            ' If tempTime > gameTime + 0.01 Or tempTime < gameTime Then
+            If canProceedFrame() Then
+                gameTime = tempTime
+                computeFrameTime1
+
+                UpdateControls
+                UpdateGraphics
+                UpdateSound
+                BlockFrames
+
+                DoEvents
+                computeFrameTime2
+
+                LevelMacroCounter = LevelMacroCounter + 1
+                If LevelMacroCounter >= keyholeMax Then Exit Do
+            End If
+            If Not MaxFPS Then Sleep 1
+        Loop
+
         LevelBeatCode = 4
         EndLevel = True
         LevelMacro = 0
@@ -7390,12 +7430,14 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
         Next A
         frmWorld.txtStars = MaxWorldStars
     End If
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    fpsTime = 0
-    cycleCount = 0
-    gameTime = 0
+
+    resetFrameTimer
+    'overTime = 0
+    'GoalTime = GetTickCount + 1000
+    'fpsCount = 0
+    'fpsTime = 0
+    'cycleCount = 0
+    'gameTime = 0
  End Sub
 
  Public Sub WorldLoop() 'Loop for world select
@@ -7639,13 +7681,13 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
                                 Sleep 1000
 
 
-
-                                overTime = 0
-                                GoalTime = GetTickCount + 1000
-                                fpsCount = 0
-                                fpsTime = 0
-                                cycleCount = 0
-                                gameTime = 0
+                                resetFrameTimer
+                                'overTime = 0
+                                'GoalTime = GetTickCount + 1000
+                                'fpsCount = 0
+                                'fpsTime = 0
+                                'cycleCount = 0
+                                'gameTime = 0
 
                             End If
                         End If
@@ -7854,56 +7896,58 @@ Public Sub PathPath(Pth As Integer, Optional Skp As Boolean = False)
 End Sub
 
 Public Sub PathWait()
-    Dim C As Integer
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    cycleCount = 0
-    gameTime = 0
-    fpsTime = 0
+    runSceneLoop (SceneWorldPathWait)
 
-    Do
-        DoEvents
-        tempTime = GetTickCount
-        If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
-            UpdateGraphics2
-            UpdateSound
-            C = C + 1
-            If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-            If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-            overTime = overTime + (tempTime - (gameTime + frameRate))
-            If gameTime = 0 Then overTime = 0
-            If overTime <= 1 Then
-                overTime = 0
-            ElseIf overTime > 1000 Then
-                overTime = 1000
-            End If
-            gameTime = tempTime - overTime
-            overTime = (overTime - (tempTime - gameTime))
-            DoEvents
-            If GetTickCount > fpsTime Then
-                If cycleCount >= 65 Then
-                    overTime = 0
-                    gameTime = tempTime
-                End If
-                cycleCount = 0
-                fpsTime = GetTickCount + 1000
-                GoalTime = fpsTime
-                If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                If ShowFPS = True Then
-                    PrintFPS = fpsCount
-                End If
-                fpsCount = 0
-            End If
-        End If
-        Sleep sleepDelay
-    Loop Until C >= 24
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    cycleCount = 0
-    gameTime = 0
-    fpsTime = 0
+    ' Dim C As Integer
+    ' overTime = 0
+    ' GoalTime = GetTickCount + 1000
+    ' fpsCount = 0
+    ' cycleCount = 0
+    ' gameTime = 0
+    ' fpsTime = 0
+
+    ' Do
+        ' DoEvents
+        ' tempTime = GetTickCount
+        ' If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
+            ' UpdateGraphics2
+            ' UpdateSound
+            ' C = C + 1
+            ' If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
+            ' If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
+            ' overTime = overTime + (tempTime - (gameTime + frameRate))
+            ' If gameTime = 0 Then overTime = 0
+            ' If overTime <= 1 Then
+                ' overTime = 0
+            ' ElseIf overTime > 1000 Then
+                ' overTime = 1000
+            ' End If
+            ' gameTime = tempTime - overTime
+            ' overTime = (overTime - (tempTime - gameTime))
+            ' DoEvents
+            ' If GetTickCount > fpsTime Then
+                ' If cycleCount >= 65 Then
+                    ' overTime = 0
+                    ' gameTime = tempTime
+                ' End If
+                ' cycleCount = 0
+                ' fpsTime = GetTickCount + 1000
+                ' GoalTime = fpsTime
+                ' If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
+                ' If ShowFPS = True Then
+                    ' PrintFPS = fpsCount
+                ' End If
+                ' fpsCount = 0
+            ' End If
+        ' End If
+        ' Sleep sleepDelay
+    ' Loop Until C >= 24
+    ' overTime = 0
+    ' GoalTime = GetTickCount + 1000
+    ' fpsCount = 0
+    ' cycleCount = 0
+    ' gameTime = 0
+    ' fpsTime = 0
 End Sub
 
 Public Sub ClearWorld()
@@ -8266,235 +8310,6 @@ Public Sub LoadGame()
     Next A
 End Sub
 
-Public Sub PauseGame(plr As Integer)
-    Dim stopPause As Boolean
-    Dim A As Integer
-    Dim B As Integer
-    Dim noButtons
-    Dim fpsTime As Double
-    Dim fpsCount As Integer
-    For A = numPlayers To 1 Step -1
-        SavedChar(Player(A).Character) = Player(A)
-    Next A
-    If TestLevel = True And MessageText = "" Then Exit Sub
-    If MessageText = "" Then
-        PlaySound 30
-    Else
-        SoundPause(47) = 0
-        PlaySound 47
-    End If
-    GamePaused = True
-    MenuCursor = 0
-    MenuCursorCanMove = False
-    If PSwitchTime > 0 Then
-        'If noSound = False Then mciSendString "pause smusic", 0, 0, 0
-        If noSound = False Then SoundPauseAll
-    End If
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    fpsTime = 0
-    cycleCount = 0
-    gameTime = 0
-    Do
-        tempTime = GetTickCount
-        If tempTime >= gameTime + frameRate Or tempTime < gameTime Or MaxFPS = True Then
-            If fpsCount >= 32000 Then fpsCount = 0 'Fixes Overflow bug
-            If cycleCount >= 32000 Then cycleCount = 0 'Fixes Overflow bug
-            overTime = overTime + (tempTime - (gameTime + frameRate))
-            If gameTime = 0 Then overTime = 0
-            If overTime <= 1 Then
-                overTime = 0
-            ElseIf overTime > 1000 Then
-                overTime = 1000
-            End If
-            gameTime = tempTime - overTime
-            overTime = (overTime - (tempTime - gameTime))
-            If GetTickCount > fpsTime Then
-                If cycleCount >= 65 Then
-                    overTime = 0
-                    gameTime = tempTime
-                End If
-                cycleCount = 0
-                fpsTime = GetTickCount + 1000
-                GoalTime = fpsTime
-                If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
-                If ShowFPS = True Then
-                    PrintFPS = fpsCount
-                End If
-                fpsCount = 0
-            End If
-
-
-            DoEvents
-            CheckActive
-
-            If LevelSelect = True Then
-                UpdateGraphics2
-            Else
-                UpdateGraphics
-            End If
-            UpdateControls
-            UpdateSound
-            BlockFrames
-            UpdateEffects
-            If SingleCoop > 0 Or numPlayers > 2 Then
-                For A = 1 To numPlayers
-                    Player(A).Controls = Player(1).Controls
-                Next A
-            End If
-            With Player(plr).Controls
-                If MessageText = "" Then
-                    If noButtons = False Then
-                        If .Down = False And .Up = False And .Run = False And .Jump = False And .Start = False Then
-                            If (GetKeyState(vbKeyEscape) And KEY_PRESSED) Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Or (GetKeyState(vbKeyDown) And KEY_PRESSED) Or (GetKeyState(vbKeyUp) And KEY_PRESSED) Then
-                            Else
-                                noButtons = True
-                            End If
-                        End If
-                    Else
-                        If (GetKeyState(vbKeyEscape) And KEY_PRESSED) Then
-                            If LevelSelect = True And Cheater = False Then
-                                If MenuCursor <> 2 Then PlaySound 26
-                                MenuCursor = 2
-                            Else
-                                If MenuCursor <> 1 Then PlaySound 26
-                                MenuCursor = 1
-                            End If
-                            noButtons = False
-                        ElseIf .Start = True Then
-                            stopPause = True
-                        End If
-                        If .Up = True Or (GetKeyState(vbKeyUp) And KEY_PRESSED) Then
-                            PlaySound 26
-                            MenuCursor = MenuCursor - 1
-                            noButtons = False
-                        ElseIf .Down = True Or (GetKeyState(vbKeyDown) And KEY_PRESSED) Then
-                            PlaySound 26
-                            MenuCursor = MenuCursor + 1
-                            noButtons = False
-                        End If
-
-                        If LevelSelect = True Then
-                            If Player(A).Character = 1 Or Player(A).Character = 2 Then Player(A).Hearts = 0
-                            For A = 1 To numPlayers
-                                If Player(A).RunRelease = False Then
-                                    If Player(A).Controls.Left = False And Player(A).Controls.Right = False Then Player(A).RunRelease = True
-
-
-                                ElseIf Player(A).Controls.Left = True Or Player(A).Controls.Right = True Then
-
-                                    AllCharBlock = 0
-                                    For B = 1 To numCharacters
-                                        If blockCharacter(B) = False Then
-                                            If AllCharBlock = 0 Then
-                                                AllCharBlock = B
-                                            Else
-                                                AllCharBlock = 0
-                                                Exit For
-                                            End If
-                                        End If
-                                    Next B
-                                    If AllCharBlock = 0 Then
-                                        PlaySound 26
-                                        Player(A).RunRelease = False
-                                        If A = 1 Then
-                                            B = 2
-                                        Else
-                                            B = 1
-                                        End If
-                                        If numPlayers = 1 Then B = 0
-                                        Player(0).Character = 0
-                                        If Player(A).Controls.Left = True Then
-                                            Do
-                                                Player(A).Character = Player(A).Character - 1
-                                                If Player(A).Character <= 0 Then Player(A).Character = 5
-                                            Loop While Player(A).Character = Player(B).Character Or blockCharacter(Player(A).Character) = True
-                                        Else
-                                            Do
-                                                Player(A).Character = Player(A).Character + 1
-                                                If Player(A).Character >= 6 Then Player(A).Character = 1
-                                            Loop While Player(A).Character = Player(B).Character Or blockCharacter(Player(A).Character) = True
-                                        End If
-                                        Player(A) = SavedChar(Player(A).Character)
-                                        SetupPlayers
-                                    End If
-                                End If
-
-
-                            Next A
-                        End If
-                        If .Jump = True Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Then
-                            If MenuCursor = 0 Then
-                                stopPause = True
-                            ElseIf MenuCursor = 1 And (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) And Cheater = False Then
-                                SaveGame
-                                stopPause = True
-                            Else
-                                If Cheater = False And (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) Then SaveGame
-                                stopPause = True
-                                GameMenu = True
-                                MenuMode = 0
-                                MenuCursor = 0
-                                If LevelSelect = False Then
-                                    LevelSelect = True
-                                    EndLevel = True
-                                Else
-                                    LevelSelect = False
-                                End If
-                                BitBlt myBackBuffer, 0, 0, 800, 600, 0, 0, 0, vbWhiteness
-                                BitBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, 0, 0, 0, vbWhiteness
-                                StopMusic
-                                DoEvents
-                                Sleep 500
-                            End If
-                        End If
-                        If Cheater = True Or Not (LevelSelect = True Or (StartLevel = FileName And NoMap = True)) Then
-                            If MenuCursor > 1 Then MenuCursor = 0
-                            If MenuCursor < 0 Then MenuCursor = 1
-                        Else
-                            If MenuCursor > 2 Then MenuCursor = 0
-                            If MenuCursor < 0 Then MenuCursor = 2
-                        End If
-                    End If
-                Else
-                    If noButtons = False Then
-                        If .Down = False And .Up = False And .Run = False And .Jump = False And .Start = False Then
-                            If (GetKeyState(vbKeyEscape) And KEY_PRESSED) Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Or (GetKeyState(vbKeyDown) And KEY_PRESSED) Or (GetKeyState(vbKeyUp) And KEY_PRESSED) Then
-                            Else
-                                noButtons = True
-                            End If
-                        End If
-                    Else
-                        If (GetKeyState(vbKeyEscape) And KEY_PRESSED) Or .Jump = True Or .Run = True Or .Start = True Or (GetKeyState(vbKeySpace) And KEY_PRESSED) Or (GetKeyState(vbKeyReturn) And KEY_PRESSED) Then
-                            stopPause = True
-                        End If
-                    End If
-                End If
-            End With
-        End If
-        If qScreen = True Then stopPause = False
-        Sleep sleepDelay
-    Loop Until stopPause = True
-    GamePaused = False
-    Player(plr).UnStart = False
-    Player(plr).CanJump = False
-    If MessageText = "" Then PlaySound 30
-    If PSwitchTime > 0 Then
-        ' If noSound = False Then mciSendString "resume smusic", 0, 0, 0
-        If noSound = False Then SoundResumeAll
-    End If
-    MessageText = ""
-
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    cycleCount = 0
-    gameTime = 0
-    fpsTime = 0
-
-End Sub
-
 Public Sub InitControls()
     Dim A As Integer
     Dim B As Integer
@@ -8654,7 +8469,7 @@ Public Sub NPCyFix()
     Next A
 End Sub
 
-Private Sub CheckActive()
+Public Sub CheckActive()
     Dim MusicPaused As Boolean
 
     If nPlay.Online Then Exit Sub
@@ -8666,13 +8481,15 @@ Private Sub CheckActive()
         WaitMessage
         DoEvents
         If LevelEditor = True Or MagicHand = True Then frmLevelWindow.vScreen(1).MousePointer = 0
-        overTime = 0
-        GoalTime = GetTickCount + 1000
-        fpsCount = 0
-        fpsTime = 0
-        cycleCount = 0
-        gameTime = 0
-        tempTime = 0
+        resetFrameTimer
+        resetTimeBuffer
+        'overTime = 0
+        'GoalTime = GetTickCount + 1000
+        'fpsCount = 0
+        'fpsTime = 0
+        'cycleCount = 0
+        'gameTime = 0
+        'tempTime = 0
         keyDownEnter = False
         keyDownAlt = False
         If musicPlaying = True Then

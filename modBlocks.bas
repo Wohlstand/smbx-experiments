@@ -1487,12 +1487,15 @@ Public Sub PSwitch(bool As Boolean) 'turns all the blocks to coins and vice vers
     For A = 1 To numBlock
         iBlock(A) = A
     Next A
-    overTime = 0
-    GoalTime = GetTickCount + 1000
-    fpsCount = 0
-    fpsTime = 0
-    cycleCount = 0
-    gameTime = 0
+
+    resetFrameTimer
+    resetTimeBuffer
+    'overTime = 0
+    'goalTime = GetTickCount + 1000
+    'fpsCount = 0
+    'fpsTime = 0
+    'cycleCount = 0
+    'gameTime = 0
 End Sub
 
 

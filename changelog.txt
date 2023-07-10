@@ -1,6 +1,12 @@
 Super Mario Bros. X Wohlstand's Edition Changelog.
 
 
+Changes for 1.3.5:
+-Updated the framerate controling code
+-Fixed the incorrect framerate of the keyhole exit
+-Don't try to open a non-existing music file
+
+
 Changes for 1.3.4:
 -Tuned the random formulas to match original SMBX distributions
 -Disabled some bugfixes in compat mode

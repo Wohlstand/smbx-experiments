@@ -1,178 +1,183 @@
 VERSION 5.00
-Begin VB.Form frmAbout
-   BorderStyle = 3        'Fixed Dialog
-   Caption = "About Super Mario Bros. X"
-   ClientHeight = 5805
-   ClientLeft = 2340
-   ClientTop = 1935
-   ClientWidth = 5730
-   ClipControls = 0        'False
+Begin VB.Form frmAbout 
+   BorderStyle     =   3  'Fixed Dialog
+   Caption         =   "About Super Mario Bros. X"
+   ClientHeight    =   6720
+   ClientLeft      =   2340
+   ClientTop       =   1935
+   ClientWidth     =   5865
+   ClipControls    =   0   'False
    Icon            =   "frmAbout.frx":0000
-   LinkTopic = "Form2"
-   MaxButton = 0           'False
-   MinButton = 0           'False
-   ScaleHeight = 4006.715
-   ScaleMode = 0          'User
-   ScaleWidth = 5380.766
-   ShowInTaskbar = 0       'False
-   Begin VB.PictureBox picIcon
-      AutoSize = -1           'True
-      ClipControls = 0        'False
-      Height = 540
-      Left = 240
+   LinkTopic       =   "Form2"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   4638.265
+   ScaleMode       =   0  'User
+   ScaleWidth      =   5507.538
+   ShowInTaskbar   =   0   'False
+   Begin VB.PictureBox picIcon 
+      AutoSize        =   -1  'True
+      ClipControls    =   0   'False
+      Height          =   540
+      Left            =   240
       Picture         =   "frmAbout.frx":0B3A
-      ScaleHeight = 337.12
-      ScaleMode = 0          'User
-      ScaleWidth = 337.12
-      TabIndex = 1
-      Top = 240
-      Width = 540
+      ScaleHeight     =   337.12
+      ScaleMode       =   0  'User
+      ScaleWidth      =   337.12
+      TabIndex        =   1
+      Top             =   240
+      Width           =   540
    End
-   Begin VB.CommandButton cmdOK
-      Cancel = -1             'True
-      Caption = "OK"
-      Default = -1            'True
-      Height = 345
-      Left = 4245
-      TabIndex = 0
-      Top = 4905
-      Width = 1260
+   Begin VB.CommandButton cmdOK 
+      Cancel          =   -1  'True
+      Caption         =   "OK"
+      Default         =   -1  'True
+      Height          =   345
+      Left            =   4245
+      TabIndex        =   0
+      Top             =   5745
+      Width           =   1260
    End
-   Begin VB.CommandButton cmdSysInfo
-      Caption = "&System Info..."
-      Height = 345
-      Left = 4260
-      TabIndex = 2
-      Top = 5355
-      Width = 1245
+   Begin VB.CommandButton cmdSysInfo 
+      Caption         =   "&System Info..."
+      Height          =   345
+      Left            =   4260
+      TabIndex        =   2
+      Top             =   6195
+      Width           =   1245
    End
-   Begin VB.Label thextechWiki
-      Caption = "https://github.com/Wohlstand/TheXTech/wiki"
-      BeginProperty Font
-         Name = "MS Sans Serif"
-         Size = 8.25
-         Charset = 204
-         Weight = 400
-         Underline = -1          'True
-         Italic = 0              'False
-         Strikethrough = 0       'False
+   Begin VB.Label thextechWiki 
+      Caption         =   "https://github.com/Wohlstand/TheXTech/wiki"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      ForeColor = &HC00000
-      Height = 255
-      Left = 1080
-      MousePointer = 10       'Up Arrow
-      TabIndex = 10
-      Top = 4320
-      Width = 4335
+      ForeColor       =   &H00C00000&
+      Height          =   255
+      Left            =   1080
+      MousePointer    =   10  'Up Arrow
+      TabIndex        =   10
+      Top             =   5160
+      Width           =   4575
    End
-   Begin VB.Label Label2
-      Caption = "This game is used to verify the compatibility while developing TheXTech Engine."
-      ForeColor = &H8000&
-      Height = 495
-      Left = 1080
-      TabIndex = 9
-      Top = 3720
-      Width = 4095
+   Begin VB.Label Label2 
+      Caption         =   "This game is used to verify the compatibility while developing TheXTech Engine."
+      ForeColor       =   &H00008000&
+      Height          =   495
+      Left            =   1080
+      TabIndex        =   9
+      Top             =   4560
+      Width           =   4455
    End
-   Begin VB.Label srcUrl
-      Caption = "<url-here>"
-      BeginProperty Font
-         Name = "MS Sans Serif"
-         Size = 8.25
-         Charset = 204
-         Weight = 400
-         Underline = -1          'True
-         Italic = 0              'False
-         Strikethrough = 0       'False
+   Begin VB.Label srcUrl 
+      Caption         =   "<url-here>"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      ForeColor = &HC00000
-      Height = 255
-      Left = 240
-      MousePointer = 10       'Up Arrow
-      TabIndex = 8
-      Top = 5400
-      Width = 3615
+      ForeColor       =   &H00C00000&
+      Height          =   255
+      Left            =   240
+      MousePointer    =   10  'Up Arrow
+      TabIndex        =   8
+      Top             =   6240
+      Width           =   3615
    End
-   Begin VB.Label Label1
-      Caption = "Source code repository:"
-      Height = 255
-      Left = 240
-      TabIndex = 7
-      Top = 5160
-      Width = 3975
+   Begin VB.Label Label1 
+      Caption         =   "Source code repository:"
+      Height          =   255
+      Left            =   240
+      TabIndex        =   7
+      Top             =   6000
+      Width           =   3975
    End
-   Begin VB.Line Line1
-      BorderColor = &H808080
-      BorderStyle = 6        'Inside Solid
-      Index = 1
-      X1 = 84.515
-      X2 = 5309.398
-      Y1 = 3261.279
-      Y2 = 3261.279
+   Begin VB.Line Line1 
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      Index           =   1
+      X1              =   84.515
+      X2              =   5309.398
+      Y1              =   3841.063
+      Y2              =   3841.063
    End
-   Begin VB.Label lblDescription
+   Begin VB.Label lblDescription 
       Caption         =   $"frmAbout.frx":27B4
-      ForeColor = &H0&
-      Height = 2370
-      Left = 1050
-      TabIndex = 3
-      Top = 1125
-      Width = 4005
+      ForeColor       =   &H00000000&
+      Height          =   3330
+      Left            =   1050
+      TabIndex        =   3
+      Top             =   1125
+      Width           =   4485
    End
-   Begin VB.Label lblTitle
-      Caption = "Super Mario Bros. X - Wohlstand's Edition"
-      BeginProperty Font
-         Name = "MS Sans Serif"
-         Size = 8.25
-         Charset = 204
-         Weight = 700
-         Underline = 0           'False
-         Italic = 0              'False
-         Strikethrough = 0       'False
+   Begin VB.Label lblTitle 
+      Caption         =   "Super Mario Bros. X - Wohlstand's Edition"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      ForeColor = &H0&
-      Height = 360
-      Left = 1050
-      TabIndex = 5
-      Top = 240
-      Width = 4485
+      ForeColor       =   &H00000000&
+      Height          =   360
+      Left            =   1050
+      TabIndex        =   5
+      Top             =   240
+      Width           =   4485
    End
-   Begin VB.Line Line1
-      BorderColor = &HFFFFFF
-      BorderWidth = 2
-      Index = 0
-      X1 = 112.686
-      X2 = 5323.484
-      Y1 = 3271.633
-      Y2 = 3271.633
+   Begin VB.Line Line1 
+      BorderColor     =   &H00FFFFFF&
+      BorderWidth     =   2
+      Index           =   0
+      X1              =   112.686
+      X2              =   5323.484
+      Y1              =   3851.416
+      Y2              =   3851.416
    End
-   Begin VB.Label lblVersion
-      Caption = "Version - x.x.x"
-      BeginProperty Font
-         Name = "MS Sans Serif"
-         Size = 8.25
-         Charset = 204
-         Weight = 400
-         Underline = -1          'True
-         Italic = 0              'False
-         Strikethrough = 0       'False
+   Begin VB.Label lblVersion 
+      Caption         =   "Version - x.x.x"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      Height = 225
-      Left = 1050
-      TabIndex = 6
-      Top = 720
-      Width = 4485
+      Height          =   225
+      Left            =   1050
+      TabIndex        =   6
+      Top             =   720
+      Width           =   4485
    End
-   Begin VB.Label lblDisclaimer
-      Caption = "Licensed under MIT license"
-      ForeColor = &H0&
-      Height = 225
-      Left = 255
-      TabIndex = 4
-      Top = 4905
-      Width = 3990
+   Begin VB.Label lblDisclaimer 
+      Caption         =   "Licensed under MIT license"
+      ForeColor       =   &H00000000&
+      Height          =   225
+      Left            =   255
+      TabIndex        =   4
+      Top             =   5745
+      Width           =   3990
    End
 End
+Attribute VB_Name = "frmAbout"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
 Option Explicit
 
 ' Reg Key Security Options...

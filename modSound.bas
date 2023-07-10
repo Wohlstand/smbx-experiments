@@ -121,6 +121,11 @@ Public Sub PlayMusic(Alias As String)
     End If
     For i = 0 To list_music_count
         If list_music(i).Alias = Alias Then
+            If Dir(list_music(i).Path) = "" Then
+                MsgBox "Music file " & list_music(i).Path & " doesn't exists", vbOKOnly + vbExclamation
+                Exit For
+            End If
+
             musicX = Mix_LoadMUS(list_music(i).Path)
             If musicX = 0 Then
                 MsgBox "Music " & list_music(i).Path & " opening error: " & SDL_GetError, vbOKOnly + vbExclamation

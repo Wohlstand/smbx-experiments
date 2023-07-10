@@ -73,13 +73,17 @@ Public Sub GifRecPrint()
 End Sub
 
 Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world map editor
-    cycleCount = cycleCount + 1
-    If FrameSkip = True Then
-        If GetTickCount + Int(1000 * (1 - (cycleCount / 63))) > GoalTime Then
+    cycleNextInc
+
+    If FrameSkip = True And TakeScreen = False And GifRecordEnabled = False And g_recordEnabled = False Then
+        If frameSkipNeeded() Then
             Exit Sub
         End If
     End If
-    fpsCount = fpsCount + 1
+
+    frameNextInc
+    frameRenderStart
+
     Dim A As Integer
     Dim B As Integer
     Dim Z As Integer
@@ -546,6 +550,8 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
     End If
     If TakeScreen = True Then ScreenShot
     If GifRecordEnabled Then GifFrame
+
+    frameRenderEnd
 End Sub
 
 
@@ -558,9 +564,10 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
     Dim numScreens As Integer
 
 'frame skip code
-    cycleCount = cycleCount + 1
+    cycleNextInc
+
     If FrameSkip = True And TakeScreen = False And GifRecordEnabled = False And g_recordEnabled = False Then
-        If GetTickCount + Int(1000 * (1 - (cycleCount / 63))) > GoalTime Then   'Don't draw this frame
+        If frameSkipNeeded() Then   'Don't draw this frame
             numScreens = 1
             If LevelEditor = False Then
                 If ScreenType = 1 Then numScreens = 2
@@ -619,7 +626,9 @@ Public Sub UpdateGraphics() 'This draws the graphic to the screen when in a leve
             Exit Sub
         End If
     End If
-    fpsCount = fpsCount + 1
+
+    frameNextInc
+    frameRenderStart
 
     g_recordNumRenderedNPCs = 0
     g_recordNumRenderedBlocks = 0
@@ -2625,6 +2634,9 @@ End If
             Netplay.sendData timeStr & LB
         End If
     End If
+
+    DoEvents
+    frameRenderEnd
 End Sub
 
 ' Made because of "Procedure too large" error

@@ -263,12 +263,15 @@ Public Sub ProcEvent(EventName As String, Optional NoEffect As Boolean = False)
                             qScreenX(1) = vScreenX(1)
                             qScreenY(1) = vScreenY(1)
                         End If
-                        overTime = 0
-                        GoalTime = GetTickCount + 1000
-                        fpsCount = 0
-                        cycleCount = 0
-                        gameTime = 0
-                        fpsTime = 0
+
+                        resetFrameTimer
+                        resetTimeBuffer
+                        'overTime = 0
+                        'GoalTime = GetTickCount + 1000
+                        'fpsCount = 0
+                        'cycleCount = 0
+                        'gameTime = 0
+                        'fpsTime = 0
                     End If
                 End If
             Next B

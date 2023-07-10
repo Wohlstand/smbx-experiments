@@ -1,4 +1,7 @@
 *.txt   text eol=crlf
+*.bat   text eol=crlf
 *.bas   linguist-language=vb6 eol=crlf
 *.frm   linguist-language=vb6 eol=crlf
 *.vbp   linguist-language=vb6 eol=crlf
+*.lvl   text eol=crlf
+*.wld   text eol=crlf

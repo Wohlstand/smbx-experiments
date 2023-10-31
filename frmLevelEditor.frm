@@ -7,7 +7,7 @@ Begin VB.MDIForm frmLevelEditor
    ClientHeight    =   11700
    ClientLeft      =   120
    ClientTop       =   750
-   ClientWidth     =   14085
+   ClientWidth     =   14025
    Icon            =   "frmLevelEditor.frx":0000
    LinkTopic       =   "MDIForm1"
    OLEDropMode     =   1  'Manual
@@ -26,11 +26,11 @@ Begin VB.MDIForm frmLevelEditor
       Height          =   500
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   14085
+      ScaleWidth      =   14025
       TabIndex        =   7
       Top             =   10710
       Visible         =   0   'False
-      Width           =   14085
+      Width           =   14025
       Begin VB.CheckBox chkAlign2 
          Caption         =   "Auto-Align"
          Height          =   375
@@ -128,10 +128,10 @@ Begin VB.MDIForm frmLevelEditor
       Height          =   500
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   14085
+      ScaleWidth      =   14025
       TabIndex        =   0
       Top             =   11205
-      Width           =   14085
+      Width           =   14025
       Begin VB.OptionButton optCursor 
          Caption         =   "Water"
          Height          =   375
@@ -310,6 +310,12 @@ Begin VB.MDIForm frmLevelEditor
       End
       Begin VB.Menu menuNoFrameSkip 
          Caption         =   "Disable frame skip"
+      End
+      Begin VB.Menu menuEnableGameplayTimer 
+         Caption         =   "Enable gameplay timer"
+      End
+      Begin VB.Menu menuUseOldKeyHoleTime 
+         Caption         =   "Use old keyhole time"
       End
       Begin VB.Menu MenuTestLeveld 
          Caption         =   "-"
@@ -751,6 +757,8 @@ Private Sub menuTestSync()
     menuRecordGameplay.Checked = g_recordEnabled
     menuCompatMode.Checked = g_compatMode
     menuNoFrameSkip.Checked = Not FrameSkip
+    menuEnableGameplayTimer.Checked = g_enableGameplayTimer
+    menuUseOldKeyHoleTime.Checked = g_oldKeyholeTimer
 
     menuCompatMode.Enabled = Not g_recordEnabled
     If g_recordEnabled Then
@@ -779,6 +787,16 @@ End Sub
 Private Sub menuNoFrameSkip_Click()
     menuNoFrameSkip.Checked = Not menuNoFrameSkip.Checked
     FrameSkip = Not menuNoFrameSkip.Checked
+End Sub
+
+Private Sub menuEnableGameplayTimer_Click()
+    menuEnableGameplayTimer.Checked = Not menuEnableGameplayTimer.Checked
+    g_enableGameplayTimer = menuEnableGameplayTimer.Checked
+End Sub
+
+Private Sub menuUseOldKeyHoleTime_Click()
+    menuUseOldKeyHoleTime.Checked = Not menuUseOldKeyHoleTime.Checked
+    g_oldKeyholeTimer = menuUseOldKeyHoleTime.Checked
 End Sub
 
 Private Sub menuStatus_Click()
@@ -853,6 +871,7 @@ Private Sub menuTestLevelTwo_Click()
     SingleCoop = 1
     zTestLevel
 End Sub
+
 
 Private Sub mnuChat_Click()
     frmChat.Show
@@ -1028,7 +1047,7 @@ Private Sub MDIForm_OLEDragDrop(Data As DataObject, Effect As Long, Button As In
 
     With Data
         For intFile = 1 To .Files.Count
-            fileToOpen = Data.Files.Item(intFile)
+            fileToOpen = Data.Files.item(intFile)
         Next intFile
     End With 'Data
 

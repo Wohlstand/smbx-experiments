@@ -1446,8 +1446,10 @@ Sub Main()
     EoT = "" 'EoT is disabled
     random_init
     g_compatMode = False
+    g_oldKeyholeTimer = False
     g_recordEnabled = False
     FrameSkip = True
+    g_enableGameplayTimer = False
 
     TestNumPlayers = 1
     TestCharacter(1) = 1
@@ -1534,6 +1536,12 @@ Sub Main()
             ShowFPS = True
         ElseIf Astr = "--max-fps" Then
             MaxFPS = True
+
+        ElseIf Astr = "--enable-timer" Then
+            g_enableGameplayTimer = True
+
+        ElseIf Astr = "--old-keyhole" Then
+            g_oldKeyholeTimer = True
 
         ElseIf LCase(Right(Astr, 4)) = ".lvl" Then
             loadFileOnStart = True
@@ -1912,6 +1920,8 @@ Sub Main()
                 If Events(A).AutoStart = True Then ProcEvent Events(A).Name, True
             Next A
 
+            gpTimerResetTotal
+
             runSceneLoop (SceneMainMenu)
 
             ' overTime = 0
@@ -1994,6 +2004,8 @@ Sub Main()
                 End If
             Else
                 If curWorldMusic > 0 Then StartMusic curWorldMusic
+
+                gpTimerResetCurrent
 
                 runSceneLoop (SceneWorldMap)
 
@@ -2108,6 +2120,8 @@ Sub Main()
                 End If
             End If
 '--------------------------------------------
+            gpTimerResetCurrent
+
             ProcEvent "Level - Start", True
             For A = 2 To 100
                 If Events(A).AutoStart = True Then ProcEvent Events(A).Name, True
@@ -4918,6 +4932,7 @@ Public Sub GameLoop()   'The loop for the game
         UpdateControls
     ElseIf qScreen = True Then
         UpdateEffects
+        gpTimerTick
         UpdateGraphics
     ElseIf BattleIntro > 0 Then
         UpdateGraphics
@@ -4935,6 +4950,7 @@ Public Sub GameLoop()   'The loop for the game
         UpdateBlocks
         UpdateEffects
         UpdatePlayer
+        gpTimerTick
         If LivingPlayers = True Or BattleMode = True Then UpdateGraphics
         UpdateSound
         UpdateEvents
@@ -7005,31 +7021,64 @@ End Sub
     ElseIf LevelMacro = 3 Then
         Dim tempTime As Single
         Dim gameTime As Single
-        Const keyholeMax As Integer = 192
+        Dim keyholeMax As Integer
+        Dim keyholeTimeCond As Boolean
+        Dim oldFrameSkip As Boolean
+
+        oldFrameSkip = FrameSkip
+        FrameSkip = False ' Workaround to force disable frameskip
+        gameTime = 0
+
+        If g_oldKeyholeTimer Then
+            keyholeMax = 300
+        Else
+            keyholeMax = 192
+        End If
 
         Do
             tempTime = Timer - Int(Timer)
 
             DoEvents
 
+            If g_oldKeyholeTimer Then
+                keyholeTimeCond = tempTime > gameTime + 0.01 Or tempTime < gameTime
+            Else
+                keyholeTimeCond = canProceedFrame()
+            End If
+
             ' If tempTime > gameTime + 0.01 Or tempTime < gameTime Then
-            If canProceedFrame() Then
+            If keyholeTimeCond Then
                 gameTime = tempTime
-                computeFrameTime1
+
+                If g_oldKeyholeTimer Then
+                    DoEvents
+                Else
+                    computeFrameTime1
+                End If
+
+                gpTimerTick
+                If g_enableGameplayTimer And LevelMacroCounter = keyholeMax - 1 Then
+                    TakeScreen = True
+                    gpTimerDoPrintDiffs
+                End If
 
                 UpdateControls
                 UpdateGraphics
                 UpdateSound
                 BlockFrames
 
-                DoEvents
-                computeFrameTime2
+                If Not g_oldKeyholeTimer Then
+                    DoEvents
+                    computeFrameTime2
+                End If
 
                 LevelMacroCounter = LevelMacroCounter + 1
                 If LevelMacroCounter >= keyholeMax Then Exit Do
             End If
             If Not MaxFPS Then Sleep 1
         Loop
+
+        FrameSkip = oldFrameSkip  ' Restore the state back
 
         LevelBeatCode = 4
         EndLevel = True
@@ -7453,6 +7502,7 @@ Public Sub OpenWorld(FilePath As String)   'loads the world
     For B = 1 To numPlayers
         If Player(B).Mount = 2 Then Player(B).Mount = 0
     Next B
+    gpTimerTick
     UpdateGraphics2
     UpdateControls
     UpdateSound

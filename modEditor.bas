@@ -1814,6 +1814,8 @@ Public Sub zTestLevel()
             Else
                 ScreenType = 5
             End If
+
+            gpTimerResetTotal
         End If
     Else
         MsgBox "You must save or load the level first", vbOKOnly, "No filename"

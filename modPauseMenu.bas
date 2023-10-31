@@ -19,6 +19,8 @@ Public Sub PauseGameLoop()
     DoEvents
     CheckActive
 
+    gpTimerTick
+
     If LevelSelect = True Then
         UpdateGraphics2
     Else

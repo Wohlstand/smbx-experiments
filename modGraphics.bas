@@ -540,6 +540,8 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
             SuperPrint Str(PrintFPS), 1, 8, 8
         End If
 
+        gpTimerPrint
+
         If TakeScreen Or GifRecordEnabled Then
             BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
             BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, myBackBuffer, 0, 0, vbSrcCopy
@@ -548,6 +550,7 @@ Public Sub UpdateGraphics2() 'draws GFX to screen when on the world map/world ma
         'BitBlt frmMain.hdc, 0, 0, ScreenW, ScreenH, myBackBuffer, 0, 0, vbSrcCopy
         StretchBlt frmMain.hdc, 0, 0, frmMain.ScaleWidth, frmMain.ScaleHeight, myBackBuffer, 0, 0, ScreenW, ScreenH, vbSrcCopy
     End If
+
     If TakeScreen = True Then ScreenShot
     If GifRecordEnabled Then GifFrame
 
@@ -2644,6 +2647,8 @@ Public Sub UpdateGraphics_draw(Z As Integer)
     Dim A As Integer
     Dim B As Integer
 
+    gpTimerPrint
+
     If LevelEditor = True Then
         If TakeScreen Or GifRecordEnabled Then
             BitBlt OutBackBuffer, 0, 0, ScreenW, ScreenH, 0, 0, 0, vbWhiteness
@@ -3063,6 +3068,7 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
     Dim B As Integer
     Dim C As Integer
     Dim Words As String
+    Dim CharUpper As Variant
 
     If DestBuffer = 0 Then DestBuffer = myBackBuffer
 
@@ -3113,8 +3119,9 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
         Loop
     ElseIf Font = 3 Then
         Do While Len(Words) > 0
-            If Asc(Left(Words, 1)) >= 33 And Asc(Left(Words, 1)) <= 126 Then
-                C = (Asc(Left(Words, 1)) - 33) * 32
+            CharUpper = Left(UCase(Words), 1)
+            If Asc(CharUpper) >= 33 And Asc(CharUpper) <= 126 Then
+                C = (Asc(CharUpper) - 33) * 32
                 BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2Mask(2).hdc, 2, C, vbSrcAnd
                 BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2(2).hdc, 2, C, vbSrcPaint
                 B = B + 18
@@ -3129,6 +3136,19 @@ Public Sub SuperPrint(SuperWords As String, Font As Integer, X As Single, Y As S
             If Asc(Left(Words, 1)) >= 33 And Asc(Left(Words, 1)) <= 126 Then
                 C = (Asc(Left(Words, 1)) - 33) * 16
                 BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2(3).hdc, 2, C, vbSrcPaint
+                B = B + 18
+            Else
+                B = B + 18
+            End If
+            Words = Right(Words, Len(Words) - 1)
+        Loop
+    ElseIf Font = 5 Then
+        Do While Len(Words) > 0
+            CharUpper = Left(UCase(Words), 1)
+            If Asc(CharUpper) >= 33 And Asc(CharUpper) <= 126 Then
+                C = (Asc(CharUpper) - 33) * 32
+                BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2Mask(2).hdc, 2, C, vbSrcAnd
+                BitBlt DestBuffer, X + B, Y, 18, 16, GFX.Font2(2).hdc, 2, C, vbSrcPaint
                 B = B + 18
             Else
                 B = B + 18

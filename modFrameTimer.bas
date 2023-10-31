@@ -315,6 +315,7 @@ Public Sub runSceneLoop(ByVal doScene As LoopScene)
                     MenuLoop    'Run the menu loop
 
                 Case SceneWorldPathWait
+                    gpTimerTick
                     UpdateGraphics2
                     UpdateSound
                     C = C + 1

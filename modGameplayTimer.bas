@@ -92,16 +92,16 @@ Private Function gpFormatTimeTicks(t As Long, Optional ByVal isRealTime As Boole
     If isRealTime Then
         realMilliseconds = t
     Else
-        realMilliseconds = CLng(CDbl(t) * 15.6)
+        realMilliseconds = CLng(Int(CDbl(t) * 15.6))
     End If
     miliseconds = realMilliseconds Mod 1000
-    realSeconds = CLng(CDbl(realMilliseconds) / 1000)
+    realSeconds = CLng(Int(CDbl(realMilliseconds) / 1000))
     seconds = realSeconds Mod 60
-    realMinutes = CLng(CDbl(realSeconds) / 60)
+    realMinutes = CLng(Int(CDbl(realSeconds) / 60))
     minutes = realMinutes Mod 60
-    realHours = CLng(CDbl(realMinutes) / 60)
+    realHours = CLng(Int(CDbl(realMinutes) / 60))
     hours = realHours Mod 24
-    days = CLng(realHours / 24)
+    days = CLng(Int(realHours / 24))
 
     If days >= 1 Then
         gpFormatTimeTicks = Format(days, "00") & ":" & Format(hours, "00") & ":" & Format(minutes, "00") & ":" & Format(seconds, "00") & "." & Format(miliseconds, "000")

@@ -9,7 +9,7 @@ Public g_recordNumRenderedBlocks As Integer
 Public g_recordNumRenderedBGOs As Integer
 
 ' Version of record file: Increase this once new fields got added!
-Private Const c_recordFileVersion As Integer = 2
+Private Const c_recordFileVersion As Integer = 3
 
 Private s_recordFD As Integer
 Private s_replayFD As Integer
@@ -98,6 +98,7 @@ Private Sub record_write_header()
         Print #s_recordFD, "Player"
         Print #s_recordFD, "Char " + Str(Player(A).Character)
         Print #s_recordFD, "State " + Str(Player(A).State)
+        Print #s_recordFD, "Mount " + Str(Player(A).Mount) ' Since version 3
         Print #s_recordFD, "MountType " + Str(Player(A).MountType)
         Print #s_recordFD, "HeldBonus " + Str(Player(A).HeldBonus)
     Next A

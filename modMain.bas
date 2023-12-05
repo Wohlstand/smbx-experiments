@@ -6386,6 +6386,10 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                 Input #1, .Y
                 Input #1, .Width
                 Input #1, .Height
+
+                ' Don't allow improper rects (SMBX-R)
+                If .Height < 0 Then .Height = 0
+                If .Width < 0 Then .Width = 0
             End With
         Next A
         Do Until EOF(1)
@@ -6397,6 +6401,11 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                 Input #1, .Location.Y
                 Input #1, .Location.Height
                 Input #1, .Location.Width
+
+                ' Don't allow improper rects (SMBX-R)
+                If .Location.Height < 0 Then .Location.Height = 0
+                If .Location.Width < 0 Then .Location.Width = 0
+
                 Input #1, .Type
                 .DefaultType = .Type
                 Input #1, .Special
@@ -6586,6 +6595,10 @@ Public Sub OpenLevel(FilePath As String)   'loads the level
                     Input #1, .Buoy
                     If FileRelease >= 62 Then Input #1, .Quicksand
                     Input #1, .Layer
+
+                    ' Don't allow improper rects (SMBX-R)
+                    If .Location.Height < 0 Then .Location.Height = 0
+                    If .Location.Width < 0 Then .Location.Width = 0
                 End With
             Loop
         End If

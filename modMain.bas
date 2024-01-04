@@ -1099,6 +1099,32 @@ Public Function FileExists(FileName As String) As Boolean
     FileExists = Len(Dir(FileName, vbNormal)) > 0
 End Function
 
+Public Sub OpenDirectoryX(hWnd As Long, AbsDirPath As String)
+    Dim sWinDir As String
+    Dim sWinePath As String
+    Dim sOpenPath As String
+
+    Dim sCommand As String
+
+    sWinDir = Environ$("WinDir")
+    sWinePath = sWinDir & "\System32\winepath.exe"
+
+    If FileExists(sWinePath) Then
+        ' If Wine environment detected, try to run the external file manager instead of the Wine Explorer
+        sOpenPath = GetCommandOutput("""" & sWinePath & """ """ & AbsDirPath & """", True, False, True)
+        sOpenPath = Replace$(sOpenPath, vbNewLine, "")
+        sOpenPath = Replace$(sOpenPath, vbCr, "")
+        sOpenPath = Replace$(sOpenPath, vbLf, "")
+
+        sCommand = "start /unix /usr/bin/xdg-open """ & sOpenPath & """"
+
+        Call Shell(sCommand, vbHide)
+    Else
+        ' Otherwise, on real Windows, run via Explorer
+        ShellExecuteA hWnd, "open", AbsDirPath, "", "", 4
+    End If
+End Sub
+
 Public Sub DebugMsg(Text As String)
     If frmDebugLog.Visible Then
         frmDebugLog.AddMsg Text

@@ -570,13 +570,18 @@ End Sub
 
 Private Sub menuCurDirOpen_Click()
     If FileNamePath <> "" Then
-        ShellExecuteA Me.hWnd, "open", FileNamePath, "", "", 4
+        OpenDirectoryX Me.hWnd, Left(FileNamePath, Len(FileNamePath) - 1)
     End If
 End Sub
 
 Private Sub menuCurLevelDataOpen_Click()
+    Dim sLevelDataDir As String
+    sLevelDataDir = FileNamePath & Left(FileName, Len(FileName) - 4)
     If FileNamePath <> "" Then
-        ShellExecuteA Me.hWnd, "open", FileNamePath & "\" & Left(FileName, Len(FileName) - 4), "", "", 4
+        If Dir(sLevelDataDir, vbDirectory) = "" Then
+            MkDir sLevelDataDir
+        End If
+        OpenDirectoryX Me.hWnd, sLevelDataDir
     End If
 End Sub
 

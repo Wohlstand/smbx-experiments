@@ -1465,8 +1465,8 @@ Sub Main()
     ' Hack: keep the app path being a working directory
     ChDir App.Path
 
-    Shell "regsvr32 /s" & Chr$(34) & App.Path & "\mswinsck.ocx" & Chr$(34) 'register mswinsck.ocx
-    Shell "regsvr32 /s" & Chr$(34) & App.Path & "\comdlg32.ocx" & Chr$(34) 'register comdlg32.ocx
+    Shell "regsvr32 /s " & Chr$(34) & App.Path & "\mswinsck.ocx" & Chr$(34) 'register mswinsck.ocx
+    Shell "regsvr32 /s " & Chr$(34) & App.Path & "\comdlg32.ocx" & Chr$(34) 'register comdlg32.ocx
 
     LB = Chr(13) & Chr(10) 'holds a variable for Line Break
     EoT = "" 'EoT is disabled

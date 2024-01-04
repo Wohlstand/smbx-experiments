@@ -62,6 +62,7 @@ Module=MD5; modMD5.bas
 Module=modFrameTimer; modFrameTimer.bas
 Module=modPauseMenu; modPauseMenu.bas
 Module=modGameplayTimer; modGameplayTimer.bas
+Module=modCmdOutput; modCmdOutput.bas
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

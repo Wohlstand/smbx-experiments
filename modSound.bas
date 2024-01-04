@@ -113,6 +113,16 @@ Public Sub SoundResumeAll()
     Mix_ResumeMusic
 End Sub
 
+Private Function CutCmdLineArgs(InPath As String) As String
+    Dim sOutBuffer() As String
+    If InStr(1, InPath, "|", vbTextCompare) > 0 Then
+        sOutBuffer = Split(InPath, "|")
+        CutCmdLineArgs = sOutBuffer(0)
+    Else
+        CutCmdLineArgs = InPath
+    End If
+End Function
+
 Public Sub PlayMusic(Alias As String)
     If musicX <> 0 Then
         Mix_HaltMusic
@@ -121,7 +131,7 @@ Public Sub PlayMusic(Alias As String)
     End If
     For i = 0 To list_music_count
         If list_music(i).Alias = Alias Then
-            If Dir(list_music(i).Path) = "" Then
+            If Dir(CutCmdLineArgs(list_music(i).Path)) = "" Then
                 MsgBox "Music file " & list_music(i).Path & " doesn't exists", vbOKOnly + vbExclamation
                 Exit For
             End If

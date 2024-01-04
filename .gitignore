@@ -9,6 +9,7 @@ Mario.vbw
 config.dat
 *.OBJ
 *.obj
+*.oca
 smbx*.exe
 screenshots/*.bmp
 screenshots/*.png

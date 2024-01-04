@@ -1188,7 +1188,7 @@ Public Sub UnloadWorldCustomGFX()
                 GFXSceneWidth(A) = frmMain.ScaleX(GFXSceneBMP(A).Width, vbHimetric, vbPixels)
                 GFXSceneHeight(A) = frmMain.ScaleY(GFXSceneBMP(A).Height, vbHimetric, vbPixels)
                 SelectObject GFXScene(A), GFXSceneBMP(A)
-                cLevelGFX A
+                cSceneGFX A
                 If Dir(App.Path & "\graphics\scene\scene-" & A & "m.gif") <> "" Then
                     Set GFXSceneMaskBMP(A) = LoadPicture(App.Path & "\graphics\scene\scene-" & A & "m.gif")
                     SelectObject GFXSceneMask(A), GFXSceneMaskBMP(A)

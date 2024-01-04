@@ -4,6 +4,8 @@ Super Mario Bros. X Wohlstand's Edition Changelog.
 Changes for 1.3.7:
 -Blocks with invalid rectangles (i.e. negative size values) will be set to zero
 -When running under Wine environment, directories will be opened via native file managers (like Nautilus, Nemo, Dolphin, etc.)
+-Fixed the invalid regsvr32 command line for ComDlg32.ocx and MSWINSCK.ocx files where a space is missing between "/s" and the path arguments
+-Fixed the World Editor crash on attempt to save the world and having any custom sceneries after 33
 
 Changes for 1.3.6:
 -Added the gameplay timer (can be enabled via --enable-timer argument or in-edtior setting)

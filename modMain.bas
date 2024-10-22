@@ -6039,7 +6039,7 @@ Public Sub EditorLoop() 'The loop for the level editor
     UpdateEffects
     If WorldEditor = True Then
         UpdateGraphics2
-    Else
+    ElseIf LevelEditor = True Then
         UpdateGraphics
     End If
     UpdateSound

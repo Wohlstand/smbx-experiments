@@ -1,5 +1,7 @@
 Super Mario Bros. X Wohlstand's Edition Changelog.
 
+Development changes:
+-Fix editor bug where NPC spawn logic was inaccurate on level test via menu item click
 
 Changes for 1.3.7:
 -Blocks with invalid rectangles (i.e. negative size values) will be set to zero

@@ -1,5 +1,4 @@
 VERSION 5.00
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Begin VB.MDIForm frmLevelEditor 
    AutoShowChildren=   0   'False
    BackColor       =   &H8000000C&
@@ -13,13 +12,6 @@ Begin VB.MDIForm frmLevelEditor
    OLEDropMode     =   1  'Manual
    StartUpPosition =   2  'CenterScreen
    WindowState     =   2  'Maximized
-   Begin MSComDlg.CommonDialog CommonDialog1 
-      Left            =   120
-      Top             =   120
-      _ExtentX        =   847
-      _ExtentY        =   847
-      _Version        =   393216
-   End
    Begin VB.PictureBox picWorld 
       Align           =   2  'Align Bottom
       BorderStyle     =   0  'None
@@ -412,6 +404,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
 Private Sub chkAlign_Click()
     chkAlign2.Value = chkAlign.Value
 End Sub
@@ -565,7 +558,7 @@ Private Sub menHelp_Click()
     Shell "write " & Chr(34) & App.Path & "\SMBx Editor Help.rtf" & Chr(34), vbNormalFocus
     Exit Sub
 Bugs:
-    MsgBox "The help file 'SMBx Editor Help.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
+    MsgBox "The help file 'SMBx Editor Help.rtf' is missing from the working directory.", vbOKOnly + vbExclamation, "Super Mario Bros. X - Error"
 End Sub
 
 Private Sub menuCurDirOpen_Click()
@@ -576,7 +569,14 @@ End Sub
 
 Private Sub menuCurLevelDataOpen_Click()
     Dim sLevelDataDir As String
+
+    If FileName = "" Then
+        MsgBox "Save file first", vbOKOnly + vbInformation, "Super Mario Bros. X - Error"
+        Exit Sub
+    End If
+
     sLevelDataDir = FileNamePath & Left(FileName, Len(FileName) - 4)
+
     If FileNamePath <> "" Then
         If Dir(sLevelDataDir, vbDirectory) = "" Then
             MkDir sLevelDataDir
@@ -590,7 +590,7 @@ Private Sub menuGameplay_Click()
     Shell "write " & Chr(34) & App.Path & "\SMBx Gameplay Manual.rtf" & Chr(34), vbNormalFocus
     Exit Sub
 Bugs:
-    MsgBox "The help file 'SMBx Gameplay Manual.rtf' is missing from the working directory.", vbOKOnly, "Super Mario Bros. X - Error"
+    MsgBox "The help file 'SMBx Gameplay Manual.rtf' is missing from the working directory.", vbOKOnly + vbExclamation, "Super Mario Bros. X - Error"
 End Sub
 
 Private Sub menuLevelDebugger_Click()
@@ -628,36 +628,36 @@ Private Sub menuFileNew_Click()
 End Sub
 
 Private Sub menuFileOpen_Click()
-    'frmOpen.Show vbModal, Me
-    CommonDialog1.FileName = ""
-    
+    ' frmOpen.Show vbModal, Me
+    Dim FileName As String
+    Dim initDir As String
+    Dim title As String
+    Dim filter As String
+
     If FileNamePath = "" Then
-        CommonDialog1.InitDir = App.Path & "\worlds"
+        initDir = App.Path & "\worlds"
     Else
-        CommonDialog1.InitDir = FileNamePath
+        initDir = FileNamePath
     End If
 
     If WorldEditor Then
-        CommonDialog1.Filter = "SMBX64 World files (*.wld)|*.wld|All files (*.*)|*.*"
-        CommonDialog1.DefaultExt = "wld"
-        CommonDialog1.DialogTitle = "Open the SMBX64 World file"
-        CommonDialog1.ShowOpen
-
-        If CommonDialog1.FileName <> "" Then
-            frmLevelEditor.optCursor(14).Value = True
-            OpenWorld CommonDialog1.FileName
-        End If
-
+        filter = "SMBX64 World files (*.wld)" + Chr$(0) + "*.WLD" + Chr$(0) + "All files (*.*)" + Chr$(0) + "*.*" + Chr$(0)
+        title = "Open the SMBX64 World file"
     Else
-        CommonDialog1.Filter = "SMBX64 Level files (*.lvl)|*.lvl|All files (*.*)|*.*"
-        CommonDialog1.DefaultExt = "lvl"
-        CommonDialog1.DialogTitle = "Open the SMBX64 Level file"
-        CommonDialog1.ShowOpen
+        filter = "SMBX64 Level files (*.lvl)" + Chr$(0) + "*.LVL" + Chr$(0) + "All files (*.*)" + Chr$(0) + "*.*" + Chr$(0)
+        title = "Open the SMBX64 Level file"
+    End If
 
-        If CommonDialog1.FileName <> "" Then
+    FileName = GetOpenFile(Me.hWnd, initDir, FullFileName, filter, 0, title)
+
+    If FileName <> "" Then
+        If WorldEditor Then
+            frmLevelEditor.optCursor(14).Value = True
+            OpenWorld FileName
+        Else
             frmLevelEditor.optCursor(13).Value = True
             ClearLevel
-            OpenLevel CommonDialog1.FileName
+            OpenLevel FileName
         End If
     End If
 
@@ -697,31 +697,32 @@ End Sub
 
 Private Sub menuFileSaveAs_Click()
     ' frmSave.Show vbModal, Me
-    CommonDialog1.FileName = ""
+    Dim FileName As String
+    Dim initDir As String
+    Dim title As String
+    Dim filter As String
 
     If FileNamePath = "" Then
-        CommonDialog1.InitDir = App.Path & "\worlds"
+        initDir = App.Path & "\worlds"
     Else
-        CommonDialog1.InitDir = FileNamePath
+        initDir = FileNamePath
     End If
 
     If WorldEditor Then
-        CommonDialog1.Filter = "SMBX64 World files (*.wld)|*.wld"
-        CommonDialog1.DefaultExt = "wld"
-        CommonDialog1.DialogTitle = "Save the SMBX64 World file"
-        CommonDialog1.ShowSave
-
-        If CommonDialog1.FileName <> "" Then
-            DoSaveFile CommonDialog1.FileName
-        End If
+        filter = "SMBX64 World files (*.wld)" + Chr$(0) + "*.WLD" + Chr$(0)
+        title = "Save the SMBX64 World file"
     Else
-        CommonDialog1.Filter = "SMBX64 Level files (*.lvl)|*.lvl"
-        CommonDialog1.DefaultExt = "lvl"
-        CommonDialog1.DialogTitle = "Save the SMBX64 Level file"
-        CommonDialog1.ShowSave
+        filter = "SMBX64 Level files (*.lvl)" + Chr$(0) + "*.LVL" + Chr$(0)
+        title = "Save the SMBX64 Level file"
+    End If
 
-        If CommonDialog1.FileName <> "" Then
-            DoSaveFile CommonDialog1.FileName
+    FileName = GetSaveFile(Me.hWnd, initDir, FullFileName, filter, 0, title)
+
+    If FileName <> "" Then
+        If WorldEditor Then
+            DoSaveFile FileName
+        Else
+            DoSaveFile FileName
         End If
     End If
 

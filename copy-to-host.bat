@@ -1,7 +1,6 @@
 @echo off
 set remoteroot=Z:\vitaly\.wine\drive_c\smbx1.3
 copy smbx-r.exe %remoteroot%
-copy comdlg32.ocx %remoteroot%
 copy MSWINSCK.ocx %remoteroot%
 copy SDL2MixerVB.dll %remoteroot%
 copy changelog.txt %remoteroot%

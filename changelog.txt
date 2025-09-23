@@ -1,9 +1,10 @@
 Super Mario Bros. X Wohlstand's Edition Changelog.
 
-Development changes:
+Changes for 1.3.8:
 -Fix editor bug where NPC spawn logic was inaccurate on level test via menu item click
 -Removed dependency on the comdlg32.ocx: instead, dialogues of the comdlg32 gets called directly.
 -Fixed the FPS=0 shown in the Debugger after new frame timer code was been implemented.
+
 
 Changes for 1.3.7:
 -Blocks with invalid rectangles (i.e. negative size values) will be set to zero
@@ -11,6 +12,7 @@ Changes for 1.3.7:
 -Fixed the invalid regsvr32 command line for ComDlg32.ocx and MSWINSCK.ocx files where a space is missing between "/s" and the path arguments
 -Fixed the World Editor crash on attempt to save the world and having any custom sceneries after 33
 -Fixed the problem when default music won't load because of music arguments in the path strings
+
 
 Changes for 1.3.6:
 -Added the gameplay timer (can be enabled via --enable-timer argument or in-edtior setting)

@@ -165,6 +165,7 @@ Private Sub computeFrameTime2Real_new()
         fpsTime = cppticks_get + 1000
         goalTime = fpsTime
 
+        If Debugger = True Then frmLevelDebugger.lblFPS = fpsCount
         If ShowFPS Then
             PrintFPS = fpsCount
         End If
